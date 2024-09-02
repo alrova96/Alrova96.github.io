@@ -1,0 +1,383 @@
+
+<h1 style="color: #125F63; text-align: center;">Publications</h1>
+<script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+----
+
+## <a href="david_rse.qmd" style="color: #125F63; font-size: 0.8em; cursor: pointer; transition: color 0.3s, text-decoration: 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Intertidal seagrass extent from Sentinel-2 time-series show distinct trajectories in Western Europe.</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="david_rse.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/RSE_logo.png" alt="Logo" style="height: 45px;">
+</p>
+  <span style="font-size: 0.9em;">
+   Bede Ffinian Rowe Davies, Simon Oiry, Philippe Rosa, Maria Laura Zoffoli, Ana I.Sousa, Oliver R.Thomas, Dan A.Smale, Melanie C.Austen, Lauren Biermann, Martin J.Attrill, <strong style="color: #F39075;">Alejandro Román</strong>, Gabriel Navarro, Anne-Laure Barillé, Nicolas Harin, Daniel Clewley, Victor Martinez-Vicente, Pierre Gernez & Laurent Barillé.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.1016/j.rse.2024.114340" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.sciencedirect.com/science/article/pii/S0034425724003584/pdf" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.1016/j.rse.2024.114340" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
+## <a href="david_commun.qmd"  style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">A sentinel watching over inter-tidal seagrass phenology across Western Europe and North Africa.</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="david_commun.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/commun_logo.png" alt="Logo" style="height: 40px;">
+</p>
+  <span style="font-size: 0.9em; color: #125F63">
+   Bede Ffinian Rowe Davies, Simon Oiry, Philippe Rosa, Maria Laura Zoffoli, Ana I.Sousa, Oliver R.Thomas, Dan A.Smale, Melanie C.Austen, Lauren Biermann, Martin J.Attrill, <strong style="color: #F39075;">Alejandro Román</strong>, Gabriel Navarro, Anne-Laure Barillé, Nicolas Harin, Daniel Clewley, Victor Martinez-Vicente, Pierre Gernez & Laurent Barillé.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.1038/s43247-024-01543-z" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.nature.com/articles/s43247-024-01543-z.pdf" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.1038/s43247-024-01543-z" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
+## <a href="shetlandsUAVmetry.qmd"  style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">ShetlandsUAVmetry: unmanned aerial vehicle-based photogrammetric dataset for Antarctic environmental research.</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="shetlandsUAVmetry.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/scidata_logo.png" alt="Logo" style="height: 25px;">
+</p>
+  <span style="font-size: 0.9em;">
+   <strong style="color: #F39075;">Alejandro Román</strong>, Gabriel Navarro, Antonio Tovar-Sánchez, Pedro Zarandona, David Roque-Atienza & Luis Barbero.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.1038/s41597-024-03045-1" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.nature.com/articles/s41597-024-03045-1.pdf" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.1038/s41597-024-03045-1" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
+## <a href="mosaicking.qmd"  style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Enhancing Georeferencing and Mosaicking Techniques over Water Surfaces with High-Resolution Unmanned Aerial Vehicle (UAV) Imagery.</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="mosaicking.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/remsens_logo.png" alt="Logo" style="height: 30px;">
+</p>
+  <span style="font-size: 0.9em;">
+   <strong style="color: #F39075;">Alejandro Román</strong>, Sergio Heredia, Anna E. Windle, Antonio Tovar-Sánchez & Gabriel Navarro.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.3390/rs16020290" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.mdpi.com/2072-4292/16/2/290.pdf" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.3390/rs16020290" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
+## <a href="hannahpoint.qmd"  style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Characterization of an antarctic penguin colony ecosystem using high-resolution UAV hyperspectral imagery.</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="hannahpoint.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/jag_logo.png" alt="Logo" style="height: 45px;">
+</p>
+  <span style="font-size: 0.9em;">
+   <strong style="color: #F39075;">Alejandro Román</strong>, Antonio Tovar-Sánchez , Beatriz Fernández-Marín, Gabriel Navarro & Luis Barbero.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.1016/j.jag.2023.103565" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.sciencedirect.com/science/article/pii/S1569843223003898/pdf" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.1016/j.jag.2023.103565" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
+## <a href="oysters.qmd"  style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Mapping intertidal oyster farms using unmanned aerial vehicles (UAV) high-resolution multispectral data.</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="oysters.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/shelf_logo.png" alt="Logo" style="height: 45px;">
+</p>
+  <span style="font-size: 0.9em;">
+   <strong style="color: #F39075;">Alejandro Román</strong>, Hermansyah Prasyad, Simon Oiry, Bede F.R. Davies, Guillaume Brunier & Laurent Barillé.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.1016/j.ecss.2023.108432" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.sciencedirect.com/science/article/pii/S0272771423002226/pdf" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.1016/j.ecss.2023.108432" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
+## <a href="malta.qmd"  style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Water-Quality Monitoring with a UAV-Mounted Multispectral Camera in Coastal Waters.</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="malta.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/remsens_logo.png" alt="Logo" style="height: 30px;">
+</p>
+  <span style="font-size: 0.9em;">
+   <strong style="color: #F39075;">Alejandro Román</strong>, Antonio Tovar-Sánchez, Adam Gauci, Alan Deidun, Isabel Caballero, Emanuele Colica, Sebastiano D’Amico & Gabriel Navarro.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.3390/rs15010237" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.mdpi.com/2072-4292/15/1/237.pdf" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.3390/rs15010237" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
+## <a href="dunbar.qmd"  style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Remote Sensing: Satellite and RPAS (Remotely Piloted Aircraft System).</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="dunbar.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/springer_logo.png" alt="Logo" style="height: 25px;">
+</p>
+  <span style="font-size: 0.9em;">
+   Martha Bonnet Dunbar, Isabel Caballero, <strong style="color: #F39075;">Alejandro Román</strong> & Gabriel Navarro.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.1007/978-3-031-14486-8_9" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://doi.org/10.1007/978-3-031-14486-8_9" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.1007/978-3-031-14486-8_9" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
+## <a href="roca.qmd"  style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Monitoring the marine invasive alien species Rugulopteryx okamurae using unmanned aerial vehicles and satellites.</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="roca.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/fmar_logo.png" alt="Logo" style="height: 40px;">
+</p>
+  <span style="font-size: 0.9em;">
+   Mar Roca, Martha Bonnet Dunbar, <strong style="color: #F39075;">Alejandro Román</strong>, Isabel Caballero, Maria Laura Zoffoli, Pierre Gernez & Gabriel Navarro.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.3389/fmars.2022.1004012" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2022.1004012/pdf" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.3389/fmars.2022.1004012" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
+## <a href="gisci.qmd"  style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">High-spatial resolution UAV multispectral data complementing satellite imagery to characterize a chinstrap penguin colony ecosystem on deception island (Antarctica).</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="gisci.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/gisci_logo.png" alt="Logo" style="height: 40px;">
+</p>
+  <span style="font-size: 0.9em;">
+   <strong style="color: #F39075;">Alejandro Román</strong>, Gabriel Navarro, Isabel Caballero & Antonio Tovar-Sánchez.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.1080/15481603.2022.2101702" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.tandfonline.com/doi/epdf/10.1080/15481603.2022.2101702?needAccess=true" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.1080/15481603.2022.2101702" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
+
+## <a href="palma_drones.qmd"  style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Unmanned aerial vehicles (UAVs) as a tool for hazard assessment: The 2021 eruption of Cumbre Vieja volcano, La Palma Island (Spain).</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="palma_drones.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/stoten_logo.png" alt="Logo" style="height: 45px;">
+</p>
+  <span style="font-size: 0.9em;">
+   <strong style="color: #F39075;">Alejandro Román</strong>, Antonio Tovar-Sánchez, David Roque-Atienza, I.Emma Huertas, Isabel Caballero, Eugenio Fraile-Nuez & Gabriel Navarro.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.1016/j.scitotenv.2022.157092" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.sciencedirect.com/science/article/pii/S0048969722041894/pdf" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.1016/j.scitotenv.2022.157092" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
+## <a href="palma_sat.qmd"  style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Water quality monitoring with Sentinel-2 and Landsat-8 satellites during the 2021 volcanic eruption in La Palma (Canary Islands).</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="palma_sat.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/stoten_logo.png" alt="Logo" style="height: 45px;">
+</p>
+  <span style="font-size: 0.9em;">
+   Isabel Caballero, <strong style="color: #F39075;">Alejandro Román</strong>, Antonio Tovar-Sánchez & Gabriel Navarro.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.1016/j.scitotenv.2022.153433" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.sciencedirect.com/science/article/pii/S0048969722005253/pdf" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.1016/j.scitotenv.2022.153433" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
+## <a href="tovar.qmd"  style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Applications of unmanned aerial vehicles in Antarctic environmental research.</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="tovar.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/scirep_logo.png" alt="Logo" style="height: 25px;">
+</p>
+  <span style="font-size: 0.9em;">
+   Antonio Tovar‑Sánchez,<strong style="color: #F39075;  ">Alejandro Román</strong>, David Roque‑Atienza & Gabriel Navarro.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.1038/s41598-021-01228-z" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.nature.com/articles/s41598-021-01228-z.pdf" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.1038/s41598-021-01228-z" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
+## <a href="santi.qmd"  style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Using a UAV-Mounted Multispectral Camera for the Monitoring of Marine Macrophytes.</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="santi.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/fmar_logo.png" alt="Logo" style="height: 40px;">
+</p>
+  <span style="font-size: 0.9em;">
+   <strong style="color: #F39075;">Alejandro Román</strong>, Antonio Tovar-Sánchez, Irene Olivé & Gabriel Navarro.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.3389/fmars.2021.722698" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2021.722698/pdf" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.3389/fmars.2021.722698" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----

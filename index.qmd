@@ -1,0 +1,53 @@
+---
+about:
+  template: jolla
+  id: about-block
+---
+
+<img src="img/DSC_0566 - copia.jpg" id="profile-img" alt="Oleg Belyaev" />
+
+
+<h1 style="text-align: center;color: #125F63; font-size: 2em; font-weight: bold; margin-bottom: 10px;">
+  Alejandro Román, Ph.D
+</h1>
+
+<p style="text-align: center; color: #F39075; font-family: 'Arial', Arial, serif; font-size: 0.8em; margin-bottom: 30px;">
+  POSTDOCTORAL RESEARCHER AT ICMAN-CSIC
+</p>
+
+<!-- Social Media Icons -->
+<div class="social-icons">
+  <a href="mailto:mail.a.roman@csic.es">
+    <i class="fas fa-envelope"></i>
+  </a>
+  <a href="https://x.com/a_roman_4?lang=es" target="_blank">
+    <i class="fab fa-square-x-twitter"></i>
+  </a>
+  <a href="https://github.com/alrova96" target="_blank">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/alejandro-rom%C3%A1n-v%C3%A1zquez/" target="_blank">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://www.researchgate.net/profile/Alejandro-Roman-9" target="_blank">
+    <i class="fab fa-researchgate"></i>
+  </a>
+  <a href="https://scholar.google.es/citations?view_op=list_works&hl=es&hl=es&user=rOnlIMcAAAAJ" target="_blank">
+    <i class="fab fa-google-scholar"></i>
+  </a>
+  <a href="https://orcid.org/my-orcid?orcid=0000-0002-8868-9302" target="_blank">
+    <i class="fab fa-orcid"></i>
+  </a>
+
+<p style="text-align: justify; color: #125F63; font-size: 1em;">
+  Welcome to my website! I am a <strong style="color: #F39075;">post-doctoral researcher</strong> at the Institute of Marine Sciences of Andalusia (<strong style="color: #F39075;">ICMAN-CSIC</strong>) in Spain. My research focuses on the development and application of <strong style="color: #F39075;">drone-based remote sensing techniques</strong> for studying <strong style="color: #F39075;">marine and coastal environmental phenomena</strong>, including polar <strong style="color: #F39075;">Antarctic research</strong>. Specifically, I specialise in using multispectral and hyperspectral sensors, combined with machine learning techniques, to characterize aquatic systems. However, in recent years, I have been focusing on using a wide range of emerging sensors, such as LiDAR technology and gas sniffers, which have enabled me to more specifically address some of the environmental phenomena occurring in these highly vulnerable regions of the planet. Join me, get to know me, and discover the work we are doing in our research group.
+</p>
+
+<br>
+
+<a href="img/CV.pdf" download="CV.pdf" style="text-decoration: none;">
+  <button style="padding: 10px 20px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 10px; cursor: pointer; display: inline-flex; align-items: center; transition: background-color 0.3s, color 0.3s;">
+    <i class="fas fa-download" style="margin-right: 8px;"></i> Download CV
+  </button>
+</a>
+

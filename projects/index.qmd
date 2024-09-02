@@ -1,0 +1,32 @@
+<h1 style="color: #125F63; text-align: center;">Projects</h1>
+
+<p style="text-align: justify; color: #125F63; font-size: 1em;">
+      <br>
+       Here, you will find some of the research projects I have had the opportunity to participate in over the past few years: the Antarctic projects PiMetAn (completed in 2022) and DICHOSO (ongoing), the Horizon Europe project REWRITE (ongoing), the project funded by the Andalusian Regional Government and the EU Regional Development Funds, Turisdron (ongoing), and the Sen2Coast project (completed in 2022), funded by the Ministry of Science, Innovation, and Universities of the Government of Spain. <strong style="color: #F39075;">Click on them to access their websites</strong>.
+</p>
+
+<br>
+
+<!-- Contenedor flex para las imágenes -->
+<div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 40px;">
+
+  <!-- Primera fila de tres imágenes -->
+  <a href="https://dichoso.csic.es/" target="_blank" style="margin: 0 30px;">
+    <img src="dichoso.png" style="height: 70px; width: auto;"/>
+  </a>
+  <a href="https://turisdron.csic.es/" target="_blank" style="margin: 0 30px;">
+    <img src="turisdron.png" style="height: 70px; width: auto;"/>
+  </a>
+  <a href="https://rewriteproject.eu/" target="_blank" style="margin: 0 30px;">
+    <img src="rewrite.png" style="height: 70px; width: auto;"/>
+  </a>
+
+  <!-- Segunda fila de dos imágenes -->
+  <a href="https://pimetan.csic.es/" target="_blank" style="margin: 0 30px;">
+    <img src="pimetan.png" style="height: 45px; width: auto;"/>
+  </a>
+  <a href="http://eo.csic.es/11-research/27-sen2coast" target="_blank" style="margin: 0 30px;">
+    <img src="sen2coast.png" style="height: 70px; width: auto;"/>
+  </a>
+
+</div>

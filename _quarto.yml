@@ -1,0 +1,76 @@
+# This file controls the settings for your Quarto template from www.marvinschmitt.com
+
+# website settings
+website:
+  title: "Alejandro Román"                      
+  image: img/DSC_0566 - copia.jpg
+  
+  favicon: img/drone.png
+  
+  # start of the navigation bar at the top of the website
+  navbar:
+    pinned: true
+    logo: /img/drone5.png
+    
+
+    right:
+# your sub-pages
+      - text: "About"
+        href: about/index.qmd
+      - text: "Projects"
+        href: projects/index.qmd
+      - text: "Publications"
+        href: publications/index.qmd
+      - text: "Blog"
+        href: blog/index.qmd
+      - text: "Media"
+        href: media/index.qmd
+# your social media handles
+      - icon: twitter
+        href: https://twitter.com/a_roman_4
+      - icon: linkedin
+        href: https://www.linkedin.com/in/alejandro-rom%C3%A1n-v%C3%A1zquez/
+      - icon: envelope
+        aria-label: email
+        href: "mailto:mail.a.roman@csic.es"
+  
+  
+
+# Don't touch unless you know what you are doing :) ------------
+  search: 
+    location: navbar
+    type: textbox
+  page-footer: 
+    #left: |
+     # <span class="faux-block">&#169; 2024 Alejandro Román</span>
+   # center: |
+    #  <span class="faux-block"><a href="https://www.marvinschmitt.com/blog/website-tutorial-quarto/">View the tutorial for this template!</a></span>
+    right: |
+      <span class="faux-block" style="color: #FFF7EC;">&#169; 2024 Alejandro Román - Made with <a href="https://quarto.org/" target="_blank" style="color: #F39075; text-decoration: underline;">Quarto</a></span>
+
+project:
+  type: website
+  output-dir: docs
+
+  preview: 
+    port: 22222
+    browser: true
+    watch-inputs: true
+    navigate: true
+
+execute:
+  freeze: true
+
+format:
+  html:
+    fontsize: 1.1em
+    theme: 
+      - pulse
+      - html/styles.scss
+    toc: false
+    code-link: true
+    anchor-sections: true
+    fig-cap-location: margin
+    reference-location: margin
+    footnotes-hover: true
+    include-in-header: header.html

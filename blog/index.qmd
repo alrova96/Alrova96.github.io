@@ -1,0 +1,22 @@
+
+<h1 style="color: #125F63;text-align: center;">Blog</h1>
+
+----
+
+## <span style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">My Fulbright experience in the United States.</span>
+
+<div style="display: flex; align-items: center;">
+  <img src="fulbright.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;"/>
+  <div style="text-align: justify;">
+  <span style="font-size: 0.9em;">
+   Between August 2023 and February 2024, I had the privilege of experiencing the American Dream thanks to Fulbright Spain. First, I was in Ohio, participating in a pre-academic course with Fulbright colleagues from around the world, and later, I conducted a research stay at the Horn Point Laboratory of the University of Maryland. <strong style="color: #F39075;">Click the link and discover how I experienced this adventure!</strong>
+    </span>
+    <br>
+    <br>
+<a href="fulbright.qmd" style="padding: 5px 10px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 5px; cursor: pointer; font-size: 1em; font-weight: bold; text-decoration: underline; transition: background-color 0.3s, color 0.3s;">
+    Access to the blog
+</a>
+  </div>
+</div>
+
+----

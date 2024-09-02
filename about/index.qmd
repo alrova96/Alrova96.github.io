@@ -1,0 +1,53 @@
+<h1 style="text-align: center;color: #125F63; font-size: 2em; font-weight: bold; margin-bottom: 10px;">
+    Hey, I'm happy you are here
+</h1>
+<br>
+<br>
+<p style="text-align: justify; color: #125F63; font-size: 1em;">
+     Thanks for stopping by! 
+      <br>
+      <br>
+       I am a <strong style="color: #F39075;">post-doctoral researcher</strong> at the <strong style="color: #F39075;">Institute of Marine Sciences of Andalusia (ICMAN-CSIC)</strong>. My research interests include the application of remote sensing tools (e.g. <strong style="color: #F39075;">drone and satellite imagery</strong>) to address coastal environmental phenomena. 
+      <br>
+      <br>
+       I am currently working on several research projects, focusing on <strong style="color: #F39075;">polar research</strong> in penguin colonies on Deception and Livingston Islands (South Shetland Islands), as well as on the development and optimization of <strong style="color: #F39075;">deep learning techniques</strong> to study the spatial distribution and phenology of some of the most vulnerable ecological communities found in coastal ecosystems, such as seagrass meadows and microphytobenthic mudflats.
+</p>
+
+  <img src="about_1.jpg" style="height: 250px; width: auto;"/>
+  <img src="about_2.jpg" style="height: 250px; width: auto;"/>
+  <img src="about_3.jpg" style="height: 250px; width: auto;"/>
+
+<h1 style="text-align: center;color: #125F63; font-size: 2em; font-weight: bold; margin-bottom: 10px;">
+    My background
+</h1>  
+
+<br>
+<p style="text-align: justify; color: #125F63; font-size: 1em;">
+Prior to joining ICMAN-CSIC, I completed a <strong style="color: #F39075;">Bachelor’s degree in Marine Sciences</strong> and a <strong style="color: #F39075;">Master’s degree in Oceanography</strong> at the <strong style="color: #F39075;">University of Cádiz (UCA, Spain)</strong>. In 2017, during the third year of my Bachelor’s program in Marine Sciences at UCA, I began collaborating on scientific research with <strong style="color: #F39075;">Dr. Laura del Río</strong> in the Department of Earth Sciences. Later, I received a <strong style="color: #F39075;">Collaboration Scholarship</strong> to fund my Master’s thesis project under the supervision of <strong style="color: #F39075;">Professor Dr. Luis Barbero</strong>. For this project, I used drone technology with thermal sensors to detect submarine groundwater discharges in coastal areas.
+<br>
+      <br>
+In 2020, I began my scientific career at the Institute of Marine Sciences of Andalusia (ICMAN-CSIC, Spain), where I pursued a <strong style="color: #F39075;">PhD focused on developing remote sensing tools and using sensors onboard drones to study coastal environmental processes</strong>. Funded by the <strong style="color: #F39075;">PhD Fellowship for University Staff Training (FPU, ref: FPU19/04557)</strong>, I worked under <strong style="color: #F39075;">Dr. Antonio Tovar-Sánchez and Dr. Gabriel Navarro</strong>. During this time, I specialized in researching various marine ecosystems and characterizing diverse coastal environmental processes, such as seagrass meadows, penguin colonies, and algal blooms. As a result, I participated in <strong style="color: #F39075;">six research projects</strong>, including two polar projects (PiMetAn and DICHOSO), and <strong style="color: #F39075;">published 13 peer-reviewed articles</strong>, nine of which I was the first author, in leading journals in the fields of Remote Sensing, Oceanography, and Multidisciplinary Sciences. I completed <strong style="color: #F39075;">my PhD in July 2024</strong>, graduating with the highest honors, <strong style="color: #F39075;">summa cum laude</strong>.
+<br>
+      <br>
+I also shared my work with a broader audience at national and international conferences and expanded my training through <strong style="color: #F39075;">three research stays abroad</strong>. From February to June 2022, at the <strong style="color: #F39075;">University of Malta</strong>, under the supervision of <strong style="color: #F39075;">Dr. Adam Gauci</strong>, I enhanced my Python programming skills specifically for drone operations over aquatic surfaces. Later, from October to November 2022, I was at the <strong style="color: #F39075;">University of Nantes</strong>, working with <strong style="color: #F39075;">Dr. Laurent Barillé</strong> on multispectral monitoring of oyster farming areas and the study of microphytobenthos in estuarine systems. Most recently, from September 2023 to February 2024, I developed Python techniques to improve marine optics algorithms for water quality studies using multispectral drone sensors at the <strong style="color: #F39075;">University of Maryland</strong>. This research stay was funded by a <strong style="color: #F39075;">Fulbright scholarship</strong> and supervised by <strong style="color: #F39075;">Dr. Greg Silsbe</strong>. 
+</p>
+
+<h1 style="text-align: center;color: #125F63; font-size: 2em; font-weight: bold; margin-bottom: 10px;">
+    Map of my research activity
+</h1>
+
+<br>
+  <img src="mapa.png" style="height: 420px; width: auto;"/>
+  
+<br>
+<p style="text-align: justify; color: #125F63; font-size: 1em;">
+• <strong style="color: #F39075;">University of Cádiz (UCA)</strong>: From September 2016 to July 2019, <u>BSc and MSc studies</u>.
+<br>
+• <strong style="color: #F39075;">Institute of Marine Sciences of Andalusia (ICMAN-CSIC)</strong>: From October 2020 to July 2024, <u>PhD host institution</u>.
+<br>
+• <strong style="color: #F39075;">University of Malta (UM)</strong>: From February 2022 to June 2022, <u>PhD stay</u>.
+<br>
+• <strong style="color: #F39075;">Nantes University (NU)</strong>: From October 2022 to November 2022, <u>PhD stay</u>.
+<br>
+• <strong style="color: #F39075;">University of Maryland Center for Environmental Sciences (UMCES)</strong>: From August 2023 to February 2024, <u>PhD stay</u>.
+</p>

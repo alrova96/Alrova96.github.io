@@ -1,0 +1,179 @@
+
+<h1 style="color: #125F63;text-align: center;">Media</h1>
+
+----
+
+## <span style="color: #125F63; font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onclick="window.open('https://digital.csic.es/handle/10261/359768', 'blank');" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">CSIC Investiga - Océanos: El futuro de la ciencia marina afronta los retos del cambio global.
+
+<div style="display: flex; align-items: center;">
+  <img src="oceanos.png" style="height: 200px; width: auto; object-fit: contain; margin-right: 75px;"/>
+  <div style="text-align: justify;color: #F39075;">
+  <span style="font-size: 0.9em;">
+   <u>01 June 2024</u>
+    </span>
+    <br>
+    <br>
+  <span style="font-size: 0.9em;color: #125F63;">
+   The latest issue of CSIC Investiga ‘Oceans’ has recently been published. In this issue, my fellow CSIC PhD candidates and I explain how the research conducted in our dissertations contributes to addressing some of the challenges of global change.
+    </span>
+    <br>
+    <br>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Press Interview</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">CSIC Investiga</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Oceans</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Drones</span>
+    <br>
+  </div>
+</div>
+
+----
+
+## <span style="color: #125F63; font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onclick="window.open('https://www.bbvaopenmind.com/ciencia/medioambiente/alejandro-roman-oceanografo-monitoriza-ecosistema-antartico-vista-dron/', 'blank');" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">OpenMind BBVA: Monitorizando el antártico a vista de dron.
+
+<div style="display: flex; align-items: center;">
+  <img src="bbva_openmind.png" style="height: 200px; width: auto; object-fit: contain; margin-right: 75px;"/>
+  <div style="text-align: justify;color: #F39075;">
+  <span style="font-size: 0.9em;">
+   <u>23 April 2024</u>
+    </span>
+    <br>
+    <br>
+  <span style="font-size: 0.9em;color: #125F63;">
+   An interview with me by Elena S. Garcia for BBVA OpenMind, in which I discuss our work in Antarctica within the context of climate change, my Fulbright Spain experience in the United States, and some of my general thoughts on my PhD.
+    </span>
+    <br>
+    <br>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Press Interview</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">BBVA OpenMind</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Antarctica</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Climate Change</span>
+    <br>
+  </div>
+</div>
+
+----
+
+## <span style="color: #125F63; font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onclick="window.open('https://www.rtve.es/play/audios/espanoles-en-la-mar/espanoles-mar-reivindicaciones-pesquero-26f/15985631/', 'blank');" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">RNE program "Españoles en la Mar": A new georeferencing and mosaicking algorithm.
+
+<div style="display: flex; align-items: center;">
+  <img src="mosaic.png" style="height: 200px; width: auto; object-fit: contain; margin-right: 75px;"/>
+  <div style="text-align: justify;color: #F39075;">
+  <span style="font-size: 0.9em;">
+   <u>23 February 2024</u>
+    </span>
+    <br>
+    <br>
+  <span style="font-size: 0.9em;color: #125F63;">
+   I participated in an interview that was broadcast on the RNE program "Españoles en la Mar," in which I discussed one of the latest publications from ICMAN-CSIC. In it, we developed a new georeferencing and mosaicking algorithm for captures taken with drones over water-covered surfaces. You can listen to the interview starting at 18:01 (-17:05).
+    </span>
+    <br>
+    <br>
+     <span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Radio Interview</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">RNE</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Algorithm</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Mosaicking</span>
+    <br>
+  </div>
+</div>
+
+----
+
+## <span style="color: #125F63; font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onclick="window.open('https://blog.fulbright.es/droneando-al-otro-lado-del-atlantico-una-experiencia-fulbright-para-toda-la-vida/', 'blank');" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Fulbright Spain Blog: “Droneando” al otro lado del Atlántico – Una experiencia Fulbright para toda la vida.
+
+<div style="display: flex; align-items: center;">
+  <img src="fulbright.png" style="height: 200px; width: auto; object-fit: contain; margin-right: 75px;"/>
+  <div style="text-align: justify;color: #F39075;">
+  <span style="font-size: 0.9em;">
+   <u>21 February 2024</u>
+    </span>
+    <br>
+    <br>
+  <span style="font-size: 0.9em;color: #125F63;">
+   A few lines summarizing and describing all the experiences, emotions, and moments that I've lived through my Fulbright experience at the University of Maryland Center for Environmental Sciences (UMCES).
+    </span>
+    <br>
+    <br>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Blog</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Fulbright Spain</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">American dream</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">United States</span>
+    <br>
+  </div>
+</div>
+
+----
+
+## <span style="color: #125F63; font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onclick="window.open('https://www.umces.edu/news/meet-visiting-fulbright-scholar-alejandro-roman', 'blank');" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">UMCES Website: Meet Visiting Fulbright Scholar Alejandro Roman.
+
+<div style="display: flex; align-items: center;">
+  <img src="umces.png" style="height: 200px; width: auto; object-fit: contain; margin-right: 75px;"/>
+  <div style="text-align: justify;color: #F39075;">
+  <span style="font-size: 0.9em;">
+   <u>2 November 2023</u>
+    </span>
+    <br>
+    <br>
+  <span style="font-size: 0.9em;color: #125F63;">
+   Interview explaining my research for the UMCES Media Department when starting my Fulbright experience at Horn Point Laboratory.
+    </span>
+    <br>
+    <br>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Press Interview</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">HPL</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">UMCES</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Drone Water Quality</span>
+    <br>
+  </div>
+</div>
+
+
+----
+
+## <span style="color: #125F63; font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onclick="window.open('https://airandspace.si.edu/air-and-space-quarterly/fall-2022/remote-controlled', 'blank');" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">The Smithsonian Website: Remote (Controlled).
+
+<div style="display: flex; align-items: center;">
+  <img src="smith.png" style="height: 200px; width: auto; object-fit: contain; margin-right: 75px;"/>
+  <div style="text-align: justify;color: #F39075;">
+  <span style="font-size: 0.9em;">
+   <u>21 September 2022</u>
+    </span>
+    <br>
+    <br>
+  <span style="font-size: 0.9em;color: #125F63;">
+   An interesting article by Mark Piesing in which members of the SeaDron team share their experiences during the Antarctic campaign of the PiMetAn project with our drones, as well as the subsequent processing of the results.
+    </span>
+    <br>
+    <br>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Press Interview</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Smithsonian</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Antarctica</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Drones</span>
+    <br>
+  </div>
+</div>
+
+
+----
+
+## <span style="color: #125F63; font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onclick="window.open('https://www.canalsur.es/radio/programas/cadiz-mediodia/detalle/2894647.html?video=2065580', 'blank');" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Canal Sur Radio: Canal Sur Mediodía, Cádiz.
+
+<div style="display: flex; align-items: center;">
+  <img src="canalsur.png" style="height: 200px; width: auto; object-fit: contain; margin-right: 75px;"/>
+  <div style="text-align: justify;color: #F39075;">
+  <span style="font-size: 0.9em;">
+   <u>03 June 2021</u>
+    </span>
+    <br>
+    <br>
+  <span style="font-size: 0.9em;color: #125F63;">
+   My colleague Erica Sparaventi and I were on Canal Sur Radio talking about the polar PiMetAn project. It was a pleasure to chat with Erica and the friends at Canal Sur about the fascinating work we are doing in Antarctica. Starting from minute 29:35 of the June 3, 2021, program.
+    </span>
+    <br>
+    <br>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Radio Interview</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">PiMetAn project</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Antarctica</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Penguin colonies</span>
+    <br>
+  </div>
+</div>

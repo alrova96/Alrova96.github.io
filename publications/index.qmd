@@ -3,6 +3,33 @@
 <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
 ----
 
+## <a href="penguins_oleg.qmd" style="color: #125F63; font-size: 0.8em; cursor: pointer; transition: color 0.3s, text-decoration: 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Assessing topographic features and population abundance in an Antarctic penguin colony through UAV-based deep-learning models.</a>
+
+<div style="display: flex; align-items: center;">
+  <img src="penguins_oleg.png" style="height: 250px; width: auto; object-fit: contain; margin-right: 75px;border-radius: 5px;"/>
+  <div style="text-align: justify;">
+  <p> 
+  <img src="logos/jag_logo.png" alt="Logo" style="height: 45px;">
+</p>
+  <span style="font-size: 0.9em;">
+   Oleg Belyaev, <strong style="color: #F39075;">Alejandro Román</strong>, Josabel Belliure, Gabriel Navarro, Luis Barbero & Antonio Tovar-Sánchez.
+    </span>
+    <br>
+    <br>
+    <a href="https://doi.org/10.1016/j.jag.2024.104124" target="_blank" style="text-decoration: none;">
+      <img src="DOI_logo.png" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+    </span>
+      </a>
+      <a href="https://www.sciencedirect.com/science/article/pii/S1569843224004783/pdf" target="_blank" style="text-decoration: none;">
+      <img src="pdf-svgrepo-com.svg" alt="PDF Icon" style="height: 30px; width: auto; vertical-align: middle; margin-right: 4px;">
+      <a data-badge-type="1" data-doi="https://doi.org/10.1016/j.jag.2024.104124" data-hide-no-mentions="true" class="altmetric-embed">
+      </a>
+
+  </div>
+</div>
+
+----
+
 ## <a href="david_rse.qmd" style="color: #125F63; font-size: 0.8em; cursor: pointer; transition: color 0.3s, text-decoration: 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Intertidal seagrass extent from Sentinel-2 time-series show distinct trajectories in Western Europe.</a>
 
 <div style="display: flex; align-items: center;">

@@ -1,0 +1,54 @@
+
+<style>
+  /* Contenedor de la imagen */
+  .hero-container {
+    width: 100%;
+    text-align: center; /* Centra el contenido dentro del contenedor */
+  }
+  
+  /* Imagen de fondo sin tintado */
+  .hero-image {
+    width: 100%;
+    height: auto; /* Mantiene la proporción original de la imagen */
+    object-fit: cover;
+  }
+  
+  /* Estilo del título del artículo */
+  .article-title {
+    color: #125F63; /* Color del texto del título */
+    font-size: 1.5em; /* Ajusta el tamaño del texto según sea necesario */
+    font-family: sans-serif; /* Fuente sans-serif */
+    margin-top: 20px; /* Espacio entre la imagen y el título */
+    text-align: center; /* Centra el texto */
+  }
+</style>
+
+<!-- Título del artículo como enlace al DOI -->
+<div class="article-title">
+##  <a href="https://doi.org/10.1016/j.scitotenv.2024.177025" style="color: #125F63;font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Mapping intertidal microphytobenthic biomass with very high-resolution remote sensing imagery in an estuarine system.</a>
+</div>
+
+
+<p style="text-align: center;">
+  <img src="logos/stoten_logo.png" alt="Logo" style="height: 45px;">
+</p>
+
+
+<div style="text-align: center;">
+  <span style="font-size: 0.9em; color: #125F63;">
+     <strong style="color: #F39075;">Alejandro Román</strong>, Simon Oiry, Bede F.R. Davies, Philippe Rosa, Pierre Gernez, Antonio Tovar-Sánchez, Gabriel Navarro, Vona Méléder & Laurent Barillé.
+  
+----
+   
+<iframe src="pdfs/paper16.pdf" width="100%" height="800"></iframe>
+
+
+```{=html}
+<p style="text-align: center; margin: 30px;">
+    <a href="/publications/index.qmd" style="text-decoration: none;">
+        <button style="padding: 10px 20px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 10px; cursor: pointer; font-size: 1em; font-weight: bold; text-decoration: underline; transition: background-color 0.3s, color 0.3s;">
+            BACK TO PUBLICATIONS!
+        </button>
+    </a>
+</p>
+```

@@ -12,7 +12,7 @@
   <img src="logos/stoten_logo.png" alt="Logo" style="height: 45px;">
 </p>
   <span style="font-size: 0.9em;">
-   Oleg Belyaev, <strong style="color: #F39075;">Alejandro Román</strong>, Simon Oiry, Bede F.R. Davies, Philippe Rosa, Pierre Gernez, Antonio Tovar-Sánchez, Gabriel Navarro, Vona Méléder & Laurent Barillé.
+   <strong style="color: #F39075;">Alejandro Román</strong>, Simon Oiry, Bede F.R. Davies, Philippe Rosa, Pierre Gernez, Antonio Tovar-Sánchez, Gabriel Navarro, Vona Méléder & Laurent Barillé.
     </span>
     <br>
     <br>

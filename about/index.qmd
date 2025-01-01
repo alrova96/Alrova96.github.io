@@ -7,7 +7,7 @@
      Thanks for stopping by! 
       <br>
       <br>
-       I am a <strong style="color: #F39075;">post-doctoral researcher</strong> at the <strong style="color: #F39075;">Institute of Marine Sciences of Andalusia (ICMAN-CSIC)</strong>. My research interests include the application of remote sensing tools (e.g. <strong style="color: #F39075;">drone and satellite imagery</strong>) to address coastal environmental phenomena. 
+       I am a <strong style="color: #F39075;">post-doctoral researcher</strong> at the <strong style="color: #F39075;">Institute of Marine Sciences of Andalusia (ICMAN-CSIC)</strong> in the DIGIDRON project under the Momentum CSIC Programme: Develop Your Digital Talent (MMT24-ICMAN-01). My research interests include the application of remote sensing tools (e.g. <strong style="color: #F39075;">drone and satellite imagery</strong>), combined with emerging technologies for digitization and data processing, to address coastal environmental phenomena, with an emphasis on coastal systems and polar regions.
       <br>
       <br>
        I am currently working on several research projects, focusing on <strong style="color: #F39075;">polar research</strong> in penguin colonies on Deception and Livingston Islands (South Shetland Islands), as well as on the development and optimization of <strong style="color: #F39075;">deep learning techniques</strong> to study the spatial distribution and phenology of some of the most vulnerable ecological communities found in coastal ecosystems, such as seagrass meadows and microphytobenthic mudflats.
@@ -51,3 +51,5 @@ I also shared my work with a broader audience at national and international conf
 <br>
 • <strong style="color: #F39075;">University of Maryland Center for Environmental Sciences (UMCES)</strong>: From August 2023 to February 2024, <u>PhD stay</u>.
 </p>
+• <strong style="color: #F39075;">Institute of Marine Sciences of Andalusia (ICMAN-CSIC)</strong>: From August 2024 to nowadays, <u>Postdoctoral research host institution</u>.
+<br>

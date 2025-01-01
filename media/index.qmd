@@ -3,6 +3,31 @@
 
 ----
 
+## <span style="color: #125F63; font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onclick="window.open('https://www.youtube.com/watch?v=y_P2jvU3tBM', 'blank');" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">Fulbright España - Entrevista becarios Fulbright estudios predoctorales 2024.
+
+<div style="display: flex; align-items: center;">
+  <img src="fulbright2.png" style="height: 200px; width: auto; object-fit: contain; margin-right: 75px;"/>
+  <div style="text-align: justify;color: #F39075;">
+  <span style="font-size: 0.9em;">
+   <u>24 September 2024</u>
+    </span>
+    <br>
+    <br>
+  <span style="font-size: 0.9em;color: #125F63;">
+   Last June, I participated in an interview for Fulbright Spain where I shared my entire experience in the United States, including how it has changed my life both personally and professionally since then.
+    </span>
+    <br>
+    <br>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Press Interview</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">Fulbright Spain</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">PhD studies</span>
+<span style="display: inline-block; padding: 5px 8px; background-color: transparent; color: #125F63; border: 2px solid #125F63; border-radius: 8px; cursor: default; font-family: Arial, sans-serif; font-size: 0.8em; transition: background-color 0.3s, color 0.3s;">United States</span>
+    <br>
+  </div>
+</div>
+
+----
+
 ## <span style="color: #125F63; font-size: 0.8em;cursor: pointer; transition: color 0.3s, text-decoration 0.3s;" onclick="window.open('https://digital.csic.es/handle/10261/359768', 'blank');" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='#F39075'; this.style.textDecoration='none';">CSIC Investiga - Océanos: El futuro de la ciencia marina afronta los retos del cambio global.
 
 <div style="display: flex; align-items: center;">

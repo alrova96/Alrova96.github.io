@@ -45,7 +45,12 @@
       "Bash(git push origin --delete master)",
       "Bash(git add docs/static/img/About_gradu.jpg docs/static/img/About_icman.jpg)",
       "Bash(git add -A)",
-      "Bash(git config core.ignorecase false)"
+      "Bash(git config core.ignorecase false)",
+      "Bash(git commit -m \"Fix image capitalization for GitHub Pages compatibility\")",
+      "Bash(git push origin main)",
+      "Bash(for file in david_commun david_rse dunbar gisci hannahpoint malta mosaicking mpb_stoten oysters palma_drones palma_sat penguins_oleg)",
+      "Bash(do)",
+      "Bash(echo \"✓ Renamed $file.png to $file.PNG\")"
     ],
     "deny": [],
     "ask": []

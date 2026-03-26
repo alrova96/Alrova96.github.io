@@ -56,7 +56,8 @@
       "Bash(find templates -name \"*.html\" -type f -exec sed -i '' 's/>ABANTI Project</>ABANTI</g' {} ;)",
       "Bash(python3 build.py)",
       "Bash(git commit -m \"$(cat <<''EOF''\nUpdate AMIGA and ABANTI pages content\n\n- Changed navigation: AMIGA Project → AMIGA, ABANTI Project → ABANTI\n- Updated Research Team roles:\n  - Alejandro Román: Postdoctoral Researcher\n  - Susana Flecha: Postdoctoral Researcher\n  - Gabriel Navarro: Research Scientist\n  - Emma Huertas: Research Scientist\n  - Beatriz Fernández-Marín: Research Scientist\n- AMIGA: Changed \"Project Overview\" to \"Access to Infrastructure\"\n- ABANTI: Changed \"Project Overview\" to \"JAE Intro POLARCSIC\"\n- Replaced \"project\" with \"research\" throughout both pages\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
-      "Bash(git commit -m \"Force cache refresh for AMIGA and ABANTI pages\")"
+      "Bash(git commit -m \"Force cache refresh for AMIGA and ABANTI pages\")",
+      "Bash(git commit -m \"Replace remaining ''project'' with ''research'' in AMIGA and ABANTI texts and update Home news title\")"
     ],
     "deny": [],
     "ask": []

@@ -50,7 +50,11 @@
       "Bash(git push origin main)",
       "Bash(for file in david_commun david_rse dunbar gisci hannahpoint malta mosaicking mpb_stoten oysters palma_drones palma_sat penguins_oleg)",
       "Bash(do)",
-      "Bash(echo \"✓ Renamed $file.png to $file.PNG\")"
+      "Bash(echo \"✓ Renamed $file.png to $file.PNG\")",
+      "Bash(git commit -m \"Fix PNG capitalization for publications images\")",
+      "Bash(find templates -name \"*.html\" -type f -exec sed -i '' 's/>AMIGA Project</>AMIGA</g' {} ;)",
+      "Bash(find templates -name \"*.html\" -type f -exec sed -i '' 's/>ABANTI Project</>ABANTI</g' {} ;)",
+      "Bash(python3 build.py)"
     ],
     "deny": [],
     "ask": []

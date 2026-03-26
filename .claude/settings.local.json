@@ -36,7 +36,16 @@
       "Bash(lsof -ti:8080)",
       "Bash(xargs kill -9)",
       "Bash(git init)",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nUpdate website with new design and dark mode\n\n- Modern design with warm color palette\n- Dark mode implementation with theme toggle\n- Updated all pages: Home, About, Publications, Media, AMIGA, ABANTI\n- Improved responsive design\n- Added new content and publications\n- Built with Python and Jinja2\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git remote add origin https://github.com/Alrova96/Alrova96.github.io.git)",
+      "Bash(git branch -M main)",
+      "Bash(git push -u origin main --force)",
+      "Bash(git push origin main --force)",
+      "Bash(git push origin --delete master)",
+      "Bash(git add docs/static/img/About_gradu.jpg docs/static/img/About_icman.jpg)",
+      "Bash(git add -A)",
+      "Bash(git config core.ignorecase false)"
     ],
     "deny": [],
     "ask": []

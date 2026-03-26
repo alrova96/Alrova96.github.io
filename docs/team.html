@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Postdoctoral Researcher at ICMAN-CSIC">
+    <meta name="author" content="Alejandro Román">
+    <title>Team - Alejandro Román</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="static/img/drone.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/styles.css">
+
+    
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="static/img/drone5.png" alt="Drone Logo" class="nav-logo">
+                <span class="nav-brand-text">Alejandro Román</span>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link ">Home</a></li>
+                <li><a href="about.html" class="nav-link ">About</a></li>
+                <li><a href="publications.html" class="nav-link ">Publications</a></li>
+                <li><a href="amiga.html" class="nav-link ">AMIGA Project</a></li>
+                <li><a href="abanti.html" class="nav-link ">ABANTI Project</a></li>
+                <li><a href="media.html" class="nav-link ">Media</a></li>
+
+                <div class="social-icons-nav">
+                    <a href="https://twitter.com/a_roman_4" target="_blank" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/alejandro-rom%C3%A1n-v%C3%A1zquez/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:mail.a.roman@csic.es" class="social-icon" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Main Content -->
+    <main>
+        
+<!-- Page Header -->
+<section style="background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-dark) 100%); padding: 2rem 0 1.5rem;">
+    <div class="container" style="text-align: center;">
+        <h1 style="color: var(--color-light-beige); margin-bottom: 1rem;">Our Team</h1>
+        <p style="color: var(--color-medium-beige); font-size: 1.2rem;">
+            Meet the people behind the research
+        </p>
+    </div>
+</section>
+
+<!-- Coming Soon Section -->
+<section style="background-color: var(--color-light-beige); min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+    <div class="container" style="text-align: center;">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <i class="fas fa-users" style="font-size: 6rem; color: var(--color-medium-beige); margin-bottom: 2rem;"></i>
+            <h2 style="color: var(--color-navy); margin-bottom: 1.5rem; font-size: 2.5rem;">Coming Soon</h2>
+            <p style="color: var(--color-brown); font-size: 1.2rem; line-height: 1.8;">
+                We're working on introducing our amazing team members. Stay tuned for updates!
+            </p>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">
+                &copy; 2025 Alejandro Román - Made with Python &
+                <a href="https://jinja.palletsprojects.com/" target="_blank" class="footer-link">Jinja2</a>
+            </p>
+            <p class="footer-text">
+                Postdoctoral Researcher at <a href="https://www.icman.csic.es/" target="_blank" class="footer-link">ICMAN-CSIC</a>
+            </p>
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <img src="static/img/logos.png" alt="Logos" style="max-width: 400px; height: auto; display: block; margin: 0 auto;">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle & Scroll to Top Script -->
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
+        // Scroll to Top
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Media - {{ site.title }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section style="background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-dark) 100%); padding: 2rem 0 1.5rem;">
+    <div class="container" style="text-align: center;">
+        <h1 style="color: var(--color-light-beige); margin-bottom: 1rem;">Media</h1>
+        <p style="color: var(--color-medium-beige); font-size: 1.2rem;">
+            Press coverage and media appearances
+        </p>
+    </div>
+</section>
+
+<!-- Media Grid -->
+<section style="background-color: var(--color-light-beige); padding: 5rem 0;">
+    <div class="container">
+        <div class="media-grid">
+            {% for item in media_items %}
+            <div class="media-card" onclick="window.open('{{ item.url }}', '_blank')">
+                <img src="static/img/{{ item.image }}" alt="{{ item.title }}" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">{{ item.date }}</p>
+
+                    <h3 class="media-title">{{ item.title }}</h3>
+
+                    <p class="media-description">{{ item.description }}</p>
+
+                    <div class="media-tags">
+                        {% for tag in item.tags %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Publications - {{ site.title }}{% endblock %}
+
+{% block extra_head %}
+<!-- Altmetric Badge -->
+<script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section style="background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-dark) 100%); padding: 2rem 0 1.5rem;">
+    <div class="container" style="text-align: center;">
+        <h1 style="color: var(--color-light-beige); margin-bottom: 1rem;">Publications</h1>
+        <p style="color: var(--color-medium-beige); font-size: 1.2rem;">
+            My research contributions in scientific journals
+        </p>
+    </div>
+</section>
+
+<!-- Publications Grid -->
+<section style="background-color: var(--color-light-beige); padding: 5rem 0;">
+    <div class="container">
+        <div class="publications-grid">
+            {% for pub in publications %}
+            <div class="publication-card" onclick="window.open('{{ pub.doi }}', '_blank')" style="cursor: pointer;">
+                <img src="static/img/{{ pub.image }}?v=20260324b" alt="{{ pub.title }}" class="publication-image">
+
+                <div class="publication-content">
+                    <div>
+                        {% if pub.date %}
+                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">{{ pub.date }}</p>
+                        {% endif %}
+
+                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">{{ pub.title }}</h3>
+
+                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;">{{ pub.authors|safe }}</p>
+                    </div>
+
+                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
+                        <a href="{{ pub.doi }}" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                        </a>
+                        <a href="{{ pub.pdf }}" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        </a>
+                        <div data-badge-type="donut" data-doi="{{ pub.doi }}" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Team - {{ site.title }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section style="background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-dark) 100%); padding: 2rem 0 1.5rem;">
+    <div class="container" style="text-align: center;">
+        <h1 style="color: var(--color-light-beige); margin-bottom: 1rem;">Our Team</h1>
+        <p style="color: var(--color-medium-beige); font-size: 1.2rem;">
+            Meet the people behind the research
+        </p>
+    </div>
+</section>
+
+<!-- Coming Soon Section -->
+<section style="background-color: var(--color-light-beige); min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+    <div class="container" style="text-align: center;">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <i class="fas fa-users" style="font-size: 6rem; color: var(--color-medium-beige); margin-bottom: 2rem;"></i>
+            <h2 style="color: var(--color-navy); margin-bottom: 1.5rem; font-size: 2.5rem;">Coming Soon</h2>
+            <p style="color: var(--color-brown); font-size: 1.2rem; line-height: 1.8;">
+                We're working on introducing our amazing team members. Stay tuned for updates!
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}

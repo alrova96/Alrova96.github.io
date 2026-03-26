@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block title %}AMIGA Project - {{ site.title }}{% endblock %}
+
+{% block content %}
+<!-- Hero Header with Background Image -->
+<section style="position: relative; height: 400px; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('static/img/emperor.png'); background-size: cover; background-position: center;"></div>
+    <div class="container" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <h1 style="color: white; font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">AMIGA</h1>
+        <p style="color: var(--color-light-beige); font-size: 1.4rem; max-width: 800px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
+            Antarctic Methane and Ice-Marine-Guano Assessment
+        </p>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section style="background-color: white;">
+    <div class="container">
+        <h2 class="section-title">Research Team</h2>
+
+        <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; max-width: 800px; margin: 0 auto;">
+            <!-- Alejandro Román -->
+            <div style="text-align: center;">
+                <img src="static/img/alejandroroman.png" alt="Alejandro Román" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-bottom: 1rem;">
+                <h3 style="color: var(--color-dark); font-size: 1.1rem; margin-bottom: 0.3rem;">Alejandro Román</h3>
+                <p style="color: var(--color-brown); font-size: 0.9rem;">Principal Investigator</p>
+            </div>
+
+            <!-- Gabriel Navarro -->
+            <div style="text-align: center;">
+                <img src="static/img/gabrielnavarro.png" alt="Gabriel Navarro" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-bottom: 1rem;">
+                <h3 style="color: var(--color-dark); font-size: 1.1rem; margin-bottom: 0.3rem;">Gabriel Navarro</h3>
+                <p style="color: var(--color-brown); font-size: 0.9rem;">Co-Investigator</p>
+            </div>
+
+            <!-- Susana Flecha -->
+            <div style="text-align: center;">
+                <img src="static/img/susanaflecha.png" alt="Susana Flecha" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-bottom: 1rem;">
+                <h3 style="color: var(--color-dark); font-size: 1.1rem; margin-bottom: 0.3rem;">Susana Flecha</h3>
+                <p style="color: var(--color-brown); font-size: 0.9rem;">Co-Investigator</p>
+            </div>
+
+            <!-- Emma Huertas -->
+            <div style="text-align: center;">
+                <img src="static/img/emmahuertas.png" alt="Emma Huertas" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-bottom: 1rem;">
+                <h3 style="color: var(--color-dark); font-size: 1.1rem; margin-bottom: 0.3rem;">Emma Huertas</h3>
+                <p style="color: var(--color-brown); font-size: 0.9rem;">Co-Investigator</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Overview -->
+<section style="background-color: var(--color-light-beige);">
+    <div class="container">
+        <h2 class="section-title">Project Overview</h2>
+
+        <div style="max-width: 900px; margin: 0 auto;">
+            <p style="text-align: justify; line-height: 1.6; color: var(--color-dark); font-size: 1.05rem;">
+                AMIGA aims to accurately quantify greenhouse gas (CH₄ and CO₂) exchange in two key Antarctic ecosystem compartments – <span class="highlight">penguin colonies and ice shelves</span> – to improve regional carbon budgets. Although GHG are essential in climate regulation, their production and release from Antarctic biological hotspots and cryospheric systems are still not well quantified, leading to significant gaps in global assessments.
+            </p>
+            <p style="text-align: justify; line-height: 1.6; color: var(--color-dark); font-size: 1.05rem; margin-top: 1rem;">
+                AMIGA tackles this issue by conducting detailed <span class="highlight">field campaigns from Neumayer Station III in Queen Maud Land</span>, focusing on the Emperor penguin colony at Atka Bay and the nearby Atka and Ekström ice shelves during the 2028 austral summer. The project integrates ground-based high-precision gas analyzers (LI-COR instruments) and smart chamber systems for direct flux measurements with drone-mounted Sniffer 4D sensors for spatially resolved atmospheric sampling.
+            </p>
+            <p style="text-align: justify; line-height: 1.6; color: var(--color-dark); font-size: 1.05rem; margin-top: 1rem;">
+                Drone-based multispectral, thermal, and LiDAR imaging will assess surface properties, supplemented by Sentinel-2 satellite data for regional scaling. Laboratory analyses of guano, ice cores, and meltwater will identify biogeochemical drivers of gas exchange. <span class="highlight">Artificial intelligence tools</span> — including convolutional neural networks for automated penguin counts and machine learning algorithms integrating multiple data sources — will upscale local observations into reliable regional estimates.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Neumayer Station -->
+<section style="background-color: white;">
+    <div class="container">
+        <h2 class="section-title">Neumayer Station III</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; max-width: 1000px; margin: 0 auto;">
+            <div>
+                <img src="static/img/neumayer.png" alt="Neumayer Station III" style="width: 100%; height: auto; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+            </div>
+            <div style="text-align: justify;">
+                <p style="line-height: 1.6; color: var(--color-dark); margin-bottom: 1rem;">
+                    <span class="highlight">Neumayer Station III</span> is an overwintering station for atmospheric, biological, and seismological research and logistics in Antarctica. It is the logistical backbone for national and international research based in Western Dronning Maud Land, Antarctica.
+                </p>
+                <p style="line-height: 1.6; color: var(--color-dark); margin-bottom: 1rem;">
+                    While the winter crew consists of nine people, the station can accommodate up to <span class="highlight">60 people in summer</span>, 20 of whom maintain the technical and scientific equipment.
+                </p>
+                <p style="line-height: 1.6; color: var(--color-dark);">
+                    The station hosts the <span class="highlight">Air Chemistry Observatory, Geophysical Observatory, Hydroacoustic Observatory</span> and the Infrasound Array I27DE to measure micropressure fluctuations in the atmosphere, making it ideal for long-term observational studies.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Study Sites -->
+<section style="background-color: var(--color-light-beige);">
+    <div class="container">
+        <h2 class="section-title">Study Sites</h2>
+
+        <div style="max-width: 900px; margin: 0 auto;">
+            <p style="text-align: center; line-height: 1.6; color: var(--color-dark); font-size: 1.1rem; margin-bottom: 3rem;">
+                AMIGA will focus on two key Antarctic ecosystem compartments in the <span class="highlight">Atka Bay region</span> to quantify greenhouse gas exchange.
+            </p>
+
+            <!-- Study Site Images -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                <div style="text-align: center;">
+                    <img src="static/img/atkabaysite.png" alt="Atka Bay Penguin Colony" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); margin-bottom: 1rem;">
+                    <h3 style="color: var(--color-medium-beige); font-size: 1.2rem; margin-bottom: 0.5rem;">Atka Bay</h3>
+                    <p style="color: var(--color-brown); line-height: 1.5;">Emperor penguin colony - biological hotspot for methane production from guano</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <img src="static/img/iceshelfsite.png" alt="Ice Shelf Study Site" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); margin-bottom: 1rem;">
+                    <h3 style="color: var(--color-medium-beige); font-size: 1.2rem; margin-bottom: 0.5rem;">Atka & Ekström Ice Shelves</h3>
+                    <p style="color: var(--color-brown); line-height: 1.5;">Cryospheric systems - greenhouse gas exchange dynamics in ice shelf environments</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Key Objectives -->
+<section style="background-color: white;">
+    <div class="container">
+        <h2 class="section-title">Key Objectives</h2>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div style="display: grid; gap: 1.5rem;">
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                    <div style="min-width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-medium-beige); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">1</div>
+                    <p style="line-height: 1.6; color: var(--color-dark); padding-top: 0.5rem;">Simultaneous CH₄ and CO₂ flux measurements from penguin colonies and ice shelves</p>
+                </div>
+
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                    <div style="min-width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-medium-beige); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">2</div>
+                    <p style="line-height: 1.6; color: var(--color-dark); padding-top: 0.5rem;">Insights into how ecosystem structure and ice shelf dynamics affect GHG emissions</p>
+                </div>
+
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                    <div style="min-width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-medium-beige); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">3</div>
+                    <p style="line-height: 1.6; color: var(--color-dark); padding-top: 0.5rem;">Validated AI-driven methods for extrapolating site measurements to landscape scales</p>
+                </div>
+
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                    <div style="min-width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-medium-beige); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">4</div>
+                    <p style="line-height: 1.6; color: var(--color-dark); padding-top: 0.5rem;">Refined understanding of Antarctic contributions to global GHG budgets to support IPCC reporting</p>
+                </div>
+
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                    <div style="min-width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-medium-beige); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">5</div>
+                    <p style="line-height: 1.6; color: var(--color-dark); padding-top: 0.5rem;">Open-access datasets and algorithms for future polar research</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

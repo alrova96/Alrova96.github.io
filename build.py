@@ -238,6 +238,14 @@ PUBLICATIONS = [
 # Media data
 MEDIA_ITEMS = [
     {
+        'title': 'Canal Sur Radio - Interview on the program Cambio Climático',
+        'description': 'Interview on the program Climate Change on Canal Sur Radio, stating that red snow algae are more widespread than previously known in the planet\'s frozen regions (from minute 34:50).',
+        'image': 'climatechange.png',
+        'url': 'https://www.canalsur.es/radio/programas/cambio-climatico/',
+        'date': '20 March 2026',
+        'tags': []
+    },
+    {
         'title': 'Onda Cádiz - Interview on the program El Mirador',
         'description': 'Dr. Alejandro Román was interviewed about his publication on red snow algal blooms in Antarctica and their relationship with climate change.',
         'image': 'snowalgaenew.png',

@@ -238,6 +238,14 @@ PUBLICATIONS = [
 # Media data
 MEDIA_ITEMS = [
     {
+        'title': 'Un Punto Azul Podcast',
+        'description': 'Participation in the Un Punto Azul podcast. Introduction to the talk Observing the Poles in Drone Mode, which will take place next Monday, May 18, at Pint of Science.',
+        'image': 'puntoazul.png',
+        'url': 'https://www.youtube.com/watch?v=TQ_zDnm0TiE&list=PLpGYDZSZzihSMIkhdECjoah56GNljq5pZ',
+        'date': '5 May 2026',
+        'tags': []
+    },
+    {
         'title': 'Canal Sur Radio - Interview on the program Cambio Climático',
         'description': 'Interview on the program Climate Change on Canal Sur Radio, stating that red snow algae are more widespread than previously known in the planet\'s frozen regions (from minute 34:50).',
         'image': 'climatechange.png',

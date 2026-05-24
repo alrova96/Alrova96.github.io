@@ -13,13 +13,13 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/styles.css?v=20260524b">
 
     
 <!-- Altmetric Badge -->
@@ -72,543 +72,799 @@
     <main>
         
 <!-- Page Header -->
-<section style="background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-dark) 100%); padding: 2rem 0 1.5rem;">
-    <div class="container" style="text-align: center;">
-        <h1 style="color: var(--color-light-beige); margin-bottom: 1rem;">Publications</h1>
-        <p style="color: var(--color-medium-beige); font-size: 1.2rem;">
+<section style="position: relative; height: 260px; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('static/img/fondo_publications.png'); background-size: cover; background-position: center center;"></div>
+    <div class="container" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <h1 style="color: white; font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">Publications</h1>
+        <p style="color: var(--color-light-beige); font-size: 1.4rem; max-width: 800px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
             My research contributions in scientific journals
         </p>
     </div>
 </section>
 
-<!-- Publications Grid -->
-<section style="background-color: var(--color-light-beige); padding: 5rem 0;">
+<!-- Publications -->
+<section class="pub-section">
     <div class="container">
+        <div class="media-filter-bar">
+            <button class="media-filter-btn active" data-filter="all">All</button>
+            <button class="media-filter-btn" data-filter="Polar">Polar</button>
+            <button class="media-filter-btn" data-filter="AI">AI</button>
+            <button class="media-filter-btn" data-filter="Ocean Color">Ocean Color</button>
+            <button class="media-filter-btn" data-filter="Coastal Ecology">Coastal Ecology</button>
+            <button class="media-filter-btn" data-filter="Emergencies">Emergencies</button>
+        </div>
+
         <div class="publications-grid">
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1038/s43247-025-03156-6', '_blank')" style="cursor: pointer;">
-                <img src="static/img/snowalgae.png?v=20260324b" alt="Unveiling the large coverage of red snow algae blooms in antarctic coastal snowfields" class="publication-image">
+            <div class="publication-card" data-category="Polar" onclick="window.open('https://doi.org/10.1038/s43247-025-03156-6', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/snowalgae.png?v=20260324b" alt="Unveiling the large coverage of red snow algae blooms in antarctic coastal snowfields" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2026 - Communications Earth & Environment</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2026 - Communications Earth & Environment</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Unveiling the large coverage of red snow algae blooms in antarctic coastal snowfields</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Unveiling the large coverage of red snow algae blooms in antarctic coastal snowfields</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;"><strong>Alejandro Román</strong>, Gabriel Navarro, Luis Barbero, Beatriz Fernández-Marín, José I. García-Plazaola, Enrique González-Ortegón, Isabel Caballero & Antonio Tovar-Sánchez</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"><strong>Alejandro Román</strong>, Gabriel Navarro, Luis Barbero, Beatriz Fernández-Marín, José I. García-Plazaola, Enrique González-Ortegón, Isabel Caballero & Antonio Tovar-Sánchez</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1038/s43247-025-03156-6" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1038/s43247-025-03156-6" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.nature.com/articles/s43247-025-03156-6.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.nature.com/articles/s43247-025-03156-6.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1038/s43247-025-03156-6" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1038/s43247-025-03156-6" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1016/j.ecoinf.2025.103433', '_blank')" style="cursor: pointer;">
-                <img src="static/img/dana.png?v=20260324b" alt="UAV imagery in natural disasters: Real-time damage assessment of flash flooding events" class="publication-image">
+            <div class="publication-card" data-category="Emergencies" onclick="window.open('https://doi.org/10.1016/j.ecoinf.2025.103433', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/dana.png?v=20260324b" alt="UAV imagery in natural disasters: Real-time damage assessment of flash flooding events" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2025 - Ecological Informatics</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2025 - Ecological Informatics</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">UAV imagery in natural disasters: Real-time damage assessment of flash flooding events</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">UAV imagery in natural disasters: Real-time damage assessment of flash flooding events</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;"><strong>Alejandro Román</strong>, Antonio Tovar-Sánchez, Manuel Larrad, Jorge Rubiano-Sánchez, José M. Zafra, Rafael Piñeiro, Antonio Castillo, Francisco A. López, Ana L. Vela, Ana Allende, Gema Sánchez, Antonio Martínez-Alonso, David Samper, Juan Carlos García, Iván Galindo & Gabriel Navarro</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"><strong>Alejandro Román</strong>, Antonio Tovar-Sánchez, Manuel Larrad, Jorge Rubiano-Sánchez, José M. Zafra, Rafael Piñeiro, Antonio Castillo, Francisco A. López, Ana L. Vela, Ana Allende, Gema Sánchez, Antonio Martínez-Alonso, David Samper, Juan Carlos García, Iván Galindo & Gabriel Navarro</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1016/j.ecoinf.2025.103433" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1016/j.ecoinf.2025.103433" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S1574954125000093/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S1574954125000093/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.ecoinf.2025.103433" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.ecoinf.2025.103433" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1038/s41597-025-05726-x', '_blank')" style="cursor: pointer;">
-                <img src="static/img/lidar.png?v=20260324b" alt="LiDAR-based topographic data for the coastline of Port Foster (Deception Island, Antarctica)" class="publication-image">
+            <div class="publication-card" data-category="Polar" onclick="window.open('https://doi.org/10.1038/s41597-025-05726-x', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/lidar.png?v=20260324b" alt="LiDAR-based topographic data for the coastline of Port Foster (Deception Island, Antarctica)" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2025 - Scientific Data</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2025 - Scientific Data</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">LiDAR-based topographic data for the coastline of Port Foster (Deception Island, Antarctica)</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">LiDAR-based topographic data for the coastline of Port Foster (Deception Island, Antarctica)</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;"><strong>Alejandro Román</strong>, Antonio Tovar-Sánchez, Manuel Larrad, Fernando Alva & Gabriel Navarro</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"><strong>Alejandro Román</strong>, Antonio Tovar-Sánchez, Manuel Larrad, Fernando Alva & Gabriel Navarro</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1038/s41597-025-05726-x" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1038/s41597-025-05726-x" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.nature.com/articles/s41597-025-05726-x.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.nature.com/articles/s41597-025-05726-x.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1038/s41597-025-05726-x" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1038/s41597-025-05726-x" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1016/j.jenvman.2025.125188', '_blank')" style="cursor: pointer;">
-                <img src="static/img/ch4.png?v=20260324b" alt="Air-water CO2 exchange in transformed saltmarshes for different uses and under various management models" class="publication-image">
+            <div class="publication-card" data-category="Coastal Ecology" onclick="window.open('https://doi.org/10.1016/j.jenvman.2025.125188', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/ch4.png?v=20260324b" alt="Air-water CO2 exchange in transformed saltmarshes for different uses and under various management models" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2025 - Journal of Environmental Management</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2025 - Journal of Environmental Management</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Air-water CO2 exchange in transformed saltmarshes for different uses and under various management models</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Air-water CO2 exchange in transformed saltmarshes for different uses and under various management models</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;">Samuel Amaya-Vías, Susana Flecha, <strong>Alejandro Román</strong>, Soledad Haro, Jose Luis Oviedo, Gabriel Navarro, Gabriel M. Arroyo & I. Emma Huertas</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Samuel Amaya-Vías, Susana Flecha, <strong>Alejandro Román</strong>, Soledad Haro, Jose Luis Oviedo, Gabriel Navarro, Gabriel M. Arroyo & I. Emma Huertas</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1016/j.jenvman.2025.125188" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1016/j.jenvman.2025.125188" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0301479725002178/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0301479725002178/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.jenvman.2025.125188" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.jenvman.2025.125188" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1016/j.scitotenv.2024.177025', '_blank')" style="cursor: pointer;">
-                <img src="static/img/mpb_stoten.PNG?v=20260324b" alt="Mapping intertidal microphytobenthic biomass with very high-resolution remote sensing imagery in an estuarine system" class="publication-image">
+            <div class="publication-card" data-category="Coastal Ecology" onclick="window.open('https://doi.org/10.1016/j.scitotenv.2024.177025', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/mpb_stoten.PNG?v=20260324b" alt="Mapping intertidal microphytobenthic biomass with very high-resolution remote sensing imagery in an estuarine system" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2024 - Science of The Total Environment</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2024 - Science of The Total Environment</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Mapping intertidal microphytobenthic biomass with very high-resolution remote sensing imagery in an estuarine system</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Mapping intertidal microphytobenthic biomass with very high-resolution remote sensing imagery in an estuarine system</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;"><strong>Alejandro Román</strong>, Simon Oiry, Bede F.R. Davies, Philippe Rosa, Pierre Gernez, Antonio Tovar-Sánchez, Gabriel Navarro, Vona Méléder & Laurent Barillé</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"><strong>Alejandro Román</strong>, Simon Oiry, Bede F.R. Davies, Philippe Rosa, Pierre Gernez, Antonio Tovar-Sánchez, Gabriel Navarro, Vona Méléder & Laurent Barillé</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1016/j.scitotenv.2024.177025" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1016/j.scitotenv.2024.177025" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0048969724071821/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0048969724071821/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.scitotenv.2024.177025" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.scitotenv.2024.177025" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1016/j.jag.2024.104124', '_blank')" style="cursor: pointer;">
-                <img src="static/img/penguins_oleg.PNG?v=20260324b" alt="Assessing topographic features and population abundance in an Antarctic penguin colony through UAV-based deep-learning models" class="publication-image">
+            <div class="publication-card" data-category="AI" onclick="window.open('https://doi.org/10.1016/j.jag.2024.104124', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/penguins_oleg.PNG?v=20260324b" alt="Assessing topographic features and population abundance in an Antarctic penguin colony through UAV-based deep-learning models" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2024 - Int. Journal of Applied Earth Observation and Geoinformation</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2024 - Int. Journal of Applied Earth Observation and Geoinformation</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Assessing topographic features and population abundance in an Antarctic penguin colony through UAV-based deep-learning models</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Assessing topographic features and population abundance in an Antarctic penguin colony through UAV-based deep-learning models</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;">Oleg Belyaev, <strong>Alejandro Román</strong>, Josabel Belliure, Gabriel Navarro, Luis Barbero & Antonio Tovar-Sánchez</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Oleg Belyaev, <strong>Alejandro Román</strong>, Josabel Belliure, Gabriel Navarro, Luis Barbero & Antonio Tovar-Sánchez</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1016/j.jag.2024.104124" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1016/j.jag.2024.104124" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S1569843224004783/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S1569843224004783/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.jag.2024.104124" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.jag.2024.104124" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1016/j.rse.2024.114340', '_blank')" style="cursor: pointer;">
-                <img src="static/img/david_rse.PNG?v=20260324b" alt="Intertidal seagrass extent from Sentinel-2 time-series show distinct trajectories in Western Europe" class="publication-image">
+            <div class="publication-card" data-category="Coastal Ecology" onclick="window.open('https://doi.org/10.1016/j.rse.2024.114340', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/david_rse.PNG?v=20260324b" alt="Intertidal seagrass extent from Sentinel-2 time-series show distinct trajectories in Western Europe" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2024 - Remote Sensing of Environment</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2024 - Remote Sensing of Environment</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Intertidal seagrass extent from Sentinel-2 time-series show distinct trajectories in Western Europe</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Intertidal seagrass extent from Sentinel-2 time-series show distinct trajectories in Western Europe</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;">Bede Ffinian Rowe Davies, Simon Oiry, Philippe Rosa, Maria Laura Zoffoli, Ana I.Sousa, Oliver R.Thomas, Dan A.Smale, Melanie C.Austen, Lauren Biermann, Martin J.Attrill, <strong>Alejandro Román</strong>, Gabriel Navarro, Anne-Laure Barillé, Nicolas Harin, Daniel Clewley, Victor Martinez-Vicente, Pierre Gernez & Laurent Barillé</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Bede Ffinian Rowe Davies, Simon Oiry, Philippe Rosa, Maria Laura Zoffoli, Ana I.Sousa, Oliver R.Thomas, Dan A.Smale, Melanie C.Austen, Lauren Biermann, Martin J.Attrill, <strong>Alejandro Román</strong>, Gabriel Navarro, Anne-Laure Barillé, Nicolas Harin, Daniel Clewley, Victor Martinez-Vicente, Pierre Gernez & Laurent Barillé</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1016/j.rse.2024.114340" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1016/j.rse.2024.114340" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0034425724003584/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0034425724003584/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.rse.2024.114340" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.rse.2024.114340" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1038/s43247-024-01543-z', '_blank')" style="cursor: pointer;">
-                <img src="static/img/david_commun.PNG?v=20260324b" alt="A sentinel watching over inter-tidal seagrass phenology across Western Europe and North Africa" class="publication-image">
+            <div class="publication-card" data-category="Coastal Ecology" onclick="window.open('https://doi.org/10.1038/s43247-024-01543-z', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/david_commun.PNG?v=20260324b" alt="A sentinel watching over inter-tidal seagrass phenology across Western Europe and North Africa" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2024 - Communications Earth & Environment</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2024 - Communications Earth & Environment</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">A sentinel watching over inter-tidal seagrass phenology across Western Europe and North Africa</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">A sentinel watching over inter-tidal seagrass phenology across Western Europe and North Africa</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;">Bede Ffinian Rowe Davies, Simon Oiry, Philippe Rosa, Maria Laura Zoffoli, Ana I.Sousa, Oliver R.Thomas, Dan A.Smale, Melanie C.Austen, Lauren Biermann, Martin J.Attrill, <strong>Alejandro Román</strong>, Gabriel Navarro, Anne-Laure Barillé, Nicolas Harin, Daniel Clewley, Victor Martinez-Vicente, Pierre Gernez & Laurent Barillé</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Bede Ffinian Rowe Davies, Simon Oiry, Philippe Rosa, Maria Laura Zoffoli, Ana I.Sousa, Oliver R.Thomas, Dan A.Smale, Melanie C.Austen, Lauren Biermann, Martin J.Attrill, <strong>Alejandro Román</strong>, Gabriel Navarro, Anne-Laure Barillé, Nicolas Harin, Daniel Clewley, Victor Martinez-Vicente, Pierre Gernez & Laurent Barillé</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1038/s43247-024-01543-z" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1038/s43247-024-01543-z" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.nature.com/articles/s43247-024-01543-z.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.nature.com/articles/s43247-024-01543-z.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1038/s43247-024-01543-z" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1038/s43247-024-01543-z" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1038/s41597-024-03045-1', '_blank')" style="cursor: pointer;">
-                <img src="static/img/shetlandsUAVmetry.png?v=20260324b" alt="ShetlandsUAVmetry: unmanned aerial vehicle-based photogrammetric dataset for Antarctic environmental research" class="publication-image">
+            <div class="publication-card" data-category="Polar" onclick="window.open('https://doi.org/10.1038/s41597-024-03045-1', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/shetlandsUAVmetry.png?v=20260324b" alt="ShetlandsUAVmetry: unmanned aerial vehicle-based photogrammetric dataset for Antarctic environmental research" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2024 - Scientific Data</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2024 - Scientific Data</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">ShetlandsUAVmetry: unmanned aerial vehicle-based photogrammetric dataset for Antarctic environmental research</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">ShetlandsUAVmetry: unmanned aerial vehicle-based photogrammetric dataset for Antarctic environmental research</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;"><strong>Alejandro Román</strong>, Gabriel Navarro, Antonio Tovar-Sánchez, Pedro Zarandona, David Roque-Atienza & Luis Barbero</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"><strong>Alejandro Román</strong>, Gabriel Navarro, Antonio Tovar-Sánchez, Pedro Zarandona, David Roque-Atienza & Luis Barbero</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1038/s41597-024-03045-1" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1038/s41597-024-03045-1" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.nature.com/articles/s41597-024-03045-1.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.nature.com/articles/s41597-024-03045-1.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1038/s41597-024-03045-1" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1038/s41597-024-03045-1" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.3390/rs16020290', '_blank')" style="cursor: pointer;">
-                <img src="static/img/mosaicking.PNG?v=20260324b" alt="Enhancing Georeferencing and Mosaicking Techniques over Water Surfaces with High-Resolution Unmanned Aerial Vehicle (UAV) Imagery" class="publication-image">
+            <div class="publication-card" data-category="Ocean Color" onclick="window.open('https://doi.org/10.3390/rs16020290', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/mosaicking.PNG?v=20260324b" alt="Enhancing Georeferencing and Mosaicking Techniques over Water Surfaces with High-Resolution Unmanned Aerial Vehicle (UAV) Imagery" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2024 - Remote Sensing</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2024 - Remote Sensing</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Enhancing Georeferencing and Mosaicking Techniques over Water Surfaces with High-Resolution Unmanned Aerial Vehicle (UAV) Imagery</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Enhancing Georeferencing and Mosaicking Techniques over Water Surfaces with High-Resolution Unmanned Aerial Vehicle (UAV) Imagery</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;"><strong>Alejandro Román</strong>, Sergio Heredia, Anna E. Windle, Antonio Tovar-Sánchez & Gabriel Navarro</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"><strong>Alejandro Román</strong>, Sergio Heredia, Anna E. Windle, Antonio Tovar-Sánchez & Gabriel Navarro</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.3390/rs16020290" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.3390/rs16020290" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.mdpi.com/2072-4292/16/2/290.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.mdpi.com/2072-4292/16/2/290.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.3390/rs16020290" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.3390/rs16020290" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1016/j.jag.2023.103565', '_blank')" style="cursor: pointer;">
-                <img src="static/img/hannahpoint.PNG?v=20260324b" alt="Characterization of an antarctic penguin colony ecosystem using high-resolution UAV hyperspectral imagery" class="publication-image">
+            <div class="publication-card" data-category="Polar" onclick="window.open('https://doi.org/10.1016/j.jag.2023.103565', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/hannahpoint.PNG?v=20260324b" alt="Characterization of an antarctic penguin colony ecosystem using high-resolution UAV hyperspectral imagery" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2023 - Int. Journal of Applied Earth Observation and Geoinformation</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2023 - Int. Journal of Applied Earth Observation and Geoinformation</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Characterization of an antarctic penguin colony ecosystem using high-resolution UAV hyperspectral imagery</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Characterization of an antarctic penguin colony ecosystem using high-resolution UAV hyperspectral imagery</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;"><strong>Alejandro Román</strong>, Antonio Tovar-Sánchez, Beatriz Fernández-Marín, Gabriel Navarro & Luis Barbero</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"><strong>Alejandro Román</strong>, Antonio Tovar-Sánchez, Beatriz Fernández-Marín, Gabriel Navarro & Luis Barbero</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1016/j.jag.2023.103565" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1016/j.jag.2023.103565" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S1569843223003898/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S1569843223003898/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.jag.2023.103565" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.jag.2023.103565" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1016/j.ecss.2023.108432', '_blank')" style="cursor: pointer;">
-                <img src="static/img/oysters.PNG?v=20260324b" alt="Mapping intertidal oyster farms using unmanned aerial vehicles (UAV) high-resolution multispectral data" class="publication-image">
+            <div class="publication-card" data-category="Coastal Ecology" onclick="window.open('https://doi.org/10.1016/j.ecss.2023.108432', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/oysters.PNG?v=20260324b" alt="Mapping intertidal oyster farms using unmanned aerial vehicles (UAV) high-resolution multispectral data" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2023 - Estuarine, Coastal and Shelf Science</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2023 - Estuarine, Coastal and Shelf Science</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Mapping intertidal oyster farms using unmanned aerial vehicles (UAV) high-resolution multispectral data</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Mapping intertidal oyster farms using unmanned aerial vehicles (UAV) high-resolution multispectral data</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;"><strong>Alejandro Román</strong>, Hermansyah Prasyad, Simon Oiry, Bede F.R. Davies, Guillaume Brunier & Laurent Barillé</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"><strong>Alejandro Román</strong>, Hermansyah Prasyad, Simon Oiry, Bede F.R. Davies, Guillaume Brunier & Laurent Barillé</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1016/j.ecss.2023.108432" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1016/j.ecss.2023.108432" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0272771423002226/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0272771423002226/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.ecss.2023.108432" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.ecss.2023.108432" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.3390/rs15010237', '_blank')" style="cursor: pointer;">
-                <img src="static/img/malta.PNG?v=20260324b" alt="Water-Quality Monitoring with a UAV-Mounted Multispectral Camera in Coastal Waters" class="publication-image">
+            <div class="publication-card" data-category="Ocean Color" onclick="window.open('https://doi.org/10.3390/rs15010237', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/malta.PNG?v=20260324b" alt="Water-Quality Monitoring with a UAV-Mounted Multispectral Camera in Coastal Waters" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2023 - Remote Sensing</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2023 - Remote Sensing</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Water-Quality Monitoring with a UAV-Mounted Multispectral Camera in Coastal Waters</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Water-Quality Monitoring with a UAV-Mounted Multispectral Camera in Coastal Waters</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;"><strong>Alejandro Román</strong>, Antonio Tovar-Sánchez, Adam Gauci, Alan Deidun, Isabel Caballero, Emanuele Colica, Sebastiano D'Amico & Gabriel Navarro</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"><strong>Alejandro Román</strong>, Antonio Tovar-Sánchez, Adam Gauci, Alan Deidun, Isabel Caballero, Emanuele Colica, Sebastiano D'Amico & Gabriel Navarro</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.3390/rs15010237" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.3390/rs15010237" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.mdpi.com/2072-4292/15/1/237.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.mdpi.com/2072-4292/15/1/237.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.3390/rs15010237" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.3390/rs15010237" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1007/978-3-031-14486-8_9', '_blank')" style="cursor: pointer;">
-                <img src="static/img/dunbar.PNG?v=20260324b" alt="Remote Sensing: Satellite and RPAS (Remotely Piloted Aircraft System)" class="publication-image">
+            <div class="publication-card" data-category="Ocean Color" onclick="window.open('https://doi.org/10.1007/978-3-031-14486-8_9', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/dunbar.PNG?v=20260324b" alt="Remote Sensing: Satellite and RPAS (Remotely Piloted Aircraft System)" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2022 - Springer</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2022 - Springer</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Remote Sensing: Satellite and RPAS (Remotely Piloted Aircraft System)</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Remote Sensing: Satellite and RPAS (Remotely Piloted Aircraft System)</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;">Martha Bonnet Dunbar, Isabel Caballero, <strong>Alejandro Román</strong> & Gabriel Navarro</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Martha Bonnet Dunbar, Isabel Caballero, <strong>Alejandro Román</strong> & Gabriel Navarro</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1007/978-3-031-14486-8_9" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1007/978-3-031-14486-8_9" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://doi.org/10.1007/978-3-031-14486-8_9" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://doi.org/10.1007/978-3-031-14486-8_9" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1007/978-3-031-14486-8_9" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1007/978-3-031-14486-8_9" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.3389/fmars.2022.1004012', '_blank')" style="cursor: pointer;">
-                <img src="static/img/roca.png?v=20260324b" alt="Monitoring the marine invasive alien species Rugulopteryx okamurae using unmanned aerial vehicles and satellites" class="publication-image">
+            <div class="publication-card" data-category="Coastal Ecology" onclick="window.open('https://doi.org/10.3389/fmars.2022.1004012', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/roca.png?v=20260324b" alt="Monitoring the marine invasive alien species Rugulopteryx okamurae using unmanned aerial vehicles and satellites" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2022 - Frontiers in Marine Science</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2022 - Frontiers in Marine Science</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Monitoring the marine invasive alien species Rugulopteryx okamurae using unmanned aerial vehicles and satellites</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Monitoring the marine invasive alien species Rugulopteryx okamurae using unmanned aerial vehicles and satellites</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;">Mar Roca, Martha Bonnet Dunbar, <strong>Alejandro Román</strong>, Isabel Caballero, Maria Laura Zoffoli, Pierre Gernez & Gabriel Navarro</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Mar Roca, Martha Bonnet Dunbar, <strong>Alejandro Román</strong>, Isabel Caballero, Maria Laura Zoffoli, Pierre Gernez & Gabriel Navarro</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.3389/fmars.2022.1004012" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.3389/fmars.2022.1004012" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2022.1004012/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2022.1004012/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.3389/fmars.2022.1004012" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.3389/fmars.2022.1004012" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1080/15481603.2022.2101702', '_blank')" style="cursor: pointer;">
-                <img src="static/img/gisci.PNG?v=20260324b" alt="High-spatial resolution UAV multispectral data complementing satellite imagery to characterize a chinstrap penguin colony ecosystem on deception island (Antarctica)" class="publication-image">
+            <div class="publication-card" data-category="Polar" onclick="window.open('https://doi.org/10.1080/15481603.2022.2101702', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/gisci.PNG?v=20260324b" alt="High-spatial resolution UAV multispectral data complementing satellite imagery to characterize a chinstrap penguin colony ecosystem on deception island (Antarctica)" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2022 - GIScience & Remote Sensing</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2022 - GIScience & Remote Sensing</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">High-spatial resolution UAV multispectral data complementing satellite imagery to characterize a chinstrap penguin colony ecosystem on deception island (Antarctica)</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">High-spatial resolution UAV multispectral data complementing satellite imagery to characterize a chinstrap penguin colony ecosystem on deception island (Antarctica)</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;"><strong>Alejandro Román</strong>, Gabriel Navarro, Isabel Caballero & Antonio Tovar-Sánchez</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"><strong>Alejandro Román</strong>, Gabriel Navarro, Isabel Caballero & Antonio Tovar-Sánchez</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1080/15481603.2022.2101702" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1080/15481603.2022.2101702" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.tandfonline.com/doi/epdf/10.1080/15481603.2022.2101702?needAccess=true" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.tandfonline.com/doi/epdf/10.1080/15481603.2022.2101702?needAccess=true" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1080/15481603.2022.2101702" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1080/15481603.2022.2101702" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1016/j.scitotenv.2022.157092', '_blank')" style="cursor: pointer;">
-                <img src="static/img/palma_drones.PNG?v=20260324b" alt="Unmanned aerial vehicles (UAVs) as a tool for hazard assessment: The 2021 eruption of Cumbre Vieja volcano, La Palma Island (Spain)" class="publication-image">
+            <div class="publication-card" data-category="Emergencies" onclick="window.open('https://doi.org/10.1016/j.scitotenv.2022.157092', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/palma_drones.PNG?v=20260324b" alt="Unmanned aerial vehicles (UAVs) as a tool for hazard assessment: The 2021 eruption of Cumbre Vieja volcano, La Palma Island (Spain)" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2022 - Science of The Total Environment</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2022 - Science of The Total Environment</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Unmanned aerial vehicles (UAVs) as a tool for hazard assessment: The 2021 eruption of Cumbre Vieja volcano, La Palma Island (Spain)</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Unmanned aerial vehicles (UAVs) as a tool for hazard assessment: The 2021 eruption of Cumbre Vieja volcano, La Palma Island (Spain)</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;"><strong>Alejandro Román</strong>, Antonio Tovar-Sánchez, David Roque-Atienza, I.Emma Huertas, Isabel Caballero, Eugenio Fraile-Nuez & Gabriel Navarro</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"><strong>Alejandro Román</strong>, Antonio Tovar-Sánchez, David Roque-Atienza, I.Emma Huertas, Isabel Caballero, Eugenio Fraile-Nuez & Gabriel Navarro</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1016/j.scitotenv.2022.157092" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1016/j.scitotenv.2022.157092" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0048969722041894/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0048969722041894/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.scitotenv.2022.157092" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.scitotenv.2022.157092" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1016/j.scitotenv.2022.153433', '_blank')" style="cursor: pointer;">
-                <img src="static/img/palma_sat.PNG?v=20260324b" alt="Water quality monitoring with Sentinel-2 and Landsat-8 satellites during the 2021 volcanic eruption in La Palma (Canary Islands)" class="publication-image">
+            <div class="publication-card" data-category="Emergencies" onclick="window.open('https://doi.org/10.1016/j.scitotenv.2022.153433', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/palma_sat.PNG?v=20260324b" alt="Water quality monitoring with Sentinel-2 and Landsat-8 satellites during the 2021 volcanic eruption in La Palma (Canary Islands)" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2022 - Science of The Total Environment</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2022 - Science of The Total Environment</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Water quality monitoring with Sentinel-2 and Landsat-8 satellites during the 2021 volcanic eruption in La Palma (Canary Islands)</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Water quality monitoring with Sentinel-2 and Landsat-8 satellites during the 2021 volcanic eruption in La Palma (Canary Islands)</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;">Isabel Caballero, <strong>Alejandro Román</strong>, Antonio Tovar-Sánchez & Gabriel Navarro</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Isabel Caballero, <strong>Alejandro Román</strong>, Antonio Tovar-Sánchez & Gabriel Navarro</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1016/j.scitotenv.2022.153433" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1016/j.scitotenv.2022.153433" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0048969722005253/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0048969722005253/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.scitotenv.2022.153433" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1016/j.scitotenv.2022.153433" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.1038/s41598-021-01228-z', '_blank')" style="cursor: pointer;">
-                <img src="static/img/tovar.png?v=20260324b" alt="Applications of unmanned aerial vehicles in Antarctic environmental research" class="publication-image">
+            <div class="publication-card" data-category="Polar" onclick="window.open('https://doi.org/10.1038/s41598-021-01228-z', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/tovar.png?v=20260324b" alt="Applications of unmanned aerial vehicles in Antarctic environmental research" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2021 - Scientific Reports</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2021 - Scientific Reports</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Applications of unmanned aerial vehicles in Antarctic environmental research</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Applications of unmanned aerial vehicles in Antarctic environmental research</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;">Antonio Tovar‑Sánchez, <strong>Alejandro Román</strong>, David Roque‑Atienza & Gabriel Navarro</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Antonio Tovar‑Sánchez, <strong>Alejandro Román</strong>, David Roque‑Atienza & Gabriel Navarro</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.1038/s41598-021-01228-z" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.1038/s41598-021-01228-z" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.nature.com/articles/s41598-021-01228-z.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.nature.com/articles/s41598-021-01228-z.pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.1038/s41598-021-01228-z" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.1038/s41598-021-01228-z" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://doi.org/10.3389/fmars.2021.722698', '_blank')" style="cursor: pointer;">
-                <img src="static/img/santi.png?v=20260324b" alt="Using a UAV-Mounted Multispectral Camera for the Monitoring of Marine Macrophytes" class="publication-image">
+            <div class="publication-card" data-category="Coastal Ecology" onclick="window.open('https://doi.org/10.3389/fmars.2021.722698', '_blank')">
+                <div style="overflow: hidden; position: relative;">
+                    <img src="static/img/santi.png?v=20260324b" alt="Using a UAV-Mounted Multispectral Camera for the Monitoring of Marine Macrophytes" class="publication-image">
+                </div>
 
                 <div class="publication-content">
-                    <div>
-                        
-                        <p style="font-size: 0.8rem; color: var(--color-medium-beige); font-weight: 600; margin-bottom: 0.5rem;">2021 - Frontiers in Marine Science</p>
-                        
+                    
+                    <p style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">2021 - Frontiers in Marine Science</p>
+                    
 
-                        <h3 class="publication-title" style="font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.8rem; line-height: 1.4;">Using a UAV-Mounted Multispectral Camera for the Monitoring of Marine Macrophytes</h3>
+                    <h3 class="publication-title" style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Using a UAV-Mounted Multispectral Camera for the Monitoring of Marine Macrophytes</h3>
 
-                        <p class="publication-authors" style="font-size: 0.85rem; color: var(--color-brown); margin-bottom: 1rem; line-height: 1.5;"><strong>Alejandro Román</strong>, Antonio Tovar-Sánchez, Irene Olivé & Gabriel Navarro</p>
-                    </div>
+                    <p class="publication-authors" style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"><strong>Alejandro Román</strong>, Antonio Tovar-Sánchez, Irene Olivé & Gabriel Navarro</p>
 
-                    <div class="publication-links" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-                        <a href="https://doi.org/10.3389/fmars.2021.722698" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 20px; width: auto;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem;">
+                        <a href="https://doi.org/10.3389/fmars.2021.722698" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/DOI_logo.png" alt="DOI" style="height: 16px; width: auto;">
                         </a>
-                        <a href="https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2021.722698/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background-color: var(--bg-tertiary); color: var(--text-primary); border-radius: 5px; font-size: 0.85rem; transition: var(--transition);">
-                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 20px; width: auto;">
+                        <a href="https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2021.722698/pdf" target="_blank" class="pub-link" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; background-color: var(--bg-tertiary); border-radius: 5px; transition: var(--transition);">
+                            <img src="static/img/pdf-svgrepo-com.svg" alt="PDF" style="height: 16px; width: auto;">
                         </a>
-                        <div data-badge-type="donut" data-doi="https://doi.org/10.3389/fmars.2021.722698" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.7); transform-origin: left center;"></div>
+                        <div data-badge-type="donut" data-doi="https://doi.org/10.3389/fmars.2021.722698" data-hide-no-mentions="true" data-badge-popover="right" data-condensed="true" class="altmetric-embed" onclick="event.stopPropagation();" style="transform: scale(0.6); transform-origin: left center;"></div>
                     </div>
                 </div>
             </div>
             
         </div>
+        <div class="pub-pagination"></div>
     </div>
 </section>
+
+<!-- Publication Stats -->
+<section class="pubstats-section">
+    <div class="container">
+        <h2 class="section-title">Publication Stats</h2>
+
+        <!-- Key metrics -->
+        <div class="pubstats-metrics">
+            <div class="pubstats-metric">
+                <span class="pubstats-metric__num" data-count="510">0</span>
+                <span class="pubstats-metric__label">Citations</span>
+                <span class="pubstats-metric__source">Google Scholar</span>
+            </div>
+            <div class="pubstats-metric">
+                <span class="pubstats-metric__num" data-count="12">0</span>
+                <span class="pubstats-metric__label">h-index</span>
+                <span class="pubstats-metric__source">Google Scholar</span>
+            </div>
+            <div class="pubstats-metric">
+                <span class="pubstats-metric__num" data-count="15">0</span>
+                <span class="pubstats-metric__label">i10-index</span>
+                <span class="pubstats-metric__source">Google Scholar</span>
+            </div>
+            <div class="pubstats-metric">
+                <span class="pubstats-metric__num" data-count="10104">0</span>
+                <span class="pubstats-metric__label">Reads</span>
+                <span class="pubstats-metric__source">ResearchGate</span>
+            </div>
+            <div class="pubstats-metric">
+                <span class="pubstats-metric__num" data-count="116">0</span>
+                <span class="pubstats-metric__label">Recommendations</span>
+                <span class="pubstats-metric__source">ResearchGate</span>
+            </div>
+        </div>
+
+        <!-- Citations per year chart + Impact -->
+        <div class="pubstats-row">
+            <!-- Bar chart -->
+            <div class="pubstats-chart-wrap">
+                <h3 class="pubstats-subtitle">Citations per Year</h3>
+                <div class="pubstats-chart">
+                    <div class="pubstats-bar" data-value="30">
+                        <div class="pubstats-bar__fill" style="--target-height: 16%;"></div>
+                        <span class="pubstats-bar__val">30</span>
+                        <span class="pubstats-bar__year">2022</span>
+                    </div>
+                    <div class="pubstats-bar" data-value="70">
+                        <div class="pubstats-bar__fill" style="--target-height: 37%;"></div>
+                        <span class="pubstats-bar__val">70</span>
+                        <span class="pubstats-bar__year">2023</span>
+                    </div>
+                    <div class="pubstats-bar" data-value="140">
+                        <div class="pubstats-bar__fill" style="--target-height: 74%;"></div>
+                        <span class="pubstats-bar__val">140</span>
+                        <span class="pubstats-bar__year">2024</span>
+                    </div>
+                    <div class="pubstats-bar" data-value="190">
+                        <div class="pubstats-bar__fill" style="--target-height: 100%;"></div>
+                        <span class="pubstats-bar__val">190</span>
+                        <span class="pubstats-bar__year">2025</span>
+                    </div>
+                    <div class="pubstats-bar" data-value="80">
+                        <div class="pubstats-bar__fill" style="--target-height: 42%;"></div>
+                        <span class="pubstats-bar__val">80</span>
+                        <span class="pubstats-bar__year">2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Impact -->
+            <div class="pubstats-impact-wrap">
+                <h3 class="pubstats-subtitle">Research Impact</h3>
+                <div class="pubstats-impact">
+                    <div class="pubstats-impact__item">
+                        <div class="pubstats-impact__bar-bg">
+                            <div class="pubstats-impact__bar-fill" style="--target-width: 85%;"></div>
+                        </div>
+                        <p class="pubstats-impact__text">Research Interest Score higher than <strong>85%</strong> of all ResearchGate members</p>
+                    </div>
+                    <div class="pubstats-impact__item">
+                        <div class="pubstats-impact__bar-bg">
+                            <div class="pubstats-impact__bar-fill" style="--target-width: 99%;"></div>
+                        </div>
+                        <p class="pubstats-impact__text">Higher than <strong>99%</strong> of researchers who first published in 2021</p>
+                    </div>
+                    <div class="pubstats-impact__score">
+                        <span class="pubstats-impact__score-num">488.4</span>
+                        <span class="pubstats-impact__score-label">Research Interest Score</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Highlights -->
+<section class="websites-section">
+    <div class="websites-grid">
+        <a href="https://www.sciencedirect.com/science/article/pii/S0048969722041894" target="_blank" class="website-card">
+            <img src="static/img/mostcited.png" alt="Most Cited Article">
+            <div class="website-card__overlay">
+                <h3>Most Cited Article</h3>
+                <span>Science of The Total Environment</span>
+            </div>
+        </a>
+        <a href="https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2021.722698/full" target="_blank" class="website-card">
+            <img src="static/img/mostread.png" alt="Most Read Article">
+            <div class="website-card__overlay">
+                <h3>Most Read Article</h3>
+                <span>Frontiers in Marine Science</span>
+            </div>
+        </a>
+        <a href="https://www.nature.com/articles/s43247-025-03156-6" target="_blank" class="website-card">
+            <img src="static/img/higherelev.png" alt="Higher Relevance">
+            <div class="website-card__overlay">
+                <h3>Higher Relevance</h3>
+                <span>Communications Earth & Environment</span>
+            </div>
+        </a>
+        <a href="https://rodin.uca.es/handle/10498/35986?show=full" target="_blank" class="website-card">
+            <img src="static/img/phdthesis.png" alt="PhD Thesis">
+            <div class="website-card__overlay">
+                <h3>PhD Thesis</h3>
+                <span>University of Cádiz</span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<script>
+(function() {
+    const PER_PAGE = 6;
+    const allItems = Array.from(document.querySelectorAll('.publications-grid .publication-card'));
+    const pagination = document.querySelector('.pub-pagination');
+    let filtered = allItems;
+    let isFirstLoad = true;
+
+    function buildPagination() {
+        while (pagination.firstChild) pagination.removeChild(pagination.firstChild);
+        const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement('button');
+            btn.className = 'pub-page-btn' + (i === 1 ? ' active' : '');
+            btn.dataset.page = String(i);
+            btn.textContent = String(i);
+            btn.addEventListener('click', function() { showPage(i); });
+            pagination.appendChild(btn);
+        }
+    }
+
+    function showPage(page) {
+        const start = (page - 1) * PER_PAGE;
+        const end = start + PER_PAGE;
+
+        allItems.forEach(function(item) { item.style.display = 'none'; });
+
+        filtered.forEach(function(item, i) {
+            if (i >= start && i < end) {
+                item.style.display = '';
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(15px)';
+                setTimeout(function() {
+                    item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, (i - start) * 60);
+            }
+        });
+
+        document.querySelectorAll('.pub-page-btn').forEach(function(btn) {
+            btn.classList.toggle('active', parseInt(btn.dataset.page) === page);
+        });
+
+        if (!isFirstLoad) {
+            document.querySelector('.pub-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        isFirstLoad = false;
+    }
+
+    // Filter buttons
+    document.querySelectorAll('.pub-section .media-filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var filter = btn.dataset.filter;
+            document.querySelectorAll('.pub-section .media-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+
+            filtered = filter === 'all'
+                ? allItems
+                : allItems.filter(function(card) { return card.dataset.category === filter; });
+
+            isFirstLoad = false;
+            buildPagination();
+            showPage(1);
+        });
+    });
+
+    buildPagination();
+    showPage(1);
+})();
+
+// Stats animated counters + chart reveal
+(function() {
+    function animateCount(el, target) {
+        var isDecimal = String(target).indexOf('.') !== -1;
+        var duration = 1200;
+        var start = performance.now();
+        function step(now) {
+            var progress = Math.min((now - start) / duration, 1);
+            var ease = 1 - Math.pow(1 - progress, 3);
+            var val = ease * target;
+            el.textContent = isDecimal ? val.toFixed(1) : Math.round(val).toLocaleString();
+            if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+
+    var statsObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                // Animate counters
+                entry.target.querySelectorAll('.pubstats-metric__num').forEach(function(el) {
+                    var count = parseFloat(el.dataset.count);
+                    if (!isNaN(count)) animateCount(el, count);
+                });
+                // Animate bars
+                entry.target.querySelectorAll('.pubstats-bar__fill').forEach(function(bar, i) {
+                    setTimeout(function() {
+                        bar.style.height = bar.style.getPropertyValue('--target-height');
+                    }, i * 120);
+                });
+                // Animate impact bars
+                entry.target.querySelectorAll('.pubstats-impact__bar-fill').forEach(function(bar, i) {
+                    setTimeout(function() {
+                        bar.style.width = bar.style.getPropertyValue('--target-width');
+                    }, i * 200 + 400);
+                });
+                statsObs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    var section = document.querySelector('.pubstats-section');
+    if (section) statsObs.observe(section);
+})();
+</script>
 
     </main>
 

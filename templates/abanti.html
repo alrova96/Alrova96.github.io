@@ -3,147 +3,108 @@
 {% block title %}ABANTI Project - {{ site.title }}{% endblock %}
 
 {% block content %}
-<!-- Hero Header with Background Image -->
-<section style="position: relative; height: 400px; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('static/img/snowalgaecharrua.png'); background-size: cover; background-position: center;"></div>
+<div class="project-page">
+
+<!-- Hero Header -->
+<section style="position: relative; height: 260px; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('static/img/snowalgaecharrua.png'); background-size: cover; background-position: center center;"></div>
     <div class="container" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
         <h1 style="color: white; font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">ABANTI</h1>
-        <p style="color: var(--color-light-beige); font-size: 1.4rem; max-width: 800px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
-            Spatio-temporal Analysis of Snow Algae Blooms using Drone Remote Sensing in Antarctic Coastal Environments
-        </p>
+        <p style="color: var(--color-light-beige); font-size: 1.4rem; max-width: 800px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">Spatio-temporal Analysis of Snow Algae Blooms using Drone Remote Sensing in Antarctic Coastal Environments</p>
     </div>
 </section>
 
-<!-- Team Section -->
-<section style="background-color: white;">
+<!-- Team -->
+<section class="pj-white">
     <div class="container">
         <h2 class="section-title">Research Team</h2>
-
-        <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; max-width: 800px; margin: 0 auto;">
-            <!-- Alejandro Román -->
-            <div style="text-align: center;">
-                <img src="static/img/alejandroroman.png" alt="Alejandro Román" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-bottom: 1rem;">
-                <h3 style="color: var(--color-dark); font-size: 1.1rem; margin-bottom: 0.3rem;">Alejandro Román</h3>
-                <p style="color: var(--color-brown); font-size: 0.9rem;">Postdoctoral Researcher</p>
+        <div class="pj-team">
+            <div class="pj-member">
+                <img src="static/img/alejandroroman.png" alt="Alejandro Román">
+                <h3>Alejandro Román</h3>
+                <p>Postdoctoral Researcher</p>
             </div>
-
-            <!-- Beatriz Fernández-Marín -->
-            <div style="text-align: center;">
-                <img src="static/img/beatrizfernandez.png" alt="Beatriz Fernández-Marín" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-bottom: 1rem;">
-                <h3 style="color: var(--color-dark); font-size: 1.1rem; margin-bottom: 0.3rem;">Beatriz Fernández-Marín</h3>
-                <p style="color: var(--color-brown); font-size: 0.9rem;">Research Scientist</p>
+            <div class="pj-member">
+                <img src="static/img/beatrizfernandez.png" alt="Beatriz Fernández-Marín">
+                <h3>Beatriz Fernández-Marín</h3>
+                <p>Research Scientist</p>
             </div>
-
-            <!-- JAE Intro Candidate -->
-            <div style="text-align: center;">
-                <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--color-light-beige); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-bottom: 1rem;">
-                    <span style="font-size: 3rem; color: var(--color-medium-beige);">?</span>
-                </div>
-                <h3 style="color: var(--color-dark); font-size: 1.1rem; margin-bottom: 0.3rem;">JAE Intro Candidate</h3>
-                <p style="color: var(--color-brown); font-size: 0.9rem;">Research Assistant</p>
+            <div class="pj-member">
+                <div class="pj-placeholder">?</div>
+                <h3>JAE Intro Candidate</h3>
+                <p>Research Assistant</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- JAE Intro POLARCSIC -->
-<section style="background-color: var(--color-light-beige);">
+<!-- About ABANTI -->
+<section class="pj-alt">
     <div class="container">
-        <h2 class="section-title">JAE Intro POLARCSIC</h2>
-
-        <div style="max-width: 900px; margin: 0 auto;">
-            <p style="text-align: justify; line-height: 1.6; color: var(--color-dark); font-size: 1.05rem;">
-                ABANTI aims to study the <span class="highlight">spatio-temporal evolution of massive snow algae blooms</span> on Livingston Island (South Shetland Islands, Antarctica), a growing phenomenon that has significant implications for snow melting, biodiversity, and the biogeochemistry of Antarctic ecosystems - currently a topic of great international interest.
-            </p>
-            <p style="text-align: justify; line-height: 1.6; color: var(--color-dark); font-size: 1.05rem; margin-top: 1rem;">
-                The research focuses on analyzing remote sensing data and integrating it with biochemical pigment data. Data and biological samples will come from previous Antarctic campaigns (<span class="highlight">PiMetAn</span> 2021-2022, RTI2018-098048B-100) and upcoming 2025/2026 expeditions (<span class="highlight">POLAROMICS PID2023-146919NB-C21</span> and <span class="highlight">POPEYE PID2022-139455NB-C32</span>), led by the research groups of the principal investigators.
-            </p>
-            <p style="text-align: justify; line-height: 1.6; color: var(--color-dark); font-size: 1.05rem; margin-top: 1rem;">
-                This research represents a unique opportunity to integrate two complementary and rarely combined approaches - <span class="highlight">remote sensing and polar plant physiology</span> - together with artificial intelligence techniques in a context of high scientific relevance linked to climate change. It aligns with the main objective of the PolarCSIC network to create connections and foster the training of young researchers in remote sensing and biology applied to polar research.
-            </p>
+        <h2 class="section-title">ABANTI</h2>
+        <div class="pj-text">
+            <p>ABANTI aims to study the <span class="highlight">spatio-temporal evolution of massive snow algae blooms</span> on Livingston Island (South Shetland Islands, Antarctica), a growing phenomenon that has significant implications for snow melting, biodiversity, and the biogeochemistry of Antarctic ecosystems - currently a topic of great international interest.</p>
+            <p>The research focuses on analyzing remote sensing data and integrating it with biochemical pigment data. Data and biological samples will come from previous Antarctic campaigns (<span class="highlight">PiMetAn</span> 2021-2022, RTI2018-098048B-100) and upcoming 2025/2026 expeditions (<span class="highlight">POLAROMICS PID2023-146919NB-C21</span> and <span class="highlight">POPEYE PID2022-139455NB-C32</span>), led by the research groups of the principal investigators.</p>
+            <p>This research represents a unique opportunity to integrate two complementary and rarely combined approaches - <span class="highlight">remote sensing and polar plant physiology</span> - together with artificial intelligence techniques in a context of high scientific relevance linked to climate change.</p>
         </div>
     </div>
 </section>
 
-<!-- Study Site Images -->
-<section style="background-color: white;">
-    <div class="container">
+<!-- Snow Algae Blooms -->
+<section class="pj-white">
+    <div class="container" style="padding-bottom: 0;">
         <h2 class="section-title">Snow Algae Blooms on Livingston Island</h2>
-
-        <div style="max-width: 1000px; margin: 0 auto;">
-            <p style="text-align: center; line-height: 1.6; color: var(--color-dark); font-size: 1.1rem; margin-bottom: 3rem;">
-                The South Shetland Islands are experiencing unprecedented <span class="highlight">snow algae bloom events</span>, transforming pristine white snowfields into colorful biological hotspots.
-            </p>
-
-            <!-- Three Column Grid -->
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
-                <div style="text-align: center;">
-                    <img src="static/img/snowalgae1.png" alt="Snow Algae Bloom 1" style="width: 100%; height: 250px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-                </div>
-                <div style="text-align: center;">
-                    <img src="static/img/snowalgae2.png" alt="Snow Algae Bloom 2" style="width: 100%; height: 250px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-                </div>
-                <div style="text-align: center;">
-                    <img src="static/img/snowalgae3.png" alt="Snow Algae Bloom 3" style="width: 100%; height: 250px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-                </div>
-            </div>
-        </div>
+        <p style="text-align: center; color: var(--text-primary); font-size: 0.95rem; margin-bottom: 1.5rem; max-width: 650px; margin-left: auto; margin-right: auto;">The South Shetland Islands are experiencing unprecedented <span class="highlight">snow algae bloom events</span>, transforming pristine white snowfields into colorful biological hotspots.</p>
+    </div>
+    <div class="websites-grid" style="grid-template-columns: repeat(3, 1fr); gap: 0;">
+        <a class="website-card" style="cursor: default; border-radius: 0; aspect-ratio: 4/3;">
+            <img src="static/img/snowalgae1.png" alt="Snow Algae Bloom 1">
+        </a>
+        <a class="website-card" style="cursor: default; border-radius: 0; aspect-ratio: 4/3;">
+            <img src="static/img/snowalgae2.png" alt="Snow Algae Bloom 2">
+        </a>
+        <a class="website-card" style="cursor: default; border-radius: 0; aspect-ratio: 4/3;">
+            <img src="static/img/snowalgae3.png" alt="Snow Algae Bloom 3">
+        </a>
     </div>
 </section>
 
-<!-- JAE Intro Tasks -->
-<section style="background-color: var(--color-light-beige);">
+<!-- Training Program -->
+<section class="pj-alt">
     <div class="container">
         <h2 class="section-title">JAE Intro Training Program</h2>
-
-        <div style="max-width: 900px; margin: 0 auto;">
-            <p style="text-align: center; line-height: 1.6; color: var(--color-dark); font-size: 1.1rem; margin-bottom: 3rem;">
-                The selected candidate will develop their activity at <span class="highlight">ICMAN-CSIC</span> under the supervision of Dr. Román and co-direction of Dr. Fernández-Marín (UPV/EHU), including a 2-week stay at UPV/EHU facilities.
-            </p>
-
-            <div style="display: grid; gap: 1.5rem;">
-                <div style="display: flex; gap: 1rem; align-items: start;">
-                    <div style="min-width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-medium-beige); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">1</div>
-                    <div style="padding-top: 0.5rem;">
-                        <h3 style="color: var(--color-dark); font-size: 1.1rem; margin-bottom: 0.5rem;">Spectral Data Analysis from Drones</h3>
-                        <p style="line-height: 1.6; color: var(--color-brown);">Training in the analysis of spectral data obtained through drone-based remote sensing for mapping snow algae blooms</p>
-                    </div>
-                </div>
-
-                <div style="display: flex; gap: 1rem; align-items: start;">
-                    <div style="min-width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-medium-beige); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">2</div>
-                    <div style="padding-top: 0.5rem;">
-                        <h3 style="color: var(--color-dark); font-size: 1.1rem; margin-bottom: 0.5rem;">Artificial Intelligence Techniques</h3>
-                        <p style="line-height: 1.6; color: var(--color-brown);">Application of AI techniques to optimize the spatio-temporal analysis of snow algae blooms</p>
-                    </div>
-                </div>
-
-                <div style="display: flex; gap: 1rem; align-items: start;">
-                    <div style="min-width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-medium-beige); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">3</div>
-                    <div style="padding-top: 0.5rem;">
-                        <h3 style="color: var(--color-dark); font-size: 1.1rem; margin-bottom: 0.5rem;">Pigment Analysis via HPLC</h3>
-                        <p style="line-height: 1.6; color: var(--color-brown);">Processing, identification, and quantification of pigments through high-performance liquid chromatography (HPLC)</p>
-                    </div>
-                </div>
-
-                <div style="display: flex; gap: 1rem; align-items: start;">
-                    <div style="min-width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-medium-beige); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">4</div>
-                    <div style="padding-top: 0.5rem;">
-                        <h3 style="color: var(--color-dark); font-size: 1.1rem; margin-bottom: 0.5rem;">Scientific Publication Preparation</h3>
-                        <p style="line-height: 1.6; color: var(--color-brown);">Training in preparing results for publication in high-impact scientific journals</p>
-                    </div>
-                </div>
+        <p style="text-align: center; color: var(--text-primary); font-size: 0.95rem; margin-bottom: 1.5rem; max-width: 650px; margin-left: auto; margin-right: auto;">The selected candidate will develop their activity at <span class="highlight">ICMAN-CSIC</span> under the supervision of Dr. Román and co-direction of Dr. Fernández-Marín (UPV/EHU).</p>
+        <div style="max-width: 850px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+            <div style="padding: 1.25rem; border-radius: 12px; background: var(--card-bg); text-align: center;">
+                <i class="fas fa-satellite" style="font-size: 1.5rem; color: var(--color-medium-beige); margin-bottom: 0.6rem; display: block;"></i>
+                <h3 style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0 0 0.3rem;">Spectral Data Analysis</h3>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Drone-based remote sensing for mapping snow algae blooms</p>
             </div>
-
-            <div style="margin-top: 3rem; padding: 2rem; background-color: white; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                <h3 style="color: var(--color-medium-beige); text-align: center; margin-bottom: 1rem;">Program Details</h3>
-                <p style="text-align: center; line-height: 1.6; color: var(--color-dark);">
-                    <strong>Duration:</strong> 6 months<br>
-                    <strong>Dedication:</strong> 20 hours/week (on-site)<br>
-                    <strong>Location:</strong> ICMAN-CSIC (Cádiz) + 2-week stay at UPV/EHU (Basque Country)
-                </p>
+            <div style="padding: 1.25rem; border-radius: 12px; background: var(--card-bg); text-align: center;">
+                <i class="fas fa-brain" style="font-size: 1.5rem; color: var(--color-medium-beige); margin-bottom: 0.6rem; display: block;"></i>
+                <h3 style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0 0 0.3rem;">Artificial Intelligence</h3>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">AI techniques for spatio-temporal analysis optimization</p>
             </div>
+            <div style="padding: 1.25rem; border-radius: 12px; background: var(--card-bg); text-align: center;">
+                <i class="fas fa-microscope" style="font-size: 1.5rem; color: var(--color-medium-beige); margin-bottom: 0.6rem; display: block;"></i>
+                <h3 style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0 0 0.3rem;">Pigment Analysis (HPLC)</h3>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Identification and quantification of pigments via chromatography</p>
+            </div>
+            <div style="padding: 1.25rem; border-radius: 12px; background: var(--card-bg); text-align: center;">
+                <i class="fas fa-file-alt" style="font-size: 1.5rem; color: var(--color-medium-beige); margin-bottom: 0.6rem; display: block;"></i>
+                <h3 style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0 0 0.3rem;">Scientific Publishing</h3>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Preparation for high-impact journal publication</p>
+            </div>
+        </div>
+
+        <div class="pj-info-box">
+            <h3>Program Details</h3>
+            <p><strong>Duration:</strong> 6 months &nbsp;·&nbsp; <strong>Dedication:</strong> 20 hours/week (on-site)<br><strong>Location:</strong> ICMAN-CSIC (Cádiz) + 2-week stay at UPV/EHU (Basque Country)</p>
         </div>
     </div>
 </section>
+
+<p class="pj-coming-soon">More info coming soon!</p>
+
+</div>
 {% endblock %}

@@ -51,160 +51,95 @@
     </div>
 </section>
 
-<!-- Research Lines Section -->
-<section style="background-color: white;">
+<!-- Research Lines -->
+<section class="research-section">
     <div class="container">
         <h2 class="section-title">Research Lines</h2>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-            <!-- Research Card 1: Momentum CSIC Program -->
-            <div class="research-line-card" style="position: relative; height: 350px; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15); cursor: pointer;">
-                <div class="research-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('static/img/momentum.png'); background-size: cover; background-position: center; transition: transform 0.3s ease;"></div>
-                <div class="research-content" style="position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-                    <h3 style="color: white; font-size: 1.8rem; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">Momentum CSIC Program</h3>
+        <div class="research-grid">
+            <div class="research-card">
+                <div class="research-card__img" style="background-image: url('static/img/momentum.png')"></div>
+                <div class="research-card__content">
+                    <h3 class="research-card__title">Momentum CSIC Program</h3>
                 </div>
-                <div class="research-description" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-dark); opacity: 0; padding: 2rem; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s ease; z-index: 3;">
-                    <p style="color: white; text-align: center; font-size: 1rem; line-height: 1.6;">DIGIDRON Project: Development of emerging technologies for digitalization and data processing for the study of coastal environmental phenomena using sensors mounted on drones.</p>
-                </div>
-            </div>
-
-            <!-- Research Card 2: Polar Research -->
-            <div class="research-line-card" style="position: relative; height: 350px; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15); cursor: pointer;">
-                <div class="research-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('static/img/polar.png'); background-size: cover; background-position: center; transition: transform 0.3s ease;"></div>
-                <div class="research-content" style="position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-                    <h3 style="color: white; font-size: 1.8rem; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">Polar Research</h3>
-                </div>
-                <div class="research-description" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-dark); opacity: 0; padding: 2rem; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s ease; z-index: 3;">
-                    <p style="color: white; text-align: center; font-size: 1rem; line-height: 1.6;">An approach to the study of environmental phenomena affected by climate change, such as the evolution of Antarctic penguin colonies and the emergence of snow algal blooms in coastal snowfields.</p>
+                <div class="research-card__desc">
+                    DIGIDRON Project: Development of emerging technologies for digitalization and data processing for the study of coastal environmental phenomena using sensors mounted on drones.
                 </div>
             </div>
 
-            <!-- Research Card 3: Ocean Color -->
-            <div class="research-line-card" style="position: relative; height: 350px; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15); cursor: pointer;">
-                <div class="research-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('static/img/waterquality.png'); background-size: cover; background-position: center; transition: transform 0.3s ease;"></div>
-                <div class="research-content" style="position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-                    <h3 style="color: white; font-size: 1.8rem; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">Ocean Color</h3>
+            <div class="research-card">
+                <div class="research-card__img" style="background-image: url('static/img/polar.png')"></div>
+                <div class="research-card__content">
+                    <h3 class="research-card__title">Polar Research</h3>
                 </div>
-                <div class="research-description" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-dark); opacity: 0; padding: 2rem; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s ease; z-index: 3;">
-                    <p style="color: white; text-align: center; font-size: 1rem; line-height: 1.6;">Development of marine optics algorithms for the detection at local scale and monitoring of water quality in coastal regions using multi- and hyperspectral sensors deployable on drones.</p>
+                <div class="research-card__desc">
+                    An approach to the study of environmental phenomena affected by climate change, such as the evolution of Antarctic penguin colonies and the emergence of snow algal blooms in coastal snowfields.
                 </div>
             </div>
 
-            <!-- Research Card 4: Emergencies -->
-            <div class="research-line-card" style="position: relative; height: 350px; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15); cursor: pointer;">
-                <div class="research-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('static/img/emergencies.png'); background-size: cover; background-position: center; transition: transform 0.3s ease;"></div>
-                <div class="research-content" style="position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-                    <h3 style="color: white; font-size: 1.8rem; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">Emergencies</h3>
+            <div class="research-card">
+                <div class="research-card__img" style="background-image: url('static/img/waterquality.png')"></div>
+                <div class="research-card__content">
+                    <h3 class="research-card__title">Ocean Color</h3>
                 </div>
-                <div class="research-description" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-dark); opacity: 0; padding: 2rem; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s ease; z-index: 3;">
-                    <p style="color: white; text-align: center; font-size: 1rem; line-height: 1.6;">Use of drone technology and its integration with artificial intelligence to provide scientific support in emergency situations such as volcanic eruptions, wildfires, or floods.</p>
+                <div class="research-card__desc">
+                    Development of marine optics algorithms for the detection at local scale and monitoring of water quality in coastal regions using multi- and hyperspectral sensors deployable on drones.
+                </div>
+            </div>
+
+            <div class="research-card">
+                <div class="research-card__img" style="background-image: url('static/img/emergencies.png')"></div>
+                <div class="research-card__content">
+                    <h3 class="research-card__title">Emergencies</h3>
+                </div>
+                <div class="research-card__desc">
+                    Use of drone technology and its integration with artificial intelligence to provide scientific support in emergency situations such as volcanic eruptions, wildfires, or floods.
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<script>
-// Add hover effect for research cards
-document.addEventListener('DOMContentLoaded', function() {
-    const researchCards = document.querySelectorAll('.research-line-card');
-
-    researchCards.forEach(card => {
-        const bg = card.querySelector('.research-bg');
-        const description = card.querySelector('.research-description');
-
-        card.addEventListener('mouseenter', function() {
-            if (bg) bg.style.transform = 'scale(1.05)';
-            if (description) description.style.opacity = '1';
-        });
-
-        card.addEventListener('mouseleave', function() {
-            if (bg) bg.style.transform = 'scale(1)';
-            if (description) description.style.opacity = '0';
-        });
-    });
-});
-</script>
-
 <!-- Academic Activity -->
-<section style="background-color: var(--bg-secondary);">
+<section class="activity-section">
     <div class="container">
         <h2 class="section-title">Academic Activity</h2>
 
-        <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem; padding: 2rem 1rem;">
-            <!-- Publications -->
-            <div style="text-align: center;">
-                <div style="font-size: 2rem; color: var(--color-dark); margin-bottom: 0.5rem;">
-                    <i class="fas fa-book"></i>
-                </div>
-                <div style="font-size: 1rem; color: var(--color-dark);">
-                    <span style="font-weight: 700;">21</span> Publications
-                </div>
+        <div class="activity-stats">
+            <div class="activity-stat">
+                <span class="activity-stat__num" data-count="21">0</span>
+                <span class="activity-stat__label">Publications</span>
             </div>
-
-            <!-- Conferences -->
-            <div style="text-align: center;">
-                <div style="font-size: 2rem; color: var(--color-dark); margin-bottom: 0.5rem;">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                </div>
-                <div style="font-size: 1rem; color: var(--color-dark);">
-                    <span style="font-weight: 700;">17</span> Conferences
-                </div>
+            <div class="activity-stat">
+                <span class="activity-stat__num" data-count="17">0</span>
+                <span class="activity-stat__label">Conferences</span>
             </div>
-
-            <!-- International Calls -->
-            <div style="text-align: center;">
-                <div style="font-size: 2rem; color: var(--color-dark); margin-bottom: 0.5rem;">
-                    <i class="fas fa-globe"></i>
-                </div>
-                <div style="font-size: 1rem; color: var(--color-dark);">
-                    <span style="font-weight: 700;">6</span> International Calls
-                </div>
+            <div class="activity-stat">
+                <span class="activity-stat__num" data-count="6">0</span>
+                <span class="activity-stat__label">International Calls</span>
             </div>
-
-            <!-- Antarctic Campaigns -->
-            <div style="text-align: center;">
-                <div style="font-size: 2rem; color: var(--color-dark); margin-bottom: 0.5rem;">
-                    <i class="fas fa-snowflake"></i>
-                </div>
-                <div style="font-size: 1rem; color: var(--color-dark);">
-                    <span style="font-weight: 700;">2</span> Antarctic Campaigns
-                </div>
+            <div class="activity-stat">
+                <span class="activity-stat__num" data-count="2">0</span>
+                <span class="activity-stat__label">Antarctic Campaigns</span>
             </div>
-
-            <!-- Project as IP -->
-            <div style="text-align: center;">
-                <div style="font-size: 2rem; color: var(--color-dark); margin-bottom: 0.5rem;">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <div style="font-size: 1rem; color: var(--color-dark);">
-                    <span style="font-weight: 700;">1</span> Project as IP
-                </div>
-            </div>
-
-            <!-- POLARCSIC-Hub Coordinator -->
-            <div style="text-align: center;">
-                <div style="font-size: 2rem; color: var(--color-dark); margin-bottom: 0.5rem;">
-                    <i class="fas fa-network-wired"></i>
-                </div>
-                <div style="font-size: 1rem; color: var(--color-dark);">
-                    <span style="font-weight: 700;">POLARCSIC-Hub</span> Coordinator
-                </div>
-            </div>
-
-            <!-- Antarctica Insync WG -->
-            <div style="text-align: center;">
-                <div style="font-size: 2rem; color: var(--color-dark); margin-bottom: 0.5rem;">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div style="font-size: 1rem; color: var(--color-dark);">
-                    <span style="font-weight: 700;">Antarctica Insync WG</span>
-                </div>
+            <div class="activity-stat">
+                <span class="activity-stat__num" data-count="1">0</span>
+                <span class="activity-stat__label">Project as IP</span>
             </div>
         </div>
 
-        <!-- View More Link -->
-        <div style="text-align: center; margin-top: 2rem;">
+        <div class="activity-roles">
+            <div class="activity-role">
+                <i class="fas fa-network-wired"></i>
+                <span><strong>POLARCSIC-Hub</strong> Coordinator</span>
+            </div>
+            <div class="activity-role">
+                <i class="fas fa-users"></i>
+                <span><strong>Antarctica Insync</strong> Working Group</span>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;">
             <a href="about.html" class="btn">
                 Learn more about me!
                 <i class="fas fa-arrow-right"></i>
@@ -305,17 +240,62 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
-<!-- Call to Action -->
-<section style="background-color: var(--bg-secondary);">
-    <div class="container" style="text-align: center;">
+<!-- Let's Connect -->
+<section class="cta-connect">
+    <div class="container">
         <h2 class="section-title">Let's Connect</h2>
-        <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+        <p class="cta-connect__text">
             Interested in collaboration or want to learn more about my research? Feel free to reach out!
         </p>
-        <a href="mailto:{{ site.email }}" class="btn" style="font-size: 1.1rem; padding: 1.2rem 2.5rem;">
+        <div class="cta-connect__social">
+            <a href="mailto:{{ site.email }}" class="cta-connect__social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="{{ site.twitter }}" target="_blank" class="cta-connect__social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="{{ site.github }}" target="_blank" class="cta-connect__social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="{{ site.linkedin }}" target="_blank" class="cta-connect__social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="{{ site.researchgate }}" target="_blank" class="cta-connect__social-link" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+            <a href="{{ site.google_scholar }}" target="_blank" class="cta-connect__social-link" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="{{ site.orcid }}" target="_blank" class="cta-connect__social-link" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
+        </div>
+        <a href="mailto:{{ site.email }}" class="btn" style="font-size: 1.1rem; padding: 1.1rem 2.5rem;">
             <i class="fas fa-envelope"></i>
             Contact Me
         </a>
     </div>
 </section>
+
+<script>
+    // Counter animation on scroll
+    function animateCounter(el, target) {
+        let current = 0;
+        const step = target / 35;
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                el.textContent = target;
+                clearInterval(timer);
+            } else {
+                el.textContent = Math.round(current);
+            }
+        }, 30);
+    }
+
+    const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const numEl = entry.target.querySelector('.activity-stat__num');
+                if (numEl) {
+                    const count = parseInt(numEl.dataset.count);
+                    if (!isNaN(count)) animateCounter(numEl, count);
+                }
+                entry.target.classList.add('is-visible');
+                statObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.activity-stat').forEach((stat, i) => {
+        stat.style.transitionDelay = `${i * 0.08}s`;
+        statObserver.observe(stat);
+    });
+</script>
 {% endblock %}

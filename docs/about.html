@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/styles.css?v=20260524">
 
     
 </head>
@@ -77,89 +77,134 @@
 </section>
 
 <!-- Background Section -->
-<section style="background-color: var(--color-light-beige);">
+<section class="about-background">
     <div class="container">
         <h2 class="section-title">My Background</h2>
 
-        <div style="max-width: 900px; margin: 0 auto;">
-            <!-- Paragraph 1 with image on the left -->
-            <div style="display: grid; grid-template-columns: 180px 1fr; gap: 2rem; align-items: center; margin-bottom: 0.75rem;">
-                <img src="static/img/About_gradu.jpg" alt="Graduation" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                <div style="text-align: justify;">
-                    <p style="line-height: 1.5;">
+        <div class="collage-grid">
+
+            <!-- Chapter 1: Education -->
+            <div class="collage-card">
+                <div class="card-photo-wrap">
+                    <img src="static/img/About_gradu.jpg" alt="Graduation at University of Cádiz">
+                </div>
+                <div class="card-caption">
+                    <span class="card-year">2016 — 2019</span>
+                    <h3 class="card-title">BSc & MSc</h3>
+                    <span class="card-toggle">+</span>
+                </div>
+                <div class="card-body">
+                    <p>
                         Prior to joining ICMAN-CSIC, I completed a <span class="highlight">Bachelor's degree in Marine Sciences</span> and a <span class="highlight">Master's degree in Oceanography</span> at the <span class="highlight">University of Cádiz (UCA, Spain)</span>. In 2017, during the third year of my Bachelor's program, I began collaborating on scientific research with <span class="highlight">Dr. Laura del Río</span> in the Department of Earth Sciences. Later, I received a <span class="highlight">Collaboration Scholarship</span> to support my Master's thesis project under the supervision of <span class="highlight">Professor Dr. Luis Barbero</span>. For this project, I used drone technology equipped with thermal sensors to detect submarine groundwater discharges in coastal areas.
                     </p>
                 </div>
             </div>
 
-            <!-- Paragraph 2 with images on the right -->
-            <div style="display: grid; grid-template-columns: 1fr 180px; gap: 2rem; align-items: center; margin-bottom: 0.75rem;">
-                <div style="text-align: justify;">
-                    <p style="line-height: 1.5;">
+            <!-- Chapter 2: PhD -->
+            <div class="collage-card">
+                <div class="card-photo-wrap card-photo-wrap--stacked">
+                    <img src="static/img/About_icman.jpg" alt="ICMAN-CSIC" class="photo-back">
+                    <img src="static/img/About_phd.png" alt="PhD Completion" class="photo-front">
+                </div>
+                <div class="card-caption">
+                    <span class="card-year">2020 — 2024</span>
+                    <h3 class="card-title">PhD Research</h3>
+                    <span class="card-toggle">+</span>
+                </div>
+                <div class="card-body">
+                    <p>
                         In 2020, I began my scientific career at the Institute of Marine Sciences of Andalusia (ICMAN-CSIC, Spain), where I pursued a <span class="highlight">PhD focused on developing remote sensing tools and using sensors onboard drones to study coastal environmental processes</span>. Funded by the <span class="highlight">PhD Fellowship for University Staff Training (FPU, ref: FPU19/04557)</span>, I worked under <span class="highlight">Dr. Antonio Tovar-Sánchez and Dr. Gabriel Navarro</span>. During this period, I specialized in researching various marine ecosystems and characterizing diverse coastal environmental processes, such as seagrass meadows, penguin colonies, and algal blooms. I participated in <span class="highlight">six research projects</span>, including two polar projects (PiMetAn and DICHOSO), and published <span class="highlight">17 peer-reviewed articles, ten as first author</span>, in leading journals in Remote Sensing, Oceanography, and Multidisciplinary Sciences. I completed <span class="highlight">my PhD in July 2024</span>, graduating with the highest honors, <span class="highlight">summa cum laude</span>.
                     </p>
                 </div>
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <img src="static/img/About_icman.jpg" alt="ICMAN" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                    <img src="static/img/About_phd.png" alt="PhD" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                </div>
             </div>
 
-            <!-- Paragraph 3 with images on the left -->
-            <div style="display: grid; grid-template-columns: 180px 1fr; gap: 2rem; align-items: center; margin-bottom: 0.75rem;">
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <img src="static/img/About_nantes.png" alt="Nantes" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                    <img src="static/img/About_us.png" alt="USA" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            <!-- Chapter 3: Research Stays -->
+            <div class="collage-card">
+                <div class="card-photo-wrap card-photo-wrap--stacked">
+                    <img src="static/img/About_nantes.png" alt="Nantes University" class="photo-back">
+                    <img src="static/img/About_us.png" alt="University of Maryland" class="photo-front">
                 </div>
-                <div style="text-align: justify;">
-                    <p style="line-height: 1.5;">
+                <div class="card-caption">
+                    <span class="card-year">2022 — 2024</span>
+                    <h3 class="card-title">Research Stays</h3>
+                    <span class="card-toggle">+</span>
+                </div>
+                <div class="card-body">
+                    <p>
                         I also shared my work with broader audiences at national and international conferences and expanded my training through <span class="highlight">three research stays abroad</span>. From February to June 2022, at the <span class="highlight">University of Malta</span> under the supervision of <span class="highlight">Dr. Adam Gauci</span>, I enhanced my Python programming skills specifically for drone operations over aquatic surfaces. Later, from October to November 2022, I was at the <span class="highlight">University of Nantes</span>, collaborating with <span class="highlight">Dr. Laurent Barillé</span> on multispectral monitoring of oyster farming areas and the study of microphytobenthos in estuarine systems. Finally, from September 2023 to February 2024, I developed <span class="highlight">Python-based techniques</span> to improve marine optics algorithms for water quality studies using multispectral drone sensors at the <span class="highlight">University of Maryland</span>. This research stay was funded by a <span class="highlight">Fulbright scholarship</span> and supervised by <span class="highlight">Dr. Greg Silsbe</span>.
                     </p>
                 </div>
             </div>
 
-            <!-- Paragraph 4 with image on the right -->
-            <div style="display: grid; grid-template-columns: 1fr 180px; gap: 2rem; align-items: center; margin-bottom: 0.75rem;">
-                <div style="text-align: justify;">
-                    <p style="line-height: 1.5;">
+            <!-- Chapter 4: Postdoc -->
+            <div class="collage-card">
+                <div class="card-photo-wrap">
+                    <img src="static/img/About_momentum.png" alt="Momentum CSIC Program">
+                </div>
+                <div class="card-caption">
+                    <span class="card-year">2024 — Present</span>
+                    <h3 class="card-title">Postdoctoral</h3>
+                    <span class="card-toggle">+</span>
+                </div>
+                <div class="card-body">
+                    <p>
                         Upon completing my PhD, I began my postdoctoral stage as a contract researcher under the <span class="highlight">Momentum CSIC program</span>, with the <span class="highlight">DIGIDRON project</span> (Development of emerging digitalization and data processing technologies for studying coastal environmental phenomena using drone-mounted sensors). In this project, I work on <span class="highlight">integrating artificial intelligence with data collected via drone-mounted sensors</span>, which has allowed me to receive training through specialized courses in <span class="highlight">machine learning and deep learning</span> applied to remote sensing and geosciences.
                     </p>
                 </div>
-                <img src="static/img/About_momentum.png" alt="Momentum" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
             </div>
 
-            <!-- Paragraph 5 with images on the left -->
-            <div style="display: grid; grid-template-columns: 180px 1fr; gap: 2rem; align-items: center; margin-bottom: 0.75rem;">
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <img src="static/img/About_dichoso1.jpeg" alt="DICHOSO 1" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                    <img src="static/img/About_dichoso2.jpeg" alt="DICHOSO 2" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            <!-- Chapter 5: Antarctica -->
+            <div class="collage-card">
+                <div class="card-photo-wrap card-photo-wrap--stacked">
+                    <img src="static/img/About_dichoso1.jpeg" alt="Antarctic Campaign" class="photo-back">
+                    <img src="static/img/About_dichoso2.jpeg" alt="Drake Passage Expedition" class="photo-front">
                 </div>
-                <div style="text-align: justify;">
-                    <p style="line-height: 1.5;">
+                <div class="card-caption">
+                    <span class="card-year">2025 — 2026</span>
+                    <h3 class="card-title">Antarctic Campaigns</h3>
+                    <span class="card-toggle">+</span>
+                </div>
+                <div class="card-body">
+                    <p>
                         During this period, at the beginning of 2025, I had the privilege of participating in my first <span class="highlight">Antarctic campaign</span> through the <span class="highlight">DICHOSO project</span>. I embarked on the research vessel BIO Hespérides to cross the Drake Passage from Ushuaia (Argentina), arriving on January 9th at the Spanish Antarctic Base Gabriel de Castilla on Deception Island (South Shetland Islands, Maritime Antarctica). There, we assessed the <span class="highlight">role of the island's volcanic nature and chinstrap penguin colonies in greenhouse gas emissions</span>, both directly into the atmosphere and through the Southern Ocean. On February 9th, we departed the base for a research campaign aboard the vessel B/O Sarmiento de Gamboa between Deception and Livingston Islands, collecting water samples from surface and deeper layers using oceanographic instruments. After crossing the Drake Passage once more, we disembarked on February 24th in Punta Arenas (Chile), concluding one of the most enriching and remarkable experiences of my professional career and personal life.
                     </p>
                 </div>
             </div>
 
-            <!-- Paragraph 6 with image on the right -->
-            <div style="display: grid; grid-template-columns: 1fr 180px; gap: 2rem; align-items: center; margin-bottom: 0.75rem;">
-                <div style="text-align: justify;">
-                    <p style="line-height: 1.5;">
+            <!-- Chapter 6: 2025 Milestones -->
+            <div class="collage-card">
+                <div class="card-photo-wrap">
+                    <img src="static/img/About_otc.png" alt="ESA OTC25 One Ocean Expedition">
+                </div>
+                <div class="card-caption">
+                    <span class="card-year">2025</span>
+                    <h3 class="card-title">2025 Milestones</h3>
+                    <span class="card-toggle">+</span>
+                </div>
+                <div class="card-body">
+                    <p>
                         Following this campaign, throughout 2025, my scientific career accelerated significantly. I participated in international events such as the <span class="highlight">ELLIS Summer School 2025</span>, <span class="highlight">FICE2025</span>, and <span class="highlight">NASA PACE HACKWEEK 2025</span>, which allowed me to expand my network and initiate valuable collaborations leading to multiple scientific publications. One of the most rewarding experiences was participating in the <span class="highlight">ESA OTC25</span>, taking part in a campaign aboard the tall ship <span class="highlight">Staatsraad Lehmkuhl</span> across the Arctic, Atlantic, and Mediterranean as part of the <span class="highlight">One Ocean Expedition</span>, working closely with leading experts in oceanography and remote sensing. I also became a member of the coordinating committee of the <span class="highlight">POLARCSIC Hub</span> and a Core Member of one of the <span class="highlight">Antarctica Insync working groups</span>.
                     </p>
                 </div>
-                <img src="static/img/About_otc.png" alt="OTC" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
             </div>
 
-            <!-- Paragraph 7 with image on the left -->
-            <div style="display: grid; grid-template-columns: 180px 1fr; gap: 2rem; align-items: center;">
-                <img src="static/img/About_polaromics.png" alt="POLAROMICS" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                <div style="text-align: justify;">
-                    <p style="line-height: 1.5;">
+            <!-- Chapter 7: Current Work -->
+            <div class="collage-card">
+                <div class="card-photo-wrap">
+                    <img src="static/img/About_polaromics.png" alt="POLAROMICS Project">
+                </div>
+                <div class="card-caption">
+                    <span class="card-year">2025 — 2026</span>
+                    <h3 class="card-title">Current Work</h3>
+                    <span class="card-toggle">+</span>
+                </div>
+                <div class="card-body">
+                    <p>
                         At the end of 2025, I spent a month at the <span class="highlight">University of Eastern Finland in Joensuu</span>, together with my colleague <span class="highlight">Dr. Miguel Villoslada</span>, further advancing the development of <span class="highlight">AI-derived algorithms for upscaling from drone to satellite remote sensing</span>. The beginning of 2026 provided me with another opportunity to return to Antarctica for the first campaign of the <span class="highlight">POLAROMICS project</span>, during which I revisited Deception and Livingston Islands over the course of a month. During this time, I was awarded my first international project as Principal Investigator, the <span class="highlight">AMIGA project (POLARIN Transnational Access Call 2025)</span>, and secured the opportunity to hire a trainee researcher through the <span class="highlight">JAE Intro ICU POLARCSIC program</span> as part of the <span class="highlight">ABANTI project</span>.
                     </p>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -369,6 +414,46 @@
                 radius: 8,
                 fillOpacity: 0.8
             });
+        });
+    });
+</script>
+
+<script>
+    // Collage card reveal on scroll
+    const collageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                setTimeout(() => {
+                    entry.target.style.transitionDelay = '0s';
+                }, 800);
+                collageObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.collage-card').forEach((card, i) => {
+        card.style.transitionDelay = `${i * 0.08}s`;
+        collageObserver.observe(card);
+    });
+
+    // Collage card expand/collapse
+    document.querySelectorAll('.collage-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const wasOpen = card.classList.contains('is-open');
+
+            // Close all other cards
+            document.querySelectorAll('.collage-card.is-open').forEach(c => {
+                c.classList.remove('is-open');
+            });
+
+            // Toggle clicked card
+            if (!wasOpen) {
+                card.classList.add('is-open');
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
         });
     });
 </script>

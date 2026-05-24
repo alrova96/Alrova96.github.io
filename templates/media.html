@@ -7,36 +7,48 @@
 <section style="background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-dark) 100%); padding: 2rem 0 1.5rem;">
     <div class="container" style="text-align: center;">
         <h1 style="color: var(--color-light-beige); margin-bottom: 1rem;">Media</h1>
-        <p style="color: var(--color-medium-beige); font-size: 1.2rem;">
-            Press coverage and media appearances
-        </p>
+        <p style="color: var(--color-medium-beige); font-size: 1.2rem;">Press coverage and media appearances</p>
     </div>
 </section>
 
 <!-- Media Grid -->
-<section style="background-color: var(--color-light-beige); padding: 5rem 0;">
+<section class="media-section">
     <div class="container">
-        <div class="media-grid">
+        <div class="media-filter-bar">
+            <button class="media-filter-btn active" data-filter="all">All</button>
+            <button class="media-filter-btn" data-filter="TV">TV</button>
+            <button class="media-filter-btn" data-filter="Radio">Radio</button>
+            <button class="media-filter-btn" data-filter="Press">Press</button>
+            <button class="media-filter-btn" data-filter="Video">Video</button>
+            <button class="media-filter-btn" data-filter="Article">Article</button>
+            <button class="media-filter-btn" data-filter="Podcast">Podcast</button>
+        </div>
+
+        <div class="media-grid-v2">
             {% for item in media_items %}
-            <div class="media-card" onclick="window.open('{{ item.url }}', '_blank')">
-                <img src="static/img/{{ item.image }}" alt="{{ item.title }}" class="media-image">
-
-                <div class="media-content">
-                    <p class="media-date">{{ item.date }}</p>
-
-                    <h3 class="media-title">{{ item.title }}</h3>
-
-                    <p class="media-description">{{ item.description }}</p>
-
-                    <div class="media-tags">
-                        {% for tag in item.tags %}
-                        <span class="tag">{{ tag }}</span>
-                        {% endfor %}
-                    </div>
+            <a href="{{ item.url }}" target="_blank" class="media-card-v2" data-category="{{ item.category }}">
+                <img src="static/img/{{ item.image }}" alt="{{ item.title }}">
+                <div class="media-card-v2__overlay">
+                    <h3>{{ item.title }}</h3>
+                    <span class="media-card-v2__cat">{{ item.category }}</span>
+                    <span class="media-card-v2__date">{{ item.date }}</span>
                 </div>
-            </div>
+            </a>
             {% endfor %}
         </div>
     </div>
 </section>
+
+<script>
+    document.querySelectorAll('.media-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('.media-filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.media-card-v2').forEach(card => {
+                card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+            });
+        });
+    });
+</script>
 {% endblock %}

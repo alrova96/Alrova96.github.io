@@ -407,16 +407,6 @@ MEDIA_ITEMS = [
     }
 ]
 
-# Category mapping for media items
-_MEDIA_CATEGORIES = [
-    'Podcast', 'Radio', 'TV', 'TV', 'Press',
-    'Video', 'TV', 'Press', 'TV', 'Press',
-    'TV', 'Video', 'Article', 'Article', 'Radio',
-    'Press', 'Article', 'Press', 'Article', 'Article', 'Radio'
-]
-for _i, _cat in enumerate(_MEDIA_CATEGORIES):
-    MEDIA_ITEMS[_i]['category'] = _cat
-
 def clean_output_dir():
     """Remove and recreate the output directory"""
     if OUTPUT_DIR.exists():

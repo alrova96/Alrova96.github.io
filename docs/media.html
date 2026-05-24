@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="static/css/styles.css?v=20260524">
+    <link rel="stylesheet" href="static/css/styles.css">
 
     
 </head>
@@ -72,230 +72,356 @@
 <section style="background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-dark) 100%); padding: 2rem 0 1.5rem;">
     <div class="container" style="text-align: center;">
         <h1 style="color: var(--color-light-beige); margin-bottom: 1rem;">Media</h1>
-        <p style="color: var(--color-medium-beige); font-size: 1.2rem;">Press coverage and media appearances</p>
+        <p style="color: var(--color-medium-beige); font-size: 1.2rem;">
+            Press coverage and media appearances
+        </p>
     </div>
 </section>
 
 <!-- Media Grid -->
-<section class="media-section">
+<section style="background-color: var(--color-light-beige); padding: 5rem 0;">
     <div class="container">
-        <div class="media-filter-bar">
-            <button class="media-filter-btn active" data-filter="all">All</button>
-            <button class="media-filter-btn" data-filter="TV">TV</button>
-            <button class="media-filter-btn" data-filter="Radio">Radio</button>
-            <button class="media-filter-btn" data-filter="Press">Press</button>
-            <button class="media-filter-btn" data-filter="Video">Video</button>
-            <button class="media-filter-btn" data-filter="Article">Article</button>
-            <button class="media-filter-btn" data-filter="Podcast">Podcast</button>
-        </div>
+        <div class="media-grid">
+            
+            <div class="media-card" onclick="window.open('https://www.youtube.com/watch?v=TQ_zDnm0TiE&list=PLpGYDZSZzihSMIkhdECjoah56GNljq5pZ', '_blank')">
+                <img src="static/img/puntoazul.png" alt="Un Punto Azul Podcast" class="media-image">
 
-        <div class="media-grid-v2">
-            
-            <a href="https://www.youtube.com/watch?v=TQ_zDnm0TiE&list=PLpGYDZSZzihSMIkhdECjoah56GNljq5pZ" target="_blank" class="media-card-v2" data-category="Podcast">
-                <img src="static/img/puntoazul.png" alt="Un Punto Azul Podcast">
-                <div class="media-card-v2__overlay">
-                    <h3>Un Punto Azul Podcast</h3>
-                    <span class="media-card-v2__cat">Podcast</span>
-                    <span class="media-card-v2__date">5 May 2026</span>
+                <div class="media-content">
+                    <p class="media-date">5 May 2026</p>
+
+                    <h3 class="media-title">Un Punto Azul Podcast</h3>
+
+                    <p class="media-description">Participation in the Un Punto Azul podcast. Introduction to the talk Observing the Poles in Drone Mode, which will take place next Monday, May 18, at Pint of Science.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.canalsur.es/radio/programas/cambio-climatico/" target="_blank" class="media-card-v2" data-category="Radio">
-                <img src="static/img/climatechange.png" alt="Canal Sur Radio - Interview on the program Cambio Climático">
-                <div class="media-card-v2__overlay">
-                    <h3>Canal Sur Radio - Interview on the program Cambio Climático</h3>
-                    <span class="media-card-v2__cat">Radio</span>
-                    <span class="media-card-v2__date">20 March 2026</span>
+            <div class="media-card" onclick="window.open('https://www.canalsur.es/radio/programas/cambio-climatico/', '_blank')">
+                <img src="static/img/climatechange.png" alt="Canal Sur Radio - Interview on the program Cambio Climático" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">20 March 2026</p>
+
+                    <h3 class="media-title">Canal Sur Radio - Interview on the program Cambio Climático</h3>
+
+                    <p class="media-description">Interview on the program Climate Change on Canal Sur Radio, stating that red snow algae are more widespread than previously known in the planet's frozen regions (from minute 34:50).</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.youtube.com/watch?v=eZS7aQ_L8JA" target="_blank" class="media-card-v2" data-category="TV">
-                <img src="static/img/snowalgaenew.png" alt="Onda Cádiz - Interview on the program El Mirador">
-                <div class="media-card-v2__overlay">
-                    <h3>Onda Cádiz - Interview on the program El Mirador</h3>
-                    <span class="media-card-v2__cat">TV</span>
-                    <span class="media-card-v2__date">11 March 2026</span>
+            <div class="media-card" onclick="window.open('https://www.youtube.com/watch?v=eZS7aQ_L8JA', '_blank')">
+                <img src="static/img/snowalgaenew.png" alt="Onda Cádiz - Interview on the program El Mirador" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">11 March 2026</p>
+
+                    <h3 class="media-title">Onda Cádiz - Interview on the program El Mirador</h3>
+
+                    <p class="media-description">Dr. Alejandro Román was interviewed about his publication on red snow algal blooms in Antarctica and their relationship with climate change.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.canalsurmas.es/videos/detail/327967-andalucia-global-27f-b4-20260228" target="_blank" class="media-card-v2" data-category="TV">
-                <img src="static/img/28f.png" alt="Canal Sur TV - 28F Global">
-                <div class="media-card-v2__overlay">
-                    <h3>Canal Sur TV - 28F Global</h3>
-                    <span class="media-card-v2__cat">TV</span>
-                    <span class="media-card-v2__date">28 February 2026</span>
+            <div class="media-card" onclick="window.open('https://www.canalsurmas.es/videos/detail/327967-andalucia-global-27f-b4-20260228', '_blank')">
+                <img src="static/img/28f.png" alt="Canal Sur TV - 28F Global" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">28 February 2026</p>
+
+                    <h3 class="media-title">Canal Sur TV - 28F Global</h3>
+
+                    <p class="media-description">Interview featured in the Canal Sur TV special 28F Global, in which Dr. Alejandro Román discusses daily life and research projects carried out during the 2026 Spanish Antarctic Campaign.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.csic.es/es/actualidad-del-csic/la-extension-de-las-algas-que-tinen-de-rosa-la-nieve-de-la-antartida-es-mayor-de-lo-esperado" target="_blank" class="media-card-v2" data-category="Press">
-                <img src="static/img/22012026.png" alt="Press Release - The Extent of Algae Turning Antarctic Snow Pink Is Greater Than Expected">
-                <div class="media-card-v2__overlay">
-                    <h3>Press Release - The Extent of Algae Turning Antarctic Snow Pink Is Greater Than Expected</h3>
-                    <span class="media-card-v2__cat">Press</span>
-                    <span class="media-card-v2__date">22 January 2026</span>
+            <div class="media-card" onclick="window.open('https://www.csic.es/es/actualidad-del-csic/la-extension-de-las-algas-que-tinen-de-rosa-la-nieve-de-la-antartida-es-mayor-de-lo-esperado', '_blank')">
+                <img src="static/img/22012026.png" alt="Press Release - The Extent of Algae Turning Antarctic Snow Pink Is Greater Than Expected" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">22 January 2026</p>
+
+                    <h3 class="media-title">Press Release - The Extent of Algae Turning Antarctic Snow Pink Is Greater Than Expected</h3>
+
+                    <p class="media-description">The algae responsible for the "pink snow" phenomenon, which covers large areas in Antarctic regions, are proliferating due to climate change and, in turn, accelerating it by enhancing ice melt.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.youtube.com/watch?v=G5KdS79gE9U&t=3s" target="_blank" class="media-card-v2" data-category="Video">
-                <img src="static/img/cremas.png" alt="YouTube - Science to Reduce the Environmental Impact of Sunscreens on Our Coasts">
-                <div class="media-card-v2__overlay">
-                    <h3>YouTube - Science to Reduce the Environmental Impact of Sunscreens on Our Coasts</h3>
-                    <span class="media-card-v2__cat">Video</span>
-                    <span class="media-card-v2__date">28 October 2025</span>
+            <div class="media-card" onclick="window.open('https://www.youtube.com/watch?v=G5KdS79gE9U&t=3s', '_blank')">
+                <img src="static/img/cremas.png" alt="YouTube - Science to Reduce the Environmental Impact of Sunscreens on Our Coasts" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">28 October 2025</p>
+
+                    <h3 class="media-title">YouTube - Science to Reduce the Environmental Impact of Sunscreens on Our Coasts</h3>
+
+                    <p class="media-description">Interview by Ana Lozano del Campo about the Turisdron project, in which drone-mounted sensors were used to analyze the impact of UV filters on water quality and marine ecosystems.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.linkedin.com/posts/instituto-de-ciencias-marinas-de-andaluc%C3%ADa-icman-csic_icman-csic-drones-ugcPost-7384565695172460544-5DAd?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC5cnNQBd0TMM84YZLSXRCmjF5ACQ8I5ASI" target="_blank" class="media-card-v2" data-category="TV">
-                <img src="static/img/apunt.png" alt="À Punt Radiotelevisió Valenciana - News Interview">
-                <div class="media-card-v2__overlay">
-                    <h3>À Punt Radiotelevisió Valenciana - News Interview</h3>
-                    <span class="media-card-v2__cat">TV</span>
-                    <span class="media-card-v2__date">16 October 2025</span>
+            <div class="media-card" onclick="window.open('https://www.linkedin.com/posts/instituto-de-ciencias-marinas-de-andaluc%C3%ADa-icman-csic_icman-csic-drones-ugcPost-7384565695172460544-5DAd?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC5cnNQBd0TMM84YZLSXRCmjF5ACQ8I5ASI', '_blank')">
+                <img src="static/img/apunt.png" alt="À Punt Radiotelevisió Valenciana - News Interview" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">16 October 2025</p>
+
+                    <h3 class="media-title">À Punt Radiotelevisió Valenciana - News Interview</h3>
+
+                    <p class="media-description">Dr. Alejandro Román explains how drone technology made it possible to assess the environmental impact of the 2024 cut-off low (DANA) event in Valencia.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.csic.es/es/actualidad-del-csic/un-estudio-del-csic-destaca-la-aportacion-de-los-drones-en-la-evaluacion-de-infraestructuras-y-contaminantes-en-la-dana-de-2024" target="_blank" class="media-card-v2" data-category="Press">
-                <img src="static/img/15102025.png" alt="Press Release - CSIC Study Highlights the Role of Drones in Assessing Infrastructure and Pollutants During the 2024 DANA Event">
-                <div class="media-card-v2__overlay">
-                    <h3>Press Release - CSIC Study Highlights the Role of Drones in Assessing Infrastructure and Pollutants During the 2024 DANA Event</h3>
-                    <span class="media-card-v2__cat">Press</span>
-                    <span class="media-card-v2__date">15 October 2025</span>
+            <div class="media-card" onclick="window.open('https://www.csic.es/es/actualidad-del-csic/un-estudio-del-csic-destaca-la-aportacion-de-los-drones-en-la-evaluacion-de-infraestructuras-y-contaminantes-en-la-dana-de-2024', '_blank')">
+                <img src="static/img/15102025.png" alt="Press Release - CSIC Study Highlights the Role of Drones in Assessing Infrastructure and Pollutants During the 2024 DANA Event" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">15 October 2025</p>
+
+                    <h3 class="media-title">Press Release - CSIC Study Highlights the Role of Drones in Assessing Infrastructure and Pollutants During the 2024 DANA Event</h3>
+
+                    <p class="media-description">In the days following the floods in Valencia, CSIC scientific and technical staff conducted around twenty flights using unmanned aerial vehicles to evaluate environmental impacts and infrastructure damage.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.canalsur.es/television/programas/espacio-protegido/noticia/2196383.html" target="_blank" class="media-card-v2" data-category="TV">
-                <img src="static/img/salinas.png" alt="Canal Sur TV - Espacio Protegido: Recovery of Disused Salt Marshes, Key to Reducing Greenhouse Gases">
-                <div class="media-card-v2__overlay">
-                    <h3>Canal Sur TV - Espacio Protegido: Recovery of Disused Salt Marshes, Key to Reducing Greenhouse Gases</h3>
-                    <span class="media-card-v2__cat">TV</span>
-                    <span class="media-card-v2__date">14 September 2025</span>
+            <div class="media-card" onclick="window.open('https://www.canalsur.es/television/programas/espacio-protegido/noticia/2196383.html', '_blank')">
+                <img src="static/img/salinas.png" alt="Canal Sur TV - Espacio Protegido: Recovery of Disused Salt Marshes, Key to Reducing Greenhouse Gases" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">14 September 2025</p>
+
+                    <h3 class="media-title">Canal Sur TV - Espacio Protegido: Recovery of Disused Salt Marshes, Key to Reducing Greenhouse Gases</h3>
+
+                    <p class="media-description">Report on a study led by Silvia Amaya in the Bay of Cádiz. Dr. Alejandro Román contributed by using drones to carry out high-resolution monitoring of the extent of different salt marshes in the area.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.elconfidencial.com/espana/2025-08-26/alga-especie-invasora-cantabria-cadiz-mar-asiatica_4196464/" target="_blank" class="media-card-v2" data-category="Press">
-                <img src="static/img/okamurae.png" alt="El Confidencial - The Asian Alga Devastating Cádiz Reaches Cantabria">
-                <div class="media-card-v2__overlay">
-                    <h3>El Confidencial - The Asian Alga Devastating Cádiz Reaches Cantabria</h3>
-                    <span class="media-card-v2__cat">Press</span>
-                    <span class="media-card-v2__date">26 August 2025</span>
+            <div class="media-card" onclick="window.open('https://www.elconfidencial.com/espana/2025-08-26/alga-especie-invasora-cantabria-cadiz-mar-asiatica_4196464/', '_blank')">
+                <img src="static/img/okamurae.png" alt="El Confidencial - The Asian Alga Devastating Cádiz Reaches Cantabria" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">26 August 2025</p>
+
+                    <h3 class="media-title">El Confidencial - The Asian Alga Devastating Cádiz Reaches Cantabria</h3>
+
+                    <p class="media-description">Press interview in which Drs. Gabriel Navarro and Alejandro Román share their insights on this environmentally significant phenomenon affecting the province of Cádiz.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://ondacadiz.es/programa-television/el-mirador-info/2025/el-mirador-info-148" target="_blank" class="media-card-v2" data-category="TV">
-                <img src="static/img/mirador.png" alt="Onda Cádiz - Program El Mirador">
-                <div class="media-card-v2__overlay">
-                    <h3>Onda Cádiz - Program El Mirador</h3>
-                    <span class="media-card-v2__cat">TV</span>
-                    <span class="media-card-v2__date">14 August 2025</span>
+            <div class="media-card" onclick="window.open('https://ondacadiz.es/programa-television/el-mirador-info/2025/el-mirador-info-148', '_blank')">
+                <img src="static/img/mirador.png" alt="Onda Cádiz - Program El Mirador" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">14 August 2025</p>
+
+                    <h3 class="media-title">Onda Cádiz - Program El Mirador</h3>
+
+                    <p class="media-description">Interview with Dr. Alejandro Román discussing the development of his research projects, also in the context of the 70th anniversary of ICMAN-CSIC.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.youtube.com/watch?v=y_P2jvU3tBM" target="_blank" class="media-card-v2" data-category="Video">
-                <img src="static/img/fulbright2.png" alt="Fulbright Spain - Interview with 2024 Predoctoral Fulbright Fellows">
-                <div class="media-card-v2__overlay">
-                    <h3>Fulbright Spain - Interview with 2024 Predoctoral Fulbright Fellows</h3>
-                    <span class="media-card-v2__cat">Video</span>
-                    <span class="media-card-v2__date">24 September 2024</span>
+            <div class="media-card" onclick="window.open('https://www.youtube.com/watch?v=y_P2jvU3tBM', '_blank')">
+                <img src="static/img/fulbright2.png" alt="Fulbright Spain - Interview with 2024 Predoctoral Fulbright Fellows" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">24 September 2024</p>
+
+                    <h3 class="media-title">Fulbright Spain - Interview with 2024 Predoctoral Fulbright Fellows</h3>
+
+                    <p class="media-description">Alejandro Román takes part in an interview for Fulbright Spain, sharing his full experience in the United States, including how it has shaped his personal and professional life.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://digital.csic.es/handle/10261/359768" target="_blank" class="media-card-v2" data-category="Article">
-                <img src="static/img/oceanos.png" alt="CSIC Investiga - Oceans: The Future of Marine Science Facing the Challenges of Global Change">
-                <div class="media-card-v2__overlay">
-                    <h3>CSIC Investiga - Oceans: The Future of Marine Science Facing the Challenges of Global Change</h3>
-                    <span class="media-card-v2__cat">Article</span>
-                    <span class="media-card-v2__date">01 June 2024</span>
+            <div class="media-card" onclick="window.open('https://digital.csic.es/handle/10261/359768', '_blank')">
+                <img src="static/img/oceanos.png" alt="CSIC Investiga - Oceans: The Future of Marine Science Facing the Challenges of Global Change" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">01 June 2024</p>
+
+                    <h3 class="media-title">CSIC Investiga - Oceans: The Future of Marine Science Facing the Challenges of Global Change</h3>
+
+                    <p class="media-description">Publication in the latest issue of CSIC Investiga ("Oceans"), in which Alejandro Román explains how his PhD research contributes to addressing major global change challenges.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.bbvaopenmind.com/ciencia/medioambiente/alejandro-roman-oceanografo-monitoriza-ecosistema-antartico-vista-dron/" target="_blank" class="media-card-v2" data-category="Article">
-                <img src="static/img/bbva_openmind.png" alt="BBVA OpenMind - Monitoring Antarctica from a Drone's-Eye View">
-                <div class="media-card-v2__overlay">
-                    <h3>BBVA OpenMind - Monitoring Antarctica from a Drone's-Eye View</h3>
-                    <span class="media-card-v2__cat">Article</span>
-                    <span class="media-card-v2__date">23 April 2024</span>
+            <div class="media-card" onclick="window.open('https://www.bbvaopenmind.com/ciencia/medioambiente/alejandro-roman-oceanografo-monitoriza-ecosistema-antartico-vista-dron/', '_blank')">
+                <img src="static/img/bbva_openmind.png" alt="BBVA OpenMind - Monitoring Antarctica from a Drone's-Eye View" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">23 April 2024</p>
+
+                    <h3 class="media-title">BBVA OpenMind - Monitoring Antarctica from a Drone's-Eye View</h3>
+
+                    <p class="media-description">Interview by Elena S. García discussing Antarctic polar research in the context of climate change, the Fulbright experience in the United States, and general reflections on the PhD journey.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.rtve.es/play/audios/espanoles-en-la-mar/espanoles-mar-reivindicaciones-pesquero-26f/15985631/" target="_blank" class="media-card-v2" data-category="Radio">
-                <img src="static/img/mosaic.png" alt="RNE Program Españoles en la Mar - A New Georeferencing and Mosaicking Algorithm">
-                <div class="media-card-v2__overlay">
-                    <h3>RNE Program Españoles en la Mar - A New Georeferencing and Mosaicking Algorithm</h3>
-                    <span class="media-card-v2__cat">Radio</span>
-                    <span class="media-card-v2__date">23 February 2024</span>
+            <div class="media-card" onclick="window.open('https://www.rtve.es/play/audios/espanoles-en-la-mar/espanoles-mar-reivindicaciones-pesquero-26f/15985631/', '_blank')">
+                <img src="static/img/mosaic.png" alt="RNE Program Españoles en la Mar - A New Georeferencing and Mosaicking Algorithm" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">23 February 2024</p>
+
+                    <h3 class="media-title">RNE Program Españoles en la Mar - A New Georeferencing and Mosaicking Algorithm</h3>
+
+                    <p class="media-description">Interview presenting a new georeferencing and mosaicking algorithm for drone imagery collected over water-covered surfaces. The interview can be heard starting at 18:01 (-17:05).</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.csic.es/es/actualidad-del-csic/el-csic-publica-en-abierto-el-primer-repositorio-de-datos-fotogrametricos-capturados-con-drones-en-la-antartida" target="_blank" class="media-card-v2" data-category="Press">
-                <img src="static/img/23022024.png" alt="Press Release - CSIC Publishes the First Open Repository of Photogrammetric Data Captured by Drones in Antarctica">
-                <div class="media-card-v2__overlay">
-                    <h3>Press Release - CSIC Publishes the First Open Repository of Photogrammetric Data Captured by Drones in Antarctica</h3>
-                    <span class="media-card-v2__cat">Press</span>
-                    <span class="media-card-v2__date">23 February 2024</span>
+            <div class="media-card" onclick="window.open('https://www.csic.es/es/actualidad-del-csic/el-csic-publica-en-abierto-el-primer-repositorio-de-datos-fotogrametricos-capturados-con-drones-en-la-antartida', '_blank')">
+                <img src="static/img/23022024.png" alt="Press Release - CSIC Publishes the First Open Repository of Photogrammetric Data Captured by Drones in Antarctica" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">23 February 2024</p>
+
+                    <h3 class="media-title">Press Release - CSIC Publishes the First Open Repository of Photogrammetric Data Captured by Drones in Antarctica</h3>
+
+                    <p class="media-description">The study provides a highly valuable source of information for both national and international research, given the difficulty of accessing these remote regions.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://blog.fulbright.es/droneando-al-otro-lado-del-atlantico-una-experiencia-fulbright-para-toda-la-vida/" target="_blank" class="media-card-v2" data-category="Article">
-                <img src="static/img/fulbright.png" alt="Fulbright Spain Blog - "Droning" on the Other Side of the Atlantic: A Once-in-a-Lifetime Fulbright Experience">
-                <div class="media-card-v2__overlay">
-                    <h3>Fulbright Spain Blog - "Droning" on the Other Side of the Atlantic: A Once-in-a-Lifetime Fulbright Experience</h3>
-                    <span class="media-card-v2__cat">Article</span>
-                    <span class="media-card-v2__date">21 February 2024</span>
+            <div class="media-card" onclick="window.open('https://blog.fulbright.es/droneando-al-otro-lado-del-atlantico-una-experiencia-fulbright-para-toda-la-vida/', '_blank')">
+                <img src="static/img/fulbright.png" alt="Fulbright Spain Blog - "Droning" on the Other Side of the Atlantic: A Once-in-a-Lifetime Fulbright Experience" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">21 February 2024</p>
+
+                    <h3 class="media-title">Fulbright Spain Blog - "Droning" on the Other Side of the Atlantic: A Once-in-a-Lifetime Fulbright Experience</h3>
+
+                    <p class="media-description">A short piece summarizing the experiences, emotions, and key moments of my Fulbright stay at the University of Maryland Center for Environmental Science (UMCES).</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.csic.es/es/actualidad-del-csic/el-csic-desarrolla-un-software-para-estudiar-los-ecosistemas-acuaticos" target="_blank" class="media-card-v2" data-category="Press">
-                <img src="static/img/22012024.png" alt="Press Release - CSIC Develops Software to Study Aquatic Ecosystems">
-                <div class="media-card-v2__overlay">
-                    <h3>Press Release - CSIC Develops Software to Study Aquatic Ecosystems</h3>
-                    <span class="media-card-v2__cat">Press</span>
-                    <span class="media-card-v2__date">22 January 2024</span>
+            <div class="media-card" onclick="window.open('https://www.csic.es/es/actualidad-del-csic/el-csic-desarrolla-un-software-para-estudiar-los-ecosistemas-acuaticos', '_blank')">
+                <img src="static/img/22012024.png" alt="Press Release - CSIC Develops Software to Study Aquatic Ecosystems" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">22 January 2024</p>
+
+                    <h3 class="media-title">Press Release - CSIC Develops Software to Study Aquatic Ecosystems</h3>
+
+                    <p class="media-description">The software enables advanced analysis and monitoring of aquatic environments using innovative technological approaches.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.umces.edu/news/meet-visiting-fulbright-scholar-alejandro-roman" target="_blank" class="media-card-v2" data-category="Article">
-                <img src="static/img/umces.png" alt="UMCES Website - Meet Visiting Fulbright Scholar Alejandro Román">
-                <div class="media-card-v2__overlay">
-                    <h3>UMCES Website - Meet Visiting Fulbright Scholar Alejandro Román</h3>
-                    <span class="media-card-v2__cat">Article</span>
-                    <span class="media-card-v2__date">2 November 2023</span>
+            <div class="media-card" onclick="window.open('https://www.umces.edu/news/meet-visiting-fulbright-scholar-alejandro-roman', '_blank')">
+                <img src="static/img/umces.png" alt="UMCES Website - Meet Visiting Fulbright Scholar Alejandro Román" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">2 November 2023</p>
+
+                    <h3 class="media-title">UMCES Website - Meet Visiting Fulbright Scholar Alejandro Román</h3>
+
+                    <p class="media-description">Interview about the development of Alejandro Román's Fulbright project at the Horn Point Laboratory (UMCES).</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://airandspace.si.edu/air-and-space-quarterly/fall-2022/remote-controlled" target="_blank" class="media-card-v2" data-category="Article">
-                <img src="static/img/smith.png" alt="Smithsonian Website - Remote (Controlled)">
-                <div class="media-card-v2__overlay">
-                    <h3>Smithsonian Website - Remote (Controlled)</h3>
-                    <span class="media-card-v2__cat">Article</span>
-                    <span class="media-card-v2__date">21 September 2022</span>
+            <div class="media-card" onclick="window.open('https://airandspace.si.edu/air-and-space-quarterly/fall-2022/remote-controlled', '_blank')">
+                <img src="static/img/smith.png" alt="Smithsonian Website - Remote (Controlled)" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">21 September 2022</p>
+
+                    <h3 class="media-title">Smithsonian Website - Remote (Controlled)</h3>
+
+                    <p class="media-description">An interesting article by Mark Piesing on the use of drones in Antarctic polar research, including the PiMetAn project.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
-            <a href="https://www.canalsur.es/radio/programas/cadiz-mediodia/detalle/2894647.html?video=2065580" target="_blank" class="media-card-v2" data-category="Radio">
-                <img src="static/img/canalsur.png" alt="Canal Sur Radio - Interview on the program Canal Sur Mediodía Cádiz">
-                <div class="media-card-v2__overlay">
-                    <h3>Canal Sur Radio - Interview on the program Canal Sur Mediodía Cádiz</h3>
-                    <span class="media-card-v2__cat">Radio</span>
-                    <span class="media-card-v2__date">03 June 2021</span>
+            <div class="media-card" onclick="window.open('https://www.canalsur.es/radio/programas/cadiz-mediodia/detalle/2894647.html?video=2065580', '_blank')">
+                <img src="static/img/canalsur.png" alt="Canal Sur Radio - Interview on the program Canal Sur Mediodía Cádiz" class="media-image">
+
+                <div class="media-content">
+                    <p class="media-date">03 June 2021</p>
+
+                    <h3 class="media-title">Canal Sur Radio - Interview on the program Canal Sur Mediodía Cádiz</h3>
+
+                    <p class="media-description">Interview about the PiMetAn polar project, featuring researchers Erica Sparaventi and Alejandro Román. The interview starts at minute 29:35 of the June 3rd, 2021 broadcast.</p>
+
+                    <div class="media-tags">
+                        
+                    </div>
                 </div>
-            </a>
+            </div>
             
         </div>
     </div>
 </section>
-
-<script>
-    document.querySelectorAll('.media-filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const filter = btn.dataset.filter;
-            document.querySelectorAll('.media-filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            document.querySelectorAll('.media-card-v2').forEach(card => {
-                card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
-            });
-        });
-    });
-</script>
 
     </main>
 

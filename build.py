@@ -238,6 +238,14 @@ PUBLICATIONS = [
 # Media data
 MEDIA_ITEMS = [
     {
+        'title': 'Honorable Mention in the 5th Ezequiel Martínez Award for Young Researchers',
+        'description': 'Dr. Alejandro Román received an Honorable Mention in the 5th Ezequiel Martínez Award for Young Andalusian Researchers in Environment and Climate Change, organised by the Federation of Andalusian Athenaeums, for his work on intelligent drone-based response and explainable AI for natural disasters (RESCATA).',
+        'image': 'ezequielma.png',
+        'url': 'https://www.ateneosdeandalucia.org/eduardo-maria-diz-mellado-y-alejandro-roman-vazquez-ganadores-del-premio-ezequiel-martinez-para-jovenes-investigadores-andaluces/',
+        'date': '9 June 2026',
+        'tags': []
+    },
+    {
         'title': 'Un Punto Azul Podcast',
         'description': 'Participation in the Un Punto Azul podcast. Introduction to the talk Observing the Poles in Drone Mode, which will take place next Monday, May 18, at Pint of Science.',
         'image': 'puntoazul.png',
@@ -409,7 +417,7 @@ MEDIA_ITEMS = [
 
 # Category mapping for media items
 _MEDIA_CATEGORIES = [
-    'Podcast', 'Radio', 'TV', 'TV', 'Press',
+    'Press', 'Podcast', 'Radio', 'TV', 'TV', 'Press',
     'Video', 'TV', 'Press', 'TV', 'Press',
     'TV', 'Video', 'Article', 'Article', 'Radio',
     'Press', 'Article', 'Press', 'Article', 'Article', 'Radio'

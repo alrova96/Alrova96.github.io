@@ -33,6 +33,16 @@ SITE_CONFIG = {
 # Publications data (sorted by date, most recent first)
 PUBLICATIONS = [
     {
+        'title': 'Antarctica InSync Scientific Theme 5. Anthropogenic signatures in Antarctica: the race against pollution and other pressures',
+        'authors': 'Xie, Z., Ademollo, N., Bahlburg, D., Bengtson Nash, S., Cajiao, D., Calace, N., Di Cicco, A., Dommergue, A., Ebinghaus, R., Gross, S., Hughes, K.A., Jahnke, A., Kaiser, T., Krüger, O., Küster, A., Lamers, M., Lynch, H., Manno, C., Meyer, B., Patrolecco, L., Saeedi, H., Thomisch, K., Van Opzeeland, I., Angot, H., Arata, J.A., Aves, A., Corsolini, S., Cortés, S., Cusick, A., Di Liberto, L., Fabris, R., Figuerola, B., Filiciotto, F., Filún, D., Friedlander, A., Grotti, M., Havermans, C., Heimbürger-Boavida, L.E., Johannessen, E.D., Kallenborn, R., King, C.K., Krafft, B.A., Krüger, L., Lee, J.R., Lowther, A., Ponniah, J.M., <strong>Román, A.</strong>, Santos, M., Sciacca, V., Soutullo, A., Tovar-Sánchez, A., Warwick-Evans, V.',
+        'journal': 'Antarctica InSync',
+        'journal_logo': 'commun_logo.png',
+        'image': 'whitepaper.png',
+        'date': '2026 - Antarctica InSync',
+        'doi': 'https://scar.org/scar-news/insync-white-papers',
+        'pdf': 'https://scar.org/~documents/route%3A/download/6540'
+    },
+    {
         'title': 'Unveiling the large coverage of red snow algae blooms in antarctic coastal snowfields',
         'authors': '<strong>Alejandro Román</strong>, Gabriel Navarro, Luis Barbero, Beatriz Fernández-Marín, José I. García-Plazaola, Enrique González-Ortegón, Isabel Caballero & Antonio Tovar-Sánchez',
         'journal': 'Communications Earth & Environment',
@@ -427,7 +437,7 @@ for _i, _cat in enumerate(_MEDIA_CATEGORIES):
 
 # Category mapping for publications
 _PUB_CATEGORIES = [
-    'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
+    'Polar', 'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
     'AI', 'Coastal Ecology', 'Coastal Ecology', 'Polar', 'Ocean Color',
     'Polar', 'Coastal Ecology', 'Ocean Color', 'Ocean Color', 'Coastal Ecology',
     'Polar', 'Emergencies', 'Emergencies', 'Polar', 'Coastal Ecology'

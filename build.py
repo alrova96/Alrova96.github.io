@@ -33,6 +33,16 @@ SITE_CONFIG = {
 # Publications data (sorted by date, most recent first)
 PUBLICATIONS = [
     {
+        'title': 'Post-fire lidar dataset and 3D reconstruction of Las Médulas World Heritage Cultural Landscape (NW Spain)',
+        'authors': 'Gabriel Navarro, J.C. García-Davalillo, J.L. Pecharroman, Antonio Tovar-Sánchez, J.C. Gumiel, J. Madrigal, I. Galindo & <strong>Alejandro Román</strong>',
+        'journal': 'Scientific Data',
+        'journal_logo': 'scidata_logo.png',
+        'image': 'medulas_lidar.png',
+        'date': '2026 - Scientific Data',
+        'doi': 'https://doi.org/10.1038/s41597-026-07444-4',
+        'pdf': 'https://www.nature.com/articles/s41597-026-07444-4.pdf'
+    },
+    {
         'title': 'Antarctica InSync Scientific Theme 5. Anthropogenic signatures in Antarctica: the race against pollution and other pressures',
         'authors': 'Xie, Z., Ademollo, N., Bahlburg, D., Bengtson Nash, S., Cajiao, D., Calace, N., Di Cicco, A., Dommergue, A., Ebinghaus, R., Gross, S., Hughes, K.A., Jahnke, A., Kaiser, T., Krüger, O., Küster, A., Lamers, M., Lynch, H., Manno, C., Meyer, B., Patrolecco, L., Saeedi, H., Thomisch, K., Van Opzeeland, I., Angot, H., Arata, J.A., Aves, A., Corsolini, S., Cortés, S., Cusick, A., Di Liberto, L., Fabris, R., Figuerola, B., Filiciotto, F., Filún, D., Friedlander, A., Grotti, M., Havermans, C., Heimbürger-Boavida, L.E., Johannessen, E.D., Kallenborn, R., King, C.K., Krafft, B.A., Krüger, L., Lee, J.R., Lowther, A., Ponniah, J.M., <strong>Román, A.</strong>, Santos, M., Sciacca, V., Soutullo, A., Tovar-Sánchez, A., Warwick-Evans, V.',
         'journal': 'Antarctica InSync',
@@ -437,7 +447,7 @@ for _i, _cat in enumerate(_MEDIA_CATEGORIES):
 
 # Category mapping for publications
 _PUB_CATEGORIES = [
-    'Polar', 'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
+    'Emergencies', 'Polar', 'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
     'AI', 'Coastal Ecology', 'Coastal Ecology', 'Polar', 'Ocean Color',
     'Polar', 'Coastal Ecology', 'Ocean Color', 'Ocean Color', 'Coastal Ecology',
     'Polar', 'Emergencies', 'Emergencies', 'Polar', 'Coastal Ecology'

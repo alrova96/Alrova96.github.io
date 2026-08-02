@@ -33,6 +33,16 @@ SITE_CONFIG = {
 # Publications data (sorted by date, most recent first)
 PUBLICATIONS = [
     {
+        'title': 'UAV-Based Above-Water Spectroradiometry for Detecting Sunscreen UV Filters in Coastal Waters',
+        'authors': 'M. Del-Valle-García, Gabriel Navarro, <strong>Alejandro Román</strong>, Luis Barbero, J.A. López-Ramírez, A. Chisvert, G. Peris-Pastor, M. Talone & Antonio Tovar-Sánchez',
+        'journal': 'Drones',
+        'journal_logo': 'remsens_logo.png',
+        'image': 'mar_spectra.png',
+        'date': '2026 - Drones',
+        'doi': 'https://doi.org/10.3390/drones10080589',
+        'pdf': 'https://www.mdpi.com/2504-446X/10/8/589'
+    },
+    {
         'title': 'Post-fire lidar dataset and 3D reconstruction of Las Médulas World Heritage Cultural Landscape (NW Spain)',
         'authors': 'Gabriel Navarro, J.C. García-Davalillo, J.L. Pecharroman, Antonio Tovar-Sánchez, J.C. Gumiel, J. Madrigal, I. Galindo & <strong>Alejandro Román</strong>',
         'journal': 'Scientific Data',
@@ -447,7 +457,7 @@ for _i, _cat in enumerate(_MEDIA_CATEGORIES):
 
 # Category mapping for publications
 _PUB_CATEGORIES = [
-    'Emergencies', 'Polar', 'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
+    'Ocean Color', 'Emergencies', 'Polar', 'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
     'AI', 'Coastal Ecology', 'Coastal Ecology', 'Polar', 'Ocean Color',
     'Polar', 'Coastal Ecology', 'Ocean Color', 'Ocean Color', 'Coastal Ecology',
     'Polar', 'Emergencies', 'Emergencies', 'Polar', 'Coastal Ecology'

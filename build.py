@@ -268,6 +268,14 @@ PUBLICATIONS = [
 # Media data
 MEDIA_ITEMS = [
     {
+        'title': 'Onda Cádiz - Interview on the program El Mirador',
+        'description': 'Dr. Alejandro Román was interviewed on the program El Mirador on Onda Cádiz, discussing his latest research activities and scientific contributions.',
+        'image': 'mirador_agosto.png',
+        'url': 'https://www.youtube.com/watch?v=vxleuQ4YKlY',
+        'date': '20 August 2026',
+        'tags': []
+    },
+    {
         'title': 'Honorable Mention in the 5th Ezequiel Martínez Award for Young Researchers',
         'description': 'Dr. Alejandro Román received an Honorable Mention in the 5th Ezequiel Martínez Award for Young Andalusian Researchers in Environment and Climate Change, organised by the Federation of Andalusian Athenaeums, for his work on intelligent drone-based response and explainable AI for natural disasters (RESCATA).',
         'image': 'ezequielma.png',
@@ -447,7 +455,7 @@ MEDIA_ITEMS = [
 
 # Category mapping for media items
 _MEDIA_CATEGORIES = [
-    'Press', 'Podcast', 'Radio', 'TV', 'TV', 'Press',
+    'Interview', 'Press', 'Podcast', 'Radio', 'TV', 'TV', 'Press',
     'Video', 'TV', 'Press', 'TV', 'Press',
     'TV', 'Video', 'Article', 'Article', 'Radio',
     'Press', 'Article', 'Press', 'Article', 'Article', 'Radio'

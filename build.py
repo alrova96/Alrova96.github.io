@@ -33,6 +33,26 @@ SITE_CONFIG = {
 # Publications data (sorted by date, most recent first)
 PUBLICATIONS = [
     {
+        'title': 'Methane emissions from penguin colonies reshape the natural greenhouse gas budget',
+        'authors': '<strong>Alejandro Román</strong>, Samuel Amaya-Vías, Manuel Díez-Minguito, Antonio Tovar-Sánchez, Gabriel Navarro, Susana Flecha & I. Emma Huertas',
+        'journal': 'npj Climate and Atmospheric Science',
+        'journal_logo': 'commun_logo.png',
+        'image': 'penguinch4.png',
+        'date': '2026 - npj Climate and Atmospheric Science',
+        'doi': 'https://www.nature.com/articles/s41612-026-01556-9',
+        'pdf': 'https://www.nature.com/articles/s41612-026-01556-9.pdf'
+    },
+    {
+        'title': 'DroneWQ: A Python package for processing MicaSense multispectral drone imagery for aquatic remote sensing',
+        'authors': 'Anna E. Windle, Patrick C. Gray, <strong>Alejandro Román</strong>, Sergio Heredia, Gabriel Navarro & Greg M. Silsbe',
+        'journal': 'The Journal of Open Source Software',
+        'journal_logo': 'remsens_logo.png',
+        'image': 'dronewqpaper.png',
+        'date': '2026 - The Journal of Open Source Software',
+        'doi': 'https://joss.theoj.org/papers/10.21105/joss.10900',
+        'pdf': 'https://joss.theoj.org/papers/10.21105/joss.10900'
+    },
+    {
         'title': 'UAV-Based Above-Water Spectroradiometry for Detecting Sunscreen UV Filters in Coastal Waters',
         'authors': 'M. Del-Valle-García, Gabriel Navarro, <strong>Alejandro Román</strong>, Luis Barbero, J.A. López-Ramírez, A. Chisvert, G. Peris-Pastor, M. Talone & Antonio Tovar-Sánchez',
         'journal': 'Drones',
@@ -455,7 +475,7 @@ MEDIA_ITEMS = [
 
 # Category mapping for media items
 _MEDIA_CATEGORIES = [
-    'Interview', 'Press', 'Podcast', 'Radio', 'TV', 'TV', 'Press',
+    'TV', 'Press', 'Podcast', 'Radio', 'TV', 'TV', 'Press',
     'Video', 'TV', 'Press', 'TV', 'Press',
     'TV', 'Video', 'Article', 'Article', 'Radio',
     'Press', 'Article', 'Press', 'Article', 'Article', 'Radio'
@@ -465,7 +485,7 @@ for _i, _cat in enumerate(_MEDIA_CATEGORIES):
 
 # Category mapping for publications
 _PUB_CATEGORIES = [
-    'Ocean Color', 'Emergencies', 'Polar', 'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
+    'Polar', 'Ocean Color', 'Ocean Color', 'Emergencies', 'Polar', 'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
     'AI', 'Coastal Ecology', 'Coastal Ecology', 'Polar', 'Ocean Color',
     'Polar', 'Coastal Ecology', 'Ocean Color', 'Ocean Color', 'Coastal Ecology',
     'Polar', 'Emergencies', 'Emergencies', 'Polar', 'Coastal Ecology'

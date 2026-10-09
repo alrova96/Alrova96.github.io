@@ -39,7 +39,7 @@ PUBLICATIONS = [
         'journal_logo': 'commun_logo.png',
         'image': 'penguinch4.png',
         'date': '2026 - npj Climate and Atmospheric Science',
-        'doi': 'https://www.nature.com/articles/s41612-026-01556-9',
+        'doi': 'https://doi.org/10.1038/s41612-026-01556-9',
         'pdf': 'https://www.nature.com/articles/s41612-026-01556-9.pdf'
     },
     {

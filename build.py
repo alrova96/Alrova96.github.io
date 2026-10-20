@@ -33,6 +33,16 @@ SITE_CONFIG = {
 # Publications data (sorted by date, most recent first)
 PUBLICATIONS = [
     {
+        'title': 'Radiometric Calibration of Optical Sensors Onboard Unmanned Aerial Vehicles: Insights From Inter-Comparison Field Experiments',
+        'authors': 'Vicente Burchard-Levine, Marcos Jiménez, Álvaro Sánchez-Virosta, Juanjo Peón, Irene Borra-Serrano, <strong>Alejandro Román</strong>, José Ramón Rodríguez-Pérez, Iván González-Pérez, Pedro J Gómez-Giráldez, Ana de Castro, José M Peña, Gabriel Navarro, José González-Piqueras, Ricardo Díaz-Delgado, María P González-Dugo & M Pilar Martín',
+        'journal': 'IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing',
+        'journal_logo': 'remsens_logo.png',
+        'image': 'radiometry.png',
+        'date': '2026 - IEEE J-STARS',
+        'doi': 'https://doi.org/10.1109/JSTARS.2026.3741415',
+        'pdf': 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11723137'
+    },
+    {
         'title': 'Methane emissions from penguin colonies reshape the natural greenhouse gas budget',
         'authors': '<strong>Alejandro Román</strong>, Samuel Amaya-Vías, Manuel Díez-Minguito, Antonio Tovar-Sánchez, Gabriel Navarro, Susana Flecha & I. Emma Huertas',
         'journal': 'npj Climate and Atmospheric Science',
@@ -485,7 +495,7 @@ for _i, _cat in enumerate(_MEDIA_CATEGORIES):
 
 # Category mapping for publications
 _PUB_CATEGORIES = [
-    'Polar', 'Ocean Color', 'Ocean Color', 'Emergencies', 'Polar', 'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
+    'Radiometry', 'Polar', 'Ocean Color', 'Ocean Color', 'Emergencies', 'Polar', 'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
     'AI', 'Coastal Ecology', 'Coastal Ecology', 'Polar', 'Ocean Color',
     'Polar', 'Coastal Ecology', 'Ocean Color', 'Ocean Color', 'Coastal Ecology',
     'Polar', 'Emergencies', 'Emergencies', 'Polar', 'Coastal Ecology'

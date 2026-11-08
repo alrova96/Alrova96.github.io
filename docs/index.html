@@ -68,555 +68,1027 @@
     <!-- Main Content -->
     <main>
         
-<!-- Hero Section -->
-<section class="hero">
-    <div class="hero-content fade-in">
-        <div class="hero-text">
-            <p class="hero-subtitle">Postdoctoral Researcher at ICMAN-CSIC</p>
-            <h1>Alejandro Román, Ph.D</h1>
-            <p class="hero-description">
-                Welcome to my website! I am a <strong>post-doctoral researcher</strong> at the Institute of Marine Sciences of Andalusia (Spain) (<strong>ICMAN-CSIC</strong>) in the DIGIDRON project under the Momentum CSIC Programme: Develop Your Digital Talent (MMT24-ICMAN-01). My research focuses on the development and application of <strong>drone-based remote sensing techniques</strong> for studying <strong>marine and coastal environmental phenomena</strong>, including polar <strong>Antarctic research</strong>. Specifically, I specialise in using multispectral and hyperspectral sensors, combined with machine learning techniques, to characterize aquatic systems.
+<style>
+/* =========================================================
+   HERO — two-layer design
+   Layer 0: photo background
+   Layer 1: gradient overlay
+   Layer 2: canvas (drone particles)
+   Layer 3: text content
+   ========================================================= */
+
+.hero-new {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    /* Photo background */
+    background-image: url('static/img/IMG_1480_jpg.jpg');
+    background-size: cover;
+    background-position: center 55%;
+    background-repeat: no-repeat;
+}
+
+/* Gradient overlay — Layer 1 */
+.hero-new::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+        rgba(10,9,8,0.85) 0%,
+        rgba(34,51,59,0.70) 50%,
+        rgba(10,9,8,0.80) 100%);
+    z-index: 1;
+}
+
+/* Canvas — Layer 2 */
+#droneCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none; /* let mouse events pass through to track position */
+}
+
+/* Content wrapper — Layer 3 */
+.hero-new__inner {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 7rem 2.5rem 5rem;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    gap: 2rem;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* ---- LEFT column: text ---- */
+.hero-new__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.hero-new__portrait-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.hero-new__portrait {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 3px solid #c6ac8f;
+    box-shadow: 0 0 0 6px rgba(198,172,143,0.18), 0 0 28px rgba(198,172,143,0.28);
+    flex-shrink: 0;
+}
+
+.hero-new__label {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c6ac8f;
+}
+
+.hero-new__name {
+    font-family: var(--font-heading, 'Instrument Sans', sans-serif);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    color: #eae0d5;
+    line-height: 1.0;
+    margin: 0;
+}
+
+.hero-new__name .phd-accent {
+    font-size: 0.32em;
+    font-weight: 400;
+    color: #c6ac8f;
+    vertical-align: super;
+    letter-spacing: 0.08em;
+    margin-left: 0.3em;
+}
+
+.hero-new__tagline {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 1.15rem;
+    color: #c6ac8f;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+.hero-new__desc {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba(234,224,213,0.65);
+    max-width: 540px;
+    margin: 0;
+    text-align: justify;
+}
+
+.hero-new__desc strong {
+    color: #c6ac8f;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .hero-new__desc strong {
+    color: #fff;
+}
+
+/* Social icons row */
+.hero-new__social {
+    display: flex;
+    justify-content: space-between;
+    max-width: 540px;
+    margin-top: 0.8rem;
+}
+
+.hero-new__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(198,172,143,0.4);
+    color: #c6ac8f;
+    font-size: 1.15rem;
+    text-decoration: none;
+    transition: border-color 0.25s, color 0.25s, background 0.25s, transform 0.2s;
+}
+
+.hero-new__social-link:hover {
+    border-color: #c6ac8f;
+    color: #0a0908;
+    background: #c6ac8f;
+    transform: translateY(-2px);
+}
+
+/* ---- Scroll chevron ---- */
+/* ---- Scroll indicator (shared) ---- */
+.scroll-hint {
+    position: absolute;
+    bottom: 1.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .2rem;
+    text-decoration: none;
+    cursor: pointer;
+    animation: scrollBounce 2.5s ease-in-out infinite;
+}
+.scroll-hint__text {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: .6rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba(198,172,143,.6);
+}
+.scroll-hint__arrow {
+    width: 10px;
+    height: 10px;
+    border-right: 1.5px solid rgba(198,172,143,.6);
+    border-bottom: 1.5px solid rgba(198,172,143,.6);
+    transform: rotate(45deg);
+}
+@keyframes scrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+}
+[data-theme="dark"] .scroll-hint__text { color: rgba(234,224,213,.5); }
+[data-theme="dark"] .scroll-hint__arrow { border-color: rgba(234,224,213,.5); }
+
+/* ---- RIGHT column: canvas placeholder label ---- */
+.hero-new__canvas-side {
+    /* purely a positioning reference — canvas fills absolute */
+    position: relative;
+    min-height: 480px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .hero-new__inner {
+        grid-template-columns: 1fr;
+        padding: 6rem 1.5rem 4rem;
+    }
+    .hero-new__canvas-side {
+        display: none;
+    }
+    #droneCanvas {
+        opacity: 0.4;
+    }
+}
+</style>
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<section class="hero-new" id="heroSection">
+
+    <!-- Canvas draws drone particle swarm (z-index 2) -->
+    <canvas id="droneCanvas"></canvas>
+
+    <div class="hero-new__inner">
+
+        <!-- LEFT: text content -->
+        <div class="hero-new__text">
+
+            <h1 class="hero-new__name">
+                Alejandro Román
+            </h1>
+
+            <p class="hero-new__tagline">
+                Postdoctoral Researcher at ICMAN-CSIC
             </p>
 
-            <!-- Social Icons -->
-            <div class="social-icons-hero">
-                <a href="mailto:mail.a.roman@csic.es" class="social-icon-hero" aria-label="Email">
+            <p class="hero-new__desc">
+                Welcome to my website! I am a <strong>post-doctoral researcher</strong> at the Institute of Marine Sciences of Andalusia (Spain) (<strong>ICMAN-CSIC</strong>) in the DIGIDRON project under the <strong>Momentum CSIC Programme</strong>: Develop Your Digital Talent (MMT24-ICMAN-01). My research focuses on the development and application of <strong>drone-based remote sensing techniques</strong> for studying <strong>marine and coastal environmental phenomena</strong>, including polar <strong>Antarctic research</strong>.
+            </p>
+
+            <!-- 7 social icons -->
+            <div class="hero-new__social">
+                <a href="mailto:mail.a.roman@csic.es"
+                   class="hero-new__social-link" aria-label="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
-                <a href="https://twitter.com/a_roman_4" target="_blank" class="social-icon-hero" aria-label="Twitter">
+                <a href="https://twitter.com/a_roman_4" target="_blank"
+                   class="hero-new__social-link" aria-label="Twitter / X">
                     <i class="fab fa-x-twitter"></i>
                 </a>
-                <a href="https://github.com/alrova96" target="_blank" class="social-icon-hero" aria-label="GitHub">
+                <a href="https://github.com/alrova96" target="_blank"
+                   class="hero-new__social-link" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/alejandro-rom%C3%A1n-v%C3%A1zquez/" target="_blank" class="social-icon-hero" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/alejandro-rom%C3%A1n-v%C3%A1zquez/" target="_blank"
+                   class="hero-new__social-link" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://www.researchgate.net/profile/Alejandro-Roman-9" target="_blank" class="social-icon-hero" aria-label="ResearchGate">
+                <a href="https://www.researchgate.net/profile/Alejandro-Roman-9" target="_blank"
+                   class="hero-new__social-link" aria-label="ResearchGate">
                     <i class="fab fa-researchgate"></i>
                 </a>
-                <a href="https://scholar.google.es/citations?view_op=list_works&hl=es&hl=es&user=rOnlIMcAAAAJ" target="_blank" class="social-icon-hero" aria-label="Google Scholar">
+                <a href="https://scholar.google.es/citations?view_op=list_works&hl=es&hl=es&user=rOnlIMcAAAAJ" target="_blank"
+                   class="hero-new__social-link" aria-label="Google Scholar">
                     <i class="fas fa-graduation-cap"></i>
                 </a>
-                <a href="https://orcid.org/my-orcid?orcid=0000-0002-8868-9302" target="_blank" class="social-icon-hero" aria-label="ORCID">
+                <a href="https://orcid.org/my-orcid?orcid=0000-0002-8868-9302" target="_blank"
+                   class="hero-new__social-link" aria-label="ORCID">
                     <i class="fab fa-orcid"></i>
                 </a>
             </div>
-
         </div>
 
-        <div class="hero-image-container">
-            <img src="static/img/IMG_1480_jpg.jpg" alt="Alejandro Román" class="hero-image">
-        </div>
+        <!-- RIGHT: empty — the canvas fills this area visually -->
+        <div class="hero-new__canvas-side" aria-hidden="true"></div>
     </div>
+
+    <!-- Scroll indicator -->
+    <a class="scroll-hint" href="#rl-section" aria-label="Scroll down">
+        <span class="scroll-hint__text">Scroll</span>
+        <span class="scroll-hint__arrow"></span>
+    </a>
 </section>
 
-<!-- Research Lines -->
-<section class="research-section">
-    <div class="container">
-        <h2 class="section-title">Research Lines</h2>
-
-        <div class="research-accordion">
-            <div class="research-panel active">
-                <div class="research-panel__text">
-                    <h3>Momentum CSIC Program</h3>
-                    <p>DIGIDRON Project: Development of emerging technologies for digitalization and data processing for the study of coastal environmental phenomena using sensors mounted on drones.</p>
-                </div>
-                <div class="research-panel__img">
-                    <img src="static/img/momentum.png" alt="Momentum CSIC Program">
-                </div>
-            </div>
-
-            <div class="research-panel">
-                <div class="research-panel__text">
-                    <h3>Polar Research</h3>
-                    <p>An approach to the study of environmental phenomena affected by climate change, such as the evolution of Antarctic penguin colonies and the emergence of snow algal blooms in coastal snowfields.</p>
-                </div>
-                <div class="research-panel__img">
-                    <img src="static/img/polar.png" alt="Polar Research">
-                </div>
-            </div>
-
-            <div class="research-panel">
-                <div class="research-panel__text">
-                    <h3>Ocean Color</h3>
-                    <p>Development of marine optics algorithms for the detection at local scale and monitoring of water quality in coastal regions using multi- and hyperspectral sensors deployable on drones.</p>
-                </div>
-                <div class="research-panel__img">
-                    <img src="static/img/waterquality.png" alt="Ocean Color">
-                </div>
-            </div>
-
-            <div class="research-panel">
-                <div class="research-panel__text">
-                    <h3>Emergencies</h3>
-                    <p>Use of drone technology and its integration with artificial intelligence to provide scientific support in emergency situations such as volcanic eruptions, wildfires, or floods.</p>
-                </div>
-                <div class="research-panel__img">
-                    <img src="static/img/emergencies.png" alt="Emergencies">
-                </div>
-            </div>
-        </div>
-
-        <script>
-        document.querySelectorAll('.research-panel').forEach(panel => {
-            panel.addEventListener('click', () => {
-                document.querySelectorAll('.research-panel').forEach(p => p.classList.remove('active'));
-                panel.classList.add('active');
-            });
-        });
-        </script>
-    </div>
-</section>
-
-<!-- Academic Activity -->
-<section class="activity-section">
-    <div class="container">
-        <h2 class="section-title">Academic Activity</h2>
-
-        <div class="activity-stats">
-            <div class="activity-stat">
-                <span class="activity-stat__num" data-count="26">0</span>
-                <span class="activity-stat__label">Publications</span>
-            </div>
-            <div class="activity-stat">
-                <span class="activity-stat__num" data-count="1">0</span>
-                <span class="activity-stat__label">White Paper</span>
-            </div>
-            <div class="activity-stat">
-                <span class="activity-stat__num" data-count="23">0</span>
-                <span class="activity-stat__label">Conferences</span>
-            </div>
-            <div class="activity-stat">
-                <span class="activity-stat__num" data-count="15">0</span>
-                <span class="activity-stat__label">Invited Talks</span>
-            </div>
-            <div class="activity-stat">
-                <span class="activity-stat__num" data-count="4">0</span>
-                <span class="activity-stat__label">Int. Research Stays</span>
-            </div>
-            <div class="activity-stat">
-                <span class="activity-stat__num" data-count="2">0</span>
-                <span class="activity-stat__label">Antarctic Campaigns</span>
-            </div>
-            <div class="activity-stat">
-                <span class="activity-stat__num" data-count="1">0</span>
-                <span class="activity-stat__label">Project as PI</span>
-            </div>
-        </div>
-
-        <div class="activity-roles">
-            <div class="activity-role">
-                <i class="fas fa-network-wired"></i>
-                <span><strong>POLARCSIC-Hub</strong> Coordinator</span>
-            </div>
-            <div class="activity-role">
-                <i class="fas fa-users"></i>
-                <span><strong>2 Antarctica Insync</strong> Working Groups</span>
-            </div>
-            <div class="activity-role">
-                <i class="fas fa-project-diagram"></i>
-                <span>Coordinator of <strong>Obj. 8 of MAX-CSIC</strong> project</span>
-            </div>
-            <div class="activity-role">
-                <i class="fas fa-globe"></i>
-                <span><strong>CSIC</strong> institutional representative to the <strong>OYSTER</strong> network</span>
-            </div>
-            <div class="activity-role">
-                <i class="fas fa-database"></i>
-                <span><strong>ECR Leadership Group</strong> at the <strong>SOOS</strong> Data Management Sub-Committee (DMSC)</span>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 2.5rem;">
-            <a href="about.html" class="btn">
-                Learn more about me!
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Websites of Interest -->
-<section class="websites-section">
-    <div class="websites-grid">
-        <a href="https://www.icman.csic.es/" target="_blank" class="website-card">
-            <img src="static/img/icman_web.png" alt="ICMAN-CSIC">
-            <div class="website-card__overlay">
-                <h3>ICMAN-CSIC</h3>
-                <span>Website</span>
-            </div>
-        </a>
-        <a href="https://momentum.csic.es/" target="_blank" class="website-card">
-            <img src="static/img/momentum_web.png" alt="Momentum-CSIC">
-            <div class="website-card__overlay">
-                <h3>Momentum-CSIC</h3>
-                <span>Website</span>
-            </div>
-        </a>
-        <a href="https://opecam.csic.es/" target="_blank" class="website-card">
-            <img src="static/img/opecam_web.png" alt="SeaDron">
-            <div class="website-card__overlay">
-                <h3>SeaDron</h3>
-                <span>Website</span>
-            </div>
-        </a>
-        <a href="http://eo.csic.es/" target="_blank" class="website-card">
-            <img src="static/img/eo_website.png" alt="EO group">
-            <div class="website-card__overlay">
-                <h3>EO Group</h3>
-                <span>Website</span>
-            </div>
-        </a>
-    </div>
-</section>
-
-<!-- Latest News -->
-<section class="news-section">
-    <div class="container">
-        <div class="news-layout">
-            <div>
-                <h2 class="section-title" style="text-align: left;">Latest News & Updates</h2>
-                <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem;">
-                    Stay informed about our latest research activities, publications, and field campaigns
-                </p>
-                <a href="media.html" class="btn">
-                    Access media content!
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div>
-                <div class="news-feed">
-                    <div class="news-item">
-                        <img src="static/img/highco2.jpg" alt="High CO₂ Conference Wellington" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">October 2026</div>
-                            <div class="news-title">Poster presentation at the High CO₂ Conference in Wellington, New Zealand</div>
-                            <div class="news-excerpt">I participated in the High CO₂ Conference held in Wellington, New Zealand, where I presented a poster on the GIFT campaign in the Strait of Gibraltar at this internationally renowned scientific meeting.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/rewrite_am.png" alt="REWRITE Annual Meeting Cádiz" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">October 2026</div>
-                            <div class="news-title">Oral presentation at the 3rd Annual Meeting of the REWRITE project in Cádiz</div>
-                            <div class="news-excerpt">We participated in the 3rd Annual Meeting of the REWRITE project, held in Cádiz, where we delivered an oral presentation on the application of artificial intelligence to drone and satellite data in coastal areas.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/doctoral_prize.JPEG" alt="Extraordinary Doctoral Thesis Award" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">September 2026</div>
-                            <div class="news-title">Receiving the Extraordinary Doctoral Thesis Award at the University of Cádiz</div>
-                            <div class="news-excerpt">The award was presented during the opening ceremony of the 2026–2027 academic year in recognition of the excellence of my doctoral research.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/ECR_polarcsic.jpg" alt="ECR POLARCSIC event Barcelona" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">September 2026</div>
-                            <div class="news-title">Organising the ECR event within the POLARCSIC network at ICM Barcelona</div>
-                            <div class="news-excerpt">We organised the event for Early Career Researchers (ECRs) within the POLARCSIC network. Held at the Institute of Marine Sciences (ICM) in Barcelona, the event brought together panellists, reviewers, and experts involved in the evaluation of competitive research proposals.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/researchernight.JPG" alt="European Researchers' Night" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">September 2026</div>
-                            <div class="news-title">Coordinating a workshop at the European Researchers' Night!</div>
-                            <div class="news-excerpt">I am coordinating a workshop run by the ICMAN-CSIC Ecosystem Oceanography Group at the European Researchers' Night! Last Friday, September 25, we were in San Fernando showcasing our drones to the public.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/talenton.png" alt="EU TalentOn 2026" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">September 2026</div>
-                            <div class="news-title">1st place in the Adaptation to Climate Change Arena at the EU TalentOn 2026!</div>
-                            <div class="news-excerpt">Our project, PRREST, has won first prize in this event, which brought together 100 finalists selected from 1,370 participants and was organised by the European Commission.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/SCAR.jpg" alt="SCAR Open Science Conference Oslo" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">August 2026</div>
-                            <div class="news-title">We participated in the 12th SCAR Open Science Conference in Oslo, Norway!</div>
-                            <div class="news-excerpt">The Antarctic polar research community came together in Oslo, where I presented my work on snow algal blooms as an oral presentation, a poster from the AMIGA project, and served as lead convener for two sessions.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/incendios_gade.jpg" alt="Wildfire response operations" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">July 2026</div>
-                            <div class="news-title">Our drones support the GADE-CSIC wildfire response operations in Spain</div>
-                            <div class="news-excerpt">Using thermal imaging technology, we contributed to mapping the fire perimeter and identifying new hotspots.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/insync.png" alt="Antarctica InSync White Papers" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">July 2026</div>
-                            <div class="news-title">Antarctica InSync White Papers Published!</div>
-                            <div class="news-excerpt">We contributed to Scientific Theme 5, focusing on anthropogenic signatures in Antarctica.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/master_defense.jpg" alt="Master's thesis defense" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">July 2026</div>
-                            <div class="news-title">Our Master's students successfully defended their Master's theses!</div>
-                            <div class="news-excerpt">Four students presented and defended their research, each achieving a final grade of over 9/10.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/IA_EV.JPG" alt="Momentum Flash Talks" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">July 2026</div>
-                            <div class="news-title">Participation in the Momentum Flash Talks at the CSIC Summer School on Artificial Intelligence and Open Knowledge</div>
-                            <div class="news-excerpt">During my 15-minute invited talk, I presented the latest advances in the application of artificial intelligence to drone-based remote sensing within our research line.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/curso_uca.png" alt="UCA Summer School" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">July 2026</div>
-                            <div class="news-title">Panel discussion at the University of Cádiz (UCA) Summer School</div>
-                            <div class="news-excerpt">The 45-minute panel was held as part of the course Artificial Intelligence for Well-being: A Cross-Disciplinary Perspective on the New Horizon.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/upgrade_foto.jpg" alt="Upgrade Hub Workshop" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">July 2026</div>
-                            <div class="news-title">Participation in the Upgrade Hub workshop How to Accelerate Your Research with Generative AI and Data Science</div>
-                            <div class="news-excerpt">Together with Demetrio Alferez and Ángel Sandoval, I shared my experience in the AI and Data Analytics Bootcamp.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/ISMS.JPG" alt="ISMS 2026" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">July 2026</div>
-                            <div class="news-title">Our Master's Thesis (TFM) students participated in the 10th International Symposium on Marine Sciences (ISMS)</div>
-                            <div class="news-excerpt">Held in Cádiz. In addition, Sergio Obrador received the Best Poster Presentation Award.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/aet_2026.png" alt="AET 2026" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">June 2026</div>
-                            <div class="news-title">Participation in the 21st Conference of the Spanish Association of Remote Sensing</div>
-                            <div class="news-excerpt">We presented three contributions on the integration of remote sensing data and artificial intelligence.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/ezequielma.png" alt="Ezequiel Martínez Award" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">June 2026</div>
-                            <div class="news-title">Awarded an Honorable Mention in the 5th Ezequiel Martínez Award for Young Researchers in Environment and Climate Change</div>
-                            <div class="news-excerpt">This recognition was granted for my professional achievements and our work during recent climate-related emergencies.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/AEE.png" alt="AEE Workshop" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">May 2026</div>
-                            <div class="news-title">Participation in the Earth Observation for Emergencies Workshop at the Spanish Space Agency (AEE)</div>
-                            <div class="news-excerpt">Presentation at the workshop on the experience of the ICMAN-CSIC drone team during the Valencia DANA floods.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/pint.png" alt="Pint of Science 2026" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">May 2026</div>
-                            <div class="news-title">Participation in Pint of Science 2026 in Jerez de la Frontera</div>
-                            <div class="news-excerpt">Talk entitled Observing the Poles in Drone Mode on the experience of using drones in Antarctica.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/diverciencia2026.png" alt="Diverciencia 2026" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">May 2026</div>
-                            <div class="news-title">Participation in the Diverciencia 2026 science outreach fair</div>
-                            <div class="news-excerpt">We were in Algeciras at a stand showcasing our drones and presenting our research.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/podcast.png" alt="Un Punto Azul Podcast" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">May 2026</div>
-                            <div class="news-title">Participation in the Un Punto Azul podcast</div>
-                            <div class="news-excerpt">Introduction to the talk Observing the Poles in Drone Mode, which will take place next Monday, May 18, at Pint of Science.</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/pintofscience.png" alt="Pint of Science" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">April 2026</div>
-                            <div class="news-title">On May 18, I will be in Jerez de la Frontera to take part in Pint of Science</div>
-                            <div class="news-excerpt">At Plaza Canterbury, I will give a talk entitled "Observing the Poles by Drone." Don't miss it!</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/atkabay.png" alt="AMIGA Project" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">March 2026</div>
-                            <div class="news-title">AMIGA access to infrastructure was granted funding in the POLARIN Transnational Call 2025</div>
-                            <div class="news-excerpt">We're returning to Antarctica in 2028!</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/euromarine.png" alt="EuroMarine" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">March 2026</div>
-                            <div class="news-title">Participated in the EuroMarine Open Science Day & General Assembly</div>
-                            <div class="news-excerpt">We presented 4 posters from our Master's students...</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/polaromics.png" alt="POLAROMICS" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">February 2026</div>
-                            <div class="news-title">First Antarctic campaign of the POLAROMICS project completed</div>
-                            <div class="news-excerpt">Successfully completed the first field campaign...</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/paperblooms.png" alt="Publication" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">January 2026</div>
-                            <div class="news-title">New Publication in Communications Earth & Environment</div>
-                            <div class="news-excerpt">Published our latest work on red snow algal blooms in Antarctica...</div>
-                        </div>
-                    </div>
-
-                    <div class="news-item">
-                        <img src="static/img/premiotesis.png" alt="Award" class="news-image">
-                        <div class="news-content">
-                            <div class="news-date">December 2025</div>
-                            <div class="news-title">Extraordinary Doctoral Thesis Award</div>
-                            <div class="news-excerpt">Received the award from the University of Cádiz...</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-pagination"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
+<!-- ============================================================
+     DRONE PARTICLE CANVAS — vanilla JS, 2-D canvas
+     ============================================================ -->
 <script>
 (function() {
-    const ITEMS_PER_PAGE = 6;
-    const items = document.querySelectorAll('.news-feed .news-item');
-    const totalPages = Math.max(1, Math.ceil(items.length / ITEMS_PER_PAGE));
-    const pagination = document.querySelector('.news-pagination');
+'use strict';
 
-    function showPage(page) {
-        const start = (page - 1) * ITEMS_PER_PAGE;
-        const end = start + ITEMS_PER_PAGE;
-        items.forEach((item, i) => {
-            item.style.display = (i >= start && i < end) ? '' : 'none';
-        });
-        document.querySelectorAll('.news-page-btn').forEach(btn => {
-            btn.classList.toggle('active', parseInt(btn.dataset.page) === page);
-        });
+const canvas  = document.getElementById('droneCanvas');
+const ctx     = canvas.getContext('2d');
+
+/* ---- Palette ---- */
+const WARM_A  = '#c6ac8f';   // sand
+const WARM_B  = '#eae0d5';   // ivory
+const LINE_C  = 'rgba(198,172,143,0.12)';
+
+/* ---- Drone geometry (all coords relative to shape centre 0,0) ---- */
+function buildDroneTargets() {
+    const pts = [];
+
+    // Helper: scatter points in a filled circle
+    function circle(cx, cy, r, count) {
+        for (let i = 0; i < count; i++) {
+            const a = Math.random() * Math.PI * 2;
+            const d = Math.sqrt(Math.random()) * r;
+            pts.push({ x: cx + Math.cos(a) * d, y: cy + Math.sin(a) * d });
+        }
     }
 
-    for (let i = 1; i <= totalPages; i++) {
-        const btn = document.createElement('button');
-        btn.className = 'news-page-btn' + (i === 1 ? ' active' : '');
-        btn.dataset.page = i;
-        btn.textContent = i;
-        btn.addEventListener('click', () => showPage(i));
-        pagination.appendChild(btn);
+    // Helper: scatter points in a ring
+    function ring(cx, cy, r, thickness, count) {
+        for (let i = 0; i < count; i++) {
+            const a = Math.random() * Math.PI * 2;
+            const d = r - thickness * 0.5 + Math.random() * thickness;
+            pts.push({ x: cx + Math.cos(a) * d, y: cy + Math.sin(a) * d });
+        }
     }
 
-    showPage(1);
+    // Helper: scatter points along a line segment
+    function arm(x0, y0, x1, y1, width, count) {
+        for (let i = 0; i < count; i++) {
+            const t  = Math.random();
+            const nx = -(y1 - y0);
+            const ny = (x1 - x0);
+            const len = Math.sqrt(nx * nx + ny * ny) || 1;
+            const off = (Math.random() - 0.5) * width;
+            pts.push({
+                x: x0 + (x1 - x0) * t + (nx / len) * off,
+                y: y0 + (y1 - y0) * t + (ny / len) * off
+            });
+        }
+    }
+
+    /* Central body — denser, elongated */
+    circle(0, 0, 35, 80);
+    /* Body shell outline */
+    ring(0, 0, 38, 6, 40);
+
+    /* 4 arms at 45°, 135°, 225°, 315° */
+    const armLen = 130;
+    const diag = armLen / Math.SQRT2;
+    arm(0, 0, diag, diag, 16, 35);
+    arm(0, 0, -diag, diag, 16, 35);
+    arm(0, 0, diag, -diag, 16, 35);
+    arm(0, 0, -diag, -diag, 16, 35);
+
+    /* Motor housings at arm tips */
+    circle(diag, diag, 14, 20);
+    circle(-diag, diag, 14, 20);
+    circle(diag, -diag, 14, 20);
+    circle(-diag, -diag, 14, 20);
+
+    /* Propeller discs — two blades each as elongated ellipses */
+    const tipR = 48;
+    ring(diag, diag, tipR, 5, 60);
+    ring(-diag, diag, tipR, 5, 60);
+    ring(diag, -diag, tipR, 5, 60);
+    ring(-diag, -diag, tipR, 5, 60);
+
+    /* Propeller blades — 2 blades per motor, line of particles from center to ring edge */
+    const motors = [[diag,diag],[-diag,diag],[diag,-diag],[-diag,-diag]];
+    for (const [mx, my] of motors) {
+        for (let b = 0; b < 2; b++) {
+            const ba = b * Math.PI;
+            /* Each blade: dense line from center outward, widening slightly */
+            for (let i = 0; i < 18; i++) {
+                const r = (i / 17) * tipR * 0.92;
+                const w = 1.5 + (i / 17) * 3;
+                const off = (Math.random() - 0.5) * w;
+                const lx = Math.cos(ba) * r + Math.sin(ba) * off;
+                const ly = Math.sin(ba) * r - Math.cos(ba) * off;
+                pts.push({ x: mx + lx, y: my + ly, motor: [mx, my], localX: lx, localY: ly });
+            }
+        }
+    }
+
+    /* Landing gear — 4 short legs */
+    arm(25, 25, 40, 55, 6, 10);
+    arm(-25, 25, -40, 55, 6, 10);
+    arm(25, -25, 40, -55, 6, 10);
+    arm(-25, -25, -40, -55, 6, 10);
+    /* Landing skids */
+    arm(35, 55, -35, 55, 5, 14);
+    arm(35, -55, -35, -55, 5, 14);
+
+    /* Camera gimbal */
+    circle(0, 20, 10, 14);
+    circle(0, 30, 7, 10);
+
+    /* GPS antenna on top */
+    circle(0, -18, 5, 8);
+
+    return pts;
+}
+
+/* ---- Particle class ---- */
+class Particle {
+    constructor(tx, ty, motor, localX, localY) {
+        // Target (formation) position (world-space, before rotation)
+        this.tx0 = tx;
+        this.ty0 = ty;
+        // Propeller spinning data
+        this.motor = motor || null; // [mx, my] center of motor
+        this.localX = localX || 0;
+        this.localY = localY || 0;
+
+        // Current position
+        this.x = tx + (Math.random() - 0.5) * 400;
+        this.y = ty + (Math.random() - 0.5) * 400;
+
+        // Drift oscillation parameters (small random float around target)
+        this.driftAmpX  = 2 + Math.random() * 3;
+        this.driftAmpY  = 2 + Math.random() * 3;
+        this.driftFreqX = 0.3 + Math.random() * 0.5;
+        this.driftFreqY = 0.3 + Math.random() * 0.5;
+        this.driftPhX   = Math.random() * Math.PI * 2;
+        this.driftPhY   = Math.random() * Math.PI * 2;
+
+        // Velocity (for repulsion)
+        this.vx = 0;
+        this.vy = 0;
+
+        // Visual
+        this.radius = 1.2 + Math.random() * 1.4;
+        this.color  = Math.random() < 0.5 ? WARM_A : WARM_B;
+        this.alpha  = 0.55 + Math.random() * 0.45;
+    }
+
+    /* Rotated target position for a given rotation angle + propeller spin */
+    rotatedTarget(angle, propSpin) {
+        let tx = this.tx0, ty = this.ty0;
+        // If this is a propeller blade particle, spin around its motor center
+        if (this.motor) {
+            const cs = Math.cos(propSpin), ss = Math.sin(propSpin);
+            tx = this.motor[0] + this.localX * cs - this.localY * ss;
+            ty = this.motor[1] + this.localX * ss + this.localY * cs;
+        }
+        const c = Math.cos(angle);
+        const s = Math.sin(angle);
+        return {
+            rx: tx * c - ty * s,
+            ry: tx * s + ty * c
+        };
+    }
+
+    update(t, angle, propSpin, mx, my, cx, cy, repelRadius) {
+        const { rx, ry } = this.rotatedTarget(angle, propSpin);
+
+        // World-space target = canvas centre + rotated formation offset + drift
+        const targetX = cx + rx + Math.sin(t * this.driftFreqX + this.driftPhX) * this.driftAmpX;
+        const targetY = cy + ry + Math.cos(t * this.driftFreqY + this.driftPhY) * this.driftAmpY;
+
+        // Mouse repulsion
+        const dxM = this.x - mx;
+        const dyM = this.y - my;
+        const distM = Math.sqrt(dxM * dxM + dyM * dyM);
+
+        if (distM < repelRadius && distM > 0.5) {
+            const force = (repelRadius - distM) / repelRadius;
+            this.vx += (dxM / distM) * force * 6;
+            this.vy += (dyM / distM) * force * 6;
+        }
+
+        // Spring back toward target
+        const dxT = targetX - this.x;
+        const dyT = targetY - this.y;
+        this.vx += dxT * 0.04;
+        this.vy += dyT * 0.04;
+
+        // Friction
+        this.vx *= 0.82;
+        this.vy *= 0.82;
+
+        this.x += this.vx;
+        this.y += this.vy;
+    }
+
+    draw(ctx) {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+
+        // Glow
+        const grd = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 3.5);
+        grd.addColorStop(0,   this.color);
+        grd.addColorStop(0.4, this.color);
+        grd.addColorStop(1,   'rgba(0,0,0,0)');
+
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius * 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = grd;
+        ctx.fill();
+
+        // Core dot
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+
+        ctx.restore();
+    }
+}
+
+/* ---- Setup ---- */
+let particles = [];
+let rotation  = 0;
+let mouseX    = -9999;
+let mouseY    = -9999;
+const REPEL_R = 150;
+const ROT_SPD = 0.03; // rad/s — very slow rotation
+
+function getCanvasCentre(t) {
+    // Drone sits on the RIGHT half, floating in a gentle figure-8
+    const baseX = canvas.width * 0.73;
+    const baseY = canvas.height * 0.48;
+    // Figure-8 orbit
+    const orbitX = Math.sin(t * 0.12) * 90 + Math.cos(t * 0.07) * 30;
+    const orbitY = Math.sin(t * 0.18) * 70 + Math.cos(t * 0.1) * 40;
+    return { cx: baseX + orbitX, cy: baseY + orbitY };
+}
+
+function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+}
+
+function init() {
+    resize();
+    const rawPts = buildDroneTargets();
+    particles = rawPts.map(p => new Particle(p.x, p.y, p.motor, p.localX, p.localY));
+}
+
+/* ---- Connection lines between nearby particles ---- */
+function drawLines() {
+    const maxDist = 38;
+    ctx.save();
+    ctx.strokeStyle = LINE_C;
+    ctx.lineWidth   = 0.6;
+
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+            const a  = particles[i];
+            const b  = particles[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const d  = Math.sqrt(dx * dx + dy * dy);
+            if (d < maxDist) {
+                ctx.globalAlpha = (1 - d / maxDist) * 0.35;
+                ctx.beginPath();
+                ctx.moveTo(a.x, a.y);
+                ctx.lineTo(b.x, b.y);
+                ctx.stroke();
+            }
+        }
+    }
+    ctx.restore();
+}
+
+/* ---- Animation loop ---- */
+let lastTime = null;
+function loop(ts) {
+    if (!lastTime) lastTime = ts;
+    const dt   = Math.min((ts - lastTime) / 1000, 0.05);
+    lastTime   = ts;
+    rotation  += ROT_SPD * dt;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const t = ts / 1000;
+    const { cx, cy } = getCanvasCentre(t);
+
+    // Update
+    for (const p of particles) {
+        p.update(t, rotation, t * 8, mouseX, mouseY, cx, cy, REPEL_R);
+    }
+
+    // Draw lines first (behind dots)
+    drawLines();
+
+    // Draw particles
+    for (const p of particles) {
+        p.draw(ctx);
+    }
+
+    requestAnimationFrame(loop);
+}
+
+/* ---- Mouse tracking — capture on the whole section ---- */
+const heroSection = document.getElementById('heroSection');
+heroSection.addEventListener('mousemove', (e) => {
+    const r  = canvas.getBoundingClientRect();
+    mouseX   = e.clientX - r.left;
+    mouseY   = e.clientY - r.top;
+});
+heroSection.addEventListener('mouseleave', () => {
+    mouseX = -9999;
+    mouseY = -9999;
+});
+
+/* ---- Touch support ---- */
+heroSection.addEventListener('touchmove', (e) => {
+    if (e.touches.length > 0) {
+        const r  = canvas.getBoundingClientRect();
+        mouseX   = e.touches[0].clientX - r.left;
+        mouseY   = e.touches[0].clientY - r.top;
+    }
+}, { passive: true });
+
+/* ---- Resize ---- */
+window.addEventListener('resize', () => {
+    resize();
+});
+
+/* ---- Bootstrap ---- */
+init();
+requestAnimationFrame(loop);
+
+/* ---- Smooth scroll hints ---- */
+document.querySelectorAll('a.scroll-hint').forEach(a => {
+    a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
 })();
 </script>
 
-<!-- Let's Connect -->
-<section class="cta-connect">
-    <div class="container">
-        <h2 class="section-title">Let's Connect</h2>
-        <p class="cta-connect__text">
-            Interested in collaboration or want to learn more about my research? Feel free to reach out!
-        </p>
-        <div class="cta-connect__social">
-            <a href="mailto:mail.a.roman@csic.es" class="cta-connect__social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://twitter.com/a_roman_4" target="_blank" class="cta-connect__social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://github.com/alrova96" target="_blank" class="cta-connect__social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/alejandro-rom%C3%A1n-v%C3%A1zquez/" target="_blank" class="cta-connect__social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.researchgate.net/profile/Alejandro-Roman-9" target="_blank" class="cta-connect__social-link" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
-            <a href="https://scholar.google.es/citations?view_op=list_works&hl=es&hl=es&user=rOnlIMcAAAAJ" target="_blank" class="cta-connect__social-link" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-            <a href="https://orcid.org/my-orcid?orcid=0000-0002-8868-9302" target="_blank" class="cta-connect__social-link" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
+<div id="mainContent"></div>
+
+
+
+<!-- ============================================================
+     RESEARCH LINES — Sticky Scroll Card Deck
+     ============================================================ -->
+<style>
+.rl-section{background:#fff;}
+.rl-section .rl-label{text-align:center;padding:1.5rem 2rem .4rem;color:var(--color-brown,#5e503f);font-family:var(--font-main);font-size:.75rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;}
+.rl-section .rl-title{text-align:center;padding:0 2rem .5rem;font-family:var(--font-heading);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--color-dark,#0a0908);line-height:1.1;}
+.rl-section .rl-divider{width:60px;height:3px;background:#c6ac8f;margin:0 auto 1.5rem;border-radius:2px;}
+.rl-stack{position:relative;height:500vh;margin-bottom:0;padding-bottom:0;}
+.rl-section{padding-bottom:0;margin-bottom:0;}
+.rl-inner{position:sticky;top:0;height:100vh;overflow:hidden;}
+.rl-card{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;}
+.rl-card__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+.rl-card__overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,9,8,.72) 0%,rgba(34,51,59,.55) 100%);}
+.rl-card__num{position:absolute;top:2rem;right:3rem;font-family:var(--font-heading);font-size:clamp(6rem,14vw,14rem);font-weight:700;color:rgba(198,172,143,.14);line-height:1;pointer-events:none;user-select:none;}
+.rl-card__content{position:absolute;bottom:0;left:0;right:0;padding:4rem 5% 5rem;max-width:800px;}
+.rl-card__tag{display:inline-block;font-family:var(--font-main);font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:#c6ac8f;border:1px solid rgba(198,172,143,.4);padding:.3rem .8rem;border-radius:2px;margin-bottom:1.2rem;}
+.rl-card__title{font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,3.2rem);font-weight:700;color:#eae0d5;margin-bottom:1rem;line-height:1.1;}
+.rl-card__desc{font-family:var(--font-main);font-size:clamp(.9rem,1.6vw,1.1rem);color:rgba(234,224,213,.8);line-height:1.65;max-width:620px;}
+.rl-progress{position:absolute;right:2.5rem;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:.6rem;z-index:10;}
+.rl-dot{width:6px;height:6px;border-radius:50%;background:rgba(94,80,63,.3);transition:background .3s,transform .3s;}
+.rl-dot.active{background:#5e503f;transform:scale(1.4);}
+/* rl-hint replaced by scroll-hint */
+</style>
+
+<section class="rl-section" id="rl-section">
+  <p class="rl-label">What I work on</p>
+  <h2 class="rl-title">Research Lines</h2>
+  <div class="rl-divider"></div>
+  <div class="rl-stack" id="rl-stack">
+    <div class="rl-inner" id="rl-inner">
+      <div class="rl-card" id="rl-card-1" style="z-index:1;">
+        <img class="rl-card__bg" src="static/img/momentum.png" alt="Momentum CSIC Program">
+        <div class="rl-card__overlay"></div>
+        <span class="rl-card__num">01</span>
+        <div class="rl-card__content">
+          <span class="rl-card__tag">Research Line</span>
+          <h3 class="rl-card__title">Momentum CSIC Program</h3>
+          <p class="rl-card__desc">DIGIDRON Project: Development of emerging technologies for digitalization and data processing for the study of coastal environmental phenomena using sensors mounted on drones.</p>
         </div>
-        <a href="mailto:mail.a.roman@csic.es" class="btn" style="font-size: 1.1rem; padding: 1.1rem 2.5rem;">
-            <i class="fas fa-envelope"></i>
-            Contact Me
-        </a>
+      </div>
+      <div class="rl-card" id="rl-card-2" style="z-index:2;transform:translateY(100%);">
+        <img class="rl-card__bg" src="static/img/home_polar.JPG" alt="Polar Research">
+        <div class="rl-card__overlay"></div>
+        <span class="rl-card__num">02</span>
+        <div class="rl-card__content">
+          <span class="rl-card__tag">Research Line</span>
+          <h3 class="rl-card__title">Polar Research</h3>
+          <p class="rl-card__desc">An approach to the study of environmental phenomena affected by climate change, such as the evolution of Antarctic penguin colonies and the emergence of snow algal blooms in coastal snowfields.</p>
+        </div>
+      </div>
+      <div class="rl-card" id="rl-card-3" style="z-index:3;transform:translateY(100%);">
+        <img class="rl-card__bg" src="static/img/waterquality.png" alt="Ocean Color">
+        <div class="rl-card__overlay"></div>
+        <span class="rl-card__num">03</span>
+        <div class="rl-card__content">
+          <span class="rl-card__tag">Research Line</span>
+          <h3 class="rl-card__title">Ocean Color</h3>
+          <p class="rl-card__desc">Development of marine optics algorithms for the detection at local scale and monitoring of water quality in coastal regions using multi- and hyperspectral sensors deployable on drones.</p>
+        </div>
+      </div>
+      <div class="rl-card" id="rl-card-4" style="z-index:4;transform:translateY(100%);">
+        <img class="rl-card__bg" src="static/img/home_volcano.JPEG" alt="Emergencies">
+        <div class="rl-card__overlay"></div>
+        <span class="rl-card__num">04</span>
+        <div class="rl-card__content">
+          <span class="rl-card__tag">Research Line</span>
+          <h3 class="rl-card__title">Emergencies</h3>
+          <p class="rl-card__desc">Use of drone technology and its integration with artificial intelligence to provide scientific support in emergency situations such as volcanic eruptions, wildfires, or floods.</p>
+        </div>
+      </div>
+      <div class="rl-progress" id="rl-progress">
+        <div class="rl-dot active" data-index="0"></div>
+        <div class="rl-dot" data-index="1"></div>
+        <div class="rl-dot" data-index="2"></div>
+        <div class="rl-dot" data-index="3"></div>
+      </div>
+      <div class="scroll-hint" style="color:inherit;">
+        <span class="scroll-hint__text" style="color:rgba(234,224,213,.6);">Scroll</span>
+        <span class="scroll-hint__arrow" style="border-color:rgba(234,224,213,.6);"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const stack=document.getElementById('rl-stack');
+  const cards=[document.getElementById('rl-card-1'),document.getElementById('rl-card-2'),document.getElementById('rl-card-3'),document.getElementById('rl-card-4')];
+  const dots=document.querySelectorAll('.rl-dot');
+  function update(){
+    const rect=stack.getBoundingClientRect();
+    const scrolled=Math.max(0,-rect.top);
+    const sectionH=window.innerHeight;
+    cards.forEach((card,i)=>{
+      if(i===0)return;
+      const progress=Math.min(1,Math.max(0,(scrolled-i*sectionH)/sectionH));
+      card.style.transform='translateY('+(1-progress)*100+'%)';
+    });
+    const activeIndex=Math.min(cards.length-1,Math.floor(scrolled/sectionH));
+    dots.forEach((dot,i)=>dot.classList.toggle('active',i===activeIndex));
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+})();
+</script>
+
+<!-- ============================================================
+     ACADEMIC ACTIVITY — Cinematic Split
+     ============================================================ -->
+<style>
+@media(max-width:900px){ [id="opt-g-content"]{width:70%!important;padding:3rem 2rem 3rem 4vw!important;}}
+@media(max-width:640px){ [id="opt-g-content"]{width:100%!important;padding:2.5rem 1.5rem!important;}}
+</style>
+<section id="option-g" style="position:relative;width:100%;min-height:600px;display:flex;align-items:stretch;overflow:hidden;font-family:'Inter',sans-serif;margin:0;padding:0;">
+    <div style="position:absolute;inset:0;background:url('static/img/fondo.png') center/cover no-repeat;z-index:0;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,9,8,.88) 0%,rgba(10,9,8,.82) 35%,rgba(10,9,8,.45) 60%,rgba(10,9,8,0) 100%);z-index:1;"></div>
+    <div id="opt-g-content" style="position:relative;z-index:2;width:55%;max-width:680px;padding:4rem 3rem 4rem 5vw;display:flex;flex-direction:column;justify-content:center;gap:1.6rem;opacity:0;transform:translateX(-48px);transition:opacity .75s cubic-bezier(.4,0,.2,1),transform .75s cubic-bezier(.4,0,.2,1);">
+        <div style="display:flex;align-items:center;gap:.6rem;">
+            <span style="display:inline-block;background:rgba(198,172,143,.18);border:1px solid rgba(198,172,143,.4);color:#c6ac8f;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .85rem;border-radius:999px;font-weight:600;">Research Profile</span>
+        </div>
+        <h2 style="font-family:'Instrument Sans',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#eae0d5;line-height:1.1;margin:0;letter-spacing:-.02em;">Academic<br>Activity</h2>
+        <div style="width:56px;height:3px;background:linear-gradient(90deg,#c6ac8f,transparent);border-radius:2px;"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem 2.5rem;">
+            <div style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07);"><span class="g-counter" data-count="28" style="font-size:2rem;font-weight:700;color:#c6ac8f;min-width:2.5ch;font-family:'Instrument Sans',sans-serif;line-height:1;">0</span><span style="font-size:.8rem;color:rgba(234,224,213,.7);line-height:1.3;">Publications</span></div>
+            <div style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07);"><span class="g-counter" data-count="1" style="font-size:2rem;font-weight:700;color:#c6ac8f;min-width:2.5ch;font-family:'Instrument Sans',sans-serif;line-height:1;">0</span><span style="font-size:.8rem;color:rgba(234,224,213,.7);line-height:1.3;">White Paper</span></div>
+            <div style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07);"><span class="g-counter" data-count="23" style="font-size:2rem;font-weight:700;color:#c6ac8f;min-width:2.5ch;font-family:'Instrument Sans',sans-serif;line-height:1;">0</span><span style="font-size:.8rem;color:rgba(234,224,213,.7);line-height:1.3;">Conferences</span></div>
+            <div style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07);"><span class="g-counter" data-count="15" style="font-size:2rem;font-weight:700;color:#c6ac8f;min-width:2.5ch;font-family:'Instrument Sans',sans-serif;line-height:1;">0</span><span style="font-size:.8rem;color:rgba(234,224,213,.7);line-height:1.3;">Invited Talks</span></div>
+            <div style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07);"><span class="g-counter" data-count="5" style="font-size:2rem;font-weight:700;color:#c6ac8f;min-width:2.5ch;font-family:'Instrument Sans',sans-serif;line-height:1;">0</span><span style="font-size:.8rem;color:rgba(234,224,213,.7);line-height:1.3;">Intl. Research Stays</span></div>
+            <div style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07);"><span class="g-counter" data-count="2" style="font-size:2rem;font-weight:700;color:#c6ac8f;min-width:2.5ch;font-family:'Instrument Sans',sans-serif;line-height:1;">0</span><span style="font-size:.8rem;color:rgba(234,224,213,.7);line-height:1.3;">Antarctic Campaigns</span></div>
+            <div style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;"><span class="g-counter" data-count="1" style="font-size:2rem;font-weight:700;color:#c6ac8f;min-width:2.5ch;font-family:'Instrument Sans',sans-serif;line-height:1;">0</span><span style="font-size:.8rem;color:rgba(234,224,213,.7);line-height:1.3;">Project as PI</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.45rem;margin-top:.4rem;">
+            <div style="display:flex;align-items:flex-start;gap:.6rem;"><i class="fas fa-network-wired" style="color:#c6ac8f;font-size:.75rem;margin-top:.2rem;flex-shrink:0;"></i><span style="font-size:.78rem;color:rgba(234,224,213,.8);line-height:1.4;"><strong style="color:#eae0d5;">POLARCSIC-Hub</strong> Coordinator</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem;"><i class="fas fa-users" style="color:#c6ac8f;font-size:.75rem;margin-top:.2rem;flex-shrink:0;"></i><span style="font-size:.78rem;color:rgba(234,224,213,.8);line-height:1.4;"><strong style="color:#eae0d5;">2 Antarctica InSync</strong> Working Groups</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem;"><i class="fas fa-project-diagram" style="color:#c6ac8f;font-size:.75rem;margin-top:.2rem;flex-shrink:0;"></i><span style="font-size:.78rem;color:rgba(234,224,213,.8);line-height:1.4;">Coordinator of <strong style="color:#eae0d5;">Obj. 8 — MAX-CSIC</strong></span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem;"><i class="fas fa-globe" style="color:#c6ac8f;font-size:.75rem;margin-top:.2rem;flex-shrink:0;"></i><span style="font-size:.78rem;color:rgba(234,224,213,.8);line-height:1.4;"><strong style="color:#eae0d5;">CSIC</strong> rep. to the <strong style="color:#eae0d5;">OYSTER</strong> network</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem;"><i class="fas fa-database" style="color:#c6ac8f;font-size:.75rem;margin-top:.2rem;flex-shrink:0;"></i><span style="font-size:.78rem;color:rgba(234,224,213,.8);line-height:1.4;"><strong style="color:#eae0d5;">ECR Leadership</strong> — SOOS Data Management Sub-Committee</span></div>
+        </div>
+        <div style="margin-top:.6rem;"><a href="about.html" style="display:inline-flex;align-items:center;gap:.5rem;background:#c6ac8f;color:#0a0908;font-size:.85rem;font-weight:600;padding:.7rem 1.5rem;border-radius:6px;text-decoration:none;letter-spacing:.02em;transition:background .25s,box-shadow .25s;" onmouseover="this.style.background='#eae0d5';this.style.boxShadow='0 4px 20px rgba(198,172,143,.5)';" onmouseout="this.style.background='#c6ac8f';this.style.boxShadow='none';">Learn more about me <i class="fas fa-arrow-right" style="font-size:.75rem;"></i></a></div>
     </div>
 </section>
 
 <script>
-    // Counter animation on scroll
-    function animateCounter(el, target) {
-        let current = 0;
-        const step = target / 35;
-        const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-                el.textContent = target;
-                clearInterval(timer);
-            } else {
-                el.textContent = Math.round(current);
-            }
-        }, 30);
-    }
-
-    const statObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const numEl = entry.target.querySelector('.activity-stat__num');
-                if (numEl) {
-                    const count = parseInt(numEl.dataset.count);
-                    if (!isNaN(count)) animateCounter(numEl, count);
-                }
-                entry.target.classList.add('is-visible');
-                statObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-
-    document.querySelectorAll('.activity-stat').forEach((stat, i) => {
-        stat.style.transitionDelay = `${i * 0.08}s`;
-        statObserver.observe(stat);
-    });
+function runCounter(el,target){let start=null;const dur=1200;function step(ts){if(!start)start=ts;const p=Math.min((ts-start)/dur,1);el.textContent=Math.round((1-Math.pow(1-p,3))*target);if(p<1)requestAnimationFrame(step);else el.textContent=target;}requestAnimationFrame(step);}
+(function(){const c=document.getElementById('opt-g-content');if(!c)return;let counted=false;
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){c.style.opacity='1';c.style.transform='translateX(0)';if(!counted){counted=true;c.querySelectorAll('.g-counter').forEach(el=>{runCounter(el,parseInt(el.dataset.count,10));});}}else{c.style.opacity='0';c.style.transform='translateX(-48px)';counted=false;}});},{threshold:.15});
+obs.observe(c);})();
 </script>
+
+<!-- ============================================================
+     LATEST NEWS — Interactive News Wall (Polaroid + Pagination Dots)
+     ============================================================ -->
+<style>
+/* --- News Wall Section --- */
+.news-wall{background:#fff;padding:3rem 0 4rem;}
+.news-wall__container{max-width:1100px;margin:0 auto;padding:0 2rem;}
+.news-wall__label{display:inline-block;font-family:var(--font-main);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:#c6ac8f;padding:.3rem .9rem;border-radius:100px;margin:0 0 .7rem;}
+.news-wall-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1.5rem;}
+
+/* --- Viewport (overflow hidden, clips the sliding track) --- */
+.news-wall__viewport{overflow:hidden;position:relative;}
+
+/* --- Track: holds all pages side by side --- */
+.news-wall__track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1);}
+
+/* --- Single page grid (3x3) --- */
+.news-wall__page{min-width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;box-sizing:border-box;}
+
+/* --- Overlay / Cinematic Card --- */
+.nw-card{position:relative;overflow:hidden;border-radius:12px;aspect-ratio:3/4;cursor:pointer;box-shadow:0 4px 20px rgba(10,9,8,.22);transition:transform .35s ease,box-shadow .35s ease,opacity .55s ease;opacity:0;transform:translateY(30px);}
+.nw-card.scattered{opacity:1;transform:translateY(0);}
+.nw-card:hover{transform:translateY(-5px) scale(1.015);box-shadow:0 16px 44px rgba(10,9,8,.38);z-index:10;}
+.news-wall__page:hover .nw-card:not(:hover){filter:brightness(.85);opacity:.7;}
+.nw-card__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+.nw-card:hover .nw-card__img{transform:scale(1.08);}
+.nw-card__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,9,8,.88) 0%,rgba(10,9,8,.42) 40%,transparent 70%);transition:background .4s ease;}
+.nw-card:hover .nw-card__gradient{background:linear-gradient(to top,rgba(10,9,8,.96) 0%,rgba(10,9,8,.72) 55%,rgba(10,9,8,.1) 100%);}
+.nw-card__content{position:absolute;bottom:0;left:0;right:0;padding:1rem 1.1rem 1.2rem;}
+.nw-card__date{font-family:var(--font-main);font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#c6ac8f;margin-bottom:.4rem;}
+.nw-card__title{font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:#eae0d5;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:0;}
+.nw-card__excerpt{font-family:var(--font-main);font-size:.72rem;color:rgba(234,224,213,.85);line-height:1.55;margin-top:.6rem;max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,opacity .4s ease;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;}
+.nw-card:hover .nw-card__excerpt{max-height:100px;opacity:1;}
+
+/* --- Pagination controls --- */
+.news-wall__controls{display:flex;align-items:center;justify-content:center;gap:.7rem;margin-top:2rem;}
+.nw-arrow{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(94,80,63,.25);background:transparent;color:#5e503f;font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.nw-arrow:hover{background:#22333b;border-color:#22333b;color:#eae0d5;}
+.nw-dots{display:flex;align-items:center;gap:.55rem;}
+.nw-dot{width:10px;height:10px;border-radius:50%;border:2px solid #c6ac8f;background:transparent;cursor:pointer;transition:all .3s ease;padding:0;}
+.nw-dot.active{width:14px;height:14px;background:#c6ac8f;border-color:#c6ac8f;box-shadow:0 0 8px rgba(198,172,143,.4);}
+
+/* --- Responsive --- */
+@media(max-width:900px){.news-wall__page{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.news-wall__page{grid-template-columns:1fr;}}
+
+/* --- Dark mode --- */
+[data-theme="dark"] .news-wall{background:var(--bg-primary,#1a1a2e);}
+[data-theme="dark"] .news-wall .section-title{color:var(--text-primary,#eae0d5);}
+[data-theme="dark"] .news-wall .btn{color:var(--text-primary,#eae0d5);border-color:rgba(234,224,213,.3);}
+[data-theme="dark"] .nw-arrow{border-color:rgba(234,224,213,.3);color:var(--text-primary,#eae0d5);}
+[data-theme="dark"] .nw-arrow:hover{background:#c6ac8f;border-color:#c6ac8f;color:#0a0908;}
+[data-theme="dark"] .rl-section{background:var(--bg-primary,#1a1a2e);}
+[data-theme="dark"] .rl-section .rl-label{color:#c6ac8f;}
+[data-theme="dark"] .rl-section .rl-title{color:var(--text-primary,#eae0d5);}
+[data-theme="dark"] .rl-dot{border-color:rgba(234,224,213,.3);}
+[data-theme="dark"] .rl-dot.active{background:#c6ac8f;border-color:#c6ac8f;}
+</style>
+
+<section class="news-wall">
+  <div class="news-wall__container">
+    <div class="news-wall-header">
+      <div>
+        <h2 class="section-title" style="text-align:left;margin-bottom:0;">Latest News &amp; Updates</h2>
+      </div>
+      <a href="media.html" class="btn" style="margin:0;">Access media content <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="news-wall__viewport">
+      <div class="news-wall__track" id="nw-track"></div>
+    </div>
+    <div class="news-wall__controls">
+      <button class="nw-arrow" id="nw-prev" aria-label="Previous page"><i class="fas fa-chevron-left"></i></button>
+      <div class="nw-dots" id="nw-dots"></div>
+      <button class="nw-arrow" id="nw-next" aria-label="Next page"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+/* ---------- DATA (27 items) ---------- */
+const NEWS=[
+{img:'static/img/ciceron.jpg',date:'October 2026',title:'Participation in the organisation of the POLARCSIC Hub\u2019s Ciceron Itinerary',excerpt:'Coordination and organisation of the event showcasing CSIC\u2019s polar research infrastructures, held in Vigo.'},
+{img:'static/img/highco2.jpg',date:'October 2026',title:'Poster presentation at the High CO\u2082 Conference in Wellington, New Zealand',excerpt:'I participated in the High CO\u2082 Conference held in Wellington, presenting a poster on the GIFT campaign.'},
+{img:'static/img/rewrite_am.png',date:'October 2026',title:'Oral presentation at the 3rd Annual Meeting of the REWRITE project in C\u00e1diz',excerpt:'We delivered an oral presentation on AI applied to drone and satellite data in coastal areas.'},
+{img:'static/img/doctoral_prize.JPEG',date:'September 2026',title:'Receiving the Extraordinary Doctoral Thesis Award at the University of C\u00e1diz',excerpt:'The award was presented during the opening ceremony of the 2026\u20132027 academic year.'},
+{img:'static/img/ECR_polarcsic.jpg',date:'September 2026',title:'Organising the ECR event within the POLARCSIC network at ICM Barcelona',excerpt:'We organised the event for Early Career Researchers within the POLARCSIC network.'},
+{img:'static/img/researchernight.JPG',date:'September 2026',title:'Coordinating a workshop at the European Researchers\u2019 Night!',excerpt:'We were in San Fernando showcasing our drones to the public.'},
+{img:'static/img/talenton.png',date:'September 2026',title:'1st place in the Adaptation to Climate Change Arena at the EU TalentOn 2026!',excerpt:'Our project PRREST won first prize among 100 finalists from 1,370 participants.'},
+{img:'static/img/SCAR.jpg',date:'August 2026',title:'12th SCAR Open Science Conference in Oslo, Norway!',excerpt:'I presented my work on snow algal blooms and served as lead convener for two sessions.'},
+{img:'static/img/incendios_gade.jpg',date:'July 2026',title:'Our drones support GADE-CSIC wildfire response operations in Spain',excerpt:'Using thermal imaging technology, we contributed to mapping the fire perimeter.'},
+{img:'static/img/insync.png',date:'July 2026',title:'Antarctica InSync White Papers Published!',excerpt:'We contributed to Scientific Theme 5, focusing on anthropogenic signatures in Antarctica.'},
+{img:'static/img/master_defense.jpg',date:'July 2026',title:'Our Master\u2019s students successfully defended their theses!',excerpt:'Four students achieved final grades of over 9/10.'},
+{img:'static/img/IA_EV.JPG',date:'July 2026',title:'Momentum Flash Talks at the CSIC Summer School on AI',excerpt:'I presented advances in AI applied to drone-based remote sensing.'},
+{img:'static/img/curso_uca.png',date:'July 2026',title:'Panel discussion at the UCA Summer School',excerpt:'Part of the course AI for Well-being: A Cross-Disciplinary Perspective.'},
+{img:'static/img/upgrade_foto.jpg',date:'July 2026',title:'Upgrade Hub workshop: Generative AI and Data Science',excerpt:'I shared my experience in the AI and Data Analytics Bootcamp.'},
+{img:'static/img/ISMS.JPG',date:'July 2026',title:'TFM students at the 10th International Symposium on Marine Sciences',excerpt:'Sergio Obrador received the Best Poster Presentation Award.'},
+{img:'static/img/aet_2026.png',date:'June 2026',title:'21st Conference of the Spanish Association of Remote Sensing',excerpt:'We presented three contributions on remote sensing data and AI.'},
+{img:'static/img/ezequielma.png',date:'June 2026',title:'Honorable Mention in the 5th Ezequiel Mart\u00ednez Award',excerpt:'Granted for professional achievements and work during climate-related emergencies.'},
+{img:'static/img/AEE.png',date:'May 2026',title:'Earth Observation for Emergencies Workshop at the Spanish Space Agency',excerpt:'Presentation on the ICMAN-CSIC drone team during the Valencia DANA floods.'},
+{img:'static/img/pint.png',date:'May 2026',title:'Pint of Science 2026 in Jerez de la Frontera',excerpt:'Talk entitled Observing the Poles in Drone Mode.'},
+{img:'static/img/diverciencia2026.png',date:'May 2026',title:'Diverciencia 2026 science outreach fair',excerpt:'We were in Algeciras showcasing our drones and presenting our research.'},
+{img:'static/img/podcast.png',date:'May 2026',title:'Un Punto Azul podcast',excerpt:'Introduction to the talk Observing the Poles in Drone Mode.'},
+{img:'static/img/pintofscience.png',date:'April 2026',title:'Pint of Science in Jerez de la Frontera',excerpt:'Talk entitled \u201cObserving the Poles by Drone.\u201d'},
+{img:'static/img/atkabay.png',date:'March 2026',title:'AMIGA granted in the POLARIN Transnational Call 2025',excerpt:'We\u2019re returning to Antarctica in 2028!'},
+{img:'static/img/euromarine.png',date:'March 2026',title:'EuroMarine Open Science Day & General Assembly',excerpt:'We presented 4 posters from our Master\u2019s students.'},
+{img:'static/img/polaromics.png',date:'February 2026',title:'First Antarctic campaign of POLAROMICS completed',excerpt:'Successfully completed the first field campaign.'},
+{img:'static/img/paperblooms.png',date:'January 2026',title:'New Publication in Communications Earth & Environment',excerpt:'Published our latest work on red snow algal blooms in Antarctica.'},
+{img:'static/img/premiotesis.png',date:'December 2025',title:'Extraordinary Doctoral Thesis Award',excerpt:'Received the award from the University of C\u00e1diz.'},
+];
+
+const PER_PAGE=9;
+const totalPages=Math.ceil(NEWS.length/PER_PAGE);
+let currentPage=0;
+const track=document.getElementById('nw-track');
+const dotsWrap=document.getElementById('nw-dots');
+const prevBtn=document.getElementById('nw-prev');
+const nextBtn=document.getElementById('nw-next');
+
+/* Small random rotations for Polaroid scatter */
+const rotations=NEWS.map(()=>(Math.random()*6-3).toFixed(2));
+
+/* Build all pages into the track */
+for(let p=0;p<totalPages;p++){
+  const pageDiv=document.createElement('div');
+  pageDiv.className='news-wall__page';
+  const slice=NEWS.slice(p*PER_PAGE,(p+1)*PER_PAGE);
+  slice.forEach((n,i)=>{
+    const idx=p*PER_PAGE+i;
+    const card=document.createElement('div');
+    card.className='nw-card';
+    card.style.setProperty('--rot',rotations[idx]+'deg');
+    card.style.transitionDelay=(i*0.06)+'s';
+    card.innerHTML='<img src="'+n.img+'" alt="'+n.title+'" class="nw-card__img" loading="lazy"><div class="nw-card__gradient"></div><div class="nw-card__content"><div class="nw-card__date">'+n.date+'</div><h3 class="nw-card__title">'+n.title+'</h3><p class="nw-card__excerpt">'+n.excerpt+'</p></div>';
+    pageDiv.appendChild(card);
+  });
+  track.appendChild(pageDiv);
+}
+
+/* Build dots */
+for(let d=0;d<totalPages;d++){
+  const dot=document.createElement('button');
+  dot.className='nw-dot'+(d===0?' active':'');
+  dot.setAttribute('aria-label','Page '+(d+1));
+  dot.addEventListener('click',()=>goTo(d));
+  dotsWrap.appendChild(dot);
+}
+
+function goTo(p){
+  if(p<0||p>=totalPages)return;
+  currentPage=p;
+  track.style.transform='translateX(-'+(p*100)+'%)';
+  document.querySelectorAll('.nw-dot').forEach((d,i)=>d.classList.toggle('active',i===p));
+  /* Re-trigger scatter animation for the visible page */
+  const pages=track.querySelectorAll('.news-wall__page');
+  pages[p].querySelectorAll('.nw-card').forEach((c,i)=>{
+    c.classList.remove('scattered');
+    void c.offsetWidth;
+    setTimeout(()=>c.classList.add('scattered'),i*60);
+  });
+}
+
+prevBtn.addEventListener('click',()=>goTo(currentPage-1));
+nextBtn.addEventListener('click',()=>goTo(currentPage+1));
+
+/* Initial scatter for first page */
+const firstPageCards=track.querySelector('.news-wall__page').querySelectorAll('.nw-card');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      firstPageCards.forEach((c,i)=>setTimeout(()=>c.classList.add('scattered'),i*80));
+      obs.disconnect();
+    }
+  });
+},{threshold:.15});
+obs.observe(track);
+})();
+</script>
+
+<!-- ============================================================
+     LET'S CONNECT
+     ============================================================ -->
+<style>
+.c-connect{background:#22333b;padding:4rem 0;position:relative;overflow:hidden;margin-bottom:-5rem;}
+.c-connect::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70%;height:70%;background:radial-gradient(circle,rgba(198,172,143,.1) 0%,transparent 70%);pointer-events:none;}
+.c-connect__inner{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:0 2rem;text-align:center;}
+.c-connect__label{font-family:var(--font-main);font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#c6ac8f;margin-bottom:1rem;display:block;}
+.c-connect__title{font-family:var(--font-heading);font-size:clamp(2.2rem,5vw,4rem);font-weight:700;color:#eae0d5;line-height:1.1;margin-bottom:1.2rem;}
+.c-connect__sub{font-family:var(--font-main);font-size:1.05rem;color:rgba(234,224,213,.65);line-height:1.7;margin-bottom:2.5rem;}
+.c-connect__socials{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.c-connect__social-link{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border:1.5px solid rgba(198,172,143,.3);border-radius:50%;color:#c6ac8f;font-size:1.1rem;text-decoration:none;transition:all .3s ease;background:rgba(198,172,143,.05);}
+.c-connect__social-link:hover{background:#c6ac8f;border-color:#c6ac8f;color:#0a0908;transform:translateY(-4px);box-shadow:0 8px 20px rgba(198,172,143,.3);}
+.c-connect .c-btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2.5rem;border-radius:100px;font-family:var(--font-main);font-size:1rem;font-weight:600;text-decoration:none;background:#c6ac8f;color:#0a0908;transition:all .25s ease;border:none;cursor:pointer;}
+.c-connect .c-btn:hover{background:#eae0d5;transform:translateY(-2px);box-shadow:0 8px 25px rgba(198,172,143,.4);}
+.c-connect .reveal{opacity:0;transform:translateY(30px);transition:opacity .75s ease,transform .75s ease;}
+.c-connect .reveal.is-visible{opacity:1;transform:none;}
+</style>
+<section class="c-connect" id="connect">
+  <div class="c-connect__inner">
+    <span class="c-connect__label reveal">Get in touch</span>
+    <h2 class="c-connect__title reveal" style="transition-delay:0.1s">Let's Connect</h2>
+    <p class="c-connect__sub reveal" style="transition-delay:0.2s">Interested in collaboration or want to learn more about my research? Feel free to reach out!</p>
+    <div class="c-connect__socials reveal" style="transition-delay:0.25s">
+      <a href="mailto:mail.a.roman@csic.es" class="c-connect__social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://twitter.com/a_roman_4" target="_blank" class="c-connect__social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://github.com/alrova96" target="_blank" class="c-connect__social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/alejandro-rom%C3%A1n-v%C3%A1zquez/" target="_blank" class="c-connect__social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.researchgate.net/profile/Alejandro-Roman-9" target="_blank" class="c-connect__social-link" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+      <a href="https://scholar.google.es/citations?view_op=list_works&hl=es&hl=es&user=rOnlIMcAAAAJ" target="_blank" class="c-connect__social-link" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://orcid.org/my-orcid?orcid=0000-0002-8868-9302" target="_blank" class="c-connect__social-link" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
+    </div>
+    <div class="reveal" style="transition-delay:0.35s"><a href="mailto:mail.a.roman@csic.es" class="c-btn"><i class="fas fa-envelope"></i> Contact Me</a></div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');}else{e.target.classList.remove('is-visible');}});},{threshold:.12});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>obs.observe(el));
+})();
+</script>
+
 
     </main>
 
@@ -631,7 +1103,7 @@
                 Postdoctoral Researcher at <a href="https://www.icman.csic.es/" target="_blank" class="footer-link">ICMAN-CSIC</a>
             </p>
             <div style="text-align: center; margin-top: 1.5rem;">
-                <img src="static/img/logos.png" alt="Logos" style="max-width: 400px; height: auto; display: block; margin: 0 auto;">
+                <img src="static/img/logos_footer.png" alt="Logos" style="max-width: 600px; height: auto; display: block; margin: 0 auto;">
             </div>
         </div>
     </footer>

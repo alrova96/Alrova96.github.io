@@ -298,6 +298,14 @@ PUBLICATIONS = [
 # Media data
 MEDIA_ITEMS = [
     {
+        'title': 'Press Release - Antarctic chinstrap penguin droppings emit nearly half a million tonnes of methane per year',
+        'description': 'Press release on the study revealing that Antarctic chinstrap penguin droppings emit nearly half a million tonnes of methane per year.',
+        'image': 'paper-metano.jpg',
+        'url': 'https://www.csic.es/en/node/687656',
+        'date': '8 October 2026',
+        'tags': []
+    },
+    {
         'title': 'Onda Cádiz - Interview on the program El Mirador',
         'description': 'Dr. Alejandro Román was interviewed on the program El Mirador on Onda Cádiz, discussing his latest research activities and scientific contributions.',
         'image': 'mirador_agosto.png',
@@ -485,7 +493,7 @@ MEDIA_ITEMS = [
 
 # Category mapping for media items
 _MEDIA_CATEGORIES = [
-    'TV', 'Press', 'Podcast', 'Radio', 'TV', 'TV', 'Press',
+    'Press', 'TV', 'Press', 'Podcast', 'Radio', 'TV', 'TV', 'Press',
     'Video', 'TV', 'Press', 'TV', 'Press',
     'TV', 'Video', 'Article', 'Article', 'Radio',
     'Press', 'Article', 'Press', 'Article', 'Article', 'Radio'

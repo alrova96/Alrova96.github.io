@@ -68,169 +68,712 @@
     <!-- Main Content -->
     <main>
         
-<!-- Page Header -->
-<section style="position: relative; height: 260px; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('static/img/fondo_about.png'); background-size: cover; background-position: center center;"></div>
-    <div class="container" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-        <h1 style="color: white; font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">Hey, I'm happy you are here</h1>
-        <p style="color: var(--color-light-beige); font-size: 1.4rem; max-width: 800px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">Thanks for stopping by!</p>
-    </div>
+
+<style>
+  /* =============================================
+     HERO SECTION
+     ============================================= */
+  .bio-hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bio-hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('static/img/fondo_about.png');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    transform: scale(1.05);
+    transition: transform 8s ease-out;
+  }
+
+  .bio-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 9, 8, 0.55) 0%,
+      rgba(10, 9, 8, 0.72) 60%,
+      rgba(10, 9, 8, 0.88) 100%
+    );
+  }
+
+  .bio-hero__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 1.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroFadeIn 1.2s cubic-bezier(.4,0,.2,1) 0.3s forwards;
+  }
+
+  @keyframes heroFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .bio-hero__eyebrow {
+    display: inline-block;
+    font-family: var(--font-main);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #c6ac8f;
+    margin-bottom: 1.25rem;
+    opacity: 0.9;
+  }
+
+  .bio-hero__title {
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 10vw, 7.5rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+    text-shadow: 0 4px 32px rgba(0,0,0,0.5);
+  }
+
+  .bio-hero__rule {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #c6ac8f, transparent);
+    margin: 0 auto 1.5rem;
+    border-radius: 2px;
+  }
+
+  .bio-hero__subtitle {
+    font-family: var(--font-main);
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: rgba(234,224,213,0.75);
+    line-height: 1.5;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  /* Scroll indicator */
+  .bio-hero__scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #c6ac8f;
+    opacity: 0.7;
+    animation: scrollBounce 2.2s ease-in-out infinite;
+  }
+
+  .bio-hero__scroll span {
+    font-family: var(--font-main);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .bio-hero__scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 1.5px solid #c6ac8f;
+    border-bottom: 1.5px solid #c6ac8f;
+    transform: rotate(45deg);
+    margin-top: -6px;
+  }
+
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* =============================================
+     BIOGRAPHY SECTION
+     ============================================= */
+  .bio-section {
+    background: #fff;
+    padding: 7rem 1.5rem 7rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Faint watermark text in background */
+  .bio-section::before {
+    content: 'RESEARCH';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-8deg);
+    font-family: var(--font-heading);
+    font-size: clamp(6rem, 18vw, 18rem);
+    font-weight: 900;
+    color: rgba(198, 172, 143, 0.055);
+    letter-spacing: 0.08em;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 0;
+  }
+
+  .bio-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Section label */
+  .bio-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .bio-label__line {
+    flex: 0 0 32px;
+    height: 1px;
+    background: #c6ac8f;
+  }
+
+  .bio-label__text {
+    font-family: var(--font-main);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #c6ac8f;
+  }
+
+  /* Lead paragraph — larger */
+  .bio-lead {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 3vw, 1.65rem);
+    font-weight: 500;
+    line-height: 1.6;
+    color: #0a0908;
+    margin: 0 0 3rem;
+  }
+
+  /* Accent word highlight */
+  .bio-accent {
+    color: #c6ac8f;
+    font-weight: 700;
+  }
+
+  /* Ornamental divider */
+  .bio-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.75rem 0;
+  }
+
+  .bio-divider__dash {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(198,172,143,0.4), transparent);
+  }
+
+  .bio-divider__diamond {
+    width: 6px;
+    height: 6px;
+    background: #c6ac8f;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* Body paragraphs */
+  .bio-body {
+    font-family: var(--font-main);
+    font-size: clamp(1rem, 1.8vw, 1.1rem);
+    font-weight: 400;
+    line-height: 1.85;
+    color: #22333b;
+    margin: 0 0 2.25rem;
+  }
+
+  .bio-body:last-of-type {
+    margin-bottom: 0;
+  }
+
+  /* =============================================
+     SCROLL REVEAL (bidirectional)
+     ============================================= */
+  .reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.reveal--delay-1 { transition-delay: 0.1s; }
+  .reveal.reveal--delay-2 { transition-delay: 0.22s; }
+  .reveal.reveal--delay-3 { transition-delay: 0.36s; }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal.is-hidden {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+
+  /* =============================================
+     DARK MODE OVERRIDES
+     ============================================= */
+  [data-theme="dark"] .bio-section {
+    background: #0f1419;
+  }
+
+  [data-theme="dark"] .bio-section::before {
+    color: rgba(198, 172, 143, 0.04);
+  }
+
+  [data-theme="dark"] .bio-lead {
+    color: #eae0d5;
+  }
+
+  [data-theme="dark"] .bio-body {
+    color: #c5bdb4;
+  }
+
+  /* =============================================
+     RESPONSIVE
+     ============================================= */
+  @media (max-width: 768px) {
+    .bio-section {
+      padding: 5rem 1.25rem 5rem;
+    }
+
+    .bio-lead {
+      font-size: 1.25rem;
+    }
+
+    .bio-hero__bg {
+      background-attachment: scroll;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .bio-hero__title {
+      font-size: 3rem;
+    }
+  }
+</style>
+
+<!-- =============================================
+     HERO BANNER
+     ============================================= -->
+<section class="bio-hero" aria-label="About Me hero">
+  <div class="bio-hero__bg" id="heroBg"></div>
+  <div class="bio-hero__overlay"></div>
+
+  <div class="bio-hero__content" id="heroContent">
+    <h1 class="bio-hero__title">About Me</h1>
+    <div class="bio-hero__rule"></div>
+    <p class="bio-hero__subtitle">From Sanlúcar (Cádiz) to Antarctica – following the ocean wherever it leads.</p>
+  </div>
+
+  <div class="bio-hero__scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="bio-hero__scroll-arrow"></div>
+  </div>
 </section>
 
-<!-- Background Section -->
-<section class="about-background">
-    <div class="container">
-        <h2 class="section-title">My Background</h2>
+<!-- =============================================
+     BIOGRAPHY
+     ============================================= -->
+<section class="bio-section" aria-label="Biography">
+  <div class="bio-inner">
 
-        <div class="collage-grid">
-
-            <!-- Chapter 1: BSc & MSc -->
-            <div class="collage-card">
-                <div class="card-photo-wrap card-photo-wrap--stacked">
-                    <img src="static/img/about_gradu.jpg" alt="Graduation" class="photo-back">
-                    <img src="static/img/about_alegradu.jpg" alt="University of Cádiz" class="photo-front">
-                </div>
-                <div class="card-caption">
-                    <span class="card-year">2016 — 2019</span>
-                    <h3 class="card-title">BSc & MSc</h3>
-                    <span class="card-toggle">+</span>
-                </div>
-                <div class="card-body">
-                    <p>
-                        Prior to joining ICMAN-CSIC, I completed a <span class="highlight">Bachelor's degree in Marine Sciences</span> and a <span class="highlight">Master's degree in Oceanography</span> at the <span class="highlight">University of Cádiz (UCA, Spain)</span>. In 2017, during the third year of my Bachelor's programme, I began collaborating on scientific research with <span class="highlight">Dr. Laura del Río</span> in the Department of Earth Sciences. I later received a <span class="highlight">Collaboration Scholarship</span> to carry out my Master's thesis under the supervision of <span class="highlight">Professor Dr. Luis Barbero</span>, using drone technology equipped with thermal sensors to detect submarine groundwater discharges in coastal areas.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Chapter 2: PhD Research -->
-            <div class="collage-card">
-                <div class="card-photo-wrap card-photo-wrap--stacked">
-                    <img src="static/img/about_phd.JPG" alt="PhD Research" class="photo-back">
-                    <img src="static/img/About_phd.png" alt="PhD Completion" class="photo-front">
-                </div>
-                <div class="card-caption">
-                    <span class="card-year">2020 — 2024</span>
-                    <h3 class="card-title">PhD Research</h3>
-                    <span class="card-toggle">+</span>
-                </div>
-                <div class="card-body">
-                    <p>
-                        In 2020, I began my scientific career at the Institute of Marine Sciences of Andalusia (ICMAN-CSIC, Spain), pursuing a <span class="highlight">PhD focused on developing remote sensing tools and using sensors onboard drones to study coastal environmental processes</span>. Funded by the <span class="highlight">PhD Fellowship for University Staff Training (FPU, ref: FPU19/04557)</span>, I worked under <span class="highlight">Dr. Antonio Tovar-Sánchez and Dr. Gabriel Navarro</span>. I specialised in characterising diverse marine ecosystems and coastal processes, including seagrass meadows, penguin colonies, and algal blooms. During this period, I participated in <span class="highlight">six research projects</span>, including two polar projects (PiMetAn and DICHOSO), and published <span class="highlight">17 peer-reviewed articles, ten as first author</span>, in leading journals. I completed <span class="highlight">my PhD in July 2024</span> with the highest honours, <span class="highlight">summa cum laude</span>.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Chapter 3: Research Stays -->
-            <div class="collage-card">
-                <div class="card-photo-wrap card-photo-wrap--stacked">
-                    <img src="static/img/about_research1.JPEG" alt="Research stay" class="photo-back">
-                    <img src="static/img/about_research2.jpg.jpg" alt="Research stay" class="photo-front">
-                </div>
-                <div class="card-caption">
-                    <span class="card-year">2022 — 2024</span>
-                    <h3 class="card-title">Research Stays</h3>
-                    <span class="card-toggle">+</span>
-                </div>
-                <div class="card-body">
-                    <p>
-                        I expanded my training through <span class="highlight">three international research stays</span>. From February to June 2022, I worked at the <span class="highlight">University of Malta</span> under <span class="highlight">Dr. Adam Gauci</span>, enhancing my Python programming skills for drone operations over aquatic surfaces. From October to November 2022, I collaborated with <span class="highlight">Dr. Laurent Barillé</span> at the <span class="highlight">University of Nantes</span> on multispectral monitoring of oyster farming areas and microphytobenthos in estuarine systems. Finally, from September 2023 to February 2024, I developed <span class="highlight">Python-based techniques</span> for marine optics algorithms at the <span class="highlight">University of Maryland</span>, funded by a <span class="highlight">Fulbright scholarship</span> and supervised by <span class="highlight">Dr. Greg Silsbe</span>.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Chapter 4: Postdoctoral -->
-            <div class="collage-card">
-                <div class="card-photo-wrap card-photo-wrap--stacked">
-                    <img src="static/img/About_momentum.png" alt="Momentum CSIC Program" class="photo-back">
-                    <img src="static/img/about_posdoc2.jpg" alt="Postdoctoral research" class="photo-front">
-                </div>
-                <div class="card-caption">
-                    <span class="card-year">2024 — Present</span>
-                    <h3 class="card-title">Postdoctoral</h3>
-                    <span class="card-toggle">+</span>
-                </div>
-                <div class="card-body">
-                    <p>
-                        Upon completing my PhD, I began my postdoctoral stage as a contract researcher under the <span class="highlight">Momentum CSIC program</span>, working on the <span class="highlight">DIGIDRON project</span> (Development of emerging digitalization and data processing technologies for studying coastal environmental phenomena using drone-mounted sensors). My current work focuses on <span class="highlight">integrating artificial intelligence with drone-collected data</span>, supported by specialised training in <span class="highlight">machine learning and deep learning</span> applied to remote sensing and geosciences.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Chapter 5: Antarctic Campaigns -->
-            <div class="collage-card">
-                <div class="card-photo-wrap card-photo-wrap--stacked">
-                    <img src="static/img/About_dichoso1.jpeg" alt="Antarctic Campaign" class="photo-back">
-                    <img src="static/img/about_antarctic.JPG" alt="Antarctic fieldwork" class="photo-front">
-                </div>
-                <div class="card-caption">
-                    <span class="card-year">2025 — 2026</span>
-                    <h3 class="card-title">Antarctic Campaigns</h3>
-                    <span class="card-toggle">+</span>
-                </div>
-                <div class="card-body">
-                    <p>
-                        At the beginning of 2025, I had the privilege of participating in my first <span class="highlight">Antarctic campaign</span> through the <span class="highlight">DICHOSO project</span>. I embarked on the research vessel BIO Hespérides, crossing the Drake Passage from Ushuaia (Argentina) to the Spanish Antarctic Base Gabriel de Castilla on Deception Island. There, we assessed the <span class="highlight">role of volcanic activity and chinstrap penguin colonies in greenhouse gas emissions</span>. We then conducted an oceanographic campaign aboard the B/O Sarmiento de Gamboa between Deception and Livingston Islands. In early 2026, I returned to Antarctica for the first campaign of the <span class="highlight">POLAROMICS project</span>, revisiting both islands over the course of a month.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Chapter 6: 2025 & Beyond -->
-            <div class="collage-card">
-                <div class="card-photo-wrap card-photo-wrap--stacked">
-                    <img src="static/img/About_otc.png" alt="ESA OTC25 One Ocean Expedition" class="photo-back">
-                    <img src="static/img/About_polaromics.png" alt="POLAROMICS Project" class="photo-front">
-                </div>
-                <div class="card-caption">
-                    <span class="card-year">2025 — Present</span>
-                    <h3 class="card-title">2025 & Beyond</h3>
-                    <span class="card-toggle">+</span>
-                </div>
-                <div class="card-body">
-                    <p>
-                        Throughout 2025, my scientific career accelerated significantly. I participated in events such as the <span class="highlight">ELLIS Summer School</span>, <span class="highlight">FICE2025</span>, and <span class="highlight">NASA PACE HACKWEEK</span>, and took part in the <span class="highlight">ESA OTC25</span> campaign aboard the tall ship <span class="highlight">Staatsraad Lehmkuhl</span> as part of the <span class="highlight">One Ocean Expedition</span>. I joined the coordinating committee of the <span class="highlight">POLARCSIC Hub</span> and became a Core Member of an <span class="highlight">Antarctica Insync working group</span>. At the end of 2025, I spent a month at the <span class="highlight">University of Eastern Finland</span> with <span class="highlight">Dr. Miguel Villoslada</span>, advancing AI-derived algorithms for upscaling from drone to satellite remote sensing. I was also awarded my first international project as PI, the <span class="highlight">AMIGA project</span>, and launched the <span class="highlight">ABANTI project</span> through the JAE Intro ICU POLARCSIC programme.
-                    </p>
-                </div>
-            </div>
-
-        </div>
+    <div class="reveal" style="text-align:center;margin-bottom:2rem;">
+      <h2 class="section-title">Biography</h2>
     </div>
+
+    <!-- Lead paragraph -->
+    <p class="bio-lead reveal reveal--delay-1">
+      I am a <span class="bio-accent">marine scientist and remote sensing researcher</span> at
+      ICMAN-CSIC, where I develop drone-based tools to observe and understand coastal and
+      oceanic processes that are otherwise invisible to the naked eye.
+    </p>
+
+    <div class="bio-divider reveal reveal--delay-2" aria-hidden="true">
+      <div class="bio-divider__dash"></div>
+      <div class="bio-divider__diamond"></div>
+      <div class="bio-divider__dash"></div>
+    </div>
+
+    <!-- Paragraph 2 -->
+    <p class="bio-body reveal reveal--delay-2">
+      My path into ocean science began at the <span class="bio-accent">University of Cádiz</span>, where I earned a Bachelor's degree in Marine Sciences and a Master's degree in Oceanography between 2016 and 2019. It was during those years that I first mounted a thermal camera on a drone and realised that the ocean had an entirely new dimension to reveal from above. That curiosity eventually led me to pursue a PhD at <span class="bio-accent">ICMAN-CSIC</span> (2020–2024), funded by a Spanish FPU fellowship and enriched by research stays at the <span class="bio-accent">University of Malta</span>, <span class="bio-accent">Nantes Université</span>, and, through a <span class="bio-accent">Fulbright scholarship</span>, the <span class="bio-accent">University of Maryland</span>. My thesis, defended in July 2024 with <span class="bio-accent">summa cum laude</span> honours, resulted in 17 peer-reviewed publications, ten of them as first author, in leading journals covering ocean colour, coastal ecology, and polar environments.
+    </p>
+
+    <!-- Paragraph 3 -->
+    <p class="bio-body reveal reveal--delay-3">
+      Today, as a postdoctoral researcher within the <span class="bio-accent">Momentum CSIC</span> programme, I lead a research line that integrates <span class="bio-accent">artificial intelligence and machine learning</span> with drone-mounted sensors to unravel coastal environmental processes at spatial scales that satellites alone cannot capture. A central focus of my research is developing drone-to-satellite upscaling approaches to bridge the gap between fine-scale observations and regional monitoring, enabling us to investigate some of the most relevant phenomena in tropical and polar coastal ecosystems, including snow algal blooms. This research has already taken me to <span class="bio-accent">Antarctica</span> twice, as part of the DICHOSO and POLAROMICS campaigns in 2025 and 2026, and will take me back in 2027 through the <span class="bio-accent">AMIGA project</span>, which I currently lead as Principal Investigator (PI) — the first research project for which I have taken on this role. The ocean keeps asking better questions; I keep building sharper tools to answer them.
+    </p>
+
+  </div>
 </section>
+
+<!-- =============================================
+     HERO PARALLAX JS
+     ============================================= -->
+<script>
+(function () {
+  'use strict';
+
+  // Subtle parallax on hero background
+  var heroBg = document.getElementById('heroBg');
+  if (heroBg) {
+    window.addEventListener('scroll', function () {
+      var scrolled = window.pageYOffset;
+      heroBg.style.transform = 'scale(1.05) translateY(' + (scrolled * 0.18) + 'px)';
+    }, { passive: true });
+  }
+})();
+</script>
+
+<!-- =============================================
+     GLOBE 3D — Research Map
+     ============================================= -->
 
 <!-- Research Map -->
-<section style="background-color: white;">
+<section class="globe-section">
     <div class="container">
-        <h2 class="section-title">Map of My Research Activity</h2>
+        <h2 class="section-title" style="color:#eae0d5;">My Research Activity</h2>
 
-        <div style="position: relative;">
-            <!-- Map Container -->
-            <div id="research-map" style="width: 100%; height: 550px; border-radius: 14px; box-shadow: 0 4px 25px rgba(0,0,0,0.12);"></div>
+        <div class="globe-wrap">
+            <div id="research-globe"></div>
 
-            <!-- Floating Legend -->
+            <!-- Globe home button (top-left) -->
+            <button id="btn-globe-home" class="globe-home-btn" aria-label="Back to globe" title="Back to globe">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8"/><ellipse cx="12" cy="12" rx="4" ry="9"/></svg>
+            </button>
+
+            <!-- Fullscreen button -->
+            <button id="btn-globe-fs" class="globe-fs-btn" aria-label="Full screen" title="Full screen">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+            </button>
+
+            <!-- Terrain labels overlay -->
+            <div id="terrain-labels" class="terrain-labels"></div>
+
+            <!-- Fade overlay for scene transitions -->
+            <div id="globe-fade" class="globe-fade"></div>
+
+            <!-- Info Panel (inside globe) -->
+            <div id="globe-panel" class="globe-panel"></div>
+
+            <!-- Legend -->
             <div class="map-legend">
                 <button class="map-legend__btn active" data-cat="all">
                     <span class="map-legend__dot" style="background: var(--color-dark);"></span> All
+                </button>
+                <button class="map-legend__btn" data-cat="formation">
+                    <span class="map-legend__dot" style="background: #e8a44a;"></span> Formation
                 </button>
                 <button class="map-legend__btn" data-cat="stays">
                     <span class="map-legend__dot" style="background: #c6ac8f;"></span> Research Stays
                 </button>
                 <button class="map-legend__btn" data-cat="host">
-                    <span class="map-legend__dot" style="background: #5e503f;"></span> Host Institution
+                    <span class="map-legend__dot" style="background: #eae0d5;"></span> Host Institution
                 </button>
                 <button class="map-legend__btn" data-cat="campaigns">
-                    <span class="map-legend__dot" style="background: #22333b;"></span> Field Campaigns
+                    <span class="map-legend__dot" style="background: #7fb8c9;"></span> Field Campaigns
                 </button>
                 <button class="map-legend__btn" data-cat="experiences">
-                    <span class="map-legend__dot" style="background: #8a7968;"></span> Int. Experiences
+                    <span class="map-legend__dot" style="background: #a3d4a0;"></span> Int. Experiences
                 </button>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Leaflet CSS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
 <style>
+    .globe-section { background-color: #0a0908; position: relative; z-index: 0; }
+    [data-theme="dark"] .globe-section { background-color: #0a0908; }
+
+    .globe-wrap {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    [id="research-globe"] {
+        width: 100%;
+        height: 600px;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 4px 25px rgba(0,0,0,0.12);
+        cursor: grab;
+        background: #0a0908;
+    }
+
+    /* Globe point labels */
+    .glbl {
+        position: absolute;
+        font-family: var(--font-main, 'Inter', sans-serif);
+        font-size: 0.6rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+        text-shadow: 0 1px 4px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.6);
+        transform: translate(8px, -50%);
+        transition: opacity 0.2s;
+    }
+    .glbl.off { opacity: 0; }
+
+    /* Terrain labels */
+    .terrain-labels {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 998;
+        overflow: hidden;
+    }
+    .tlbl {
+        position: absolute;
+        transform: translate(-50%, -100%);
+        font-family: var(--font-main, 'Inter', sans-serif);
+        font-size: 0.7rem;
+        color: rgba(234,224,213,0.85);
+        text-shadow: 0 1px 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5);
+        white-space: nowrap;
+        transition: opacity 0.3s;
+    }
+    .tlbl.off { opacity: 0; }
+    .tlbl-pin {
+        font-weight: 700;
+        font-size: 0.8rem;
+        color: #c6ac8f;
+    }
+    .tlbl-pin::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #c6ac8f;
+        margin-right: 5px;
+        vertical-align: middle;
+        box-shadow: 0 0 6px #c6ac8f;
+    }
+    .tlbl-city::before { display: none; }
+    .tlbl-geo {
+        font-size: 0.6rem;
+        font-style: italic;
+        color: rgba(159,208,238,0.6);
+        letter-spacing: 0.08em;
+    }
+
+    /* Globe home button */
+    .globe-home-btn {
+        position: absolute;
+        top: 0.75rem;
+        left: 0.75rem;
+        z-index: 1001;
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(198,172,143,0.35);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: var(--color-medium-beige, #c6ac8f);
+        background: rgba(10,9,8,0.7);
+        backdrop-filter: blur(8px);
+        cursor: pointer;
+        transition: border-color 0.2s, color 0.2s;
+    }
+    .globe-home-btn:hover { border-color: #c6ac8f; color: #eae0d5; }
+
+    /* Scene fade transition */
+    .globe-fade {
+        position: absolute;
+        inset: 0;
+        background: #0a0908;
+        z-index: 999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s ease;
+        border-radius: 14px;
+    }
+    .globe-fade.on { opacity: 1; pointer-events: auto; }
+
+    /* Fullscreen */
+    .globe-fs-btn {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        z-index: 1001;
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(198,172,143,0.35);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: var(--color-medium-beige, #c6ac8f);
+        background: rgba(10,9,8,0.7);
+        backdrop-filter: blur(8px);
+        cursor: pointer;
+        transition: border-color 0.2s, color 0.2s;
+    }
+    .globe-fs-btn:hover { border-color: #c6ac8f; color: #eae0d5; }
+
+    .globe-wrap:fullscreen,
+    .globe-wrap.is-fullscreen {
+        border-radius: 0;
+        background: #0a0908;
+    }
+    .globe-wrap:fullscreen [id="research-globe"],
+    .globe-wrap.is-fullscreen [id="research-globe"] {
+        height: 100vh !important;
+        border-radius: 0;
+    }
+
+    /* Info panel — overlay inside globe, top-right like the atlas */
+    .globe-panel {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        bottom: 5.5rem;
+        width: min(300px, calc(100% - 2rem));
+        z-index: 1000;
+        background: linear-gradient(180deg, rgba(10,9,8,0.88), rgba(34,51,59,0.82));
+        border: 1px solid rgba(198,172,143,0.15);
+        border-radius: 14px;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        color: var(--color-light-beige, #eae0d5);
+        font-family: var(--font-main, 'Inter', sans-serif);
+        scrollbar-width: thin;
+        scrollbar-color: rgba(198,172,143,0.25) transparent;
+    }
+
+    .globe-panel__body {
+        flex: 1;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(198,172,143,0.25) transparent;
+    }
+
+    .globe-panel__cat {
+        font-family: var(--font-main, 'Inter', sans-serif);
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #c6ac8f;
+        margin: 0 0 0.5rem;
+    }
+
+    .globe-panel__name {
+        font-family: var(--font-heading, 'Instrument Sans', sans-serif);
+        font-size: 1.35rem;
+        font-weight: 700;
+        line-height: 1.15;
+        margin: 0 0 0.6rem;
+        color: #eae0d5;
+    }
+
+    .globe-panel__detail {
+        font-size: 0.85rem;
+        line-height: 1.55;
+        color: rgba(234,224,213,0.7);
+        margin: 0 0 0.3rem;
+    }
+
+    .globe-panel__detail em {
+        color: #c6ac8f;
+        font-style: normal;
+        font-weight: 500;
+    }
+
+    .globe-panel__divider {
+        border: none;
+        border-top: 1px solid rgba(198,172,143,0.15);
+        margin: 1rem 0;
+    }
+
+    /* Next button at bottom */
+    .globe-panel__next {
+        margin-top: auto;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(198,172,143,0.15);
+    }
+
+    .globe-panel__next-btn {
+        width: 100%;
+        text-align: left;
+        padding: 0.65rem 0.85rem;
+        border: 1px solid rgba(198,172,143,0.25);
+        border-radius: 10px;
+        background: transparent;
+        color: rgba(234,224,213,0.7);
+        font-family: var(--font-main, 'Inter', sans-serif);
+        font-size: 0.78rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: border-color 0.2s, color 0.2s;
+    }
+
+    .globe-panel__next-btn:hover {
+        border-color: #c6ac8f;
+        color: #c6ac8f;
+    }
+
+    .globe-panel__next-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(198,172,143,0.5);
+        display: block;
+        margin-bottom: 0.2rem;
+    }
+
+    .globe-panel__next-arrow {
+        font-size: 1.1rem;
+        color: rgba(198,172,143,0.5);
+    }
+
+    .globe-panel__logos {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        margin: 0.75rem 0 0.5rem;
+        flex-wrap: wrap;
+    }
+    .globe-panel__logo {
+        height: 40px;
+        max-width: 140px;
+        object-fit: contain;
+        border-radius: 5px;
+        opacity: 0.92;
+    }
+    .globe-panel__desc {
+        font-size: 0.78rem;
+        line-height: 1.5;
+        color: rgba(234,224,213,0.65);
+        margin: 0.5rem 0 0;
+    }
+
+    /* Legend */
     .map-legend {
         position: absolute;
         bottom: 1.25rem;
@@ -239,16 +782,13 @@
         display: flex;
         gap: 0.3rem;
         z-index: 1000;
-        background: rgba(255,255,255,0.92);
+        background: rgba(10,9,8,0.85);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         padding: 0.4rem;
         border-radius: 50px;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-    }
-
-    [data-theme="dark"] .map-legend {
-        background: rgba(26,35,50,0.92);
+        box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        border: 1px solid rgba(198,172,143,0.12);
     }
 
     .map-legend__btn {
@@ -259,19 +799,19 @@
         border: none;
         border-radius: 50px;
         background: transparent;
-        color: var(--text-primary);
+        color: rgba(234,224,213,0.7);
         font-size: 0.7rem;
         font-weight: 500;
         cursor: pointer;
         font-family: var(--font-main);
-        transition: background 0.2s ease;
+        transition: background 0.2s ease, color 0.2s ease;
         white-space: nowrap;
     }
 
     .map-legend__btn:hover,
     .map-legend__btn.active {
-        background: var(--color-medium-beige);
-        color: var(--color-navy);
+        background: rgba(198,172,143,0.2);
+        color: #eae0d5;
     }
 
     .map-legend__dot {
@@ -281,117 +821,37 @@
         flex-shrink: 0;
     }
 
-    /* Pulsing markers */
-    .map-pin {
-        position: relative;
-        width: 16px;
-        height: 16px;
-    }
-
-    .map-pin__dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        border: 2px solid white;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-        transition: transform 0.3s ease;
-    }
-
-    .map-pin__pulse {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        animation: pinPulse 2.5s ease-out infinite;
-        z-index: 1;
-        opacity: 0.5;
-    }
-
-    @keyframes pinPulse {
-        0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-        100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; }
-    }
-
-    .leaflet-popup-content-wrapper {
-        background-color: var(--color-light-beige);
-        color: var(--color-dark);
-        border-radius: 10px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    /* Tooltip (hover) */
+    .globe-tooltip {
+        background: rgba(10,9,8,0.9);
+        color: #eae0d5;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 0.82rem;
+        line-height: 1.45;
+        font-family: var(--font-main, 'Inter', sans-serif);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         border: 1px solid rgba(198,172,143,0.2);
+        max-width: 220px;
+        backdrop-filter: blur(10px);
     }
 
-    .leaflet-popup-content {
-        margin: 12px 14px;
-        font-size: 0.88rem;
-        line-height: 1.55;
-        font-family: var(--font-main);
-    }
-
-    .leaflet-popup-tip {
-        background-color: var(--color-light-beige);
-    }
-
-    .leaflet-popup-content strong {
-        color: var(--color-navy);
-        font-family: var(--font-heading);
+    .globe-tooltip strong {
+        color: #c6ac8f;
+        font-family: var(--font-heading, 'Instrument Sans', sans-serif);
         font-weight: 700;
-        font-size: 0.92rem;
+        font-size: 0.85rem;
     }
 
-    .leaflet-popup-content em {
-        color: var(--color-medium-beige);
+    .globe-tooltip em {
+        color: rgba(198,172,143,0.7);
         font-style: normal;
         font-weight: 500;
     }
 
-    .leaflet-container a.leaflet-popup-close-button {
-        color: var(--color-brown);
-    }
-
-    .leaflet-container a.leaflet-popup-close-button:hover {
-        color: var(--color-medium-beige);
-    }
-
-    [data-theme="dark"] .leaflet-popup-content-wrapper {
-        background-color: #1a2332;
-        border-color: rgba(212,184,150,0.15);
-    }
-
-    [data-theme="dark"] .leaflet-popup-tip {
-        background-color: #1a2332;
-    }
-
-    [data-theme="dark"] .leaflet-popup-content strong {
-        color: #f5f1ed;
-    }
-
-    [data-theme="dark"] .leaflet-popup-content {
-        color: #d4b896;
-    }
-
-    /* Warm tint for light mode map */
-    #research-map .leaflet-tile-pane {
-        filter: sepia(15%) saturate(85%) hue-rotate(-5deg);
-    }
-
-    /* Dark warm tint for night mode map */
-    [data-theme="dark"] #research-map .leaflet-tile-pane {
-        filter: invert(85%) sepia(10%) saturate(50%) hue-rotate(180deg) brightness(1.1) contrast(0.9);
-    }
-
-    [data-theme="dark"] #research-map {
-        background-color: #1a2332;
-    }
-
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
+        [id="research-globe"] { height: 420px; }
+        .globe-panel { width: min(260px, calc(100% - 2rem)); font-size: 0.82rem; padding: 1rem; bottom: 3.5rem; }
         .map-legend {
             flex-wrap: wrap;
             border-radius: 12px;
@@ -402,299 +862,1284 @@
     }
 </style>
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+</script>
+<script type="module">
+import*as THREE from'three';
+import{OrbitControls}from'three/addons/controls/OrbitControls.js';
+import{EffectComposer}from'three/addons/postprocessing/EffectComposer.js';
+import{RenderPass}from'three/addons/postprocessing/RenderPass.js';
+import{UnrealBloomPass}from'three/addons/postprocessing/UnrealBloomPass.js';
+import{OutputPass}from'three/addons/postprocessing/OutputPass.js';
 
+const box=document.getElementById('research-globe');
+let W=box.clientWidth,H=box.clientHeight||550;
+
+/* ── scene ── */
+const scene=new THREE.Scene();
+scene.background=new THREE.Color('#0a0908');
+const camera=new THREE.PerspectiveCamera(35,W/H,0.01,100);
+const canvas=document.createElement('canvas');
+canvas.style.cssText='width:100%;height:100%;display:block;touch-action:none;';
+box.appendChild(canvas);
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setSize(W,H);
+
+const composer=new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene,camera));
+composer.addPass(new UnrealBloomPass(new THREE.Vector2(W,H),0.45,0.5,0.7));
+composer.addPass(new OutputPass());
+
+const ctrl=new OrbitControls(camera,canvas);
+Object.assign(ctrl,{enableDamping:true,dampingFactor:0.06,enablePan:false,
+  minDistance:1.45,maxDistance:6,rotateSpeed:0.45,zoomSpeed:0.7,
+  autoRotate:true,autoRotateSpeed:0.35});
+
+/* ── shaders ── */
+const vSh=`varying vec3 vObj,vNV,vVP;
+void main(){vObj=position;vec4 mv=modelViewMatrix*vec4(position,1.);
+vVP=mv.xyz;vNV=normalize(normalMatrix*normal);gl_Position=projectionMatrix*mv;}`;
+
+const fGlobe=`uniform sampler2D uTex;uniform vec2 uTexel;uniform vec3 uAcc,uCoast;
+varying vec3 vObj,vNV,vVP;
+#define PI 3.141592653589793
+float grid(float v,float w){float d=abs(fract(v-.5)-.5)/max(fwidth(v),1e-5);return 1.-smoothstep(0.,w,d);}
+void main(){
+  vec3 p=normalize(vObj);float lat=asin(clamp(p.y,-1.,1.));float lon=atan(p.z,-p.x);
+  vec2 uv=vec2(fract(lon/(2.*PI)),.5+lat/PI);
+  vec4 tx=texture2D(uTex,uv);float lum=dot(tx.rgb,vec3(.299,.587,.114));
+  /* ocean vs land — sharp detection immune to JPEG artifacts */
+  float oc=smoothstep(-0.01,0.05,tx.b-max(tx.r,tx.g)*.75);
+  /* sample neighbours for relief shading */
+  float ex=dot(texture2D(uTex,uv+vec2(uTexel.x,0.)).rgb,vec3(.299,.587,.114))
+           -dot(texture2D(uTex,uv-vec2(uTexel.x,0.)).rgb,vec3(.299,.587,.114));
+  float ey=dot(texture2D(uTex,uv+vec2(0.,uTexel.y)).rgb,vec3(.299,.587,.114))
+           -dot(texture2D(uTex,uv-vec2(0.,uTexel.y)).rgb,vec3(.299,.587,.114));
+  /* unified dark surface */
+  vec3 c=mix(vec3(.02,.03,.04),vec3(.03,.05,.07),lum);
+  /* topographic relief on land — pronounced */
+  float landRelief=clamp((-ex+ey)*6.,-0.4,0.4);
+  c+=vec3(.055,.048,.038)*landRelief*(1.-oc);
+  /* coastline — high gradient threshold eliminates ocean texture noise */
+  float coastGrad=length(vec2(dFdx(oc),dFdy(oc)));
+  float coast=smoothstep(0.05,0.35,coastGrad);
+  c=mix(c,uCoast,coast*.85);
+  /* grid lines */
+  float g=max(grid(degrees(lat)/15.,1.),grid(degrees(lon)/15.,1.));
+  c=mix(c,vec3(.12,.10,.08),g*.06);
+  /* lighting */
+  vec3 n=normalize(vNV),v=normalize(-vVP);
+  c*=.5+.5*max(dot(n,normalize(vec3(-.35,.55,.75))),0.);
+  c+=uAcc*pow(1.-max(dot(n,v),0.),3.)*.12;
+  gl_FragColor=vec4(c,1.);}`;
+
+const fAtmo=`uniform vec3 uC;varying vec3 vNV,vVP;
+void main(){vec3 n=normalize(vNV),v=normalize(-vVP);
+float k=pow(clamp(1.-abs(dot(n,v)),0.,1.),2.2);
+gl_FragColor=vec4(uC*k*.55,k);}`;
+
+/* ── globe ── */
+const loader=new THREE.TextureLoader();
+const earthTex=loader.load('https://unpkg.com/three-globe@2.45.6/example/img/earth-blue-marble.jpg');
+const C=h=>new THREE.Color(h);
+const globe=new THREE.Mesh(new THREE.SphereGeometry(1,192,96),
+  new THREE.ShaderMaterial({vertexShader:vSh,fragmentShader:fGlobe,
+    uniforms:{uTex:{value:earthTex},uTexel:{value:new THREE.Vector2(1/2048,1/1024)},
+      uAcc:{value:C('#c6ac8f')},uCoast:{value:C('#e8c98a')}}}));
+scene.add(globe);
+
+const atmo=new THREE.Mesh(new THREE.SphereGeometry(1.06,64,32),
+  new THREE.ShaderMaterial({vertexShader:vSh,fragmentShader:fAtmo,
+    uniforms:{uC:{value:C('#8a7968')}},
+    side:THREE.BackSide,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false}));
+scene.add(atmo);
+
+/* marine snow removed */
+
+/* ── helpers ── */
+function ll(lat,lon,r=1){const phi=THREE.MathUtils.degToRad(90-lat),th=THREE.MathUtils.degToRad(lon+180);
+return new THREE.Vector3(-r*Math.sin(phi)*Math.cos(th),r*Math.cos(phi),r*Math.sin(phi)*Math.sin(th));}
+
+function mkGlow(){const s=256,c=document.createElement('canvas');c.width=c.height=s;
+const x=c.getContext('2d'),h=s/2,g=x.createRadialGradient(h,h,0,h,h,h);
+g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(.15,'rgba(255,255,255,.7)');
+g.addColorStop(.4,'rgba(255,255,255,.2)');g.addColorStop(1,'rgba(255,255,255,0)');
+x.fillStyle=g;x.fillRect(0,0,s,s);
+const t=new THREE.CanvasTexture(c);t.generateMipmaps=true;t.minFilter=THREE.LinearMipmapLinearFilter;
+return t;}
+const glow=mkGlow();
+
+/* ── locations ── */
+const locations=[
+{name:'UCA',coords:[36.53,-6.30],cat:'formation',info:'<strong>University of Cádiz (UCA)</strong><br>September 2016 – July 2019<br><em>BSc and MSc studies</em>',color:'#e8a44a',lbl:'#e8c98a'},
+{name:'ICMAN-CSIC',coords:[36.53,-6.20],cat:'host',info:'<strong>ICMAN-CSIC</strong><br>October 2020 – July 2024 · <em>PhD</em><br>August 2024 – present · <em>Postdoc</em>',color:'#eae0d5',lbl:'#f5ece0'},
+{name:'Univ. Malta',coords:[35.9042,14.4189],cat:'stays',info:'<strong>University of Malta</strong><br>February – June 2022<br><em>PhD stay</em>',color:'#c6ac8f',lbl:'#d4b896'},
+{name:'Univ. Nantes',coords:[47.2184,-1.5536],cat:'stays',info:'<strong>Nantes University</strong><br>October – November 2022<br><em>PhD stay</em>',color:'#c6ac8f',lbl:'#d4b896'},
+{name:'UMCES',coords:[38.5816,-76.1474],cat:'stays',info:'<strong>UMCES – University of Maryland</strong><br>August 2023 – February 2024<br><em>Fulbright PhD stay</em>',color:'#c6ac8f',lbl:'#d4b896'},
+{name:'UEF',coords:[62.6010,29.7636],cat:'stays',info:'<strong>University of Eastern Finland</strong><br>November 2025<br><em>Research collaboration</em>',color:'#c6ac8f',lbl:'#d4b896'},
+{name:'IPL',coords:[39.4699,-0.3763],cat:'stays',info:'<strong>Image Processing Lab (IPL)</strong><br>November 2026 – February 2027<br><em>Research collaboration</em>',color:'#c6ac8f',lbl:'#d4b896'},
+{name:'ELLIS SC25',coords:[50.9275,11.5892],cat:'experiences',info:'<strong>ELLIS Summer School</strong><br>Jena, Germany · September 2025<br><em>AI for Earth and Climate Sciences</em>',color:'#a3d4a0',lbl:'#c6ac8f'},
+{name:'GEOTRACES 2022',coords:[53.5395,8.5809],cat:'experiences',info:'<strong>GEOTRACES Summer School</strong><br>Bremerhaven, Germany · 2022<br><em>International training program</em>',color:'#a3d4a0',lbl:'#c6ac8f'},
+{name:'NASA PACE Hackweek',coords:[39.2904,-76.6122],cat:'experiences',info:'<strong>NASA PACE HACKWEEK</strong><br>Baltimore, USA · August 2025<br><em>Ocean color and remote sensing</em>',color:'#a3d4a0',lbl:'#c6ac8f'},
+{name:'FICE25',coords:[45.4408,12.3155],cat:'experiences',info:'<strong>Copernicus FICE 2025</strong><br>Venice, Italy · July 2025<br><em>Calibration/validation of ocean color satellites</em>',color:'#a3d4a0',lbl:'#c6ac8f'},
+{name:'Pre Academic Fulbright',coords:[41.1534,-81.3484],cat:'experiences',info:'<strong>Fulbright Pre-Academic Training</strong><br>Kent, Ohio · August 2023<br><em>Academic preparation</em>',color:'#a3d4a0',lbl:'#c6ac8f'},
+{name:'EU TalentON 2026',coords:[48.39,-4.49],cat:'experiences',info:'<strong>EU TalentON 2026</strong><br>Brest, France · September 2026<br><em>1st place Adaptation to Climate Change</em>',color:'#a3d4a0',lbl:'#c6ac8f'},
+{name:'ESA OTC25',coords:[69.6492,18.9553],cat:'campaigns',info:'<strong>ESA OTC25</strong><br>Tromsø, Norway · 2025<br><em>One Ocean Expedition – Staatsraad Lehmkuhl</em>',color:'#7fb8c9',lbl:'#b8a08a'},
+{name:'Antarctic Campaigns',coords:[-62.8,-60.55],cat:'campaigns',info:'<strong>Antarctic Campaigns</strong><br>Deception & Livingston Islands<br>2025 & 2026 · <em>DICHOSO & POLAROMICS</em>',color:'#7fb8c9',lbl:'#b8a08a'}
+];
+
+/* ── markers + labels + arcs ── */
+const markers=[],mGrp=new THREE.Group();scene.add(mGrp);
+const globeLabelsBox=document.createElement('div');
+globeLabelsBox.style.cssText='position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:998;';
+box.appendChild(globeLabelsBox);
+
+const home=locations.find(l=>l.cat==='host');
+function slerp(a,b,t){const ang=a.angleTo(b);if(ang<1e-6)return a.clone();const s=Math.sin(ang);
+return a.clone().multiplyScalar(Math.sin((1-t)*ang)/s).add(b.clone().multiplyScalar(Math.sin(t*ang)/s));}
+
+for(const loc of locations){
+  const h=.055;
+  const base=ll(loc.coords[0],loc.coords[1],1),tip=ll(loc.coords[0],loc.coords[1],1+h);
+  const col=C(loc.color);
+  const line=new THREE.Line(new THREE.BufferGeometry().setFromPoints([base,tip]),
+    new THREE.LineBasicMaterial({color:col,transparent:true,opacity:.7,blending:THREE.AdditiveBlending,depthWrite:false}));
+  mGrp.add(line);
+  const spr=new THREE.Sprite(new THREE.SpriteMaterial({map:glow,color:col.clone().multiplyScalar(1.8),
+    transparent:true,blending:THREE.AdditiveBlending,depthWrite:false}));
+  spr.position.copy(tip);spr.scale.set(.03,.03,1);mGrp.add(spr);
+
+  /* DOM label */
+  const lbl=document.createElement('div');
+  lbl.className='glbl off';
+  lbl.textContent=loc.name;
+  lbl.style.color=loc.lbl||loc.color;lbl.style.textShadow='0 1px 4px rgba(0,0,0,0.9),0 0 8px rgba(0,0,0,0.6)';
+  globeLabelsBox.appendChild(lbl);
+
+  /* arc from ICMAN-CSIC — animated glow pulse */
+  let arc=null;
+  if(loc.cat!=='host'&&home){
+    const a=ll(home.coords[0],home.coords[1]).normalize();
+    const b=ll(loc.coords[0],loc.coords[1]).normalize();
+    const ang=a.angleTo(b),N=80,pts=[];
+    for(let k=0;k<=N;k++){const t=k/N;const v=slerp(a,b,t);
+      v.multiplyScalar(1+Math.sin(Math.PI*t)*(.02+ang*.04));pts.push(v);}
+    const arcGeo=new THREE.BufferGeometry().setFromPoints(pts);
+    /* store normalized t per vertex for the shader */
+    const tArr=new Float32Array(N+1);
+    for(let k=0;k<=N;k++) tArr[k]=k/N;
+    arcGeo.setAttribute('aT',new THREE.BufferAttribute(tArr,1));
+    const arcMat=new THREE.ShaderMaterial({
+      uniforms:{uTime:{value:0},uColor:{value:col.clone()},uActive:{value:0}},
+      vertexShader:`attribute float aT;varying float vT;
+        void main(){vT=aT;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+      fragmentShader:`uniform float uTime,uActive;uniform vec3 uColor;varying float vT;
+        void main(){
+          float speed=0.35;
+          float pulse=fract(vT - uTime*speed);
+          float glow=smoothstep(0.0,0.15,pulse)*smoothstep(0.5,0.15,pulse);
+          float base=0.06 + uActive*0.12;
+          float a=(base + glow*0.35 + uActive*glow*0.3);
+          vec3 c=mix(uColor,vec3(1.),glow*0.5);
+          gl_FragColor=vec4(c,a);}`,
+      transparent:true,blending:THREE.AdditiveBlending,depthWrite:false
+    });
+    arc=new THREE.Line(arcGeo,arcMat);
+    mGrp.add(arc);
+  }
+
+  markers.push({loc,line,spr,arc,lbl,phase:Math.random(),cat:loc.cat});
+}
+
+/* ── real terrain system (atlas-style) ── */
+const tTerrV=`attribute float aElev;varying float vElev;varying vec3 vN,vW;
+void main(){vElev=aElev;vN=normalize(mat3(modelMatrix)*normal);
+vec4 w=modelMatrix*vec4(position,1.);vW=w.xyz;gl_Position=projectionMatrix*viewMatrix*w;}`;
+
+const tTerrF=`uniform vec3 uLight,uAcc,uLine,uCoastGlow;
+uniform vec3 cSh,cSf,cDp,cAb,cLL,cLH;uniform float uIce;
+varying float vElev;varying vec3 vN,vW;
+float iso(float v,float w){float d=abs(fract(v-.5)-.5)/max(fwidth(v),1e-5);return 1.-smoothstep(0.,w,d);}
+void main(){float e=vElev;vec3 n=normalize(vN);
+float diff=max(dot(n,normalize(uLight)),0.);vec3 col;
+if(e<0.){float d=-e;
+  col=mix(cSh,cSf,smoothstep(0.,120.,d));
+  col=mix(col,cDp,smoothstep(120.,600.,d));
+  col=mix(col,cAb,smoothstep(600.,2500.,d));
+  /* coastal glow: warm brown gradient fading into ocean */
+  float coastGlow=smoothstep(80.,0.,d);
+  col=mix(col,uCoastGlow,coastGlow*.35);
+  col*=.22+.62*diff;
+  /* fewer isobaths: only every 500m with faint 1000m lines */
+  col+=uLine*iso(d/500.,1.2)*.06;
+  col+=uLine*iso(d/1000.,1.5)*.14;
+}else{
+  col=mix(cLL,cLH,smoothstep(0.,uIce>.5?500.:1000.,e));
+  col*=(uIce>.5?.38:.35)+(uIce>.5?.5:.8)*diff;
+  col+=uLine*iso(e/200.,1.)*.04;}
+/* thin elegant coastline */
+float fw=min(fwidth(e)*1.2,8.);
+float coast=1.-smoothstep(0.,fw+.3,abs(e));
+col=mix(col,uAcc*1.2,coast*.8);
+gl_FragColor=vec4(col,1.);}`;
+
+const tWallV=`varying vec3 vW;void main(){vec4 w=modelMatrix*vec4(position,1.);vW=w.xyz;gl_Position=projectionMatrix*viewMatrix*w;}`;
+const tWallF=`uniform float uBase;uniform vec3 uTop,uBot,uLine;varying vec3 vW;
+void main(){float k=clamp(vW.y/uBase,0.,1.);vec3 col=mix(uTop,uBot,k);
+float s=vW.y*.5;float st=1.-smoothstep(0.,1.,abs(fract(s)-.5)/max(fwidth(s),1e-4));
+col+=uLine*st*.025;gl_FragColor=vec4(col,1.);}`;
+
+const tSeaF=`uniform vec3 uCol;uniform float uTime;varying vec3 vW;
+void main(){float sh=.5+.5*sin(vW.x*.9+uTime*.6)*sin(vW.z*1.1-uTime*.45);
+vec3 col=uCol*(.6+.4*sh);float a=.03+.02*sh;gl_FragColor=vec4(col,a);}`;
+
+const terrainMap={UCA:'cadiz','ICMAN-CSIC':'cadiz','Univ. Malta':'malta','Univ. Nantes':'nantes',
+UMCES:'maryland',UEF:'finland',IPL:'valencia','ELLIS SC25':'jena',
+'GEOTRACES 2022':'bremerhaven','NASA PACE Hackweek':'maryland',FICE25:'venice','Pre Academic Fulbright':'kent',
+'EU TalentON 2026':'brest','ESA OTC25':'tromso','Antarctic Campaigns':'antarctica'};
+const terrainCfg={
+cadiz:{exag:6,ice:false,grid:.5,labels:[
+  {lat:36.53,lon:-6.20,t:'pin',text:'ICMAN-CSIC'},
+  {lat:36.53,lon:-6.30,t:'pin',text:'UCA'},
+  {lat:36.72,lon:-4.42,t:'city',text:'Málaga'},{lat:37.39,lon:-5.98,t:'city',text:'Sevilla'},
+  {lat:36.53,lon:-6.29,t:'city',text:'Cádiz'},{lat:36.14,lon:-5.35,t:'city',text:'Gibraltar'},
+  {lat:35.78,lon:-5.81,t:'city',text:'Tanger'},{lat:37.18,lon:-7.50,t:'city',text:'Faro'},
+  {lat:35.5,lon:-5.0,t:'geo',text:'Strait of Gibraltar'},{lat:36.0,lon:-7.5,t:'geo',text:'Gulf of Cádiz'},
+  {lat:37.0,lon:-4.5,t:'geo',text:'SPAIN'},{lat:35.3,lon:-5.5,t:'geo',text:'MOROCCO'}]},
+malta:{exag:5,ice:false,grid:.5,labels:[
+  {lat:35.90,lon:14.42,t:'pin',text:'University of Malta'},
+  {lat:35.90,lon:14.51,t:'city',text:'Valletta'},{lat:37.50,lon:15.09,t:'city',text:'Catania'},
+  {lat:37.07,lon:15.29,t:'city',text:'Syracuse'},
+  {lat:36.5,lon:14.2,t:'geo',text:'Mediterranean Sea'},{lat:37.2,lon:15.0,t:'geo',text:'SICILY'},
+  {lat:35.3,lon:14.4,t:'geo',text:'MALTA'},{lat:36.8,lon:13.2,t:'geo',text:'ITALY'}]},
+nantes:{exag:8,ice:false,grid:.5,labels:[
+  {lat:47.22,lon:-1.55,t:'pin',text:'Nantes University'},
+  {lat:47.22,lon:-1.55,t:'city',text:'Nantes'},
+  {lat:48.11,lon:-1.68,t:'city',text:'Rennes'},
+  {lat:46.5,lon:-2.5,t:'geo',text:'Bay of Biscay'},{lat:48.0,lon:-0.5,t:'geo',text:'FRANCE'},
+  {lat:47.3,lon:-2.5,t:'geo',text:'Loire Estuary'}]},
+maryland:{exag:5,ice:false,grid:.5,labels:[
+  {lat:38.58,lon:-76.15,t:'pin',text:'UMCES'},
+  {lat:39.29,lon:-76.61,t:'pin',text:'NASA PACE'},
+  {lat:39.29,lon:-76.61,t:'city',text:'Baltimore'},{lat:38.90,lon:-77.04,t:'city',text:'Washington DC'},
+  {lat:39.95,lon:-75.17,t:'city',text:'Philadelphia'},{lat:37.54,lon:-77.44,t:'city',text:'Richmond'},
+  {lat:40.44,lon:-76.88,t:'city',text:'Harrisburg'},
+  {lat:38.5,lon:-76.0,t:'geo',text:'Chesapeake Bay'},{lat:38.8,lon:-75.0,t:'geo',text:'Atlantic Ocean'},
+  {lat:39.0,lon:-77.2,t:'geo',text:'MARYLAND'},{lat:37.8,lon:-78.0,t:'geo',text:'VIRGINIA'},
+  {lat:40.5,lon:-77.5,t:'geo',text:'PENNSYLVANIA'},{lat:39.2,lon:-75.5,t:'geo',text:'DELAWARE'},
+  {lat:40.2,lon:-74.8,t:'geo',text:'NEW JERSEY'}]},
+finland:{exag:8,ice:false,grid:.5,labels:[
+  {lat:62.60,lon:29.76,t:'pin',text:'Univ. Eastern Finland'},
+  {lat:62.89,lon:27.68,t:'city',text:'Kuopio'},{lat:61.50,lon:28.76,t:'city',text:'Joensuu'},
+  {lat:63.10,lon:29.50,t:'geo',text:'FINLAND'},{lat:61.5,lon:30.5,t:'geo',text:'Lake Ladoga'}]},
+valencia:{exag:5,ice:false,grid:.5,labels:[
+  {lat:39.47,lon:-0.38,t:'pin',text:'IPL Valencia'},
+  {lat:39.47,lon:-0.38,t:'city',text:'Valencia'},{lat:39.99,lon:-0.07,t:'city',text:'Castellón'},
+  {lat:38.35,lon:-0.48,t:'city',text:'Alicante'},{lat:38.99,lon:-1.86,t:'city',text:'Albacete'},
+  {lat:39.2,lon:0.5,t:'geo',text:'Mediterranean Sea'},{lat:39.8,lon:-1.2,t:'geo',text:'SPAIN'}]},
+jena:{exag:6,ice:false,grid:.5,labels:[
+  {lat:50.93,lon:11.59,t:'pin',text:'ELLIS Summer School'},
+  {lat:50.93,lon:11.59,t:'city',text:'Jena'},{lat:51.05,lon:13.74,t:'city',text:'Dresden'},
+  {lat:51.34,lon:12.37,t:'city',text:'Leipzig'},{lat:50.98,lon:10.32,t:'city',text:'Erfurt'},
+  {lat:51.5,lon:12.0,t:'geo',text:'GERMANY'},{lat:50.2,lon:12.0,t:'geo',text:'CZECHIA'}]},
+bremerhaven:{exag:8,ice:false,grid:.5,labels:[
+  {lat:53.54,lon:8.58,t:'pin',text:'GEOTRACES'},
+  {lat:53.54,lon:8.58,t:'city',text:'Bremerhaven'},{lat:53.55,lon:9.99,t:'city',text:'Hamburg'},
+  {lat:53.08,lon:8.80,t:'city',text:'Bremen'},{lat:54.32,lon:10.14,t:'city',text:'Kiel'},
+  {lat:54.5,lon:8.0,t:'geo',text:'North Sea'},{lat:53.0,lon:9.5,t:'geo',text:'GERMANY'}]},
+venice:{exag:5,ice:false,grid:.5,labels:[
+  {lat:45.44,lon:12.32,t:'pin',text:'FICE 2025'},
+  {lat:45.44,lon:12.32,t:'city',text:'Venice'},{lat:44.49,lon:11.34,t:'city',text:'Bologna'},
+  {lat:45.46,lon:10.99,t:'city',text:'Verona'},{lat:45.07,lon:13.64,t:'city',text:'Trieste'},
+  {lat:44.5,lon:13.0,t:'geo',text:'Adriatic Sea'},{lat:45.8,lon:11.5,t:'geo',text:'ITALY'}]},
+kent:{exag:6,ice:false,grid:.5,lakes:[
+  {n:42.7,s:41.50,w:-82.8,e:-80.5,elev:174}],labels:[
+  {lat:41.15,lon:-81.35,t:'pin',text:'Fulbright'},
+  {lat:41.15,lon:-81.35,t:'city',text:'Kent'},{lat:41.50,lon:-81.69,t:'city',text:'Cleveland'},
+  {lat:40.80,lon:-81.38,t:'city',text:'Akron'},
+  {lat:41.8,lon:-81.2,t:'geo',text:'Lake Erie'},{lat:40.5,lon:-81.0,t:'geo',text:'OHIO'},
+  {lat:40.8,lon:-79.9,t:'geo',text:'PENNSYLVANIA'},{lat:42.2,lon:-80.5,t:'geo',text:'CANADA'}]},
+brest:{exag:5,ice:false,grid:.5,labels:[
+  {lat:48.39,lon:-4.49,t:'pin',text:'EU TalentON 2026'},
+  {lat:48.39,lon:-4.49,t:'city',text:'Brest'},{lat:48.11,lon:-1.68,t:'city',text:'Rennes'},
+  {lat:47.22,lon:-1.55,t:'city',text:'Nantes'},{lat:48.65,lon:-3.45,t:'city',text:'Lannion'},
+  {lat:48.0,lon:-4.0,t:'geo',text:'BRITTANY'},{lat:47.5,lon:-5.0,t:'geo',text:'Atlantic Ocean'},
+  {lat:49.0,lon:-3.5,t:'geo',text:'FRANCE'}]},
+tromso:{exag:4,ice:false,grid:.5,labels:[
+  {lat:69.65,lon:18.96,t:'pin',text:'ESA OTC25'},
+  {lat:69.65,lon:18.96,t:'city',text:'Tromsø'},{lat:68.44,lon:17.43,t:'city',text:'Narvik'},
+  {lat:70.66,lon:23.67,t:'city',text:'Hammerfest'},
+  {lat:70.0,lon:19.0,t:'geo',text:'Norwegian Sea'},{lat:69.0,lon:19.5,t:'geo',text:'NORWAY'}]},
+antarctica:{exag:1.8,ice:true,grid:1,labels:[
+  {lat:-62.97,lon:-60.63,t:'pin',text:'Deception Island'},
+  {lat:-62.63,lon:-60.37,t:'pin',text:'Livingston Island'},
+  {lat:-62.97,lon:-60.59,t:'city',text:'BAE Gabriel de Castilla'},
+  {lat:-62.66,lon:-60.33,t:'city',text:'BAE Juan Carlos I'},
+  {lat:-62.96,lon:-60.62,t:'geo',text:'Port Foster'},
+  {lat:-62.85,lon:-60.25,t:'geo',text:'Bransfield Strait'}]}};
+
+const terrainCache={};
+const fadeEl=document.getElementById('globe-fade');
+let currentScene='globe'; // 'globe' or terrain id
+let tControls=null; // active terrain controls
+
+async function loadTerrainData(id){
+  if(terrainCache[id])return terrainCache[id];
+  const[meta,buf,borders]=await Promise.all([
+    fetch('static/terrain/'+id+'.json').then(r=>r.json()),
+    fetch('static/terrain/'+id+'.bin').then(r=>r.arrayBuffer()),
+    fetch('static/terrain/'+id+'_borders.json').then(r=>r.ok?r.json():[]).catch(()=>[])]);
+  const built=buildTerrainScene(meta,new Int16Array(buf),terrainCfg[id]||{exag:5,ice:false,grid:.5},borders);
+  terrainCache[id]=built;
+  return built;
+}
+
+function buildTerrainScene(meta,h,cfg,borders){
+  const{cols,rows,west,east,south,north}=meta;
+  const latC=(north+south)/2;
+  const W2=(east-west)*111.32*Math.cos(THREE.MathUtils.degToRad(latC));
+  const H2=(north-south)*110.57;
+  const exag=cfg.exag;
+  const yOf=m=>(m/1000)*exag*(m>0?1.2:1);
+
+  const tSc=new THREE.Scene();
+  tSc.background=new THREE.Color('#0a0908');
+  const md=Math.max(W2,H2);
+  tSc.fog=new THREE.Fog('#0a0908',md*1.6,md*4);
+
+  /* terrain mesh */
+  const pos=new Float32Array(cols*rows*3),elev=new Float32Array(cols*rows);
+  let k=0;
+  for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){
+    const e=h[j*cols+i];
+    pos[k*3]=(i/(cols-1))*W2-W2/2;pos[k*3+1]=yOf(e);pos[k*3+2]=(j/(rows-1))*H2-H2/2;
+    elev[k]=e;k++;}
+  const idx=new Uint32Array((cols-1)*(rows-1)*6);k=0;
+  for(let j=0;j<rows-1;j++)for(let i=0;i<cols-1;i++){
+    const a=j*cols+i,b=a+1,c=a+cols,d=c+1;
+    idx[k++]=a;idx[k++]=c;idx[k++]=b;idx[k++]=b;idx[k++]=c;idx[k++]=d;}
+  const geo=new THREE.BufferGeometry();
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  geo.setAttribute('aElev',new THREE.BufferAttribute(elev,1));
+  geo.setIndex(new THREE.BufferAttribute(idx,1));
+  geo.computeVertexNormals();
+
+  const pal=cfg.ice?{ll:'#5d7584',lh:'#b4c8d4'}:{ll:'#1a1510',lh:'#3a3020'};
+  tSc.add(new THREE.Mesh(geo,new THREE.ShaderMaterial({vertexShader:tTerrV,fragmentShader:tTerrF,
+    uniforms:{uLight:{value:new THREE.Vector3(-.55,.75,-.35)},uAcc:{value:C('#c6ac8f')},uLine:{value:C('#9fd0ee')},uCoastGlow:{value:C('#5e3f2a')},
+    cSh:{value:C('#16505d')},cSf:{value:C('#0f3a4f')},cDp:{value:C('#09243b')},cAb:{value:C('#061827')},
+    cLL:{value:C(pal.ll)},cLH:{value:C(pal.lh)},uIce:{value:cfg.ice?1:0}}})));
+
+  /* walls (cross-section) */
+  const minY=yOf(meta.min),baseY=minY-md*.06;
+  const edges=[[],[],[],[]];
+  for(let s=0;s<=1;s+=1/300){
+    const i=Math.min(cols-1,Math.round(s*(cols-1)));
+    const j0=0,j1=rows-1;
+    edges[0].push({x:s*W2-W2/2,z:-H2/2,y:yOf(h[j0*cols+i])});
+    edges[2].push({x:(1-s)*W2-W2/2,z:H2/2,y:yOf(h[j1*cols+i])});
+  }
+  for(let s=0;s<=1;s+=1/300){
+    const j=Math.min(rows-1,Math.round(s*(rows-1)));
+    edges[1].push({x:W2/2,z:s*H2-H2/2,y:yOf(h[j*cols+cols-1])});
+    edges[3].push({x:-W2/2,z:(1-s)*H2-H2/2,y:yOf(h[j*cols])});
+  }
+  const wPos=[];
+  for(const pts of edges)for(let i=0;i<pts.length-1;i++){
+    const p=pts[i],q=pts[i+1];
+    wPos.push(p.x,baseY,p.z,q.x,baseY,q.z,p.x,p.y,p.z);
+    wPos.push(q.x,baseY,q.z,q.x,q.y,q.z,p.x,p.y,p.z);}
+  const wGeo=new THREE.BufferGeometry();
+  wGeo.setAttribute('position',new THREE.Float32BufferAttribute(wPos,3));
+  tSc.add(new THREE.Mesh(wGeo,new THREE.ShaderMaterial({vertexShader:tWallV,fragmentShader:tWallF,
+    side:THREE.DoubleSide,uniforms:{uBase:{value:baseY},uTop:{value:C('#132535')},uBot:{value:C('#050f19')},uLine:{value:C('#8cbee1')}}})));
+
+  /* sea surface */
+  const sea=new THREE.Mesh(new THREE.PlaneGeometry(W2,H2),new THREE.ShaderMaterial({
+    vertexShader:tWallV,fragmentShader:tSeaF,transparent:true,depthWrite:false,
+    uniforms:{uCol:{value:C('#3aa9bd')},uTime:{value:0}}}));
+  sea.rotation.x=-Math.PI/2;sea.renderOrder=3;tSc.add(sea);
+
+  /* outline */
+  const ol=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(W2,.0001,H2)),
+    new THREE.LineBasicMaterial({color:C('#c6ac8f'),transparent:true,opacity:.35}));
+  tSc.add(ol);
+
+  /* camera */
+  const tCam=new THREE.PerspectiveCamera(38,1,.1,md*10);
+  tCam.position.set(-md*.3,md*.6,md*.7);
+  const tC=new OrbitControls(tCam,canvas);
+  Object.assign(tC,{enableDamping:true,dampingFactor:.07,maxPolarAngle:Math.PI*.47,
+    minDistance:md*.12,maxDistance:md*2.5,zoomSpeed:.8,rotateSpeed:.5,
+    screenSpacePanning:false,autoRotateSpeed:.25,enabled:false});
+
+  /* border lines — clipped to terrain rectangle */
+  const toXZ=(lat,lon)=>({
+    x:((lon-west)/(east-west))*W2-W2/2,
+    z:((north-lat)/(north-south))*H2-H2/2});
+  const elevAtLL=(lat,lon)=>{
+    const ii=Math.min(cols-1,Math.max(0,Math.round((lon-west)/(east-west)*(cols-1))));
+    const jj=Math.min(rows-1,Math.max(0,Math.round((north-lat)/(north-south)*(rows-1))));
+    return h[jj*cols+ii];};
+  const halfW=W2/2,halfH=H2/2;
+  for(const b of (borders||[])){
+    /* clip points to bounding box */
+    const clipped=[];let seg=[];
+    for(const p of b.pts){
+      const inside=p[0]>=south&&p[0]<=north&&p[1]>=west&&p[1]<=east;
+      if(inside){seg.push(p);}
+      else{if(seg.length>=2)clipped.push(seg);seg=[];}}
+    if(seg.length>=2)clipped.push(seg);
+    const col=b.t==='state'?'#8a7968':'#c6ac8f';
+    for(const segment of clipped){
+      /* split into sub-segments that are on land (skip water crossings) */
+      let landSeg=[];
+      for(const p of segment){
+        const{x,z}=toXZ(p[0],p[1]);
+        const cx=Math.max(-halfW,Math.min(halfW,x)),cz=Math.max(-halfH,Math.min(halfH,z));
+        const e=elevAtLL(p[0],p[1]);
+        if(e>-5){/* on land or very shallow */
+          landSeg.push(new THREE.Vector3(cx,yOf(Math.max(e,0))+md*.002,cz));
+        }else{
+          if(landSeg.length>=2)
+            tSc.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(landSeg),
+              new THREE.LineBasicMaterial({color:C(col),transparent:true,opacity:.5})));
+          landSeg=[];
+        }
+      }
+      if(landSeg.length>=2)
+        tSc.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(landSeg),
+          new THREE.LineBasicMaterial({color:C(col),transparent:true,opacity:.5})));
+    }
+  }
+
+  /* inland water: lakes as blue planes */
+  if(cfg.lakes)for(const lk of cfg.lakes){
+    const{x:x1,z:z1}=toXZ(lk.n,lk.w);
+    const{x:x2,z:z2}=toXZ(lk.s,lk.e);
+    const lw=Math.abs(x2-x1),lh=Math.abs(z2-z1);
+    const lake=new THREE.Mesh(new THREE.PlaneGeometry(lw,lh),
+      new THREE.MeshBasicMaterial({color:C('#1a4a5e'),transparent:true,opacity:.7,side:THREE.DoubleSide}));
+    lake.rotation.x=-Math.PI/2;
+    lake.position.set((x1+x2)/2,yOf(lk.elev)+md*.001,(z1+z2)/2);
+    lake.renderOrder=2;tSc.add(lake);
+  }
+
+  /* labels + 3D markers */
+  const lbls=[];
+  const pinH=md*.06;
+  for(const l of (cfg.labels||[])){
+    const x=((l.lon-west)/(east-west))*W2-W2/2;
+    const z=((north-l.lat)/(north-south))*H2-H2/2;
+    const ii=Math.min(cols-1,Math.max(0,Math.round((l.lon-west)/(east-west)*(cols-1))));
+    const jj=Math.min(rows-1,Math.max(0,Math.round((north-l.lat)/(north-south)*(rows-1))));
+    const e=h[jj*cols+ii];
+    const surfY=yOf(e);
+    if(l.t==='pin'){
+      /* 3D marker: line + glow sprite (like the globe markers) */
+      const baseP=new THREE.Vector3(x,surfY,z);
+      const tipP=new THREE.Vector3(x,surfY+pinH,z);
+      const col=C('#c6ac8f');
+      tSc.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([baseP,tipP]),
+        new THREE.LineBasicMaterial({color:col,transparent:true,opacity:.7,blending:THREE.AdditiveBlending,depthWrite:false})));
+      const spr=new THREE.Sprite(new THREE.SpriteMaterial({map:glow,color:col.clone().multiplyScalar(1.5),
+        transparent:true,blending:THREE.AdditiveBlending,depthWrite:false}));
+      spr.position.copy(tipP);const sz=md*.018;spr.scale.set(sz,sz,1);tSc.add(spr);
+      lbls.push({pos:new THREE.Vector3(x,surfY+pinH+md*.005,z),text:l.text,cls:'pin',spr});
+    }else{
+      /* city/geo: 3D dot fixed on terrain + floating DOM label */
+      const dotY=Math.max(surfY,0)+.03;
+      if(l.t==='city'){
+        const dotSpr=new THREE.Sprite(new THREE.SpriteMaterial({map:glow,color:C('#eae0d5').multiplyScalar(.8),
+          transparent:true,blending:THREE.AdditiveBlending,depthWrite:false}));
+        dotSpr.position.set(x,dotY,z);const ds=md*.004;dotSpr.scale.set(ds,ds,1);tSc.add(dotSpr);
+      }
+      lbls.push({pos:new THREE.Vector3(x,dotY+.08,z),text:l.text,cls:l.t});
+    }
+  }
+
+  return{scene:tSc,camera:tCam,controls:tC,sea,W:W2,H:H2,md,labels:lbls};
+}
+
+function fade(on){return new Promise(r=>{fadeEl.classList.toggle('on',on);setTimeout(r,550);});}
+
+const labelsBox=document.getElementById('terrain-labels');
+let activeLabelEls=[];
+
+function buildLabelDom(labels){
+  labelsBox.innerHTML='';activeLabelEls=[];
+  for(const l of labels){
+    const el=document.createElement('div');
+    el.className='tlbl tlbl-'+l.cls+' off';
+    el.textContent=l.text;
+    labelsBox.appendChild(el);
+    activeLabelEls.push({el,pos:l.pos,isPin:l.cls==='pin'});
+  }
+}
+
+function updateLabelPositions(cam){
+  const rect=box.getBoundingClientRect();
+  const v=new THREE.Vector3();
+  const placed=[];
+  const tc=terrainCache[currentScene];
+  const hw=tc?tc.W/2:0,hh=tc?tc.H/2:0;
+  for(const{el,pos,isPin}of activeLabelEls){
+    /* check 3D position is within terrain bounds */
+    let vis=true;
+    if(tc){vis=Math.abs(pos.x)<=hw*1.02&&Math.abs(pos.z)<=hh*1.02;}
+    v.copy(pos).project(cam);
+    const x=(v.x+1)/2*rect.width;
+    const y=(1-v.y)/2*rect.height;
+    vis=vis&&v.z<1&&x>10&&x<rect.width-10&&y>10&&y<rect.height-40;
+    /* collision avoidance — skip for pins (always show) */
+    if(vis&&!isPin){for(const p of placed){
+      if(Math.abs(x-p.x)<60&&Math.abs(y-p.y)<16){vis=false;break;}}}
+    el.classList.toggle('off',!vis);
+    if(vis){
+      el.style.transform=`translate(${x.toFixed(1)}px,${y.toFixed(1)}px) translate(-50%,-100%)`;
+      placed.push({x,y});
+    }
+  }
+}
+
+async function goToTerrain(locName){
+  const id=terrainMap[locName];
+  if(!id||currentScene===id)return;
+  await fade(true);
+  const t=await loadTerrainData(id);
+  /* disable globe controls */
+  ctrl.enabled=false;ctrl.autoRotate=false;
+  if(tControls)tControls.enabled=false;
+  /* switch scene */
+  composer.passes[0].scene=t.scene;
+  composer.passes[0].camera=t.camera;
+  t.camera.aspect=box.clientWidth/(box.clientHeight||550);
+  t.camera.updateProjectionMatrix();
+  /* enter animation: camera from above */
+  const md=t.md;
+  const from=new THREE.Vector3(0,md*2,.01);
+  const home=new THREE.Vector3(-md*.3,md*.6,md*.7);
+  t.camera.position.copy(from);
+  t.controls.enabled=true;
+  t.controls.autoRotate=true;
+  tControls=t.controls;
+  currentScene=id;
+  globeLabelsBox.style.display='none';
+  buildLabelDom(t.labels||[]);
+  const t0=performance.now();
+  (function enter(){
+    const k=Math.min(1,(performance.now()-t0)/2200);
+    const e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+    t.camera.position.lerpVectors(from,home,e);
+    if(k<1)requestAnimationFrame(enter);
+  })();
+  await fade(false);
+}
+
+function backToGlobe(){
+  fade(true).then(()=>{
+    if(tControls){tControls.enabled=false;tControls.autoRotate=false;tControls=null;}
+    composer.passes[0].scene=scene;
+    composer.passes[0].camera=camera;
+    ctrl.enabled=true;ctrl.autoRotate=true;
+    currentScene='globe';
+    globeLabelsBox.style.display='';
+    labelsBox.innerHTML='';activeLabelEls=[];
+    /* zoom-out animation from close to default distance */
+    const curDir=camera.position.clone().normalize();
+    camera.position.copy(curDir.multiplyScalar(ZOOM_CLOSE));
+    const t0=performance.now();
+    (function zoomOut(){
+      const k=Math.min(1,(performance.now()-t0)/1500);
+      const e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+      camera.position.setLength(ZOOM_CLOSE+(ZOOM_DEFAULT-ZOOM_CLOSE)*e);
+      if(k<1)requestAnimationFrame(zoomOut);
+    })();
+    fade(false);
+  });
+}
+
+/* ── tooltip ── */
+const tip=document.createElement('div');tip.className='globe-tooltip';
+tip.style.cssText='position:absolute;display:none;pointer-events:none;z-index:10;';
+box.appendChild(tip);
+
+function pickMarker(e){
+  const r=box.getBoundingClientRect();let best=null,bd=28;
+  for(const m of markers){if(!m.spr.visible)continue;
+    const sp=m.spr.position.clone().project(camera);
+    if(sp.z>1)continue;
+    const sx=(sp.x+1)/2*r.width,sy=(1-sp.y)/2*r.height;
+    const d=Math.hypot(e.clientX-r.left-sx,e.clientY-r.top-sy);
+    if(d<bd){bd=d;best=m;}}
+  return best;
+}
+
+let hoveredMarker=null;
+canvas.addEventListener('mousemove',e=>{
+  const best=pickMarker(e);const r=box.getBoundingClientRect();
+  /* reset previous hover */
+  if(hoveredMarker&&hoveredMarker!==best){
+    hoveredMarker.spr.scale.set(.03,.03,1);
+    hoveredMarker.spr.material.color.set(C(hoveredMarker.loc.color).multiplyScalar(1.8));
+  }
+  if(best){
+    tip.innerHTML=best.loc.info;tip.style.display='block';
+    tip.style.left=(e.clientX-r.left+15)+'px';tip.style.top=(e.clientY-r.top-10)+'px';
+    canvas.style.cursor='pointer';
+    /* enlarge + brighten hovered marker */
+    if(best.loc!==activeMarker){
+      best.spr.scale.setScalar(.05);
+      best.spr.material.color.set(C(best.loc.color).multiplyScalar(2.5));
+    }
+    hoveredMarker=best;
+  }else{
+    tip.style.display='none';canvas.style.cursor='grab';hoveredMarker=null;
+  }
+});
+canvas.addEventListener('mouseleave',()=>{
+  tip.style.display='none';
+  if(hoveredMarker){
+    hoveredMarker.spr.scale.set(.03,.03,1);
+    hoveredMarker.spr.material.color.set(C(hoveredMarker.loc.color).multiplyScalar(1.8));
+    hoveredMarker=null;
+  }
+});
+
+/* ── panel system ── */
+const panel=document.getElementById('globe-panel');
+const catLabels={formation:'Formation',stays:'Research Stay',host:'Host Institution',campaigns:'Field Campaign',experiences:'Int. Experience'};
+
+// Chronological order of locations
+const chronoOrder=[
+  'UCA','ICMAN-CSIC','Univ. Malta','Univ. Nantes','Pre Academic Fulbright','UMCES',
+  'GEOTRACES 2022','FICE25','ELLIS SC25','NASA PACE Hackweek','ESA OTC25',
+  'Antarctic Campaigns','UEF','EU TalentON 2026','IPL'
+];
+const orderedLocs=chronoOrder.map(n=>locations.find(l=>l.name===n)).filter(Boolean);
+let currentPanelIdx=orderedLocs.findIndex(l=>l.cat==='host');
+
+const ZOOM_CLOSE=1.75, ZOOM_DEFAULT=3.9;
+let activeMarker=null;
+
+function flyTo(lat,lon,dur=1500,done){
+  const from=camera.position.clone();
+  const fromLen=from.length();
+  const toDir=ll(lat,lon,1).normalize();
+  const t0=performance.now();
+  ctrl.autoRotate=false;
+  function ease(k){return k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;}
+  function step(){
+    const k=Math.min(1,(performance.now()-t0)/dur);
+    const e=ease(k);
+    const fn=from.clone().normalize();
+    const ang=fn.angleTo(toDir);
+    let dir;
+    if(ang<1e-6){dir=fn;}
+    else{const s=Math.sin(ang);dir=fn.clone().multiplyScalar(Math.sin((1-e)*ang)/s).add(toDir.clone().multiplyScalar(Math.sin(e*ang)/s));}
+    const midBulge=Math.sin(Math.PI*k)*0.5;
+    const targetLen=fromLen+(ZOOM_CLOSE-fromLen)*e;
+    camera.position.copy(dir.multiplyScalar(targetLen+midBulge));
+    if(k<1)requestAnimationFrame(step);
+    else{ctrl.autoRotate=true;if(done)done();}
+  }
+  step();
+}
+
+function highlightMarker(loc){
+  activeMarker=loc;
+  for(const m of markers){
+    const isActive=m.loc===loc;
+    m.line.material.opacity=isActive?.8:.5;
+    m.spr.material.opacity=1;
+    m.spr.scale.setScalar(isActive?.04:.03);
+  }
+}
+
+function clearHighlight(){
+  activeMarker=null;
+  for(const m of markers){
+    m.line.material.opacity=.7;
+    m.spr.material.opacity=1;
+    m.spr.scale.set(.03,.03,1);
+  }
+}
+
+/* Logo mapping: location name → [{src, style}]
+   - screen blend removes black/dark backgrounds (keeps white/light content)
+   - invert turns dark logos white
+   - border-radius:50% clips circular badges
+*/
+const locLogos={
+  'UCA':[{src:'static/img/logos/logo_uca.png'}],
+  'ICMAN-CSIC':[{src:'static/img/logos/logo_icmancsic.png'}],
+  'Univ. Malta':[{src:'static/img/logos/logo_univmalta.png'}],
+  'Univ. Nantes':[{src:'static/img/logos/logo_nantesuniversity.png'}],
+  'UMCES':[{src:'static/img/logos/logo_umcesmaryland.png'}],
+  'UEF':[{src:'static/img/logos/logoUEF.png'}],
+  'IPL':[{src:'static/img/logos/logo_IPL.png',s:'height:50px;max-width:180px'}],
+  'ELLIS SC25':[{src:'static/img/logos/logo_ellissummerschool.png',s:'height:70px;max-width:170px'}],
+  'GEOTRACES 2022':[{src:'static/img/logos/geotraces_logo.png'}],
+  'NASA PACE Hackweek':[{src:'static/img/logos/logo_nasapace.svg'}],
+  'FICE25':[{src:'static/img/logos/logo_copernicusfice.png'}],
+  'Pre Academic Fulbright':[{src:'static/img/logos/logo_kentstate.png'}],
+  'EU TalentON 2026':[{src:'static/img/logos/logo_eutalenton.png',s:'height:52px;max-width:180px'}],
+  'ESA OTC25':[{src:'static/img/logos/logo_esaotc.png'}],
+  'Antarctic Campaigns':[
+    {src:'static/img/logos/logo_gabcas.png',s:'height:48px'},
+    {src:'static/img/logos/logo_livingstonisland.png',s:'height:48px'}
+  ]
+};
+
+const locDescs={
+'UCA':'I completed my university education at the University of C\u00e1diz (UCA), where I obtained a Bachelor\u2019s degree in Marine Sciences and a Master\u2019s degree in Oceanography between 2014 and 2018. During this period, I also undertook an Erasmus exchange at Kingston University in London (UK) and was involved in the Department of Earth Sciences as a student collaborator, supported by a university departmental collaboration scholarship. My Bachelor\u2019s and Master\u2019s theses focused on the use of drones equipped with thermal sensors to detect submarine groundwater discharges (SGD) in the Bay of C\u00e1diz.',
+'ICMAN-CSIC':'At the Institute of Marine Sciences of Andalusia (ICMAN-CSIC), I completed my PhD on the development and application of drone-based technologies for investigating coastal environmental processes, including extreme environments, intertidal areas and water quality, under the supervision of Drs Gabriel Navarro and Antonio Tovar-S\u00e1nchez. I subsequently continued my research at the institute through a postdoctoral position, currently funded until 2028.\n\nMy PhD was funded through a predoctoral FPU fellowship from the Spanish Ministry of Science and Innovation, and I was subsequently awarded a Fulbright scholarship to conduct research in the United States. My current postdoctoral research is carried out within the framework of the CSIC Momentum Programme.',
+'Univ. Malta':'I undertook a five-month predoctoral research stay at the University of Malta between February and June 2023, under the supervision of Dr Adam Gauci and his research group. During this period, I published two scientific papers on drone-based water quality assessment, began developing the georeferencing and mosaicking code that I subsequently completed during my research stay in the United States, and participated in major international scientific conferences, including EGU 2023.',
+'Univ. Nantes':'I completed a one-month predoctoral research stay at the University of Nantes between October and November 2023, under the supervision of Dr Laurent Barill\u00e9. This stay established strong collaborative relationships with the research group, which have continued to date and resulted in more than five scientific publications, as well as joint participation in experiments and research projects such as REWRITE. Our work focused on the application of drone-borne multispectral technology to the monitoring of oyster farming areas and the detection of microphytobenthos in coastal intertidal environments.',
+'Pre Academic Fulbright':'Selected to participate in a Fulbright pre-academic training programme at Kent State University (Ohio, USA), focused on developing oral and written communication skills in English.',
+'UMCES':'Through a Fulbright scholarship, I conducted a research project on drone-based ocean colour, developing a methodology to derive water quality parameters from aquatic surfaces. To this end, I joined Dr Greg Silsbe\u2019s laboratory for a six-month research stay between August 2023 and February 2024. This collaboration, which also involved Dr Anna Windle (NASA), has resulted in several joint scientific publications and the development of the open-source DroneWQ software package.',
+'GEOTRACES 2022':'Participation in the GEOTRACES Summer School 2022, held at the Alfred Wegener Institute (AWI) in Bremerhaven, Germany, focusing on trace metals and their global-scale distribution and dynamics.',
+'FICE25':'Participation in Copernicus FICE 2025, held in Venice, Italy, focusing on radiometry studies and fiducial reference measurements for satellite\u2013in situ calibration and validation.',
+'ELLIS SC25':'Participation in the ELLIS Summer School, held in Jena, Germany, in August 2025. The event brought together the international artificial intelligence community to explore the application of AI techniques to the geosciences.',
+'NASA PACE Hackweek':'Participation in the NASA PACE Hackweek 2025, held in Baltimore (Maryland, USA), focusing on the applications of NASA\u2019s PACE satellite for water quality assessment and broader oceanographic research.',
+'ESA OTC25':'Participation in the ESA OTC25 campaign within the framework of the One Ocean Expedition, comprising three legs connecting Troms\u00f8 (Norway), Reykjav\u00edk (Iceland), Mah\u00f3n (Spain) and Nice (France). This experience fostered several research collaborations that remain active today and have resulted in two scientific manuscripts currently under review.',
+'Antarctic Campaigns':'Participation in two Antarctic research campaigns in 2025 and 2026, within the DICHOSO and POLAROMICS projects, respectively. Fieldwork was conducted on Deception Island and Livingston Island, at the Spanish Antarctic research stations Gabriel de Castilla and Juan Carlos I, respectively.\n\nResearch activities included drone-based monitoring of Antarctic penguin colonies, the detection and characterisation of snow algal blooms, the generation of LiDAR point-cloud models, and investigations into marine biogeochemical processes.',
+'UEF':'I undertook a one-month research stay at the University of Eastern Finland (UEF) in November 2025, under the supervision of Dr Miguel Villoslada. The research focused on exploring drone-to-satellite upscaling techniques for monitoring bryophyte vegetation in Antarctica. This collaboration has resulted in a scientific manuscript currently under review.',
+'EU TalentON 2026':'Participation in EU TalentOn 2026, held in Brest, France, in September 2026, where I was awarded first prize in the Climate Change Adaptation category with the PRREST project.',
+'IPL':'Research stay at the Image Processing Laboratory (IPL) of the University of Valencia between November 2026 and February 2027, under the supervision of Dr Luis G\u00f3mez-Chova. The research focuses on exploring Sentinel-2 super-resolution techniques and fine-tuning approaches using drone-derived data to validate super-resolution models and develop locally adapted models.'
+};
+
+function showPanel(idx,animate=true){
+  currentPanelIdx=idx;
+  const l=orderedLocs[idx];
+  const nextIdx=(idx+1)%orderedLocs.length;
+  const nextLoc=orderedLocs[nextIdx];
+  const name=l.info.match(/<strong>(.*?)<\/strong>/)[1];
+  const details=l.info.replace(/<strong>.*?<\/strong><br>/,'').replace(/<br>/g,'</p><p class="globe-panel__detail">');
+  /* logos */
+  const logos=locLogos[l.name]||[];
+  const logoHtml=logos.length?`<div class="globe-panel__logos">${logos.map(lg=>
+    `<img src="${lg.src}" alt="" class="globe-panel__logo" style="${lg.s||''}" loading="lazy">`
+  ).join('')}</div>`:'';
+  /* description */
+  const desc=locDescs[l.name]||'';
+  const descHtml=desc?`<p class="globe-panel__desc">${desc.replace(/\n\n/g,'</p><p class="globe-panel__desc">')}</p>`:'';
+  panel.innerHTML=`<div class="globe-panel__body">
+    <p class="globe-panel__cat">${catLabels[l.cat]||l.cat}</p>
+    <h3 class="globe-panel__name">${name}</h3>
+    <p class="globe-panel__detail">${details}</p>
+    ${logoHtml}
+    ${descHtml}
+  </div>
+  <div class="globe-panel__next">
+    <button class="globe-panel__next-btn" id="btn-panel-next">
+      <div>
+        <span class="globe-panel__next-label">Next</span>
+        ${nextLoc.info.match(/<strong>(.*?)<\/strong>/)[1]}
+      </div>
+      <span class="globe-panel__next-arrow">&rarr;</span>
+    </button>
+  </div>`;
+  document.getElementById('btn-panel-next').addEventListener('click',()=>showPanel(nextIdx));
+  if(animate){
+    highlightMarker(l);
+    if(currentScene==='globe'){
+      flyTo(l.coords[0],l.coords[1],1200,()=>goToTerrain(l.name));
+    }else{
+      goToTerrain(l.name);
+    }
+  }
+}
+
+
+// Default: show host institution (no animation on load)
+showPanel(currentPanelIdx,false);
+
+canvas.addEventListener('click',e=>{
+  const best=pickMarker(e);
+  if(best){
+    const idx=orderedLocs.indexOf(best.loc);
+    if(idx>=0)showPanel(idx);
+  }
+});
+
+/* ── fullscreen ── */
+const wrap=document.querySelector('.globe-wrap');
+let isFS=false;
+function updateShift(){
+  const w=box.clientWidth,h=box.clientHeight;
+  if(isFS){camera.clearViewOffset();}
+  else{camera.setViewOffset(w,h,Math.round(w*0.14),0,w,h);}
+  camera.aspect=w/h;camera.updateProjectionMatrix();
+}
+/* ── globe home button ── */
+document.getElementById('btn-globe-home').addEventListener('click',()=>{
+  if(currentScene!=='globe'){backToGlobe();clearHighlight();showPanel(orderedLocs.findIndex(l=>l.cat==='host'),false);}
+  else{/* reset globe view with zoom-out */
+    const t0=performance.now();const fromLen=camera.position.length();
+    ctrl.autoRotate=true;
+    (function zOut(){const k=Math.min(1,(performance.now()-t0)/1200);
+      const e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+      camera.position.setLength(fromLen+(ZOOM_DEFAULT-fromLen)*e);
+      if(k<1)requestAnimationFrame(zOut);})();
+    clearHighlight();showPanel(orderedLocs.findIndex(l=>l.cat==='host'),false);}
+});
+
+document.getElementById('btn-globe-fs').addEventListener('click',()=>{
+  if(!document.fullscreenElement){wrap.requestFullscreen().catch(()=>{
+    wrap.classList.add('is-fullscreen');isFS=true;updateShift();});}
+  else document.exitFullscreen();
+});
+document.addEventListener('fullscreenchange',()=>{
+  isFS=!!document.fullscreenElement;
+  if(!isFS)wrap.classList.remove('is-fullscreen');
+  updateShift();
+});
+
+/* ── camera start — shifted left ── */
+camera.position.copy(ll(28,-18,3.9));
+camera.setViewOffset(W,H,Math.round(W*0.14),0,W,H);
+
+/* ── animate ── */
+(function loop(t){t*=.001;
+  if(currentScene==='globe'){
+    const rect=box.getBoundingClientRect();
+    const camDir=camera.position.clone().normalize();
+    const _v=new THREE.Vector3();
+    for(const m of markers){
+      const isActive=m.loc===activeMarker;
+      if(isActive){const pulse=1+Math.sin(t*3)*.06;m.spr.scale.setScalar(.04*pulse);}
+      /* animate arc glow */
+      if(m.arc&&m.arc.material.uniforms){
+        m.arc.material.uniforms.uTime.value=t;
+        m.arc.material.uniforms.uActive.value=isActive?1:0;
+      }
+      /* project label */
+      _v.copy(m.spr.position).project(camera);
+      const front=m.spr.position.clone().normalize().dot(camDir)>.15;
+      const sx=(_v.x+1)/2*rect.width,sy=(1-_v.y)/2*rect.height;
+      const vis=front&&_v.z<1&&sx>5&&sx<rect.width-5&&sy>5&&sy<rect.height-40;
+      m.lbl.classList.toggle('off',!vis);
+      if(vis)m.lbl.style.transform=`translate(${sx.toFixed(0)}px,${sy.toFixed(0)}px) translate(8px,-50%)`;
+    }
+    ctrl.update();
+  }else{
+    const tc=terrainCache[currentScene];
+    if(tc){
+      if(tc.sea)tc.sea.material.uniforms.uTime.value=t;
+      updateLabelPositions(tc.camera);
+    }
+    if(tControls)tControls.update();
+  }
+  composer.render();requestAnimationFrame(loop);
+})(0);
+
+/* ── resize ── */
+new ResizeObserver(e=>{const{width:w,height:h}=e[0].contentRect;
+  updateShift();renderer.setSize(w,h);composer.setSize(w,h);
+  if(currentScene!=='globe'){const tc=terrainCache[currentScene];
+    if(tc){tc.camera.aspect=w/h;tc.camera.updateProjectionMatrix();}}
+}).observe(box);
+
+/* ── legend ── */
+document.querySelectorAll('.map-legend__btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{const cat=btn.dataset.cat;
+    document.querySelectorAll('.map-legend__btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    for(const m of markers){const v=cat==='all'||m.cat===cat;
+      m.line.visible=v;m.spr.visible=v;m.ring.visible=v;}});
+});
+</script>
+
+<!-- =============================================
+     SKILLS — Option C Accordion
+     ============================================= -->
+
+<style>
+  /* =====================================================
+     OPTION C — Vertical Accordion + Background Images
+  ===================================================== */
+  .opt-c { --s-dark: #fff; --s-gold: #c6ac8f; --s-white: #eae0d5; --s-beige: #eae0d5; }
+  .opt-c {
+    background: var(--s-dark);
+    padding: 4rem 0 5rem;
+    margin-bottom: -5rem;
+  }
+  .opt-c__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .opt-c__eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--s-gold);
+    margin-bottom: 0.6rem;
+  }
+  .opt-c__heading {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    color: var(--s-white);
+    margin: 0 0 2.5rem;
+    font-weight: 700;
+  }
+
+  /* Accordion item */
+  .opt-c__item {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    height: 120px;
+    transition: height 0.5s cubic-bezier(.4,0,.2,1), box-shadow 0.4s ease;
+  }
+  .opt-c__item.is-open {
+    height: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  /* BG image */
+  .opt-c__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+  }
+  .opt-c__item.is-open .opt-c__bg {
+    transform: scale(1.04);
+  }
+
+  /* Dark overlay */
+  .opt-c__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10,9,8,0.82) 0%, rgba(10,9,8,0.65) 100%);
+    transition: background 0.4s ease;
+  }
+  .opt-c__item.is-open .opt-c__overlay {
+    background: linear-gradient(135deg, rgba(10,9,8,0.9) 0%, rgba(10,9,8,0.75) 100%);
+  }
+
+  /* Gold accent line */
+  .opt-c__accent {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--s-gold);
+    opacity: 0;
+    transition: opacity 0.3s ease 0.1s;
+  }
+  .opt-c__item.is-open .opt-c__accent { opacity: 1; }
+
+  /* Inner content wrapper (above overlay) */
+  .opt-c__content {
+    position: relative;
+    z-index: 2;
+    padding: 0;
+  }
+
+  /* Header row (always visible) */
+  .opt-c__header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 0 2rem;
+    height: 120px;
+  }
+  .opt-c__cat-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+  }
+  .opt-c__cat-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--s-white);
+    flex: 1;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+  }
+  .opt-c__tool-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .opt-c__badge {
+    font-family: var(--font-main);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--s-beige);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    padding: 0.25rem 0.65rem;
+  }
+  .opt-c__chevron {
+    color: var(--s-gold);
+    font-size: 1rem;
+    transition: transform 0.4s ease;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+  }
+  .opt-c__item.is-open .opt-c__chevron { transform: rotate(180deg); }
+
+  /* Expandable body */
+  .opt-c__body {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(.4,0,.2,1), opacity 0.35s ease;
+    padding: 0 2rem;
+  }
+  .opt-c__item.is-open .opt-c__body {
+    max-height: 1000px;
+    opacity: 1;
+    padding: 0 2rem 2rem;
+  }
+
+  .opt-c__sep {
+    height: 1px;
+    background: rgba(198,172,143,0.2);
+    margin-bottom: 1.5rem;
+  }
+  .opt-c__list { list-style: none; padding: 0; margin: 0; }
+  .opt-c__list li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    color: rgba(234,224,213,0.85);
+    line-height: 1.45;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .opt-c__item.is-open .opt-c__list li { opacity: 1; transform: none; }
+  .opt-c__list li:last-child { border-bottom: none; }
+  .opt-c__list li strong {
+    color: var(--s-gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    min-width: 36px;
+  }
+
+  @media (max-width: 600px) {
+    .opt-c__tool-badges { display: none; }
+    .opt-c__cat-title { font-size: 1.05rem; }
+    .opt-c__heading { font-size: 1.8rem; }
+    .opt-c__header { padding: 0 1.25rem; }
+    .opt-c__body { padding: 0 1.25rem; }
+    .opt-c__item.is-open .opt-c__body { padding: 0 1.25rem 1.5rem; }
+  }
+</style>
+
+<section class="opt-c">
+    <div class="opt-c__inner">
+      <h2 class="section-title" style="color:#0a0908;">Skills &amp; Training</h2>
+
+      <!-- Accordion item 1 -->
+      <div class="opt-c__item" id="c-item-1">
+        <div class="opt-c__bg" style="background-image: url('static/img/about_fondo1.png');"></div>
+        <div class="opt-c__overlay"></div>
+        <div class="opt-c__accent"></div>
+        <div class="opt-c__content">
+          <div class="opt-c__header">
+
+            <span class="opt-c__cat-title">Big Data &amp; Artificial Intelligence</span>
+            <div class="opt-c__tool-badges">
+              <span class="opt-c__badge">Python</span>
+              <span class="opt-c__badge">Google Earth Engine</span>
+              <span class="opt-c__badge">Claude AI</span>
+            </div>
+            <i class="fas fa-chevron-down opt-c__chevron"></i>
+          </div>
+          <div class="opt-c__body">
+            <div class="opt-c__sep"></div>
+            <ul class="opt-c__list">
+              <li style="transition-delay:0.05s"><strong>2026</strong>Climate Change AI Virtual Summer School</li>
+              <li style="transition-delay:0.10s"><strong>2026</strong>Intensive Technical Program in Data Science (DATAMECUM)</li>
+              <li style="transition-delay:0.15s"><strong>2026</strong>Machine Learning for Earth Systems Modelling (ECMWF)</li>
+              <li style="transition-delay:0.20s"><strong>2026</strong>Bootcamp in Data Analytics &amp; IA (Upgrade Hub)</li>
+              <li style="transition-delay:0.25s"><strong>2025</strong>CS50's Introduction to AI with Python (Harvard)</li>
+              <li style="transition-delay:0.30s"><strong>2025</strong>AI Applied to the Environment (DATAMECUM / UCA)</li>
+              <li style="transition-delay:0.35s"><strong>2025</strong>Google AI Essentials</li>
+              <li style="transition-delay:0.40s"><strong>2023</strong>MOOC Machine Learning in Weather &amp; Climate (ECMWF)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion item 2 -->
+      <div class="opt-c__item" id="c-item-2">
+        <div class="opt-c__bg" style="background-image: url('static/img/about_fondo2.png');"></div>
+        <div class="opt-c__overlay"></div>
+        <div class="opt-c__accent"></div>
+        <div class="opt-c__content">
+          <div class="opt-c__header">
+
+            <span class="opt-c__cat-title">Remote Sensing</span>
+            <div class="opt-c__tool-badges">
+              <span class="opt-c__badge">Drone Operations</span>
+              <span class="opt-c__badge">Satellite Imagery</span>
+              <span class="opt-c__badge">Spectroradiometry</span>
+            </div>
+            <i class="fas fa-chevron-down opt-c__chevron"></i>
+          </div>
+          <div class="opt-c__body">
+            <div class="opt-c__sep"></div>
+            <ul class="opt-c__list">
+              <li style="transition-delay:0.05s"><strong>2025</strong>Drone Training STS-01 &amp; STS-02 (Formadron)</li>
+              <li style="transition-delay:0.10s"><strong>2025</strong>NASA PACE DATA HACKWEEK (Baltimore)</li>
+              <li style="transition-delay:0.15s"><strong>2025</strong>Copernicus FRM4SOC Radiometry Training (Venice)</li>
+              <li style="transition-delay:0.20s"><strong>2025</strong>ESA Advanced Ocean Training Course OTC25</li>
+              <li style="transition-delay:0.25s"><strong>2024</strong>NASA ARSET: PACE Hyperspectral Observations</li>
+              <li style="transition-delay:0.30s"><strong>2023</strong>Part 107 UAS Airman Certificate (FAA, US)</li>
+              <li style="transition-delay:0.35s"><strong>2020</strong>Remote Drone Pilot Certificate A1/A3, A2, STS (EASA)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion item 3 -->
+      <div class="opt-c__item" id="c-item-3">
+        <div class="opt-c__bg" style="background-image: url('static/img/about_fondo3.png');"></div>
+        <div class="opt-c__overlay"></div>
+        <div class="opt-c__accent"></div>
+        <div class="opt-c__content">
+          <div class="opt-c__header">
+
+            <span class="opt-c__cat-title">Field Experience</span>
+            <div class="opt-c__tool-badges">
+              <span class="opt-c__badge">Antarctic Campaigns</span>
+              <span class="opt-c__badge">Emergency Assessment</span>
+              <span class="opt-c__badge">Oceanographic Surveys</span>
+            </div>
+            <i class="fas fa-chevron-down opt-c__chevron"></i>
+          </div>
+          <div class="opt-c__body">
+            <div class="opt-c__sep"></div>
+            <ul class="opt-c__list">
+              <li style="transition-delay:0.05s"><strong>2026</strong>Madrid Wildfires Emergency Assessment</li>
+              <li style="transition-delay:0.10s"><strong>2026</strong>POLAROMICS Antarctic Campaign</li>
+              <li style="transition-delay:0.15s"><strong>2025</strong>ESA OTC25 aboard Statsraad Lehmkuhl</li>
+              <li style="transition-delay:0.20s"><strong>2025</strong>DICHOSO Antarctic Campaign</li>
+              <li style="transition-delay:0.25s"><strong>2024</strong>Valencia DANA Post-event Emergency Assessment</li>
+              <li style="transition-delay:0.30s"><strong>2022</strong>GEOTRACES Summer School (R/V Heincke)</li>
+              <li style="transition-delay:0.35s"><strong>2021</strong>La Palma Volcanic Eruption (R/V &Aacute;ngeles Alvi&ntilde;o)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- =============================================
+     JAVASCRIPT — Skills Accordion + Observer
+     ============================================= -->
 <script>
+/* ----------------------------------------------------------------
+   OPTION C — Accordion (one open at a time) + bidirectional observer
+---------------------------------------------------------------- */
 (function() {
-    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  var items = document.querySelectorAll('.opt-c__item');
 
-    var lightTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        maxZoom: 19
+  items.forEach(function(item) {
+    item.addEventListener('click', function() {
+      var isOpen = item.classList.contains('is-open');
+
+      // close all
+      items.forEach(function(i) { i.classList.remove('is-open'); });
+
+      if (!isOpen) {
+        item.classList.add('is-open');
+      }
     });
+  });
 
-    var darkTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        maxZoom: 19
+  /* IntersectionObserver for entrance — bidirectional */
+  var cObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateX(0)';
+      } else {
+        entry.target.style.opacity = '0.6';
+        entry.target.style.transform = 'translateX(-8px)';
+      }
     });
+  }, { threshold: 0.12 });
 
-    var map = L.map('research-map', {
-        center: [25, 5],
-        zoom: 2,
-        minZoom: 2,
-        maxZoom: 10,
-        layers: [isDark ? darkTiles : lightTiles]
-    });
-
-    // Auto-switch tiles on theme change
-    var themeObs = new MutationObserver(function() {
-        var dark = document.documentElement.getAttribute('data-theme') === 'dark';
-        if (dark) { map.removeLayer(lightTiles); darkTiles.addTo(map); }
-        else { map.removeLayer(darkTiles); lightTiles.addTo(map); }
-    });
-    themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-
-    var locations = [
-        { name: 'University of Cádiz (UCA)', coords: [36.5271, -6.2886], cat: 'stays',
-          info: '<strong>University of Cádiz (UCA)</strong><br>September 2016 – July 2019<br><em>BSc and MSc studies</em>', color: '#c6ac8f' },
-        { name: 'ICMAN-CSIC', coords: [36.5271, -6.2886], cat: 'host',
-          info: '<strong>ICMAN-CSIC</strong><br>October 2020 – July 2024 · <em>PhD</em><br>August 2024 – present · <em>Postdoc</em>', color: '#5e503f' },
-        { name: 'University of Malta', coords: [35.9042, 14.4189], cat: 'stays',
-          info: '<strong>University of Malta</strong><br>February – June 2022<br><em>PhD stay</em>', color: '#c6ac8f' },
-        { name: 'Nantes University', coords: [47.2184, -1.5536], cat: 'stays',
-          info: '<strong>Nantes University</strong><br>October – November 2022<br><em>PhD stay</em>', color: '#c6ac8f' },
-        { name: 'UMCES', coords: [38.5816, -76.1474], cat: 'stays',
-          info: '<strong>UMCES – University of Maryland</strong><br>August 2023 – February 2024<br><em>Fulbright PhD stay</em>', color: '#c6ac8f' },
-        { name: 'University of Eastern Finland', coords: [62.6010, 29.7636], cat: 'stays',
-          info: '<strong>University of Eastern Finland</strong><br>November 2025<br><em>Research collaboration</em>', color: '#c6ac8f' },
-        { name: 'ELLIS Summer School', coords: [50.9275, 11.5892], cat: 'experiences',
-          info: '<strong>ELLIS Summer School</strong><br>Jena, Germany · September 2025<br><em>AI for Earth and Climate Sciences</em>', color: '#8a7968' },
-        { name: 'GEOTRACES', coords: [53.5395, 8.5809], cat: 'experiences',
-          info: '<strong>GEOTRACES Summer School</strong><br>Bremerhaven, Germany · 2025<br><em>International training program</em>', color: '#8a7968' },
-        { name: 'NASA PACE', coords: [39.2904, -76.6122], cat: 'experiences',
-          info: '<strong>NASA PACE HACKWEEK</strong><br>Baltimore, USA · August 2025<br><em>Ocean color and remote sensing</em>', color: '#8a7968' },
-        { name: 'FICE', coords: [45.4408, 12.3155], cat: 'experiences',
-          info: '<strong>Copernicus FICE 2025</strong><br>Venice, Italy · July 2025<br><em>Calibration/validation of ocean color satellites</em>', color: '#8a7968' },
-        { name: 'Fulbright', coords: [41.1534, -81.3484], cat: 'experiences',
-          info: '<strong>Fulbright Pre-Academic Training</strong><br>Kent, Ohio · August 2023<br><em>Academic preparation</em>', color: '#8a7968' },
-        { name: 'ESA OTC25', coords: [69.6492, 18.9553], cat: 'campaigns',
-          info: '<strong>ESA OTC25</strong><br>Tromsø, Norway · 2025<br><em>One Ocean Expedition – Staatsraad Lehmkuhl</em>', color: '#22333b' },
-        { name: 'Deception Island', coords: [-62.9833, -60.6333], cat: 'campaigns',
-          info: '<strong>Deception Island</strong><br>South Shetland Islands<br>2025 & 2026 · <em>DICHOSO & POLAROMICS</em>', color: '#22333b' },
-        { name: 'Livingston Island', coords: [-62.6000, -60.5000], cat: 'campaigns',
-          info: '<strong>Livingston Island</strong><br>South Shetland Islands<br>2025 & 2026 · <em>DICHOSO & POLAROMICS</em>', color: '#22333b' }
-    ];
-
-    var allMarkers = [];
-
-    locations.forEach(function(loc, i) {
-        var icon = L.divIcon({
-            className: '',
-            html: '<div class="map-pin"><div class="map-pin__dot" style="background:' + loc.color + '"></div><div class="map-pin__pulse" style="background:' + loc.color + '"></div></div>',
-            iconSize: [16, 16],
-            iconAnchor: [8, 8]
-        });
-
-        var marker = L.marker(loc.coords, { icon: icon }).addTo(map);
-        marker.bindPopup(loc.info);
-        marker._cat = loc.cat;
-
-        marker.on('mouseover', function() { this.openPopup(); });
-
-        allMarkers.push(marker);
-    });
-
-    // Legend filter
-    document.querySelectorAll('.map-legend__btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var cat = btn.dataset.cat;
-            document.querySelectorAll('.map-legend__btn').forEach(function(b) { b.classList.remove('active'); });
-            btn.classList.add('active');
-
-            allMarkers.forEach(function(m) {
-                var el = m.getElement();
-                if (cat === 'all' || m._cat === cat) {
-                    el.style.opacity = '1';
-                    el.style.pointerEvents = 'auto';
-                } else {
-                    el.style.opacity = '0.15';
-                    el.style.pointerEvents = 'none';
-                }
-            });
-        });
-    });
+  items.forEach(function(item, i) {
+    item.style.opacity = '0.6';
+    item.style.transform = 'translateX(-8px)';
+    item.style.transition = 'opacity 0.5s ease ' + (i * 0.08) + 's, transform 0.5s ease ' + (i * 0.08) + 's, height 0.5s cubic-bezier(.4,0,.2,1), box-shadow 0.4s ease';
+    cObserver.observe(item);
+  });
 })();
 </script>
 
+<!-- =============================================
+     JAVASCRIPT — Unified Scroll Reveal (bio section)
+     ============================================= -->
 <script>
-    // Collage card reveal on scroll
-    const collageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                setTimeout(() => {
-                    entry.target.style.transitionDelay = '0s';
-                }, 800);
-                collageObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
+(function () {
+  'use strict';
 
-    document.querySelectorAll('.collage-card').forEach((card, i) => {
-        card.style.transitionDelay = `${i * 0.08}s`;
-        collageObserver.observe(card);
-    });
+  // Bidirectional IntersectionObserver for reveal elements
+  var revealEls = Array.from(document.querySelectorAll('.reveal'));
 
-    // Collage card expand/collapse + photo swap
-    document.querySelectorAll('.collage-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const wasOpen = card.classList.contains('is-open');
-            const photoWrap = card.querySelector('.card-photo-wrap--stacked');
+  if (!revealEls.length) return;
 
-            // Close all other cards
-            document.querySelectorAll('.collage-card.is-open').forEach(c => {
-                c.classList.remove('is-open');
-            });
+  // Track element entry edges to determine scroll direction
+  var entryMap = new WeakMap();
 
-            if (!wasOpen) {
-                // Opening: expand card
-                card.classList.add('is-open');
-                setTimeout(() => {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 100);
-            } else if (photoWrap) {
-                // Already open: swap photos
-                photoWrap.classList.toggle('is-swapped');
-            }
-        });
-    });
-</script>
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var el = entry.target;
+      var prevRatio = entryMap.get(el) || 0;
 
-<!-- Skills -->
-<section style="background-color: white; padding: 0;">
-    <div class="container" style="padding-bottom: 0;">
-        <h2 class="section-title">Skills</h2>
-    </div>
-
-    <div class="skills-band" style="background-image: url('static/img/about_fondo1.png'); cursor: pointer;">
-        <div class="skills-band__overlay"></div>
-        <div class="skills-band__content">
-            <div class="skills-band__left">
-                <h3 class="skills-band__title">Big Data & Artificial Intelligence</h3>
-                <div class="skills-band__icons">
-                    <div class="skills-band__item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-                        <span>Python</span>
-                    </div>
-                    <div class="skills-band__item">
-                        <img src="static/img/GEE.png" alt="GEE">
-                        <span>Google Earth Engine</span>
-                    </div>
-                    <div class="skills-band__item">
-                        <img src="static/img/claude.png" alt="Claude">
-                        <span>Claude AI</span>
-                    </div>
-                </div>
-            </div>
-            <div class="skills-band__details">
-                <ul>
-                    <li><strong>2026</strong> · Climate Change AI Virtual Summer School</li>
-                    <li><strong>2026</strong> · Design Your Personal Learning Environment for Research Success</li>
-                    <li><strong>2026</strong> · Intensive Technical Program in Data Science (DATAMECUM)</li>
-                    <li><strong>2026</strong> · Machine Learning for Earth Systems Modelling (ECMWF)</li>
-                    <li><strong>2026</strong> · Bootcamp in Data Analytics & IA (Upgrade Hub)</li>
-                    <li><strong>2025</strong> · ML for Scientific Research: Classification & Regression Trees (MNCN)</li>
-                    <li><strong>2025</strong> · CS50's Introduction to AI with Python (Harvard)</li>
-                    <li><strong>2025</strong> · AI Applied to the Environment (DATAMECUM / UCA)</li>
-                    <li><strong>2025</strong> · Google AI Essentials (Google)</li>
-                    <li><strong>2023</strong> · MOOC Machine Learning in Weather & Climate (ECMWF)</li>
-                    <li><strong>2023</strong> · Introduction to Python Programming (CSIC)</li>
-                    <li><strong>2022</strong> · Python 3 from A to Z (Frogames)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="skills-band" style="background-image: url('static/img/about_fondo2.png'); cursor: pointer;">
-        <div class="skills-band__overlay"></div>
-        <div class="skills-band__content">
-            <div class="skills-band__left">
-                <h3 class="skills-band__title">Remote Sensing</h3>
-                <div class="skills-band__icons">
-                    <div class="skills-band__item">
-                        <img src="static/img/dron.png" alt="Drone">
-                        <span>Drone Operations</span>
-                    </div>
-                    <div class="skills-band__item">
-                        <img src="static/img/satelite.png" alt="Satellite">
-                        <span>Satellite Imagery</span>
-                    </div>
-                    <div class="skills-band__item">
-                        <img src="static/img/spectro.png" alt="Spectroradiometry">
-                        <span>Spectroradiometry</span>
-                    </div>
-                </div>
-            </div>
-            <div class="skills-band__details">
-                <ul>
-                    <li><strong>2025</strong> · Drone Training STS-01 & STS-02 (Formadron)</li>
-                    <li><strong>2025</strong> · NASA PACE DATA HACKWEEK (Baltimore, US)</li>
-                    <li><strong>2025</strong> · Copernicus FRM4SOC Radiometry Training (Venice)</li>
-                    <li><strong>2025</strong> · ESA Advanced Ocean Training Course OTC25 (8 ECTS)</li>
-                    <li><strong>2024</strong> · NASA ARSET: PACE Hyperspectral Observations</li>
-                    <li><strong>2023</strong> · Part 107 UAS Airman Certificate (FAA, US)</li>
-                    <li><strong>2023</strong> · Pix4Dmapper Essentials Workshop (Pix4D)</li>
-                    <li><strong>2023</strong> · CONDOR Hexacopter Certification (DroneTools)</li>
-                    <li><strong>2022</strong> · Inter-comparison & Calibration Workshop (PTI TELEDETECT)</li>
-                    <li><strong>2021</strong> · Remote Sensing as a Global Tool (UIMP)</li>
-                    <li><strong>2021</strong> · Hyperspectral Data for Land & Coastal Systems (NASA)</li>
-                    <li><strong>2021</strong> · Basic GIS and Remote Sensing (UCA)</li>
-                    <li><strong>2020</strong> · Remote Drone Pilot Certificate A1/A3, A2, STS (EASA)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="skills-band" style="background-image: url('static/img/about_fondo3.png'); cursor: pointer;">
-        <div class="skills-band__overlay"></div>
-        <div class="skills-band__content">
-            <div class="skills-band__left">
-                <h3 class="skills-band__title">Field Experience</h3>
-                <div class="skills-band__icons">
-                    <div class="skills-band__item">
-                        <img src="static/img/inundacion.png" alt="Flash Floods">
-                        <span>Flash Floods</span>
-                    </div>
-                    <div class="skills-band__item">
-                        <img src="static/img/volcan.png" alt="Volcanic Eruptions">
-                        <span>Volcanic Eruptions</span>
-                    </div>
-                    <div class="skills-band__item">
-                        <img src="static/img/incendio.png" alt="Wildfires">
-                        <span>Wildfires</span>
-                    </div>
-                    <div class="skills-band__item">
-                        <img src="static/img/antartico.png" alt="Antarctica">
-                        <span>Antarctica</span>
-                    </div>
-                </div>
-            </div>
-            <div class="skills-band__details">
-                <ul>
-                    <li><strong>2026</strong> · Madrid Wildfires Emergency Assessment</li>
-                    <li><strong>2026</strong> · POLAROMICS Antarctic Campaign (BAE Gabriel de Castilla & BAE Juan Carlos I)</li>
-                    <li><strong>2025</strong> · Las Médulas Wildfires Post-event Assessment (León)</li>
-                    <li><strong>2025</strong> · ESA OTC25 aboard Statsraad Lehmkuhl (Arctic–Atlantic–Mediterranean)</li>
-                    <li><strong>2025</strong> · DICHOSO Antarctic Campaign (BIO Hespérides & B/O Sarmiento de Gamboa)</li>
-                    <li><strong>2025</strong> · Advanced Civil Protection Course</li>
-                    <li><strong>2024</strong> · Valencia DANA Post-event Emergency Assessment (Nov & Dec)</li>
-                    <li><strong>2022</strong> · GEOTRACES Summer School (R/V Heincke, AWI)</li>
-                    <li><strong>2021</strong> · La Palma Volcanic Eruption (R/V Ángeles Alvariño)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<script>
-document.querySelectorAll('.skills-band').forEach(function(band) {
-    band.addEventListener('click', function() {
-        var content = band.querySelector('.skills-band__content');
-        var wasExpanded = content.classList.contains('is-expanded');
-
-        // Close all
-        document.querySelectorAll('.skills-band__content.is-expanded').forEach(function(c) {
-            c.classList.remove('is-expanded');
-        });
-
-        // Toggle clicked
-        if (!wasExpanded) {
-            content.classList.add('is-expanded');
+      if (entry.isIntersecting) {
+        // Coming into view — always show
+        el.classList.add('is-visible');
+        el.classList.remove('is-hidden');
+      } else {
+        // Leaving view — determine direction
+        if (entry.boundingClientRect.top < 0) {
+          // Scrolled past (element above viewport) — fade up and out
+          el.classList.remove('is-visible');
+          el.classList.add('is-hidden');
+        } else {
+          // Element below viewport (scrolled back up past it) — reset to fade-in state
+          el.classList.remove('is-visible');
+          el.classList.remove('is-hidden');
         }
+      }
+
+      entryMap.set(el, entry.intersectionRatio);
     });
-});
+  }, {
+    threshold: [0, 0.15],
+    rootMargin: '0px 0px -60px 0px'
+  });
+
+  revealEls.forEach(function (el) {
+    observer.observe(el);
+  });
+})();
 </script>
+
 
     </main>
 
@@ -709,7 +2154,7 @@ document.querySelectorAll('.skills-band').forEach(function(band) {
                 Postdoctoral Researcher at <a href="https://www.icman.csic.es/" target="_blank" class="footer-link">ICMAN-CSIC</a>
             </p>
             <div style="text-align: center; margin-top: 1.5rem;">
-                <img src="static/img/logos.png" alt="Logos" style="max-width: 400px; height: auto; display: block; margin: 0 auto;">
+                <img src="static/img/logos_footer.png" alt="Logos" style="max-width: 600px; height: auto; display: block; margin: 0 auto;">
             </div>
         </div>
     </footer>

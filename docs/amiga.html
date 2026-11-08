@@ -68,165 +68,613 @@
     <!-- Main Content -->
     <main>
         
-<div class="project-page">
 
-<!-- Hero Header -->
-<section style="position: relative; height: 260px; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('static/img/emperor.png'); background-size: cover; background-position: center 70%;"></div>
-    <div class="container" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-        <h1 style="color: white; font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">AMIGA</h1>
-        <p style="color: var(--color-light-beige); font-size: 1.4rem; max-width: 800px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">Antarctic Methane and Ice-Marine-Guano Assessment</p>
+<style>
+/* =========================================================
+   AMIGA — HERO (cinematic 95vh)
+   ========================================================= */
+.amiga-hero {
+    position: relative;
+    width: 100%;
+    height: 95vh;
+    min-height: 560px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url('static/img/AMIGA_header.png');
+    background-size: cover;
+    background-position: center 70%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.amiga-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+        rgba(10,9,8,0.82) 0%,
+        rgba(34,51,59,0.65) 50%,
+        rgba(10,9,8,0.78) 100%);
+    z-index: 1;
+}
+.amiga-hero__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: amigaFadeIn 1.2s cubic-bezier(.4,0,.2,1) 0.3s forwards;
+}
+@keyframes amigaFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+.amiga-hero__label {
+    display: inline-block;
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c6ac8f;
+    border: 1px solid rgba(198,172,143,0.4);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+}
+.amiga-hero__title {
+    font-family: var(--font-heading, 'Instrument Sans', sans-serif);
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    margin: 0 0 1.2rem;
+    letter-spacing: -0.02em;
+}
+.amiga-hero__rule {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #c6ac8f, transparent);
+    margin: 0 auto 1.5rem;
+    border-radius: 2px;
+}
+.amiga-hero__subtitle {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: rgba(234,224,213,0.75);
+    line-height: 1.5;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Scroll indicator */
+.amiga-scroll-hint {
+    position: absolute;
+    bottom: 1.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-decoration: none;
+    cursor: pointer;
+    animation: amigaScrollBounce 2.5s ease-in-out infinite;
+}
+.amiga-scroll-hint__text {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(198,172,143,0.6);
+}
+.amiga-scroll-hint__arrow {
+    width: 10px;
+    height: 10px;
+    border-right: 1.5px solid rgba(198,172,143,0.6);
+    border-bottom: 1.5px solid rgba(198,172,143,0.6);
+    transform: rotate(45deg);
+}
+@keyframes amigaScrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(6px); }
+}
+
+/* Mobile: disable fixed attachment (iOS) */
+@media (max-width: 768px) {
+    .amiga-hero { background-attachment: scroll; }
+}
+
+/* =========================================================
+   RESEARCH TEAM — cards with hover
+   ========================================================= */
+.amiga-team {
+    background: #fff;
+    padding: 2rem 0 4.5rem;
+}
+.amiga-team .section-title { margin-bottom: -4.5rem !important; }
+.amiga-team__grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.amiga-team__card {
+    text-align: center;
+    padding: 1.8rem 1.2rem;
+    border-radius: 16px;
+    background: #fff;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    width: 170px;
+    opacity: 1;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s ease;
+}
+.amiga-team__card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.amiga-team__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 36px rgba(10,9,8,0.12);
+}
+.amiga-team__photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 14px rgba(10,9,8,0.1);
+    transition: transform 0.35s ease;
+}
+.amiga-team__card:hover .amiga-team__photo {
+    transform: scale(1.06);
+}
+.amiga-team__name {
+    font-family: var(--font-heading, 'Instrument Sans', sans-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary, #0a0908);
+    margin: 0 0 0.25rem;
+    line-height: 1.3;
+}
+.amiga-team__role {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.82rem;
+    color: #c6ac8f;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* =========================================================
+   RI & STUDY SITES
+   ========================================================= */
+.amiga-sites {
+    background: #fff;
+    padding: 5rem 0 0;
+}
+.amiga-sites .section-title { margin-bottom: 2.5rem; }
+.amiga-sites__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    max-width: 100%;
+}
+.amiga-sites__card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    cursor: default;
+    opacity: 1;
+    transform: none;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.amiga-sites__card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.amiga-sites__card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+.amiga-sites__card:hover img {
+    transform: scale(1.06);
+}
+.amiga-sites__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.3) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    transition: background 0.4s ease;
+}
+.amiga-sites__card:hover .amiga-sites__overlay {
+    background: linear-gradient(to top, rgba(10,9,8,0.92) 0%, rgba(10,9,8,0.45) 60%, rgba(10,9,8,0.1) 100%);
+}
+.amiga-sites__overlay h3 {
+    font-family: var(--font-heading, 'Instrument Sans', sans-serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #eae0d5;
+    margin: 0 0 0.3rem;
+}
+.amiga-sites__overlay span {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.82rem;
+    color: #c6ac8f;
+    font-weight: 500;
+}
+
+/* =========================================================
+   NEWS
+   ========================================================= */
+.amiga-news {
+    background: #fff;
+    padding: 5rem 0 4rem;
+}
+.amiga-news .section-title { margin-bottom: 3rem; }
+.amiga-news__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.amiga-news__card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 4 / 3;
+    cursor: default;
+    box-shadow: 0 4px 20px rgba(10,9,8,0.15);
+    opacity: 1;
+    transform: none;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.amiga-news__card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.amiga-news__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 40px rgba(10,9,8,0.25);
+}
+.amiga-news__card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+.amiga-news__card:hover img {
+    transform: scale(1.06);
+}
+.amiga-news__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,9,8,0.88) 0%, rgba(10,9,8,0.4) 45%, transparent 70%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    transition: background 0.4s ease;
+}
+.amiga-news__card:hover .amiga-news__overlay {
+    background: linear-gradient(to top, rgba(10,9,8,0.95) 0%, rgba(10,9,8,0.6) 55%, rgba(10,9,8,0.1) 100%);
+}
+.amiga-news__overlay h3 {
+    font-family: var(--font-heading, 'Instrument Sans', sans-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #eae0d5;
+    line-height: 1.4;
+    margin: 0 0 0.6rem;
+}
+.amiga-news__badge {
+    display: inline-block;
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0a0908;
+    background: #c6ac8f;
+    padding: 0.25rem 0.65rem;
+    border-radius: 100px;
+    margin-bottom: 0.4rem;
+    width: fit-content;
+}
+.amiga-news__date {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.72rem;
+    color: rgba(234,224,213,0.6);
+    font-weight: 500;
+}
+
+/* Footer gap */
+.amiga-news { margin-bottom: -5rem; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+    .amiga-sites__grid { grid-template-columns: 1fr 1fr; }
+    .amiga-news__grid { grid-template-columns: 1fr; }
+    .ap-card__content { padding: 3rem 2rem 4rem; }
+    .ap-card__num { font-size: clamp(4rem, 10vw, 8rem); right: 1.5rem; }
+}
+@media (max-width: 600px) {
+    .amiga-team__grid { gap: 1.5rem; }
+    .amiga-team__card { width: 140px; padding: 1.2rem 0.8rem; }
+    .amiga-team__photo { width: 100px; height: 100px; }
+    .amiga-sites__grid { grid-template-columns: 1fr; }
+    .ap-card__content { padding: 2rem 1.5rem 3rem; }
+}
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+[data-theme="dark"] .amiga-team {
+    background: var(--bg-primary, #1a1a2e);
+}
+[data-theme="dark"] .amiga-team__card {
+    background: rgba(255,255,255,0.05);
+}
+[data-theme="dark"] .amiga-team__name {
+    color: var(--text-primary, #eae0d5);
+}
+[data-theme="dark"] .amiga-sites {
+    background: var(--bg-primary, #1a1a2e);
+}
+[data-theme="dark"] .amiga-sites .section-title {
+    color: var(--text-primary, #eae0d5);
+}
+[data-theme="dark"] .amiga-news {
+    background: var(--bg-primary, #1a1a2e);
+}
+[data-theme="dark"] .amiga-news .section-title {
+    color: var(--text-primary, #eae0d5);
+}
+[data-theme="dark"] .amiga-team .section-title {
+    color: var(--text-primary, #eae0d5);
+}
+</style>
+
+<!-- ============================================================
+     HERO — Cinematic 95vh
+     ============================================================ -->
+<section class="amiga-hero">
+    <div class="amiga-hero__inner">
+        <h1 class="amiga-hero__title">AMIGA</h1>
+        <div class="amiga-hero__rule"></div>
+        <p class="amiga-hero__subtitle">Antarctic Methane and Ice-Marine-Guano Assessment</p>
     </div>
+    <a class="amiga-scroll-hint" href="#amiga-team" aria-label="Scroll down">
+        <span class="amiga-scroll-hint__text">Scroll</span>
+        <span class="amiga-scroll-hint__arrow"></span>
+    </a>
 </section>
 
-<!-- Team -->
-<section class="pj-white">
+<!-- ============================================================
+     RESEARCH TEAM
+     ============================================================ -->
+<section class="amiga-team" id="amiga-team">
     <div class="container">
         <h2 class="section-title">Research Team</h2>
-        <div class="pj-team">
-            <div class="pj-member">
-                <img src="static/img/alejandroroman.png" alt="Alejandro Román">
-                <h3>Alejandro Román</h3>
-                <p>Postdoctoral Researcher</p>
-            </div>
-            <div class="pj-member">
-                <img src="static/img/gabrielnavarro.png" alt="Gabriel Navarro">
-                <h3>Gabriel Navarro</h3>
-                <p>Research Scientist</p>
-            </div>
-            <div class="pj-member">
-                <img src="static/img/susanaflecha.png" alt="Susana Flecha">
-                <h3>Susana Flecha</h3>
-                <p>Postdoctoral Researcher</p>
-            </div>
-            <div class="pj-member">
-                <img src="static/img/emmahuertas.png" alt="Emma Huertas">
-                <h3>Emma Huertas</h3>
-                <p>Research Scientist</p>
-            </div>
+    </div>
+    <div class="amiga-team__grid">
+        <div class="amiga-team__card amiga-anim" style="transition-delay: 0s;">
+            <img class="amiga-team__photo" src="static/img/alejandroroman.png" alt="Alejandro Román">
+            <h3 class="amiga-team__name">Alejandro Román</h3>
+            <p class="amiga-team__role">Postdoctoral Researcher</p>
+        </div>
+        <div class="amiga-team__card amiga-anim" style="transition-delay: 0.1s;">
+            <img class="amiga-team__photo" src="static/img/gabrielnavarro.png" alt="Gabriel Navarro">
+            <h3 class="amiga-team__name">Gabriel Navarro</h3>
+            <p class="amiga-team__role">Research Scientist</p>
+        </div>
+        <div class="amiga-team__card amiga-anim" style="transition-delay: 0.2s;">
+            <img class="amiga-team__photo" src="static/img/susanaflecha.png" alt="Susana Flecha">
+            <h3 class="amiga-team__name">Susana Flecha</h3>
+            <p class="amiga-team__role">Postdoctoral Researcher</p>
+        </div>
+        <div class="amiga-team__card amiga-anim" style="transition-delay: 0.3s;">
+            <img class="amiga-team__photo" src="static/img/emmahuertas.png" alt="Emma Huertas">
+            <h3 class="amiga-team__name">Emma Huertas</h3>
+            <p class="amiga-team__role">Research Scientist</p>
         </div>
     </div>
 </section>
 
-<!-- The Project: horizontal accordion -->
-<section class="pj-alt">
+<!-- ============================================================
+     THE PROJECT — Sticky Scroll Cards
+     ============================================================ -->
+<!-- The Project: Horizontal Scroll Cards -->
+<style>
+.amiga-scroll-strip::-webkit-scrollbar { display: none; }
+.amiga-scroll-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 16px 40px rgba(198,172,143,0.18) !important;
+    border-color: rgba(198,172,143,0.35) !important;
+}
+.amiga-scroll-card:hover img { transform: scale(1.05); }
+</style>
+
+<section style="background:#0a0908;padding:5rem 0;overflow:hidden;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 2rem;text-align:center;margin-bottom:2.5rem;">
+        <h2 class="section-title" style="color:#eae0d5;">The Project</h2>
+    </div>
+    <div style="text-align:center;margin-bottom:1.5rem;">
+        <span style="font-family:var(--font-main);font-size:.7rem;color:rgba(234,224,213,.5);letter-spacing:.15em;text-transform:uppercase;"><i class="fas fa-arrows-alt-h" style="margin-right:.3rem;"></i> Drag & Explore</span>
+    </div>
+    <div class="amiga-scroll-strip" id="amiga-strip" style="display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:16px 32px 32px;cursor:grab;scrollbar-width:none;">
+        <div class="amiga-scroll-card" style="flex:0 0 300px;scroll-snap-align:start;background:#131110;border:1px solid rgba(198,172,143,.12);border-radius:4px;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;">
+            <div style="aspect-ratio:4/3;overflow:hidden;"><img src="static/img/ghg_guano.png" alt="GHG Flux" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;"></div>
+            <div style="padding:20px 22px 24px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><span style="font-family:var(--font-heading);font-size:.6rem;font-weight:700;color:#c6ac8f;letter-spacing:.15em;">01</span><div style="flex:1;height:1px;background:rgba(198,172,143,.2);"></div></div>
+                <h3 style="font-family:var(--font-heading);font-size:.95rem;font-weight:700;color:#eae0d5;margin:0 0 10px;line-height:1.3;">GHG Flux Measurements</h3>
+                <p style="font-family:var(--font-main);font-size:.8rem;color:rgba(234,224,213,.6);line-height:1.7;margin:0;">Simultaneous CH₄ and CO₂ flux measurements using LI-COR gas analyzers and smart chamber systems, combined with drone-mounted Sniffer 4D sensors for spatially resolved atmospheric sampling over the Emperor penguin colony at Atka Bay.</p>
+            </div>
+        </div>
+        <div class="amiga-scroll-card" style="flex:0 0 300px;scroll-snap-align:start;background:#131110;border:1px solid rgba(198,172,143,.12);border-radius:4px;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;">
+            <div style="aspect-ratio:4/3;overflow:hidden;"><img src="static/img/AMIGA_4.png" alt="Ice Shelf" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;"></div>
+            <div style="padding:20px 22px 24px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><span style="font-family:var(--font-heading);font-size:.6rem;font-weight:700;color:#c6ac8f;letter-spacing:.15em;">02</span><div style="flex:1;height:1px;background:rgba(198,172,143,.2);"></div></div>
+                <h3 style="font-family:var(--font-heading);font-size:.95rem;font-weight:700;color:#eae0d5;margin:0 0 10px;line-height:1.3;">Ice Shelf Dynamics</h3>
+                <p style="font-family:var(--font-main);font-size:.8rem;color:rgba(234,224,213,.6);line-height:1.7;margin:0;">Understanding how ice shelf dynamics affect greenhouse gas emissions. Laboratory analyses of ice cores and meltwater from the Atka and Ekström ice shelves will identify biogeochemical drivers of gas exchange.</p>
+            </div>
+        </div>
+        <div class="amiga-scroll-card" style="flex:0 0 300px;scroll-snap-align:start;background:#131110;border:1px solid rgba(198,172,143,.12);border-radius:4px;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;">
+            <div style="aspect-ratio:4/3;overflow:hidden;"><img src="static/img/satellite-drive.png" alt="AI Upscaling" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;"></div>
+            <div style="padding:20px 22px 24px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><span style="font-family:var(--font-heading);font-size:.6rem;font-weight:700;color:#c6ac8f;letter-spacing:.15em;">03</span><div style="flex:1;height:1px;background:rgba(198,172,143,.2);"></div></div>
+                <h3 style="font-family:var(--font-heading);font-size:.95rem;font-weight:700;color:#eae0d5;margin:0 0 10px;line-height:1.3;">AI-Driven Upscaling</h3>
+                <p style="font-family:var(--font-main);font-size:.8rem;color:rgba(234,224,213,.6);line-height:1.7;margin:0;">Convolutional neural networks for automated penguin counts and machine learning algorithms integrating drone multispectral data with Sentinel-2 satellite imagery for regional scaling of site measurements.</p>
+            </div>
+        </div>
+        <div class="amiga-scroll-card" style="flex:0 0 300px;scroll-snap-align:start;background:#131110;border:1px solid rgba(198,172,143,.12);border-radius:4px;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;">
+            <div style="aspect-ratio:4/3;overflow:hidden;"><img src="static/img/colony-emperor.png" alt="Penguin Colony" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;"></div>
+            <div style="padding:20px 22px 24px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><span style="font-family:var(--font-heading);font-size:.6rem;font-weight:700;color:#c6ac8f;letter-spacing:.15em;">04</span><div style="flex:1;height:1px;background:rgba(198,172,143,.2);"></div></div>
+                <h3 style="font-family:var(--font-heading);font-size:.95rem;font-weight:700;color:#eae0d5;margin:0 0 10px;line-height:1.3;">Penguin Colony Assessment</h3>
+                <p style="font-family:var(--font-main);font-size:.8rem;color:rgba(234,224,213,.6);line-height:1.7;margin:0;">Guano analysis and population assessment of the Emperor penguin colony to understand biological methane hotspots and their role in Antarctic carbon cycles, supporting global GHG budget assessments.</p>
+            </div>
+        </div>
+        <div class="amiga-scroll-card" style="flex:0 0 300px;scroll-snap-align:start;background:#131110;border:1px solid rgba(198,172,143,.12);border-radius:4px;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;">
+            <div style="aspect-ratio:4/3;overflow:hidden;"><img src="static/img/drone_polar.JPG" alt="Drone Remote Sensing" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;"></div>
+            <div style="padding:20px 22px 24px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><span style="font-family:var(--font-heading);font-size:.6rem;font-weight:700;color:#c6ac8f;letter-spacing:.15em;">05</span><div style="flex:1;height:1px;background:rgba(198,172,143,.2);"></div></div>
+                <h3 style="font-family:var(--font-heading);font-size:.95rem;font-weight:700;color:#eae0d5;margin:0 0 10px;line-height:1.3;">Drone Remote Sensing &amp; Open Data</h3>
+                <p style="font-family:var(--font-main);font-size:.8rem;color:rgba(234,224,213,.6);line-height:1.7;margin:0;">Drone-based multispectral, thermal, and LiDAR imaging to assess surface properties. All datasets and algorithms published as open-access resources for future polar research.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+(function(){
+    var strip=document.getElementById('amiga-strip');if(!strip)return;
+    var isDrag=false,startX=0,sLeft=0;
+    strip.addEventListener('mousedown',function(e){isDrag=true;strip.style.cursor='grabbing';startX=e.pageX-strip.offsetLeft;sLeft=strip.scrollLeft;e.preventDefault();});
+    document.addEventListener('mouseup',function(){isDrag=false;strip.style.cursor='grab';});
+    strip.addEventListener('mousemove',function(e){if(!isDrag)return;strip.scrollLeft=sLeft-(e.pageX-strip.offsetLeft-startX);});
+    strip.addEventListener('wheel',function(e){if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){e.preventDefault();strip.scrollLeft+=e.deltaY*1.2;}},{passive:false});
+})();
+</script>
+
+<section class="amiga-sites">
     <div class="container">
-        <h2 class="section-title">The Project</h2>
-        <div class="research-accordion" style="height: 420px;">
-            <div class="research-panel active">
-                <div class="research-panel__img">
-                    <img src="static/img/AMIGA_2.png" alt="Penguin guano sampling">
-                </div>
-                <div class="research-panel__text">
-                    <h3>GHG Flux Measurements</h3>
-                    <p>Simultaneous CH₄ and CO₂ flux measurements using LI-COR gas analyzers and smart chamber systems, combined with drone-mounted Sniffer 4D sensors for spatially resolved atmospheric sampling over the Emperor penguin colony at Atka Bay.</p>
-                </div>
-            </div>
-            <div class="research-panel">
-                <div class="research-panel__img">
-                    <img src="static/img/AMIGA_4.png" alt="Ice shelf system">
-                </div>
-                <div class="research-panel__text">
-                    <h3>Ice Shelf Dynamics</h3>
-                    <p>Understanding how ice shelf dynamics affect greenhouse gas emissions. Laboratory analyses of ice cores and meltwater from the Atka and Ekström ice shelves will identify biogeochemical drivers of gas exchange.</p>
-                </div>
-            </div>
-            <div class="research-panel">
-                <div class="research-panel__img">
-                    <img src="static/img/AMIGA_5.png" alt="AI satellite">
-                </div>
-                <div class="research-panel__text">
-                    <h3>AI-Driven Upscaling</h3>
-                    <p>Convolutional neural networks for automated penguin counts and machine learning algorithms integrating drone multispectral data with Sentinel-2 satellite imagery for regional scaling of site measurements.</p>
-                </div>
-            </div>
-            <div class="research-panel">
-                <div class="research-panel__img">
-                    <img src="static/img/AMIGA_3.png" alt="Emperor penguin">
-                </div>
-                <div class="research-panel__text">
-                    <h3>Penguin Colony Assessment</h3>
-                    <p>Guano analysis and population assessment of the Emperor penguin colony to understand biological methane hotspots and their role in Antarctic carbon cycles, supporting global GHG budget assessments.</p>
-                </div>
-            </div>
-            <div class="research-panel">
-                <div class="research-panel__img">
-                    <img src="static/img/AMIGA_1.png" alt="Drone operations">
-                </div>
-                <div class="research-panel__text">
-                    <h3>Drone Remote Sensing & Open Data</h3>
-                    <p>Drone-based multispectral, thermal, and LiDAR imaging to assess surface properties. All datasets and algorithms published as open-access resources for future polar research.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- RI & Study Sites -->
-<section class="pj-white">
-    <div class="container" style="padding-bottom: 0;">
         <h2 class="section-title">RI & Study Sites</h2>
     </div>
-    <div class="websites-grid" style="grid-template-columns: repeat(3, 1fr); gap: 0;">
-        <a class="website-card" style="cursor: default; border-radius: 0; aspect-ratio: 1/1;">
+    <div class="amiga-sites__grid">
+        <div class="amiga-sites__card amiga-anim" style="transition-delay: 0s;">
             <img src="static/img/neumayer.png" alt="Neumayer Station III">
-            <div class="website-card__overlay">
+            <div class="amiga-sites__overlay">
                 <h3>Neumayer Station III</h3>
                 <span>Research Infrastructure</span>
             </div>
-        </a>
-        <a class="website-card" style="cursor: default; border-radius: 0; aspect-ratio: 1/1;">
+        </div>
+        <div class="amiga-sites__card amiga-anim" style="transition-delay: 0.1s;">
             <img src="static/img/atkabaysite.png" alt="Atka Bay">
-            <div class="website-card__overlay">
+            <div class="amiga-sites__overlay">
                 <h3>Atka Bay</h3>
                 <span>Emperor Penguin Colony</span>
             </div>
-        </a>
-        <a class="website-card" style="cursor: default; border-radius: 0; aspect-ratio: 1/1;">
+        </div>
+        <div class="amiga-sites__card amiga-anim" style="transition-delay: 0.15s;">
             <img src="static/img/iceshelfsite.png" alt="Ice Shelves">
-            <div class="website-card__overlay">
+            <div class="amiga-sites__overlay">
                 <h3>Atka & Ekström Ice Shelves</h3>
                 <span>Cryospheric Systems</span>
             </div>
-        </a>
+        </div>
     </div>
 </section>
 
-<!-- News -->
-<section class="pj-alt">
-    <div class="container">
+<!-- ============================================================
+     NEWS
+     ============================================================ -->
+<section style="background:#fff;padding:3rem 0 4rem;margin-bottom:-5rem;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 2rem;">
         <h2 class="section-title">News</h2>
-        <div class="media-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
-            <div class="media-card-v2" style="cursor: default;">
-                <img src="static/img/paper_ch4.png" alt="Penguin CH4 publication in npj Climate and Atmospheric Science">
-                <div class="media-card-v2__overlay">
-                    <h3>The AMIGA team publishes a pioneering study on chinstrap penguin colonies in npj Climate and Atmospheric Science.</h3>
-                    <span class="media-card-v2__cat">Publication</span>
-                    <span class="media-card-v2__date">September 2026</span>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;">
+            <div class="amiga-anim" style="position:relative;overflow:hidden;border-radius:12px;aspect-ratio:5/4;box-shadow:0 4px 20px rgba(10,9,8,.22);cursor:pointer;transition:transform .35s ease,box-shadow .35s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 16px 44px rgba(10,9,8,.38)'" onmouseout="this.style.transform='';this.style.boxShadow=''" onclick="window.open('https://doi.org/10.1038/s41612-026-01556-9','_blank')">
+                <img src="static/img/paper_ch4.png" alt="Penguin CH4 publication" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;">
+                <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,9,8,.88) 0%,rgba(10,9,8,.42) 40%,transparent 70%);transition:background .4s ease;"></div>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem 1.1rem 1.2rem;">
+                    <div style="font-family:var(--font-main);font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#c6ac8f;margin-bottom:.4rem;">September 2026 · Publication</div>
+                    <h3 style="font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:#eae0d5;line-height:1.4;margin:0;">The AMIGA team publishes a pioneering study on chinstrap penguin colonies in npj Climate and Atmospheric Science.</h3>
                 </div>
             </div>
-            <div class="media-card-v2" style="cursor: default;">
-                <img src="static/img/AMIGA_SCAR.png" alt="AMIGA poster at SCAR 2026">
-                <div class="media-card-v2__overlay">
-                    <h3>We presented the AMIGA project at the 12th SCAR Open Science Conference in Oslo, with a poster in the general Antarctica InSync session.</h3>
-                    <span class="media-card-v2__cat">Conference</span>
-                    <span class="media-card-v2__date">August 2026</span>
+            <div class="amiga-anim" style="position:relative;overflow:hidden;border-radius:12px;aspect-ratio:5/4;box-shadow:0 4px 20px rgba(10,9,8,.22);cursor:pointer;transition:transform .35s ease,box-shadow .35s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 16px 44px rgba(10,9,8,.38)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+                <img src="static/img/AMIGA_SCAR.png" alt="AMIGA poster at SCAR 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;">
+                <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,9,8,.88) 0%,rgba(10,9,8,.42) 40%,transparent 70%);transition:background .4s ease;"></div>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem 1.1rem 1.2rem;">
+                    <div style="font-family:var(--font-main);font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#c6ac8f;margin-bottom:.4rem;">August 2026 · Conference</div>
+                    <h3 style="font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:#eae0d5;line-height:1.4;margin:0;">We presented the AMIGA project at the 12th SCAR Open Science Conference in Oslo, with a poster in the general Antarctica InSync session.</h3>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-</div>
-
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
 <script>
-document.querySelectorAll('.research-panel').forEach(function(panel) {
-    panel.addEventListener('click', function() {
-        document.querySelectorAll('.research-panel').forEach(function(p) { p.classList.remove('active'); });
-        panel.classList.add('active');
+(function() {
+    'use strict';
+
+    /* ---- Smooth scroll for hero hint ---- */
+    document.querySelectorAll('a.amiga-scroll-hint').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(a.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
     });
-});
-</script>
+
+    /* ---- Bidirectional scroll reveal for ALL page elements ---- */
+    (function(){
+        // Apply to all animatable elements
+        var els = document.querySelectorAll('.amiga-anim, .amiga-team__card, .amiga-sites__card, .section-title, .amiga-scroll-card');
+        if (!els.length) return;
+
+        // Set initial hidden state via inline styles (overrides CSS)
+        els.forEach(function(el, i) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(25px)';
+            el.style.transition = 'opacity 0.6s ease ' + (i % 6) * 0.08 + 's, transform 0.6s ease ' + (i % 6) * 0.08 + 's, box-shadow 0.35s ease';
+        });
+
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'translateY(0)';
+                } else {
+                    e.target.style.opacity = '0';
+                    e.target.style.transform = 'translateY(25px)';
+                }
+            });
+        }, { threshold: 0.05 });
+
+        els.forEach(function(el) { obs.observe(el); });
+    })();
+    </script>
+
 
     </main>
 
@@ -241,7 +689,7 @@ document.querySelectorAll('.research-panel').forEach(function(panel) {
                 Postdoctoral Researcher at <a href="https://www.icman.csic.es/" target="_blank" class="footer-link">ICMAN-CSIC</a>
             </p>
             <div style="text-align: center; margin-top: 1.5rem;">
-                <img src="static/img/logos.png" alt="Logos" style="max-width: 400px; height: auto; display: block; margin: 0 auto;">
+                <img src="static/img/logos_footer.png" alt="Logos" style="max-width: 600px; height: auto; display: block; margin: 0 auto;">
             </div>
         </div>
     </footer>

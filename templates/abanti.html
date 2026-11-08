@@ -3,108 +3,543 @@
 {% block title %}ABANTI Project - {{ site.title }}{% endblock %}
 
 {% block content %}
-<div class="project-page">
 
-<!-- Hero Header -->
-<section style="position: relative; height: 260px; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('static/img/snowalgaecharrua.png'); background-size: cover; background-position: center center;"></div>
-    <div class="container" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-        <h1 style="color: white; font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">ABANTI</h1>
-        <p style="color: var(--color-light-beige); font-size: 1.4rem; max-width: 800px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">Spatio-temporal Analysis of Snow Algae Blooms using Drone Remote Sensing in Antarctic Coastal Environments</p>
+<style>
+/* =========================================================
+   ABANTI -- HERO (cinematic 95vh)
+   ========================================================= */
+.abanti-hero {
+    position: relative;
+    width: 100%;
+    height: 95vh;
+    min-height: 560px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url('static/img/snowalgaecharrua.png');
+    background-size: cover;
+    background-position: center 70%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.abanti-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+        rgba(10,9,8,0.82) 0%,
+        rgba(34,51,59,0.65) 50%,
+        rgba(10,9,8,0.78) 100%);
+    z-index: 1;
+}
+.abanti-hero__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: abantiFadeIn 1.2s cubic-bezier(.4,0,.2,1) 0.3s forwards;
+}
+@keyframes abantiFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+.abanti-hero__title {
+    font-family: var(--font-heading, 'Instrument Sans', sans-serif);
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    margin: 0 0 1.2rem;
+    letter-spacing: -0.02em;
+}
+.abanti-hero__rule {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #c6ac8f, transparent);
+    margin: 0 auto 1.5rem;
+    border-radius: 2px;
+}
+.abanti-hero__subtitle {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: rgba(234,224,213,0.75);
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Scroll indicator */
+.abanti-scroll-hint {
+    position: absolute;
+    bottom: 1.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-decoration: none;
+    cursor: pointer;
+    animation: abantiScrollBounce 2.5s ease-in-out infinite;
+}
+.abanti-scroll-hint__text {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(198,172,143,0.6);
+}
+.abanti-scroll-hint__arrow {
+    width: 10px;
+    height: 10px;
+    border-right: 1.5px solid rgba(198,172,143,0.6);
+    border-bottom: 1.5px solid rgba(198,172,143,0.6);
+    transform: rotate(45deg);
+}
+@keyframes abantiScrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(6px); }
+}
+
+/* Mobile: disable fixed attachment (iOS) */
+@media (max-width: 768px) {
+    .abanti-hero { background-attachment: scroll; }
+}
+
+/* =========================================================
+   RESEARCH TEAM -- cards with hover
+   ========================================================= */
+.abanti-team {
+    background: #fff;
+    padding: 2rem 0 4.5rem;
+}
+.abanti-team .section-title { margin-bottom: -4.5rem !important; }
+.abanti-team__grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.abanti-team__card {
+    text-align: center;
+    padding: 1.8rem 1.2rem;
+    border-radius: 16px;
+    background: #fff;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    width: 170px;
+    opacity: 1;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s ease;
+}
+.abanti-team__card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.abanti-team__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 36px rgba(10,9,8,0.12);
+}
+.abanti-team__photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 14px rgba(10,9,8,0.1);
+    transition: transform 0.35s ease;
+}
+.abanti-team__card:hover .abanti-team__photo {
+    transform: scale(1.06);
+}
+.abanti-team__name {
+    font-family: var(--font-heading, 'Instrument Sans', sans-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary, #0a0908);
+    margin: 0 0 0.25rem;
+    line-height: 1.3;
+}
+.abanti-team__role {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.82rem;
+    color: #c6ac8f;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* =========================================================
+   THE PROJECT -- unified dark section
+   ========================================================= */
+.abanti-project {
+    background: #0a0908;
+    padding: 5rem 0 4rem;
+    margin-bottom: -5rem;
+}
+.abanti-project__title {
+    font-family: var(--font-heading, 'Instrument Sans', sans-serif);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    color: #eae0d5;
+    text-align: center;
+    margin: 0 0 0.8rem;
+}
+.abanti-project__rule {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #c6ac8f, transparent);
+    margin: 0 auto 2.5rem;
+    border-radius: 2px;
+}
+.abanti-project__text {
+    max-width: 800px;
+    margin: 0 auto 3.5rem;
+    padding: 0 2rem;
+}
+.abanti-project__text p {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 1rem;
+    line-height: 1.85;
+    color: rgba(234,224,213,0.85);
+    text-align: justify;
+    margin: 0 0 1.5rem;
+}
+.abanti-project__text p:last-child { margin-bottom: 0; }
+
+/* -- Gallery scroll strip -- */
+.abanti-gallery-hint {
+    text-align: center;
+    margin-bottom: 1.2rem;
+}
+.abanti-gallery-hint span {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.7rem;
+    color: rgba(234,224,213,0.45);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.abanti-gallery-strip {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 16px 32px 32px;
+    cursor: grab;
+    scrollbar-width: none;
+}
+.abanti-gallery-strip::-webkit-scrollbar { display: none; }
+.abanti-gallery-card {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    background: #131110;
+    border: 1px solid rgba(198,172,143,0.12);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.abanti-gallery-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(198,172,143,0.18);
+    border-color: rgba(198,172,143,0.35);
+}
+.abanti-gallery-card__img {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+.abanti-gallery-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+.abanti-gallery-card:hover img { transform: scale(1.05); }
+.abanti-gallery-card__caption {
+    padding: 0.65rem 0.8rem;
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.78rem;
+    color: rgba(234,224,213,0.5);
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* -- JAE Training sub-section -- */
+.abanti-project__subtitle {
+    font-family: var(--font-heading, 'Instrument Sans', sans-serif);
+    font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+    font-weight: 600;
+    color: #eae0d5;
+    text-align: center;
+    margin: 4rem 0 0.8rem;
+}
+.abanti-project__sub-rule {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #c6ac8f, transparent);
+    margin: 0 auto 1.5rem;
+    border-radius: 2px;
+}
+.abanti-project__desc {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.95rem;
+    color: rgba(234,224,213,0.75);
+    line-height: 1.7;
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 2rem;
+    padding: 0 2rem;
+}
+.abanti-project__grid {
+    max-width: 850px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    padding: 0 2rem;
+}
+.abanti-project__card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 12px;
+    background: rgba(234,224,213,0.05);
+    border: 1px solid rgba(198,172,143,0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    text-align: center;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.abanti-project__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(198,172,143,0.1);
+    border-color: rgba(198,172,143,0.35);
+}
+.abanti-project__icon {
+    font-size: 1.5rem;
+    color: #c6ac8f;
+    margin-bottom: 0.6rem;
+    display: block;
+}
+.abanti-project__card h3 {
+    font-family: var(--font-heading, 'Instrument Sans', sans-serif);
+    font-size: 0.95rem;
+    color: #eae0d5;
+    margin: 0 0 0.3rem;
+}
+.abanti-project__card p {
+    font-size: 0.82rem;
+    color: rgba(234,224,213,0.55);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* -- Program details box -- */
+.abanti-project__details {
+    max-width: 700px;
+    margin: 2.5rem auto 0;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    background: rgba(234,224,213,0.05);
+    border: 1px solid rgba(198,172,143,0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    text-align: center;
+}
+.abanti-project__details p {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: 0.88rem;
+    color: #eae0d5;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 600px) {
+    .abanti-team__grid { gap: 1.5rem; }
+    .abanti-team__card { width: 140px; padding: 1.2rem 0.8rem; }
+    .abanti-team__photo { width: 100px; height: 100px; }
+    .abanti-project__grid { grid-template-columns: 1fr; }
+    .abanti-project__text p { font-size: 0.92rem; }
+    .abanti-gallery-card { flex: 0 0 260px; }
+}
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+[data-theme="dark"] .abanti-team {
+    background: var(--bg-primary, #1a1a2e);
+}
+[data-theme="dark"] .abanti-team__card {
+    background: rgba(255,255,255,0.05);
+}
+[data-theme="dark"] .abanti-team__name {
+    color: var(--text-primary, #eae0d5);
+}
+[data-theme="dark"] .abanti-team .section-title {
+    color: var(--text-primary, #eae0d5);
+}
+</style>
+
+<!-- ============================================================
+     HERO -- Cinematic 95vh
+     ============================================================ -->
+<section class="abanti-hero">
+    <div class="abanti-hero__inner">
+        <h1 class="abanti-hero__title">ABANTI</h1>
+        <div class="abanti-hero__rule"></div>
+        <p class="abanti-hero__subtitle">Spatio-temporal Analysis of Snow Algae Blooms using Drone Remote Sensing in Antarctic Coastal Environments</p>
     </div>
+    <a class="abanti-scroll-hint" href="#abanti-team" aria-label="Scroll down">
+        <span class="abanti-scroll-hint__text">Scroll</span>
+        <span class="abanti-scroll-hint__arrow"></span>
+    </a>
 </section>
 
-<!-- Team -->
-<section class="pj-white">
+<!-- ============================================================
+     RESEARCH TEAM
+     ============================================================ -->
+<section class="abanti-team" id="abanti-team">
     <div class="container">
         <h2 class="section-title">Research Team</h2>
-        <div class="pj-team">
-            <div class="pj-member">
-                <img src="static/img/alejandroroman.png" alt="Alejandro Román">
-                <h3>Alejandro Román</h3>
-                <p>Postdoctoral Researcher</p>
-            </div>
-            <div class="pj-member">
-                <img src="static/img/beatrizfernandez.png" alt="Beatriz Fernández-Marín">
-                <h3>Beatriz Fernández-Marín</h3>
-                <p>Research Scientist</p>
-            </div>
-            <div class="pj-member">
-                <img src="static/img/rita.jpeg" alt="Rita Lorenzo">
-                <h3>Rita Lorenzo</h3>
-                <p>JAE Intro POLARCSIC</p>
-            </div>
+    </div>
+    <div class="abanti-team__grid">
+        <div class="abanti-team__card abanti-anim" style="transition-delay: 0s;">
+            <img class="abanti-team__photo" src="static/img/alejandroroman.png" alt="Alejandro Roman">
+            <h3 class="abanti-team__name">Alejandro Roman</h3>
+            <p class="abanti-team__role">Postdoctoral Researcher</p>
+        </div>
+        <div class="abanti-team__card abanti-anim" style="transition-delay: 0.1s;">
+            <img class="abanti-team__photo" src="static/img/beatrizfernandez.png" alt="Beatriz Fernandez-Marin">
+            <h3 class="abanti-team__name">Beatriz Fernandez-Marin</h3>
+            <p class="abanti-team__role">Research Scientist</p>
+        </div>
+        <div class="abanti-team__card abanti-anim" style="transition-delay: 0.2s;">
+            <img class="abanti-team__photo" src="static/img/rita.jpeg" alt="Rita Lorenzo">
+            <h3 class="abanti-team__name">Rita Lorenzo</h3>
+            <p class="abanti-team__role">JAE Intro POLARCSIC</p>
         </div>
     </div>
 </section>
 
-<!-- About ABANTI -->
-<section class="pj-alt">
-    <div class="container">
-        <h2 class="section-title">ABANTI</h2>
-        <div class="pj-text">
-            <p>ABANTI aims to study the <span class="highlight">spatio-temporal evolution of massive snow algae blooms</span> on Livingston Island (South Shetland Islands, Antarctica), a growing phenomenon that has significant implications for snow melting, biodiversity, and the biogeochemistry of Antarctic ecosystems - currently a topic of great international interest.</p>
-            <p>The research focuses on analyzing remote sensing data and integrating it with biochemical pigment data. Data and biological samples will come from previous Antarctic campaigns (<span class="highlight">PiMetAn</span> 2021-2022, RTI2018-098048B-100) and upcoming 2025/2026 expeditions (<span class="highlight">POLAROMICS PID2023-146919NB-C21</span> and <span class="highlight">POPEYE PID2022-139455NB-C32</span>), led by the research groups of the principal investigators.</p>
-            <p>This research represents a unique opportunity to integrate two complementary and rarely combined approaches - <span class="highlight">remote sensing and polar plant physiology</span> - together with artificial intelligence techniques in a context of high scientific relevance linked to climate change.</p>
+<!-- ============================================================
+     THE PROJECT -- Unified dark section
+     ============================================================ -->
+<section class="abanti-project">
+
+    <!-- A) Title + Project Description -->
+    <h2 class="abanti-project__title abanti-anim">The Project</h2>
+    <div class="abanti-project__rule"></div>
+    <div class="abanti-project__text">
+        <p class="abanti-anim">ABANTI aims to study the <strong style="color:#c6ac8f">spatio-temporal evolution of massive snow algae blooms</strong> on Livingston Island (South Shetland Islands, Antarctica), a growing phenomenon that has significant implications for snow melting, biodiversity, and the biogeochemistry of Antarctic ecosystems - currently a topic of great international interest.</p>
+        <p class="abanti-anim">The research focuses on analyzing remote sensing data and integrating it with biochemical pigment data. Data and biological samples will come from previous Antarctic campaigns (<strong style="color:#c6ac8f">PiMetAn</strong> 2021-2022, RTI2018-098048B-100) and upcoming 2025/2026 expeditions (<strong style="color:#c6ac8f">POLAROMICS PID2023-146919NB-C21</strong> and <strong style="color:#c6ac8f">POPEYE PID2022-139455NB-C32</strong>), led by the research groups of the principal investigators.</p>
+        <p class="abanti-anim">This research represents a unique opportunity to integrate two complementary and rarely combined approaches - <strong style="color:#c6ac8f">remote sensing and polar plant physiology</strong> - together with artificial intelligence techniques in a context of high scientific relevance linked to climate change.</p>
+    </div>
+
+    <!-- B) Image Gallery -- Horizontal scroll strip -->
+    <div class="abanti-gallery-hint">
+        <span><i class="fas fa-arrows-alt-h" style="margin-right:.3rem;"></i> Drag &amp; Explore</span>
+    </div>
+    <div class="abanti-gallery-strip" id="abanti-strip">
+        <div class="abanti-gallery-card abanti-anim">
+            <div class="abanti-gallery-card__img"><img src="static/img/paperblooms.png" alt="Snow algae bloom close-up"></div>
+            <div class="abanti-gallery-card__caption">Snow algae bloom close-up</div>
+        </div>
+        <div class="abanti-gallery-card abanti-anim">
+            <div class="abanti-gallery-card__img"><img src="static/img/snowalgae.png" alt="Charrua Glacier spectral analysis"></div>
+            <div class="abanti-gallery-card__caption">Charr&uacute;a Glacier spectral analysis</div>
+        </div>
+        <div class="abanti-gallery-card abanti-anim">
+            <div class="abanti-gallery-card__img"><img src="static/img/snowalgae3.png" alt="Snowfield with algae patches"></div>
+            <div class="abanti-gallery-card__caption">Snowfield with algae patches</div>
+        </div>
+        <div class="abanti-gallery-card abanti-anim">
+            <div class="abanti-gallery-card__img"><img src="static/img/snowalgae2.png" alt="Snow algae samples"></div>
+            <div class="abanti-gallery-card__caption">Snow algae samples</div>
+        </div>
+        <div class="abanti-gallery-card abanti-anim">
+            <div class="abanti-gallery-card__img"><img src="static/img/higherelev.png" alt="Green algae bloom on ice"></div>
+            <div class="abanti-gallery-card__caption">Green algae bloom on ice</div>
         </div>
     </div>
+
+    <!-- Coming soon message -->
+    <p class="abanti-anim" style="text-align:center;font-family:var(--font-main);font-size:1.1rem;color:rgba(234,224,213,0.5);font-style:italic;margin:3rem 0 1rem;">More info coming soon!</p>
+
 </section>
 
-<!-- Snow Algae Blooms -->
-<section class="pj-white">
-    <div class="container" style="padding-bottom: 0;">
-        <h2 class="section-title">Snow Algae Blooms on Livingston Island</h2>
-        <p style="text-align: center; color: var(--text-primary); font-size: 0.95rem; margin-bottom: 1.5rem; max-width: 650px; margin-left: auto; margin-right: auto;">The South Shetland Islands are experiencing unprecedented <span class="highlight">snow algae bloom events</span>, transforming pristine white snowfields into colorful biological hotspots.</p>
-    </div>
-    <div class="websites-grid" style="grid-template-columns: repeat(3, 1fr); gap: 0;">
-        <a class="website-card" style="cursor: default; border-radius: 0; aspect-ratio: 4/3;">
-            <img src="static/img/snowalgae1.png" alt="Snow Algae Bloom 1">
-        </a>
-        <a class="website-card" style="cursor: default; border-radius: 0; aspect-ratio: 4/3;">
-            <img src="static/img/snowalgae2.png" alt="Snow Algae Bloom 2">
-        </a>
-        <a class="website-card" style="cursor: default; border-radius: 0; aspect-ratio: 4/3;">
-            <img src="static/img/snowalgae3.png" alt="Snow Algae Bloom 3">
-        </a>
-    </div>
-</section>
+<!-- ============================================================
+     JAVASCRIPT -- Drag scroll + Scroll reveal + smooth scroll
+     ============================================================ -->
+<script>
+(function() {
+    'use strict';
 
-<!-- Training Program -->
-<section class="pj-alt">
-    <div class="container">
-        <h2 class="section-title">JAE Intro Training Program</h2>
-        <p style="text-align: center; color: var(--text-primary); font-size: 0.95rem; margin-bottom: 1.5rem; max-width: 650px; margin-left: auto; margin-right: auto;">The selected candidate will develop their activity at <span class="highlight">ICMAN-CSIC</span> under the supervision of Dr. Román and co-direction of Dr. Fernández-Marín (UPV/EHU).</p>
-        <div style="max-width: 850px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
-            <div style="padding: 1.25rem; border-radius: 12px; background: var(--card-bg); text-align: center;">
-                <i class="fas fa-satellite" style="font-size: 1.5rem; color: var(--color-medium-beige); margin-bottom: 0.6rem; display: block;"></i>
-                <h3 style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0 0 0.3rem;">Spectral Data Analysis</h3>
-                <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Drone-based remote sensing for mapping snow algae blooms</p>
-            </div>
-            <div style="padding: 1.25rem; border-radius: 12px; background: var(--card-bg); text-align: center;">
-                <i class="fas fa-brain" style="font-size: 1.5rem; color: var(--color-medium-beige); margin-bottom: 0.6rem; display: block;"></i>
-                <h3 style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0 0 0.3rem;">Artificial Intelligence</h3>
-                <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">AI techniques for spatio-temporal analysis optimization</p>
-            </div>
-            <div style="padding: 1.25rem; border-radius: 12px; background: var(--card-bg); text-align: center;">
-                <i class="fas fa-microscope" style="font-size: 1.5rem; color: var(--color-medium-beige); margin-bottom: 0.6rem; display: block;"></i>
-                <h3 style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0 0 0.3rem;">Pigment Analysis (HPLC)</h3>
-                <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Identification and quantification of pigments via chromatography</p>
-            </div>
-            <div style="padding: 1.25rem; border-radius: 12px; background: var(--card-bg); text-align: center;">
-                <i class="fas fa-file-alt" style="font-size: 1.5rem; color: var(--color-medium-beige); margin-bottom: 0.6rem; display: block;"></i>
-                <h3 style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--text-primary); margin: 0 0 0.3rem;">Scientific Publishing</h3>
-                <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Preparation for high-impact journal publication</p>
-            </div>
-        </div>
+    /* ---- Drag-to-scroll for gallery strip ---- */
+    var strip = document.getElementById('abanti-strip');
+    if (strip) {
+        var isDrag = false, startX = 0, sLeft = 0;
+        strip.addEventListener('mousedown', function(e) {
+            isDrag = true; strip.style.cursor = 'grabbing';
+            startX = e.pageX - strip.offsetLeft; sLeft = strip.scrollLeft;
+            e.preventDefault();
+        });
+        document.addEventListener('mouseup', function() {
+            isDrag = false; if (strip) strip.style.cursor = 'grab';
+        });
+        strip.addEventListener('mousemove', function(e) {
+            if (!isDrag) return;
+            strip.scrollLeft = sLeft - (e.pageX - strip.offsetLeft - startX);
+        });
+        strip.addEventListener('wheel', function(e) {
+            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                e.preventDefault(); strip.scrollLeft += e.deltaY * 1.2;
+            }
+        }, { passive: false });
+    }
 
-        <div class="pj-info-box">
-            <h3>Program Details</h3>
-            <p><strong>Duration:</strong> 6 months &nbsp;·&nbsp; <strong>Dedication:</strong> 20 hours/week (on-site)<br><strong>Location:</strong> ICMAN-CSIC (Cádiz) + 2-week stay at UPV/EHU (Basque Country)</p>
-        </div>
-    </div>
-</section>
+    /* ---- Smooth scroll for hero hint ---- */
+    document.querySelectorAll('a.abanti-scroll-hint').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(a.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
 
-<p class="pj-coming-soon">More info coming soon!</p>
+    /* ---- Bidirectional scroll reveal for ALL page elements ---- */
+    (function(){
+        var els = document.querySelectorAll('.abanti-anim, .abanti-team__card, .abanti-gallery-card, .abanti-project__card, .abanti-project__details, .abanti-team .section-title');
+        if (!els.length) return;
 
-</div>
+        els.forEach(function(el, i) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(25px)';
+            el.style.transition = 'opacity 0.6s ease ' + (i % 6) * 0.08 + 's, transform 0.6s ease ' + (i % 6) * 0.08 + 's, box-shadow 0.35s ease, border-color 0.35s ease';
+        });
+
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'translateY(0)';
+                } else {
+                    e.target.style.opacity = '0';
+                    e.target.style.transform = 'translateY(25px)';
+                }
+            });
+        }, { threshold: 0.05 });
+
+        els.forEach(function(el) { obs.observe(el); });
+    })();
+})();
+</script>
+
 {% endblock %}

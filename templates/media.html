@@ -3,53 +3,367 @@
 {% block title %}Media - {{ site.title }}{% endblock %}
 
 {% block content %}
-<!-- Page Header -->
-<section style="position: relative; height: 260px; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('static/img/fondo_media.png'); background-size: cover; background-position: center center;"></div>
-    <div class="container" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-        <h1 style="color: white; font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">Media</h1>
-        <p style="color: var(--color-light-beige); font-size: 1.4rem; max-width: 800px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">Press coverage and media appearances</p>
+
+<!-- =====================================================================
+     CINEMATIC HEADER (95vh) — Parallax with fondo_media.png
+     ===================================================================== -->
+<section style="
+    position: relative;
+    height: 95vh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+">
+    <!-- Parallax Background -->
+    <div id="media-parallax-bg" style="
+        position: absolute;
+        inset: -15% 0 -15% 0;
+        background: url('static/img/media_new.jpg') center center / cover no-repeat;
+        will-change: transform;
+        z-index: 0;
+    "></div>
+    <!-- Dark Overlay -->
+    <div style="
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba(10,9,8,0.65) 0%,
+            rgba(10,9,8,0.55) 60%,
+            rgba(10,9,8,0.80) 100%
+        );
+        z-index: 1;
+    "></div>
+    <!-- Content -->
+    <div style="position:relative;z-index:2;padding:0 1.5rem;opacity:0;transform:translateY(30px);animation:mediaFadeIn 1.2s cubic-bezier(.4,0,.2,1) 0.3s forwards;">
+        <h1 style="
+            font-family: var(--font-heading);
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin: 0 0 1.2rem 0;
+            text-shadow: 0 4px 32px rgba(0,0,0,0.5);
+        ">Media</h1>
+        <!-- Golden rule (gradient like AMIGA) -->
+        <div style="
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #c6ac8f, transparent);
+            margin: 0 auto 1.5rem auto;
+            border-radius: 2px;
+        "></div>
+        <p style="
+            font-family: var(--font-main);
+            font-size: clamp(1rem, 2.5vw, 1.35rem);
+            color: rgba(234,224,213,0.75);
+            line-height: 1.5;
+            max-width: 650px;
+            margin: 0 auto;
+        ">Press, TV, podcasts &amp; outreach</p>
+    </div>
+    <!-- Scroll indicator -->
+    <div style="
+        position: absolute;
+        bottom: 2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        opacity: 0.75;
+    ">
+        <span style="font-family: var(--font-main); font-size: 0.7rem; color: #c6ac8f; letter-spacing: 0.15em; text-transform: uppercase;">Scroll</span>
+        <div style="width: 1px; height: 40px; background: linear-gradient(to bottom, #c6ac8f, transparent);"></div>
     </div>
 </section>
 
-<!-- Media Grid -->
-<section class="media-section">
-    <div class="container">
-        <div class="media-filter-bar">
-            <button class="media-filter-btn active" data-filter="all">All</button>
-            <button class="media-filter-btn" data-filter="TV">TV</button>
-            <button class="media-filter-btn" data-filter="Radio">Radio</button>
-            <button class="media-filter-btn" data-filter="Press">Press</button>
-            <button class="media-filter-btn" data-filter="Video">Video</button>
-            <button class="media-filter-btn" data-filter="Article">Article</button>
-            <button class="media-filter-btn" data-filter="Podcast">Podcast</button>
-        </div>
-
-        <div class="media-grid-v2">
-            {% for item in media_items %}
-            <a href="{{ item.url }}" target="_blank" class="media-card-v2" data-category="{{ item.category }}">
-                <img src="static/img/{{ item.image }}" alt="{{ item.title }}">
-                <div class="media-card-v2__overlay">
-                    <h3>{{ item.title }}</h3>
-                    <span class="media-card-v2__cat">{{ item.category }}</span>
-                    <span class="media-card-v2__date">{{ item.date }}</span>
-                </div>
-            </a>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-
+<!-- Parallax Script -->
 <script>
-    document.querySelectorAll('.media-filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const filter = btn.dataset.filter;
-            document.querySelectorAll('.media-filter-btn').forEach(b => b.classList.remove('active'));
+(function() {
+    var bg = document.getElementById('media-parallax-bg');
+    function onScroll() {
+        var y = window.pageYOffset;
+        bg.style.transform = 'translateY(' + (y * 0.3) + 'px)';
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+})();
+</script>
+
+<!-- =====================================================================
+     BENTO MOSAIC — All items, no pagination
+     ===================================================================== -->
+<section class="media-bento-section" style="background: #fff; padding: 3rem 1.5rem 2rem 1.5rem; margin-bottom: -5rem;">
+
+    <style>
+    /* ----- Filter Pills ----- */
+    .media-pill {
+        padding: 0.5rem 1.3rem;
+        border-radius: 50px;
+        border: 1.5px solid #22333b;
+        background: transparent;
+        color: #22333b;
+        font-family: var(--font-main);
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+    }
+    .media-pill.active,
+    .media-pill:hover {
+        background: #22333b;
+        color: #fff;
+    }
+
+    /* ----- Bento Grid ----- */
+    .media-bento-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 220px;
+        gap: 10px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Pattern positions (repeat every 6) */
+    .media-bento-cell[data-pos="0"] { grid-column: span 2; grid-row: span 2; }
+    .media-bento-cell[data-pos="1"] { grid-column: span 1; grid-row: span 1; }
+    .media-bento-cell[data-pos="2"] { grid-column: span 1; grid-row: span 1; }
+    .media-bento-cell[data-pos="3"] { grid-column: span 2; grid-row: span 1; }
+    .media-bento-cell[data-pos="4"] { grid-column: span 1; grid-row: span 1; }
+    .media-bento-cell[data-pos="5"] { grid-column: span 1; grid-row: span 1; }
+
+    /* Cell base */
+    .media-bento-cell {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        cursor: pointer;
+        display: block;
+        text-decoration: none;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .media-bento-cell.revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .media-bento-cell img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        display: block;
+    }
+    .media-bento-cell:hover img {
+        transform: scale(1.06);
+    }
+
+    /* Overlay */
+    .media-bento-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.1) 60%, transparent 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1.2rem;
+        transition: background 0.3s;
+    }
+    .media-bento-cell:hover .media-bento-overlay {
+        background: linear-gradient(to top, rgba(10,9,8,0.75) 0%, rgba(10,9,8,0.25) 50%, rgba(10,9,8,0.1) 100%);
+    }
+
+    /* Badge */
+    .media-bento-badge {
+        display: inline-block;
+        padding: 0.2rem 0.65rem;
+        background: #c6ac8f;
+        color: #0a0908;
+        font-family: var(--font-main);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border-radius: 3px;
+        margin-bottom: 0.4rem;
+        align-self: flex-start;
+    }
+
+    /* Title */
+    .media-bento-title {
+        font-family: var(--font-heading);
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #fff;
+        margin: 0 0 0.25rem 0;
+        line-height: 1.3;
+    }
+    .media-bento-cell[data-pos="0"] .media-bento-title {
+        font-size: 1.25rem;
+    }
+
+    /* Date */
+    .media-bento-date {
+        font-family: var(--font-main);
+        font-size: 0.72rem;
+        color: #c6ac8f;
+        margin: 0;
+    }
+
+    /* Description (hidden until hover) */
+    .media-bento-desc {
+        font-family: var(--font-main);
+        font-size: 0.8rem;
+        color: rgba(234,224,213,0.9);
+        margin: 0.4rem 0 0 0;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.35s ease, opacity 0.35s ease;
+    }
+    .media-bento-cell:hover .media-bento-desc {
+        max-height: 60px;
+        opacity: 1;
+    }
+
+    /* ----- Responsive ----- */
+    @media (max-width: 768px) {
+        .media-bento-grid {
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 180px;
+        }
+        .media-bento-cell[data-pos="0"] { grid-column: span 2; }
+        .media-bento-cell[data-pos="3"] { grid-column: span 2; }
+    }
+    @media (max-width: 480px) {
+        .media-bento-grid {
+            grid-template-columns: 1fr;
+            grid-auto-rows: 200px;
+        }
+        .media-bento-cell[data-pos="0"],
+        .media-bento-cell[data-pos="1"],
+        .media-bento-cell[data-pos="2"],
+        .media-bento-cell[data-pos="3"],
+        .media-bento-cell[data-pos="4"],
+        .media-bento-cell[data-pos="5"] {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+    }
+
+    /* ----- Dark Mode (website toggle) ----- */
+    [data-theme="dark"] .media-bento-section {
+        background: var(--bg-primary, #0a0908) !important;
+    }
+    [data-theme="dark"] .media-pill {
+        border-color: rgba(234,224,213,0.3);
+        color: #eae0d5;
+    }
+    [data-theme="dark"] .media-pill.active,
+    [data-theme="dark"] .media-pill:hover {
+        background: #c6ac8f;
+        color: #0a0908;
+        border-color: #c6ac8f;
+    }
+    @keyframes mediaFadeIn {
+        to { opacity: 1; transform: translateY(0); }
+    }
+    </style>
+
+    <!-- Filter Pills -->
+    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-bottom: 2.5rem;">
+        <button class="media-pill active" data-filter="all">All</button>
+        <button class="media-pill" data-filter="TV">TV</button>
+        <button class="media-pill" data-filter="Press">Press</button>
+        <button class="media-pill" data-filter="Podcast">Podcast</button>
+        <button class="media-pill" data-filter="Radio">Radio</button>
+        <button class="media-pill" data-filter="Video">Video</button>
+        <button class="media-pill" data-filter="Article">Article</button>
+    </div>
+
+    <!-- Bento Grid — ALL items rendered via Jinja, no pagination -->
+    <div class="media-bento-grid" id="media-bento-grid">
+        {% for item in media_items %}
+        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer"
+           class="media-bento-cell"
+           data-pos="{{ loop.index0 % 6 }}"
+           data-category="{{ item.category }}">
+            <img src="static/img/{{ item.image }}" alt="{{ item.title }}" loading="lazy">
+            <div class="media-bento-overlay">
+                <span class="media-bento-badge">{{ item.category }}</span>
+                <p class="media-bento-title">{{ item.title }}</p>
+                <span class="media-bento-date">{{ item.date }}</span>
+                <p class="media-bento-desc">{{ item.description }}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+</section>
+
+<!-- Bento Mosaic Scripts -->
+<script>
+(function() {
+    /* ----- Category Filter ----- */
+    var pills = document.querySelectorAll('.media-pill');
+    var cells = document.querySelectorAll('.media-bento-cell');
+    var grid = document.getElementById('media-bento-grid');
+
+    pills.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            pills.forEach(function(b) { b.classList.remove('active'); });
             btn.classList.add('active');
-            document.querySelectorAll('.media-card-v2').forEach(card => {
-                card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+            var filter = btn.dataset.filter;
+
+            /* Show/hide and re-assign data-pos for proper bento layout */
+            var visibleIndex = 0;
+            cells.forEach(function(cell) {
+                if (filter === 'all' || cell.dataset.category === filter) {
+                    cell.style.display = '';
+                    cell.dataset.pos = visibleIndex % 6;
+                    visibleIndex++;
+                } else {
+                    cell.style.display = 'none';
+                }
             });
         });
     });
+
+    /* ----- Bidirectional Scroll Reveal (staggered) ----- */
+    var revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                /* Stagger based on position within viewport batch */
+                var cell = entry.target;
+                var delay = parseInt(cell.dataset.pos, 10) * 80;
+                setTimeout(function() {
+                    cell.classList.add('revealed');
+                }, delay);
+                revealObserver.unobserve(cell);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    cells.forEach(function(cell) {
+        revealObserver.observe(cell);
+    });
+})();
 </script>
+
 {% endblock %}

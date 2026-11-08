@@ -1,0 +1,13 @@
+{
+ "id": "antarctica",
+ "cols": 389,
+ "rows": 273,
+ "west": -61.00048828125,
+ "east": -60.145751953125,
+ "south": -63.09952045301679,
+ "north": -62.49966693739179,
+ "min": -1290.53,
+ "max": 1700.0,
+ "source": "GMRT GridServer v4 (Ryan et al., 2009) \u2014 www.gmrt.org",
+ "rowOrder": "north-to-south"
+}

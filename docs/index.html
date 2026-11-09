@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="static/css/styles.css?v=20260524b">
+    <link rel="stylesheet" href="static/css/styles.css?v=20261109a">
 
     
 </head>
@@ -32,7 +32,11 @@
                 <span class="nav-brand-text">Alejandro Román</span>
             </div>
 
-            <ul class="nav-menu">
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-overlay" id="navOverlay"></div>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link active">Home</a></li>
                 <li><a href="about.html" class="nav-link ">About</a></li>
                 <li><a href="publications.html" class="nav-link ">Publications</a></li>
@@ -286,13 +290,30 @@
 @media (max-width: 768px) {
     .hero-new__inner {
         grid-template-columns: 1fr;
-        padding: 6rem 1.5rem 4rem;
+        padding: 5rem 1.2rem 3rem;
     }
     .hero-new__canvas-side {
         display: none;
     }
     #droneCanvas {
         opacity: 0.4;
+    }
+    .hero-new__portrait {
+        width: 100px;
+        height: 100px;
+    }
+    .hero-new__desc {
+        font-size: 0.88rem;
+    }
+    .hero-new__social {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: flex-start;
+    }
+    .hero-new__social-link {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
 }
 </style>
@@ -739,7 +760,17 @@ document.querySelectorAll('a.scroll-hint').forEach(a => {
 .rl-progress{position:absolute;right:2.5rem;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:.6rem;z-index:10;}
 .rl-dot{width:6px;height:6px;border-radius:50%;background:rgba(94,80,63,.3);transition:background .3s,transform .3s;}
 .rl-dot.active{background:#5e503f;transform:scale(1.4);}
-/* rl-hint replaced by scroll-hint */
+
+/* Mobile: disable sticky scroll, show as vertical stack */
+@media (max-width: 768px) {
+  .rl-stack{height:auto !important;}
+  .rl-inner{position:relative;top:auto;height:auto;overflow:visible;}
+  .rl-card{position:relative;inset:auto;width:100%;height:80vh;min-height:400px;transform:none !important;}
+  .rl-card__content{padding:2.5rem 1.2rem 3rem;}
+  .rl-card__num{right:1.5rem;top:1rem;}
+  .rl-progress{display:none;}
+  .rl-inner>.scroll-hint{display:none;}
+}
 </style>
 
 <section class="rl-section" id="rl-section">
@@ -829,7 +860,12 @@ document.querySelectorAll('a.scroll-hint').forEach(a => {
      ============================================================ -->
 <style>
 @media(max-width:900px){ [id="opt-g-content"]{width:70%!important;padding:3rem 2rem 3rem 4vw!important;}}
-@media(max-width:640px){ [id="opt-g-content"]{width:100%!important;padding:2.5rem 1.5rem!important;}}
+@media(max-width:640px){ [id="opt-g-content"]{width:100%!important;padding:2.5rem 1.2rem!important;}}
+@media(max-width:480px){
+  [id="opt-g-content"] [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;gap:0.3rem!important;}
+  [id="opt-g-content"] .g-counter{font-size:1.6rem!important;}
+  [id="option-g"]{min-height:auto!important;}
+}
 </style>
 <section id="option-g" style="position:relative;width:100%;min-height:600px;display:flex;align-items:stretch;overflow:hidden;font-family:'Inter',sans-serif;margin:0;padding:0;">
     <div style="position:absolute;inset:0;background:url('static/img/fondo.png') center/cover no-repeat;z-index:0;"></div>
@@ -1103,7 +1139,7 @@ obs.observe(track);
                 Postdoctoral Researcher at <a href="https://www.icman.csic.es/" target="_blank" class="footer-link">ICMAN-CSIC</a>
             </p>
             <div style="text-align: center; margin-top: 1.5rem;">
-                <img src="static/img/logos_footer.png" alt="Logos" style="max-width: 600px; height: auto; display: block; margin: 0 auto;">
+                <img src="static/img/logos_footer.png" alt="Logos" style="max-width: 600px; width: 100%; height: auto; display: block; margin: 0 auto;">
             </div>
         </div>
     </footer>
@@ -1156,6 +1192,25 @@ obs.observe(track);
                 behavior: 'smooth'
             });
         });
+
+        // Hamburger menu
+        const navHamburger = document.getElementById('navHamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navOverlay = document.getElementById('navOverlay');
+        if (navHamburger) {
+            function toggleMenu() {
+                const open = navMenu.classList.toggle('open');
+                navOverlay.classList.toggle('open', open);
+                navHamburger.querySelector('i').className = open ? 'fas fa-times' : 'fas fa-bars';
+            }
+            navHamburger.addEventListener('click', toggleMenu);
+            navOverlay.addEventListener('click', toggleMenu);
+            navMenu.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                navOverlay.classList.remove('open');
+                navHamburger.querySelector('i').className = 'fas fa-bars';
+            }));
+        }
     </script>
 
     

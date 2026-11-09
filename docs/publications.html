@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="static/css/styles.css?v=20260524b">
+    <link rel="stylesheet" href="static/css/styles.css?v=20261109a">
 
     
 <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
@@ -34,7 +34,11 @@
                 <span class="nav-brand-text">Alejandro Román</span>
             </div>
 
-            <ul class="nav-menu">
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-overlay" id="navOverlay"></div>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link ">Home</a></li>
                 <li><a href="about.html" class="nav-link ">About</a></li>
                 <li><a href="publications.html" class="nav-link active">Publications</a></li>
@@ -616,6 +620,16 @@
     .fan-stage { height: 360px; }
     .fan-card[data-slot="left1"] { transform: translateX(-140px) scale(0.82) rotate(-5deg); }
     .fan-card[data-slot="right1"] { transform: translateX(140px) scale(0.82) rotate(5deg); }
+}
+@media (max-width: 400px) {
+    .fan-card {
+        width: 200px;
+        height: 290px;
+    }
+    .fan-stage { height: 310px; }
+    .fan-card[data-slot="left1"] { transform: translateX(-110px) scale(0.8) rotate(-5deg); }
+    .fan-card[data-slot="right1"] { transform: translateX(110px) scale(0.8) rotate(5deg); }
+    .pub-hero-content h1 { font-size: 2rem; }
 }
 
 /* =============================================
@@ -2220,7 +2234,7 @@
                 Postdoctoral Researcher at <a href="https://www.icman.csic.es/" target="_blank" class="footer-link">ICMAN-CSIC</a>
             </p>
             <div style="text-align: center; margin-top: 1.5rem;">
-                <img src="static/img/logos_footer.png" alt="Logos" style="max-width: 600px; height: auto; display: block; margin: 0 auto;">
+                <img src="static/img/logos_footer.png" alt="Logos" style="max-width: 600px; width: 100%; height: auto; display: block; margin: 0 auto;">
             </div>
         </div>
     </footer>
@@ -2273,6 +2287,25 @@
                 behavior: 'smooth'
             });
         });
+
+        // Hamburger menu
+        const navHamburger = document.getElementById('navHamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navOverlay = document.getElementById('navOverlay');
+        if (navHamburger) {
+            function toggleMenu() {
+                const open = navMenu.classList.toggle('open');
+                navOverlay.classList.toggle('open', open);
+                navHamburger.querySelector('i').className = open ? 'fas fa-times' : 'fas fa-bars';
+            }
+            navHamburger.addEventListener('click', toggleMenu);
+            navOverlay.addEventListener('click', toggleMenu);
+            navMenu.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                navOverlay.classList.remove('open');
+                navHamburger.querySelector('i').className = 'fas fa-bars';
+            }));
+        }
     </script>
 
     

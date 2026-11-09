@@ -14,6 +14,10 @@ Color Palette:
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: clip;
+}
+
 :root {
     --color-dark: #0a0908;
     --color-navy: #22333b;
@@ -537,6 +541,75 @@ nav {
 .social-icon:hover {
     color: var(--accent-primary);
     transform: translateY(-2px);
+}
+
+/* Hamburger menu toggle */
+.nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--nav-text);
+    font-size: 1.4rem;
+    z-index: 1002;
+}
+
+@media (max-width: 768px) {
+    .nav-hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70vw;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--nav-bg);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5rem 2rem 2rem;
+        gap: 0.4rem;
+        box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+        z-index: 1001;
+        overflow-y: auto;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-menu .social-icons-nav {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--bg-tertiary);
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.6rem 0;
+        width: 100%;
+    }
+
+    /* Overlay behind menu */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 1000;
+    }
+    .nav-overlay.open {
+        display: block;
+    }
 }
 
 /* Hero Section */
@@ -1933,11 +2006,23 @@ section:not(:first-of-type)::before {
     color: white;
 }
 
+@media (max-width: 768px) {
+    .skills-band__content.is-expanded {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .skills-band__content.is-expanded .skills-band__left {
+        width: 100%;
+    }
+}
+
 @media (max-width: 540px) {
-    .skills-band { padding: 3rem 1.5rem; }
-    .skills-band__icons { gap: 2rem; }
-    .skills-band__item img { width: 40px; height: 40px; }
-    .skills-band__item i { font-size: 2.2rem; }
+    .skills-band { padding: 2.5rem 1rem; }
+    .skills-band__icons { gap: 1.5rem; }
+    .skills-band__item img { width: 36px; height: 36px; }
+    .skills-band__item i { font-size: 2rem; }
+    .skills-band__item span { font-size: 0.72rem; }
+    .skills-band__details li { font-size: 0.8rem; }
 }
 
 .about-background > .container {
@@ -1963,6 +2048,12 @@ section:not(:first-of-type)::before {
     display: grid;
     grid-template-columns: 300px 1fr;
     gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .publication-card {
+        grid-template-columns: 1fr;
+    }
 }
 
 .publication-card:hover {
@@ -2037,7 +2128,7 @@ section:not(:first-of-type)::before {
 /* Media Grid */
 .media-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
     gap: 2rem;
 }
 
@@ -2254,7 +2345,7 @@ footer {
     }
 
     .nav-brand-text {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .hero {
@@ -2264,6 +2355,23 @@ footer {
 
     .about-images {
         grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 1.5rem 0.8rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.4rem;
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
     }
 }
 
@@ -2438,7 +2546,7 @@ html {
 /* Statistics Cards */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
     gap: 2rem;
     margin: 3rem 0;
 }
@@ -2946,7 +3054,7 @@ html {
 /* Sites grid */
 .pj-sites {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 1.25rem;
     max-width: 950px;
     margin: 0 auto;

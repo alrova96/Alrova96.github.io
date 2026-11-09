@@ -426,9 +426,9 @@ class Particle {
         this.localX = localX || 0;
         this.localY = localY || 0;
 
-        // Current position
-        this.x = tx + (Math.random() - 0.5) * 400;
-        this.y = ty + (Math.random() - 0.5) * 400;
+        // Current position — start scattered further for slower convergence
+        this.x = tx + (Math.random() - 0.5) * 800;
+        this.y = ty + (Math.random() - 0.5) * 800;
 
         // Drift oscillation parameters (small random float around target)
         this.driftAmpX  = 2 + Math.random() * 3;
@@ -479,19 +479,19 @@ class Particle {
 
         if (distM < repelRadius && distM > 0.5) {
             const force = (repelRadius - distM) / repelRadius;
-            this.vx += (dxM / distM) * force * 6;
-            this.vy += (dyM / distM) * force * 6;
+            this.vx += (dxM / distM) * force * 2.5;
+            this.vy += (dyM / distM) * force * 2.5;
         }
 
-        // Spring back toward target
+        // Spring back toward target (softer for gentler convergence)
         const dxT = targetX - this.x;
         const dyT = targetY - this.y;
-        this.vx += dxT * 0.04;
-        this.vy += dyT * 0.04;
+        this.vx += dxT * 0.018;
+        this.vy += dyT * 0.018;
 
-        // Friction
-        this.vx *= 0.82;
-        this.vy *= 0.82;
+        // Friction (higher = more damping = smoother)
+        this.vx *= 0.88;
+        this.vy *= 0.88;
 
         this.x += this.vx;
         this.y += this.vy;
@@ -527,7 +527,7 @@ let particles = [];
 let rotation  = 0;
 let mouseX    = -9999;
 let mouseY    = -9999;
-const REPEL_R = 150;
+const REPEL_R = 100;
 const ROT_SPD = 0.03; // rad/s — very slow rotation
 
 function getCanvasCentre(t) {

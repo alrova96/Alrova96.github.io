@@ -468,6 +468,12 @@
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
             </button>
 
+            <!-- Toggle panel button -->
+            <button id="btn-globe-panel-toggle" class="globe-panel-toggle-btn" aria-label="Toggle panel" title="Toggle panel">
+                <svg class="icon-minimize" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 12h12"/></svg>
+                <svg class="icon-maximize" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" style="display:none"><path d="M6 9h12M6 15h12"/></svg>
+            </button>
+
             <!-- Terrain labels overlay -->
             <div id="terrain-labels" class="terrain-labels"></div>
 
@@ -479,25 +485,28 @@
 
             <!-- Legend -->
             <div class="map-legend">
-                <button class="map-legend__btn active" data-cat="all">
-                    <span class="map-legend__dot" style="background: var(--color-dark);"></span> All
+                <button class="map-legend__btn" data-cat="all" style="--cat-glow:rgba(234,224,213,0.5);">
+                    <span class="map-legend__dot" style="background:#eae0d5;"></span> All
                 </button>
-                <button class="map-legend__btn" data-cat="formation">
-                    <span class="map-legend__dot" style="background: #e8a44a;"></span> Formation
+                <button class="map-legend__btn" data-cat="formation" style="--cat-glow:rgba(232,164,74,0.6);">
+                    <span class="map-legend__dot" style="background:#e8a44a;"></span> Formation
                 </button>
-                <button class="map-legend__btn" data-cat="stays">
-                    <span class="map-legend__dot" style="background: #c6ac8f;"></span> Research Stays
+                <button class="map-legend__btn" data-cat="stays" style="--cat-glow:rgba(198,172,143,0.6);">
+                    <span class="map-legend__dot" style="background:#c6ac8f;"></span> Research Stays
                 </button>
-                <button class="map-legend__btn" data-cat="host">
-                    <span class="map-legend__dot" style="background: #eae0d5;"></span> Host Institution
+                <button class="map-legend__btn" data-cat="host" style="--cat-glow:rgba(234,224,213,0.6);">
+                    <span class="map-legend__dot" style="background:#eae0d5;"></span> Host Institution
                 </button>
-                <button class="map-legend__btn" data-cat="campaigns">
-                    <span class="map-legend__dot" style="background: #7fb8c9;"></span> Field Campaigns
+                <button class="map-legend__btn" data-cat="campaigns" style="--cat-glow:rgba(127,184,201,0.6);">
+                    <span class="map-legend__dot" style="background:#7fb8c9;"></span> Field Campaigns
                 </button>
-                <button class="map-legend__btn" data-cat="experiences">
-                    <span class="map-legend__dot" style="background: #a3d4a0;"></span> Int. Experiences
+                <button class="map-legend__btn" data-cat="experiences" style="--cat-glow:rgba(163,212,160,0.6);">
+                    <span class="map-legend__dot" style="background:#a3d4a0;"></span> Int. Experiences
                 </button>
             </div>
+
+            <!-- Year Timeline -->
+            <div class="map-timeline" id="map-timeline"></div>
         </div>
     </div>
 </section>
@@ -632,6 +641,36 @@
     }
     .globe-fs-btn:hover { border-color: #c6ac8f; color: #eae0d5; }
 
+    /* Toggle panel button */
+    .globe-panel-toggle-btn {
+        position: absolute;
+        top: 0.75rem;
+        right: 3.25rem;
+        z-index: 1001;
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(198,172,143,0.35);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: var(--color-medium-beige, #c6ac8f);
+        background: rgba(10,9,8,0.7);
+        backdrop-filter: blur(8px);
+        cursor: pointer;
+        transition: border-color 0.2s, color 0.2s;
+    }
+    .globe-panel-toggle-btn:hover { border-color: #c6ac8f; color: #eae0d5; }
+
+    .globe-panel.minimized {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .globe-panel:not(.minimized) {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
     .globe-wrap:fullscreen,
     .globe-wrap.is-fullscreen {
         border-radius: 0;
@@ -648,7 +687,7 @@
         position: absolute;
         top: 1rem;
         right: 1rem;
-        bottom: 5.5rem;
+        bottom: 5.8rem;
         width: min(300px, calc(100% - 2rem));
         z-index: 1000;
         background: linear-gradient(180deg, rgba(10,9,8,0.88), rgba(34,51,59,0.82));
@@ -776,49 +815,114 @@
     /* Legend */
     .map-legend {
         position: absolute;
-        bottom: 1.25rem;
+        bottom: 1.6rem;
         left: 50%;
         transform: translateX(-50%);
         display: flex;
-        gap: 0.3rem;
+        gap: 0.15rem;
         z-index: 1000;
-        background: rgba(10,9,8,0.85);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        padding: 0.4rem;
-        border-radius: 50px;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.25);
-        border: 1px solid rgba(198,172,143,0.12);
+        background: none;
+        padding: 0;
+        border: none;
+        box-shadow: none;
     }
 
     .map-legend__btn {
         display: flex;
         align-items: center;
         gap: 0.35rem;
-        padding: 0.35rem 0.75rem;
+        padding: 0.35rem 0.65rem;
         border: none;
         border-radius: 50px;
         background: transparent;
-        color: rgba(234,224,213,0.7);
-        font-size: 0.7rem;
+        color: rgba(234,224,213,0.35);
+        font-size: 0.68rem;
         font-weight: 500;
         cursor: pointer;
         font-family: var(--font-main);
-        transition: background 0.2s ease, color 0.2s ease;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
         white-space: nowrap;
     }
 
-    .map-legend__btn:hover,
+    .map-legend__btn:hover {
+        color: rgba(234,224,213,0.7);
+    }
+
     .map-legend__btn.active {
-        background: rgba(198,172,143,0.2);
         color: #eae0d5;
+        text-shadow: 0 0 8px var(--cat-glow, rgba(255,255,255,0.4));
     }
 
     .map-legend__dot {
-        width: 8px;
-        height: 8px;
+        width: 7px;
+        height: 7px;
         border-radius: 50%;
         flex-shrink: 0;
+        opacity: 0.45;
+        transition: opacity 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .map-legend__btn.active .map-legend__dot {
+        opacity: 1;
+        box-shadow: 0 0 6px var(--cat-glow, rgba(255,255,255,0.5));
+    }
+
+    /* Year Timeline */
+    .map-timeline {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 0;
+        z-index: 1000;
+        padding: 0.25rem 0.6rem;
+    }
+
+    .map-timeline__year {
+        position: relative;
+        padding: 0.2rem 0.35rem;
+        color: rgba(255,255,255,0.22);
+        font-size: 0.6rem;
+        font-weight: 600;
+        font-family: var(--font-main);
+        cursor: default;
+        transition: color 0.4s ease, text-shadow 0.4s ease;
+        white-space: nowrap;
+        letter-spacing: 0.03em;
+    }
+
+    .map-timeline__year.active {
+        color: #ffffff;
+        text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.4);
+    }
+
+    /* Connector line between years */
+    .map-timeline__line {
+        width: 12px;
+        height: 1px;
+        background: rgba(255,255,255,0.1);
+        flex-shrink: 0;
+        transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .map-timeline__line.active {
+        background: rgba(255,255,255,0.5);
+        box-shadow: 0 0 4px rgba(255,255,255,0.3);
+    }
+
+    @media (max-width: 900px) {
+        .map-timeline {
+            padding: 0.15rem 0.4rem;
+        }
+        .map-timeline__year {
+            font-size: 0.5rem;
+            padding: 0.15rem 0.2rem;
+        }
+        .map-timeline__line {
+            width: 6px;
+        }
     }
 
     /* Tooltip (hover) */
@@ -851,10 +955,9 @@
 
     @media (max-width: 900px) {
         [id="research-globe"] { height: 420px; }
-        .globe-panel { width: min(260px, calc(100% - 2rem)); font-size: 0.82rem; padding: 1rem; bottom: 3.5rem; }
+        .globe-panel { width: min(260px, calc(100% - 2rem)); font-size: 0.82rem; padding: 1rem; bottom: 3.8rem; }
         .map-legend {
             flex-wrap: wrap;
-            border-radius: 12px;
             bottom: 0.75rem;
             max-width: 90%;
             justify-content: center;
@@ -1514,12 +1617,57 @@ const catLabels={formation:'Formation',stays:'Research Stay',host:'Host Institut
 
 // Chronological order of locations
 const chronoOrder=[
-  'UCA','ICMAN-CSIC','Univ. Malta','Univ. Nantes','Pre Academic Fulbright','UMCES',
-  'GEOTRACES 2022','FICE25','ELLIS SC25','NASA PACE Hackweek','ESA OTC25',
+  'UCA','ICMAN-CSIC','Univ. Malta','GEOTRACES 2022','Univ. Nantes','Pre Academic Fulbright','UMCES',
+  'FICE25','NASA PACE Hackweek','ELLIS SC25','ESA OTC25',
   'Antarctic Campaigns','UEF','EU TalentON 2026','IPL'
 ];
 const orderedLocs=chronoOrder.map(n=>locations.find(l=>l.name===n)).filter(Boolean);
 let currentPanelIdx=orderedLocs.findIndex(l=>l.cat==='host');
+
+/* ── year timeline ── */
+const locYears={
+  'UCA':[2016,2017,2018,2019],
+  'ICMAN-CSIC':[2020,2021,2022,2023,2024,2025,2026],
+  'Univ. Malta':[2022],
+  'Univ. Nantes':[2022],
+  'Pre Academic Fulbright':[2023],
+  'UMCES':[2023,2024],
+  'GEOTRACES 2022':[2022],
+  'FICE25':[2025],
+  'ELLIS SC25':[2025],
+  'NASA PACE Hackweek':[2025],
+  'ESA OTC25':[2025],
+  'Antarctic Campaigns':[2025,2026],
+  'UEF':[2025],
+  'EU TalentON 2026':[2026],
+  'IPL':[2026,2027]
+};
+const allYears=[];
+for(let y=2016;y<=2027;y++) allYears.push(y);
+
+const tlEl=document.getElementById('map-timeline');
+allYears.forEach((y,i)=>{
+  if(i>0){const ln=document.createElement('span');ln.className='map-timeline__line';ln.dataset.year=y;tlEl.appendChild(ln);}
+  const sp=document.createElement('span');sp.className='map-timeline__year';sp.textContent=y;sp.dataset.year=y;
+  tlEl.appendChild(sp);
+});
+
+function updateLegend(cat){
+  document.querySelectorAll('.map-legend__btn').forEach(b=>{
+    b.classList.toggle('active',b.dataset.cat===cat);
+  });
+}
+
+function updateTimeline(locName){
+  const years=locYears[locName]||[];
+  tlEl.querySelectorAll('.map-timeline__year').forEach(el=>{
+    el.classList.toggle('active',years.includes(+el.dataset.year));
+  });
+  tlEl.querySelectorAll('.map-timeline__line').forEach(el=>{
+    const y=+el.dataset.year;
+    el.classList.toggle('active',years.includes(y)&&years.includes(y-1));
+  });
+}
 
 const ZOOM_CLOSE=1.75, ZOOM_DEFAULT=3.9;
 let activeMarker=null;
@@ -1643,6 +1791,8 @@ function showPanel(idx,animate=true){
     </button>
   </div>`;
   document.getElementById('btn-panel-next').addEventListener('click',()=>showPanel(nextIdx));
+  updateTimeline(l.name);
+  updateLegend(l.cat);
   if(animate){
     highlightMarker(l);
     if(currentScene==='globe'){
@@ -1696,6 +1846,20 @@ document.addEventListener('fullscreenchange',()=>{
   isFS=!!document.fullscreenElement;
   if(!isFS)wrap.classList.remove('is-fullscreen');
   updateShift();
+});
+
+/* ── toggle panel ── */
+const panelToggleBtn=document.getElementById('btn-globe-panel-toggle');
+const iconMin=panelToggleBtn.querySelector('.icon-minimize');
+const iconMax=panelToggleBtn.querySelector('.icon-maximize');
+panelToggleBtn.addEventListener('click',()=>{
+  const p=document.getElementById('globe-panel');
+  p.classList.toggle('minimized');
+  const hidden=p.classList.contains('minimized');
+  iconMin.style.display=hidden?'none':'';
+  iconMax.style.display=hidden?'':'none';
+  panelToggleBtn.setAttribute('aria-label',hidden?'Show panel':'Hide panel');
+  panelToggleBtn.setAttribute('title',hidden?'Show panel':'Hide panel');
 });
 
 /* ── camera start — shifted left ── */

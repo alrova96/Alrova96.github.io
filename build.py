@@ -33,6 +33,16 @@ SITE_CONFIG = {
 # Publications data (sorted by date, most recent first)
 PUBLICATIONS = [
     {
+        'title': 'An integrated pre-development environmental baseline for the NEOM coastal region (Saudi Arabian Red Sea)',
+        'authors': 'Mariángeles del‑Valle‑García, Susana Carvalho, Eva Aylagas, Imke M. Böök, Doaa Baker, David Roque, Araceli Rodríguez‑Romero, Alberto Chisvert, Luis M. Moreno‑Calleja, <strong>Alejandro Román</strong>, Elena Rubio‑López & Antonio Tovar‑Sánchez',
+        'journal': 'Clean Oceans',
+        'journal_logo': 'springer_logo.png',
+        'image': 'neom_paper.png',
+        'date': '2026 - Clean Oceans',
+        'doi': 'https://doi.org/10.1186/s44420-026-00003-7',
+        'pdf': 'https://link.springer.com/content/pdf/10.1186/s44420-026-00003-7.pdf'
+    },
+    {
         'title': 'Radiometric Calibration of Optical Sensors Onboard Unmanned Aerial Vehicles: Insights From Inter-Comparison Field Experiments',
         'authors': 'Vicente Burchard-Levine, Marcos Jiménez, Álvaro Sánchez-Virosta, Juanjo Peón, Irene Borra-Serrano, <strong>Alejandro Román</strong>, José Ramón Rodríguez-Pérez, Iván González-Pérez, Pedro J Gómez-Giráldez, Ana de Castro, José M Peña, Gabriel Navarro, José González-Piqueras, Ricardo Díaz-Delgado, María P González-Dugo & M Pilar Martín',
         'journal': 'IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing',
@@ -503,7 +513,7 @@ for _i, _cat in enumerate(_MEDIA_CATEGORIES):
 
 # Category mapping for publications
 _PUB_CATEGORIES = [
-    'Radiometry', 'Polar', 'Ocean Color', 'Ocean Color', 'Emergencies', 'Polar', 'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
+    'Ocean Color', 'Radiometry', 'Polar', 'Ocean Color', 'Ocean Color', 'Emergencies', 'Polar', 'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
     'AI', 'Coastal Ecology', 'Coastal Ecology', 'Polar', 'Ocean Color',
     'Polar', 'Coastal Ecology', 'Ocean Color', 'Ocean Color', 'Coastal Ecology',
     'Polar', 'Emergencies', 'Emergencies', 'Polar', 'Coastal Ecology'

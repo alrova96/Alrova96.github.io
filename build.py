@@ -33,6 +33,16 @@ SITE_CONFIG = {
 # Publications data (sorted by date, most recent first)
 PUBLICATIONS = [
     {
+        'title': 'Air–Sea CO2 Fluxes at Coastal Hydrothermal Vents in Deception Island (Antarctica)',
+        'authors': 'Óscar A. Caballero-Martínez, Silvia Amaya-Vías, Oleg Belyaev, <strong>Alejandro Román</strong>, Susana Flecha, I. Emma Huertas, Gabriel Navarro, Antonio Tovar-Sánchez, Manuel Díez-Minguito',
+        'journal': 'Journal of Geophysical Research: Oceans',
+        'journal_logo': 'commun_logo.png',
+        'image': 'paper_oscar.png',
+        'date': '2026 - JGR: Oceans',
+        'doi': 'https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2026JC024530',
+        'pdf': 'static/pdf/Caballero-Martinez_et_al_2026.pdf'
+    },
+    {
         'title': 'An integrated pre-development environmental baseline for the NEOM coastal region (Saudi Arabian Red Sea)',
         'authors': 'Mariángeles del‑Valle‑García, Susana Carvalho, Eva Aylagas, Imke M. Böök, Doaa Baker, David Roque, Araceli Rodríguez‑Romero, Alberto Chisvert, Luis M. Moreno‑Calleja, <strong>Alejandro Román</strong>, Elena Rubio‑López & Antonio Tovar‑Sánchez',
         'journal': 'Clean Oceans',
@@ -513,7 +523,7 @@ for _i, _cat in enumerate(_MEDIA_CATEGORIES):
 
 # Category mapping for publications
 _PUB_CATEGORIES = [
-    'Ocean Color', 'Radiometry', 'Polar', 'Ocean Color', 'Ocean Color', 'Emergencies', 'Polar', 'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
+    'Polar', 'Ocean Color', 'Radiometry', 'Polar', 'Ocean Color', 'Ocean Color', 'Emergencies', 'Polar', 'Polar', 'Emergencies', 'Polar', 'Coastal Ecology', 'Coastal Ecology',
     'AI', 'Coastal Ecology', 'Coastal Ecology', 'Polar', 'Ocean Color',
     'Polar', 'Coastal Ecology', 'Ocean Color', 'Ocean Color', 'Coastal Ecology',
     'Polar', 'Emergencies', 'Emergencies', 'Polar', 'Coastal Ecology'

@@ -1,47 +1,53 @@
 #!/usr/bin/env python3
 """
-Auto-update publication stats from Google Scholar.
+Auto-update publication stats from OpenAlex API.
 Run manually or via GitHub Actions (scheduled weekly).
 Updates the stats in templates/publications.html and rebuilds the site.
+
+Uses OpenAlex (https://openalex.org) instead of scraping Google Scholar,
+because Google Scholar blocks automated requests from cloud IPs.
 """
 import requests
-from bs4 import BeautifulSoup
+import json
 import re
 import sys
 
-SCHOLAR_ID = 'rOnlIMcAAAAJ'
+ORCID = '0000-0002-8868-9302'
 TEMPLATE = 'templates/publications.html'
-HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
-                  'AppleWebKit/537.36 (KHTML, like Gecko) '
-                  'Chrome/120.0.0.0 Safari/537.36'
-}
+
+# OpenAlex polite pool: provide contact email for faster responses
+OPENALEX_EMAIL = 'mail.a.roman@csic.es'
 
 
-def fetch_scholar_stats():
-    """Scrape Google Scholar profile for citation stats."""
-    url = f'https://scholar.google.com/citations?user={SCHOLAR_ID}&hl=en'
-    r = requests.get(url, headers=HEADERS, timeout=15)
+def fetch_openalex_stats():
+    """Fetch citation stats from OpenAlex API using ORCID."""
+    url = 'https://api.openalex.org/authors'
+    params = {
+        'filter': f'orcid:{ORCID}',
+        'mailto': OPENALEX_EMAIL,
+    }
+    r = requests.get(url, params=params, timeout=30)
     r.raise_for_status()
+    data = r.json()
 
-    soup = BeautifulSoup(r.text, 'html.parser')
-    stats = {}
+    if not data.get('results'):
+        raise ValueError(f'No author found in OpenAlex for ORCID {ORCID}')
 
-    # Citation table (Citations, h-index, i10-index)
-    table = soup.find('table', id='gsc_rsb_st')
-    if table:
-        for row in table.find_all('tr')[1:]:
-            cols = row.find_all('td')
-            if len(cols) >= 2:
-                key = cols[0].text.strip().lower().replace('-', '')
-                stats[key] = int(cols[1].text.strip())
+    author = data['results'][0]
+    stats = {
+        'citations': author.get('cited_by_count', 0),
+        'hindex': author.get('summary_stats', {}).get('h_index', 0),
+        'i10index': author.get('summary_stats', {}).get('i10_index', 0),
+    }
 
-    # Citations per year
-    years = soup.find_all('span', class_='gsc_g_t')
-    counts = soup.find_all('span', class_='gsc_g_al')
-    stats['by_year'] = {}
-    for y, c in zip(years, counts):
-        stats['by_year'][y.text.strip()] = int(c.text.strip())
+    # Citations per year (OpenAlex provides counts_by_year)
+    by_year = {}
+    for entry in author.get('counts_by_year', []):
+        year = entry.get('year')
+        cited = entry.get('cited_by_count', 0)
+        if year and cited > 0:
+            by_year[str(year)] = cited
+    stats['by_year'] = by_year
 
     return stats
 
@@ -53,42 +59,46 @@ def update_template(stats):
 
     original = content
 
-    # Update total citations
+    # Update f_rings Jinja set block: citations, h-index, i10-index
     if 'citations' in stats:
         content = re.sub(
-            r'data-count="\d+"(>0</span>\s*<span[^>]*>Citations)',
-            f'data-count="{stats["citations"]}"\\1',
+            r"(\(')\d+(',\s*'Citations')",
+            rf"\g<1>{stats['citations']}\2",
             content
         )
-
-    # Update h-index
     if 'hindex' in stats:
         content = re.sub(
-            r'data-count="\d+"(>0</span>\s*<span[^>]*>h-index)',
-            f'data-count="{stats["hindex"]}"\\1',
+            r"(\(')\d+(',\s*'h-index')",
+            rf"\g<1>{stats['hindex']}\2",
             content
         )
-
-    # Update i10-index
     if 'i10index' in stats:
         content = re.sub(
-            r'data-count="\d+"(>0</span>\s*<span[^>]*>i10-index)',
-            f'data-count="{stats["i10index"]}"\\1',
+            r"(\(')\d+(',\s*'i10-index')",
+            rf"\g<1>{stats['i10index']}\2",
             content
         )
 
-    # Update citations per year bars
+    # Update canvas chart data array
     by_year = stats.get('by_year', {})
     if by_year:
-        max_val = max(by_year.values()) if by_year else 1
-        for year, count in by_year.items():
-            pct = round(count / max_val * 100)
-            # Update data-value and bar value
-            content = re.sub(
-                rf'data-value="\d+">\s*<div class="pubstats-bar__fill" style="--target-height: \d+%;"></div>\s*<span class="pubstats-bar__val">\d+</span>\s*<span class="pubstats-bar__year">{year}</span>',
-                f'data-value="{count}">\n                        <div class="pubstats-bar__fill" style="--target-height: {pct}%;"></div>\n                        <span class="pubstats-bar__val">{count}</span>\n                        <span class="pubstats-bar__year">{year}</span>',
-                content
-            )
+        # Build new data array sorted by year
+        sorted_years = sorted(by_year.items(), key=lambda x: int(x[0]))
+        entries = ','.join(f"{{y:'{y}',v:{v}}}" for y, v in sorted_years)
+        new_data = f'var data=[{entries}];'
+        content = re.sub(
+            r'var data=\[.*?\];',
+            new_data,
+            content
+        )
+        # Update mx (max value for chart scale, round up to nice number)
+        max_val = max(by_year.values())
+        mx = int((max_val * 1.15 // 50 + 1) * 50)  # ~15% headroom, round to 50
+        content = re.sub(
+            r'var mx=\d+,',
+            f'var mx={mx},',
+            content
+        )
 
     if content != original:
         with open(TEMPLATE, 'w') as f:
@@ -101,9 +111,9 @@ def update_template(stats):
 
 
 if __name__ == '__main__':
-    print('Fetching Google Scholar stats...')
+    print('Fetching stats from OpenAlex API...')
     try:
-        stats = fetch_scholar_stats()
+        stats = fetch_openalex_stats()
         print(f'  Citations: {stats.get("citations", "?")}')
         print(f'  h-index: {stats.get("hindex", "?")}')
         print(f'  i10-index: {stats.get("i10index", "?")}')

@@ -680,7 +680,7 @@
       margin-bottom: 4rem;
     ">
       {% set f_rings = [
-        ('646', 'Citations', 100, '#c6ac8f', 'Google Scholar'),
+        ('655', 'Citations', 100, '#c6ac8f', 'Google Scholar'),
         ('14',  'h-index',   70,  '#8a9ba8', 'Google Scholar'),
         ('16',  'i10-index', 80,  '#a09080', 'Google Scholar'),
         ('11198','Reads',    100, '#c6ac8f', 'ResearchGate'),
@@ -1134,8 +1134,8 @@
   var cv=document.getElementById('citationCanvas');
   if(!cv)return;
   var ctx=cv.getContext('2d');
-  var data=[{y:'2022',v:35},{y:'2023',v:76},{y:'2024',v:147},{y:'2025',v:189},{y:'2026',v:190}];
-  var mx=200,pad={t:20,r:20,b:40,l:45};
+  var data=[{y:'2022',v:35},{y:'2023',v:76},{y:'2024',v:148},{y:'2025',v:188},{y:'2026',v:199}];
+  var mx=250,pad={t:20,r:20,b:40,l:45};
   var hovered=-1,animP=0,animating=false;
 
   function resize(){cv.width=cv.offsetWidth*2;cv.height=cv.offsetHeight*2;ctx.scale(2,2);}
